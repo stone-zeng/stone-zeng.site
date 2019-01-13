@@ -248,7 +248,7 @@ information.
 \end{document}
 ```
 
-![fontspec-basic](../images/fontspec-basic.png)
+![fontspec-basic](/images/fontspec-basic.png)
 
 这里选用的三个字体分别是 Times New Roman、Helvetica 和 Courier New 的开源复刻版本。注意这里我们还用 `\textit` 和 `\textsc` 命令使用了意大利体和小型大写字母，它们是由 `fontspec` 自动选取的。
 
@@ -289,7 +289,7 @@ information.
 \end{document}
 ```
 
-![fontspec-ad-hoc](../images/fontspec-ad-hoc.png)
+![fontspec-ad-hoc](/images/fontspec-ad-hoc.png)
 
 粗体和意大利体在这里也被正确调用了；但值得注意的是，示例中的前后引号 ``` `` ``` 和 `''` 并没有正确地转换为 `“` 和 `”`，其原因在于 `\newfontfamily` 等命令默认没有开启合字功能。
 
@@ -360,7 +360,7 @@ LaTeX 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架&nbsp;<su
 \end{document}
 ```
 
-![ctex-basic](../images/ctex-basic.png)
+![ctex-basic](/images/ctex-basic.png)
 
 关于这一示例，有几点说明：
 
