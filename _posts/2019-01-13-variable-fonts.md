@@ -32,7 +32,7 @@ categories: Fonts
 
 我们参考 [[3]](#hans:context) 和 Hans Hagen 在 ConTeXt 2017 年会上的 [报告](https://meeting.contextgarden.net/2017/talks/2017-09-12-hans-variable-fonts/variable-fonts.pdf) 和随后在 TUGboat 上发表的 [文章](https://tug.org/TUGboat/tb38-2/tb119hagen-variable.pdf)，便可以如愿使用 OpenType 可变字体。
 
-相比 LaTeX，ConTeXt 的内核设计得比较庞大，通过 Lua 又可以玩各式花样，所以不再需要调用大堆的宏包，而是可以直接用原生命令定义各种样式。
+相比 LaTeX，ConTeXt 的内核设计得比较庞大，通过 Lua 又可以玩各式花样，所以不再需要调用大堆宏包，而是可以直接用原生命令定义各种样式。
 
 首先要在导言区声明字体 feature 和相应的命令：
 
@@ -89,7 +89,7 @@ categories: Fonts
 换成 [Adobe Variable Font Prototype](https://github.com/adobe-fonts/adobe-variable-font-prototype)，还可在字重轴之外使用对比度轴（contrast）。用法仍然是相同的，只需额外加上 `contrast` 的声明：
 
 ```tex
-\definefontfeature[w200c0][default][axis={weight:200,contrast=0}]
+\definefontfeature[w200c0][default][axis={weight:200,contrast:0}]
 ```
 
 ![vf-adobe-vf-protype](/images/vf-adobe-vf-protype.png)
