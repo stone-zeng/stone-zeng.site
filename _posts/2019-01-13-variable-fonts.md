@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "在 TeX 中使用 OpenType 可变字体"
-date:   2019-01-13 23:45:00 +0800
+title: "在 TeX 中使用 OpenType 可变字体"
+date: 2019-01-13 23:45:00 +0800
 categories: Fonts
 ---
 

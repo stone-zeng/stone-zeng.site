@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "在 LaTeX 中使用 OpenType 字体"
-date:   2018-08-08 18:25:00 +0800
+title: "在 LaTeX 中使用 OpenType 字体"
+date: 2018-08-08 18:25:00 +0800
 categories: Fonts
 ---
 

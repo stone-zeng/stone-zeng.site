@@ -3,6 +3,7 @@ _site
 .jekyll-metadata
 Gemfile.lock
 
+_draft/
 .vscode/
 images/font-samples/
 temp/

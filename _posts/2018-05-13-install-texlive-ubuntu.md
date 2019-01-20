@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "在 Ubuntu 中安装 TeX Live 2018"
-date:   2018-05-13 18:06:00 +0800
+title: "在 Ubuntu 中安装 TeX Live 2018"
+date: 2018-05-13 18:06:00 +0800
 categories: TeX Live
 ---
 

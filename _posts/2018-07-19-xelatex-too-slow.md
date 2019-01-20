@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "解决 XeLaTeX 编译卡住不动的问题"
-date:   2018-07-19 15:33:00 +0800
+title: "解决 XeLaTeX 编译卡住不动的问题"
+date: 2018-07-19 15:33:00 +0800
 categories: XeTeX
 ---
 
