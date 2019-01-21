@@ -281,8 +281,8 @@
     &:last-of-type { margin-right: 0 }
     a {
       display: block;
-      padding: $spacing-unit / 4;
-      border: 1px solid $grey-color-light
+      // padding: $spacing-unit / 4;
+      // border: 1px solid $grey-color-light
     }
     &:hover .svg-icon { fill: currentColor; }
   }

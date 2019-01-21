@@ -2,7 +2,13 @@
 
 // Define defaults for each variable.
 
-$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+@import url("https://rsms.me/inter/inter-ui.css");
+@import url("https://github.com/be5invis/Iosevka/raw/gh-pages/iosevka/webfont.css");
+
+$font-family-dflt: "Iosevka Web"; //"Inter UI", Roboto !default;
+$font-family-sc: "Sarasa UI SC", "PingFang SC", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei UI", "Microsoft YaHei" !default;
+$font-family-ja: "Sarasa UI J", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Source Han Sans", "Meiryo UI", "Meiryo" !default;
+$base-font-family: $font-family-dflt, $font-family-sc, sans-serif, !default;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
@@ -10,9 +16,10 @@ $base-line-height: 1.5 !default;
 
 $spacing-unit:     30px !default;
 
-$text-color:       #111 !default;
+$text-color:       #424242 !default;
 $background-color: #fdfdfd !default;
-$brand-color:      #2a7ae2 !default;
+$brand-color:      #065279 !default;
+$link-color:       #991722 !default;
 
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
