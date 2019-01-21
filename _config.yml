@@ -14,13 +14,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: stone-zeng.github.io
-email: xdzeng96 (at) gmail.com
-# description: >- # this means to ignore newlines until "baseurl:"
-#   Write an awesome description for your new site here. You can edit this
-#   line in _config.yml. It will appear in your document head meta (for
-#   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://stone-zeng.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
+
+copyright: Copyright © 2018–2019 Xiangdong Zeng
+email: xdzeng96@gmail.com
+# description: >- # this means to ignore newlines until "baseurl:"
+#   Except where otherwise noted, content on this blog is licensed under a
+#   Creative Commons Attribution 4.0 International license.
 github_username:  stone-zeng
 
 # Build settings
@@ -36,3 +37,14 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - _draft/
+  - temp/
+
+minima:
+  social_links:
+    github: stone-zeng
+    stackoverflow: 8479490/stone-zeng
+    twitter: xiangdong_zeng
+    telegram: xdzeng96
+    rss: rss
+  google_analytics: UA-132846370-1
