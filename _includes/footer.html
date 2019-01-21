@@ -26,6 +26,10 @@
 
       <div class="social-links">
         {%- include social.html -%}
+        {%- if site.google_analytics -%}
+          {{ site.google_analytics | escape }}
+          {{ jekyll.environment | escape }}
+        {%- endif -%}
       </div>
     </div>
 

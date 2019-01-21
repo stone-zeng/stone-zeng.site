@@ -16,6 +16,7 @@
 title: stone-zeng.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://stone-zeng.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
+google_analytics: UA-132846370-1
 
 copyright: Copyright © 2018–2019 Xiangdong Zeng
 email: xdzeng96@gmail.com
@@ -44,7 +45,5 @@ minima:
   social_links:
     github: stone-zeng
     stackoverflow: 8479490/stone-zeng
-    twitter: xiangdong_zeng
     telegram: xdzeng96
     rss: rss
-  google_analytics: UA-132846370-1
