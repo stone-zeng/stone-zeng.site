@@ -19,7 +19,6 @@ url: https://stone-zeng.github.io/ # the base hostname & protocol for your site,
 google_analytics: UA-132846370-1
 
 copyright: © 2018–2019 Xiangdong Zeng
-email: xdzeng96@gmail.com
 # description: >- # this means to ignore newlines until "baseurl:"
 #   Except where otherwise noted, content on this blog is licensed under a
 #   Creative Commons Attribution 4.0 International license.
@@ -43,6 +42,7 @@ exclude:
 
 minima:
   social_links:
+    email: xdzeng96@gmail.com
     github: stone-zeng
     stackoverflow: 8479490/stone-zeng
     telegram: xdzeng96

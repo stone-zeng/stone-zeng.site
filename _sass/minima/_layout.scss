@@ -48,10 +48,6 @@
     line-height: 0;
     padding-top: 10px;
     text-align: center;
-
-    > svg path {
-      fill: $grey-color-dark;
-    }
   }
 
   label[for="nav-trigger"] {
@@ -233,16 +229,18 @@
   display: table;
   margin: 0 auto;
   li {
+    @include relative-font-size(1.125);
     float: left;
     margin: 0 12px;
     &:first-of-type { margin-left: 0 }
     &:last-of-type { margin-right: 0 }
     a {
+      color: $grey-color;
       display: block;
       // padding: $spacing-unit / 4;
       // border: 1px solid $grey-color-light
     }
-    &:hover .svg-icon { fill: currentColor; }
+    // &:hover .svg-icon { fill: currentColor; }
   }
 }
 
