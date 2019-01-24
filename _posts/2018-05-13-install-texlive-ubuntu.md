@@ -2,14 +2,26 @@
 layout: post
 title: 在 Ubuntu 中安装 TeX Live 2018
 date: 2018-05-13
+last_modified_at: 2019-01-24
 categories: TeX Live
 ---
 
-不建议安装源里面的 TeX Live，即避免通过 `apt-get` 安装。原因见&nbsp;[[1](#1)]。
+Ubuntu 安装源已经打包了 TeX Live。对于大部分的用户，源里面的 TeX Live 安装简单，稳定性通常也足够，所以可以直接安装。<sup id="fnref_li-a-ling"><a href="#fn_li-a-ling">[1]</a></sup> 为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）：
+
+```sh
+sudo apt-get install texlive-full
+```
+
+然而，源里面的 TeX Live 相比于「纯净版」，也有一些缺点：
+
+- 相比于几乎每日都有更新的 CTAN，源里面的 TeX Live 更新较慢，频率接近每月一次，对于宏包开发者和有特殊需要的 TeX 用户是远远不够的
+- 不使用 TeX Live 自带的包管理器，也就不能通过 `tlmgr` 安装、管理和更新宏包（当然实际上跟上一条说的是一件事）
+
+下面就介绍安装「纯净版」TeX Live 的方法。
 
 ## 下载安装包
 
-如果身在国内，推荐改用国内的镜像，比如清华大学的 [tuna](https://mirrors.tuna.tsinghua.edu.cn/)。以下都以这个镜像为例。
+如果身在国内，推荐改用国内的镜像，比如清华大学的 [tuna 镜像站](https://mirrors.tuna.tsinghua.edu.cn/)。以下都以这个镜像为例。
 
 在 <https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/> 下载 `install-tl-unx.tar.gz`，解压并进入文件夹 `install-tl-2018*`。这里的 `*` 是一个日期。
 
@@ -35,7 +47,7 @@ sudo ./install-tl -repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/
 sudo apt-get install perl-tk perl-doc
 ```
 
-等待片刻后会进入选项菜单，根据需要酌情选取。也可以事先写好配置文件 `texlive.profile`。示例可以见&nbsp;[[2](#2)]。
+等待片刻后会进入选项菜单，根据需要酌情选取。也可以事先写好配置文件 `texlive.profile`&nbsp;<sup id="fnref_profile"><a href="#fn_profile">[2]</a></sup><span class="footnote">[(2)]</span>。
 
 没有特殊需要的话，collection 可以不必全部安装，尤其是很多小语种。不过后果是之后可能会缺包。不愿意之后手动安装，并且空间足够、网速足够，也可以全部安装。注意 TeX Live 完全安装后大约要占 6 GB 空间，安装前请务必做好准备。中途断网很可能导致安装失败。
 
@@ -163,14 +175,13 @@ lualatex hello
 
 ## 注释
 
-1. <a name="1"></a> 李阿玲. [*还是不要装源里面的 TeX Live！*](https://zhuanlan.zhihu.com/p/19699561)
-
-1. <a name="2"></a> <https://github.com/latex3/latex3/blob/master/support/texlive.profile>
+1. <a id="fn_li-a-ling" href="#fnref_li-a-ling">**^**</a> 李阿玲. [还是不要装源里面的 TeX Live！](https://zhuanlan.zhihu.com/p/19699561) 这篇文章写于 2014 年，现在来看也未必完全合理。
+1. <a id="fn_profile" href="#fnref_profile">**^**</a> 见 <https://github.com/latex3/latex3/blob/master/support/texlive.profile>。这一配置文件用于 LaTeX3 的代码测试。
 
 ## 参考
 
-1. Karl Berry. 江疆 译. [*TeX Live 指南 —— 2018*](http://tug.org/texlive/doc/texlive-zh-cn/texlive-zh-cn.pdf)
-
-1. @Dima. [*How to install "vanilla" TeXLive on Debian or Ubuntu?*](https://tex.stackexchange.com/q/1092)
-
-1. Enrico Gregorio. [*Installing TeX Live 2010 on Ubuntu*](http://www.tug.org/TUGboat/tb32-1/tb100gregorio.pdf)
+1. Karl Berry. 江疆 译. [TeX Live 指南 —— 2018](http://tug.org/texlive/doc/texlive-zh-cn/texlive-zh-cn.pdf)
+1. [TeX Live and Debian/Ubuntu](https://www.tug.org/texlive/debian.html)
+1. [Ubuntu 软件包: `texlive-full`](https://packages.ubuntu.com/disco/texlive-full)
+1. @Dima. [How to install "vanilla" TeXLive on Debian or Ubuntu?](https://tex.stackexchange.com/q/1092)
+1. Enrico Gregorio. [Installing TeX Live 2010 on Ubuntu](http://www.tug.org/TUGboat/tb32-1/tb100gregorio.pdf)

@@ -29,6 +29,10 @@ body {
   flex-direction: column;
 }
 
+:lang(ja) {
+  font-family: $base-ja-font-family;
+}
+
 
 
 /**
@@ -109,7 +113,7 @@ a {
   // border-bottom: 1px solid $text-color;
 
   &:visited {
-    color: darken($link-color, 15%);
+    color: darken($link-color, 10%);
   }
 
   &:hover {
@@ -151,6 +155,7 @@ blockquote {
 pre,
 code {
   @include relative-font-size(0.9375);
+  font-family: $mono-font-family;
   // border: 1px solid $grey-color-light;
   // border-radius: 3px;
   // background-color: #eef;
@@ -206,28 +211,9 @@ pre {
 }
 
 
-
-/**
- * Icons
- */
-
-// .orange {
-//   color: $orange-color;
-// }
-
-// .grey {
-//   color: $grey-color;
-// }
-
-// .svg-icon {
-//   width: 16px;
-//   height: 16px;
-//   display: inline-block;
-//   fill: currentColor;
-//   padding: 5px 3px 2px 5px;
-//   vertical-align: text-bottom;
-// }
-
+.footnote {
+  font-feature-settings: "sups";
+}
 
 /**
  * Tables

@@ -4,8 +4,8 @@
   {%- if social.github -%}
     <li><a href="https://github.com/{{ social.github | cgi_escape | escape }}" title="{{ social.github | escape }}"><i class="fab fa-github"></i></a></li>
   {%- endif -%}
-  {%- if social.stackoverflow -%}
-    <li><a href="https://stackoverflow.com/users/{{ social.stackoverflow | escape }}"><i class="fab fa-stack-exchange"></i></a></li>
+  {%- if social.stackexchange -%}
+    <li><a href="https://tex.stackexchange.com/users/{{ social.stackexchange | escape }}"><i class="fab fa-stack-exchange"></i></a></li>
   {%- endif -%}
   {%- if social.twitter -%}
     <li><a href="https://twitter.com/{{ social.twitter | cgi_escape | escape }}" title="{{ social.twitter | escape }}"><i class="fab fa-twitter"></i></a></li>
