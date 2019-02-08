@@ -2,16 +2,16 @@
 
 // Define defaults for each variable.
 
-@import url("https://rsms.me/inter/inter-ui.css");
+@import url("https://rsms.me/inter/inter.css");
 @import url("https://typeof.net/Iosevka/iosevka/webfont.css");
 
 $base-font-family:
-  "Inter UI",
+  "Inter",
   "Sarasa UI SC",
   "PingFang SC", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei UI", "Microsoft YaHei",
   sans-serif !default;
 $base-ja-font-family:
-  "Inter UI",
+  "Inter",
   "Sarasa UI J",
   "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Source Han Sans", "Meiryo UI", "Meiryo",
   sans-serif !default;

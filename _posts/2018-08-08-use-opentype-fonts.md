@@ -37,7 +37,7 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 ### 衬线体
 
-所谓「衬线」，是指笔画末端的一种装饰细节，一般认为起源于古罗马的 [石刻拉丁字母](https://en.wikipedia.org/wiki/Roman_square_capitals)。衬线据说有引导视线的作用，因而往往被用作书籍、文章等的正文字体。根据产生年代以及风格样式，又可以细分为几类。<sup id="fnref_atypi"><a href="#fn_atypi">[1]</a></sup>
+所谓「衬线」，是指笔画末端的一种装饰细节，一般认为起源于古罗马的 [石刻拉丁字母](https://en.wikipedia.org/wiki/Roman_square_capitals)。衬线据说有引导视线的作用，因而往往被用作书籍、文章等的正文字体。根据产生年代以及风格样式，又可以细分为几类<span id="fnref_atypi" class="footnote">[[1]](#fn_atypi)</span>。
 
 <center>
   <table>
@@ -156,7 +156,7 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 ### 变体
 
-直立、正体的字型通常被称为**罗马体**（Roman type）。除此之外，一套完整的字体往往还具有若干其他字型&nbsp;<sup id="fnref_typeface"><a href="#fn_typeface">[2]</a></sup>。
+直立、正体的字型通常被称为**罗马体**（Roman type）。除此之外，一套完整的字体往往还具有若干其他字型<span id="fnref_typeface" class="footnote">[[2]](#fn_typeface)</span>。
 
 - 意大利体（italic type）：字形稍向右倾，笔画带有手写体的风格。它不是罗马体的简单倾斜
 - 斜体（oblique/slant type）：大部分是原字形的简单倾斜，少数设计精良的字体（如 Univers、Helvetica 等）也会再额外进行视觉修正
@@ -298,7 +298,7 @@ information.
 
 ## 基础篇（II）——中西文混排
 
-LaTeX 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架&nbsp;<sup id="fnref_ctex"><a href="#fn_ctex">[3]</a></sup>。`CTeX` 宏集由 `ctexart` 等文档类和 `ctex` 等宏包组成，支持 TeX、pdfTeX、XeTeX、LuaTeX、upTeX 和 ApTeX 等多种引擎，并提供了统一的界面。在 XeTeX 或 LuaTeX 引擎下使用时，`CTeX` 宏集底层将依赖 `fontspec` 宏包。
+LaTeX 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span id="fnref_ctex" class="footnote">[[3]](#fn_ctex)</span>。`CTeX` 宏集由 `ctexart` 等文档类和 `ctex` 等宏包组成，支持 TeX、pdfTeX、XeTeX、LuaTeX、upTeX 和 ApTeX 等多种引擎，并提供了统一的界面。在 XeTeX 或 LuaTeX 引擎下使用时，`CTeX` 宏集底层将依赖 `fontspec` 宏包。
 
 默认情况下，`CTeX` 宏集会根据系统和编译方式选择合适的中文字库，也可以利用 `fontset` 选项指定所需加载的字库。这里我们介绍的是手工设置字体的方法，基本与 `fontspec` 宏包一致，主要命令有：
 

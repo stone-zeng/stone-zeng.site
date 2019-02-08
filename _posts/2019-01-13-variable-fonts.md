@@ -11,16 +11,16 @@ categories: Fonts
 
 废话不多说。截至目前（2019 年初），可变字体的支持仍然相当受限。目前已知的有：
 
-- 主要浏览器端&nbsp;<sup id="fnref_can-i-use-vf"><a href="#fn_can-i-use-vf">[1]</a></sup>
+- 主要浏览器端<span id="fnref_can-i-use-vf" class="footnote">[[1]](#fn_can-i-use-vf)</span>
   - Chrome 66+
   - FireFox 62+
   - Edge 17+
   - Safari 11+
   - Opera 53+
-- Adobe 软件套装&nbsp;<sup id="fnref_wiki-vf"><a href="#fn_wiki-vf">[2]</a></sup>
+- Adobe 软件套装<span id="fnref_wiki-vf" class="footnote">[[2]](#fn_wiki-vf)</span>
   - Photoshop CC 2018+
   - Illustrator CC 2018+
-- ConTeXt beta 版（2017-04 之后）<sup id="fnref_hans-context_a"><a href="#fn_hans-context">[3]</a></sup>
+- ConTeXt beta 版（2017-04 之后）<span id="fnref_hans-context_a" class="footnote">[[3]](#fn_hans-context)</span>
 
 在 TeX 界，目前尝试可变字体的唯一选择便是使用这个 beta 版的 ConTeXt。LaTeX 方面至今还没有实现。
 

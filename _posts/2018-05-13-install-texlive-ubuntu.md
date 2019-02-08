@@ -6,7 +6,7 @@ last_modified_at: 2019-01-24
 categories: TeX Live
 ---
 
-Ubuntu 安装源已经打包了 TeX Live。对于大部分的用户，源里面的 TeX Live 安装简单，稳定性通常也足够，所以可以直接安装。<sup id="fnref_li-a-ling"><a href="#fn_li-a-ling">[1]</a></sup> 为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）：
+Ubuntu 安装源已经打包了 TeX Live。对于大部分的用户，源里面的 TeX Live 安装简单，稳定性通常也足够，所以可以直接安装<span id="fnref_li-a-ling" class="footnote">[[1]](#fn_li-a-ling)</span>。为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）：
 
 ```sh
 sudo apt-get install texlive-full
@@ -47,9 +47,7 @@ sudo ./install-tl -repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/
 sudo apt-get install perl-tk perl-doc
 ```
 
-等待片刻后会进入选项菜单，根据需要酌情选取。也可以事先写好配置文件 `texlive.profile`&nbsp;<sup id="fnref_profile"><a href="#fn_profile">[2]</a></sup>。
-
-<!-- TODO <span class="footnote">[(2)]</span> -->
+等待片刻后会进入选项菜单，根据需要酌情选取。也可以事先写好配置文件 `texlive.profile`<span id="fnref_profile" class="footnote">[[2]](#fn_profile)</span>。
 
 没有特殊需要的话，collection 可以不必全部安装，尤其是很多小语种。不过后果是之后可能会缺包。不愿意之后手动安装，并且空间足够、网速足够，也可以全部安装。注意 TeX Live 完全安装后大约要占 6 GB 空间，安装前请务必做好准备。中途断网很可能导致安装失败。
 
