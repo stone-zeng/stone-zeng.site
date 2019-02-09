@@ -108,17 +108,13 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-  color: $link-color;
-  text-decoration: none;
-  // border-bottom: 1px solid $text-color;
-
-  &:visited {
-    color: darken($link-color, 10%);
-  }
+  color: $text-color;
+  text-decoration: underline lighten($grey-color, 20%);
+  text-underline-position: under;
 
   &:hover {
-    color: $text-color;
-    text-decoration: underline;
+    color: $link-color;
+    text-decoration: underline $grey-color-dark;
   }
 
   .social-media-list &:hover {
