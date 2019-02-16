@@ -39,6 +39,7 @@ exclude:
   - Gemfile.lock
   - _draft/
   - temp/
+  - vendor/
 
 minima:
   social_links:
