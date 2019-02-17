@@ -16,7 +16,7 @@ layout: default
         {%- if page.author -%}<li><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span
               class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span></li>
         {%- endif -%}
-        <li>本文字数：{{ page.content | zh_word_count_k }}&thinsp;k</li>
+        <li>本文字数：{%- include wordcount.html -%}</li>
         <li><span id="busuanzi_container_page_pv">阅读次数：<span id="busuanzi_value_page_pv"></span></span></li>
       </ul>
     </header>

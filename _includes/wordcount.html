@@ -1,0 +1,20 @@
+{%- assign raw_page_content = page.content | strip_html -%}
+{%- assign raw_page_content = raw_page_content | replace: "\n", " " | remove: "&lt;" | remove: "&gt;" -%}
+{%- assign char_array = "，。．；：、！？–—…（）《》【】「」,.;:!?-\\/()[]{}@#$%^&*+=_" | split: "" -%}
+{%- for char in char_array -%}
+  {%- assign raw_page_content = raw_page_content | replace: char, " " -%}
+{%- endfor -%}
+{%- assign page_content_array = raw_page_content | split: " " -%}
+{%- assign word_count_en = 0 -%}
+{%- assign word_count_zh = 0 -%}
+{%- for item in page_content_array -%}
+  {%- assign item_upcase   = item | upcase   -%}
+  {%- assign item_downcase = item | downcase -%}
+  {%- if item_upcase != item_downcase -%}
+    {%- assign word_count_en = word_count_en | plus: 1 -%}
+  {%- else -%}
+    {%- assign item_size = item | size -%}
+    {%- assign word_count_zh = word_count_zh | plus: item_size -%}
+  {%- endif -%}
+{%- endfor -%}
+{{ word_count_en | plus: word_count_zh | divided_by: 1000.0| round: 1 }}&thinsp;k
