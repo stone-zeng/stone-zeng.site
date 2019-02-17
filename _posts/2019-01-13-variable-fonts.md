@@ -5,7 +5,7 @@ date: 2019-01-13
 categories: Fonts
 ---
 
-在 2016 年，随着 [OpenType 标准 1.8 版](https://docs.microsoft.com/typography/opentype/spec) 的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
+在 2016 年，随着 [OpenType 标准 1.8 版](https://docs.microsoft.com/typography/opentype/spec)的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
 
 可变字体的源头是 Knuth 在创造 TeX 时「顺便」实现的 [METAFONT](https://en.wikipedia.org/wiki/Metafont)。时间过去了近 40 年，TeX 依然大受欢迎，而 METAFONT 却几乎仅限于极客们的玩具，高质量的商业字体几乎没有采用这套流程进行开发。然而 Knuth 高瞻远瞩的理念在最近终于被从故纸堆中翻了出来，参数化字体设计伴着可变字体的火热又重回人们的视线。
 
@@ -28,7 +28,7 @@ categories: Fonts
 
 ### Bahnschrift
 
-我们参考 <a id="fnref_hans-context_b" href="#fn_hans-context">[3]</a> 和 Hans Hagen 在 ConTeXt 2017 年会上的 [报告](https://meeting.contextgarden.net/2017/talks/2017-09-12-hans-variable-fonts/variable-fonts.pdf) 和随后在 TUGboat 上发表的 [文章](https://tug.org/TUGboat/tb38-2/tb119hagen-variable.pdf)，便可以如愿使用 OpenType 可变字体。
+我们参考 <a id="fnref_hans-context_b" href="#fn_hans-context">[3]</a> 和 Hans Hagen 在 ConTeXt 2017 年会上的[报告](https://meeting.contextgarden.net/2017/talks/2017-09-12-hans-variable-fonts/variable-fonts.pdf)和随后在 *TUGboat* 上发表的[文章](https://tug.org/TUGboat/tb38-2/tb119hagen-variable.pdf)，便可以如愿使用 OpenType 可变字体。
 
 相比 LaTeX，ConTeXt 的内核设计得比较庞大，通过 Lua 又可以玩各式花样，所以不再需要调用大堆宏包，而是可以直接用原生命令定义各种样式。
 

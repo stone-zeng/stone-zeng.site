@@ -23,7 +23,7 @@ sudo apt-get install texlive-full
 
 如果身在国内，推荐改用国内的镜像，比如清华大学的 [tuna 镜像站](https://mirrors.tuna.tsinghua.edu.cn/)。以下都以这个镜像为例。
 
-在 [此处](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/) 下载 `install-tl-unx.tar.gz`，解压并进入文件夹 `install-tl-2018*`。这里的 `*` 是一个日期。
+在[此处](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/)下载 `install-tl-unx.tar.gz`，解压并进入文件夹 `install-tl-2018*`。这里的 `*` 是一个日期。
 
 命令行中的操作如下：
 

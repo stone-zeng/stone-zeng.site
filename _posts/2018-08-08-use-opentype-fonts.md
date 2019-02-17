@@ -40,7 +40,7 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 ### 衬线体
 
-所谓「衬线」，是指笔画末端的一种装饰细节，一般认为起源于古罗马的 [石刻拉丁字母](https://en.wikipedia.org/wiki/Roman_square_capitals)。衬线据说有引导视线的作用，因而往往被用作书籍、文章等的正文字体。根据产生年代以及风格样式，又可以细分为几类<span id="fnref_atypi" class="footnote">[[1]](#fn_atypi)</span>。
+所谓「衬线」，是指笔画末端的一种装饰细节，一般认为起源于古罗马的[石刻拉丁字母](https://en.wikipedia.org/wiki/Roman_square_capitals)。衬线据说有引导视线的作用，因而往往被用作书籍、文章等的正文字体。根据产生年代以及风格样式，又可以细分为几类<span id="fnref_atypi" class="footnote">[[1]](#fn_atypi)</span>。
 
 <center>
   <table>
@@ -376,12 +376,12 @@ LaTeX 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span id=
 
 1. 第 14 行的末尾有一个 `%`，其作用是避免汉字之间不必要的空格。
 2. 中文字体一般不会设计对应的斜体（包括意大利体），因此需要通过选项单独指定（见下文）。
-3. 大多数中文字体也不会设计粗体。这里选用的是 [思源宋体](https://source.typekit.com/source-han-serif/cn) 与 [思源黑体](https://github.com/adobe-fonts/source-han-sans)，它们均提供了多个字重。
+3. 大多数中文字体也不会设计粗体。这里选用的是[思源宋体](https://source.typekit.com/source-han-serif/cn)与[思源黑体](https://github.com/adobe-fonts/source-han-sans)，它们均提供了多个字重。
 
 ## 注释
 
 1. <a id="fn_atypi" href="#fnref_atypi">**^**</a> 字体分类是一个复杂的话题，也没有统一的标准。这里我们大致采用的是 [Vox-A TypI 方案](https://en.wikipedia.org/wiki/Vox-ATypI_classification)。
-1. <a id="fn_typeface" href="#fnref_typeface">**^**</a> 所谓「字体」（typeface），更多的侧重于一种设计风格；而「字型」（font），则是指某一款字体设计的具体式样，包括字重、尺寸等。举例来说，Frutiger 是一款字体，而 Frutiger 55 Roman 就是一个字型。但在实际使用中，这两者经常混用，我们这里也不做严格区分。参见 [英语术语「typeface」和「font」的区别是什么？ - 知乎](https://www.zhihu.com/question/19566628)。
+1. <a id="fn_typeface" href="#fnref_typeface">**^**</a> 所谓「字体」（typeface），更多的侧重于一种设计风格；而「字型」（font），则是指某一款字体设计的具体式样，包括字重、尺寸等。举例来说，Frutiger 是一款字体，而 Frutiger 55 Roman 就是一个字型。但在实际使用中，这两者经常混用，我们这里也不做严格区分。参见[英语术语「typeface」和「font」的区别是什么？- 知乎](https://www.zhihu.com/question/19566628)。
 1. <a id="fn_ctex" href="#fnref_ctex">**^**</a> 社区另有名为 CTeX 套装的 TeX 发行版，与这里所述的 `CTeX` 宏集并非是同一事物。CTeX 套装现已过时，不建议使用。
 
 ## 参考

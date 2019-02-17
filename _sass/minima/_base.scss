@@ -112,6 +112,7 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
+  margin: 0 0.1em;
   color: $text-color;
   text-decoration: underline lighten($grey-color, 20%);
   text-underline-position: under;
