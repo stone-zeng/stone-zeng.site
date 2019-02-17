@@ -79,7 +79,9 @@ categories: Fonts
 
 编译方式与 LaTeX 类似。在命令行执行 `context <file name>`，它会自动确定编译次数，直至生成最终的 PDF。第一次使用时，ConTeXt 可能会花费较长时间生成字体缓存（每个实例都要生成），需要耐心等待。之后再进行编译，相对而言速度还可以接受。
 
-![vf-bahnschrift](/images/vf-bahnschrift.png)
+<figure>
+  <img src="/images/vf-bahnschrift.png" alt="vf-bahnschrift">
+</figure>
 
 ### Adobe VF Prototype
 
@@ -89,7 +91,9 @@ categories: Fonts
 \definefontfeature[w200c0][default][axis={weight:200,contrast:0}]
 ```
 
-![vf-adobe-vf-protype](/images/vf-adobe-vf-protype.png)
+<figure>
+  <img src="/images/vf-adobe-vf-protype.png" alt="vf-adobe-vf-protype">
+</figure>
 
 可以看到 `fi` 连字发挥正常，但 `i`、`F`、`P` 等出现了一些畸变，暂时还不清楚其中的原因。
 
@@ -137,7 +141,9 @@ categories: Fonts
 \stoptext
 ```
 
-![vf-adobe-vf-protype-mf](/images/vf-adobe-vf-protype-mf.png)
+<figure>
+  <img src="/images/vf-adobe-vf-protype-mf.png" alt="vf-adobe-vf-protype-mf">
+</figure>
 
 图中可以看到大量笔画的重叠，这可以保证轮廓在连续变化时不会走样。与上文类似，仍然出现了不明原因的畸变。当然，字体本身是没有问题的。
 

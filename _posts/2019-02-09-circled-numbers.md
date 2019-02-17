@@ -7,7 +7,9 @@ categories: Symbols
 
 众所周知，LaTeX 提供了 `\textcircled` 命令用以给字符加圈，但效果却不怎么好：
 
-![\textcircled](/images/textcircled.png)
+<figure>
+  <img src="/images/textcircled.png" alt="\textcircled">
+</figure>
 
 实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是无法在宏编程层面解决的。因此，要得到比较好的效果，最好能使用预先设计的字符形。
 
@@ -220,16 +222,16 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
     </tr>
     <tr class="circled-number-encoding">
       <td></td>
-      <td><code>U+2776</code></td>
-      <td><code>U+2777</code></td>
-      <td><code>U+2778</code></td>
-      <td><code>U+2779</code></td>
-      <td><code>U+277A</code></td>
-      <td><code>U+277B</code></td>
-      <td><code>U+277C</code></td>
-      <td><code>U+277D</code></td>
-      <td><code>U+277E</code></td>
-      <td><code>U+277F</code></td>
+      <td><code>U+24EB</code></td>
+      <td><code>U+24EC</code></td>
+      <td><code>U+24ED</code></td>
+      <td><code>U+24EE</code></td>
+      <td><code>U+24EF</code></td>
+      <td><code>U+24F0</code></td>
+      <td><code>U+24F1</code></td>
+      <td><code>U+24F2</code></td>
+      <td><code>U+24F3</code></td>
+      <td><code>U+24F4</code></td>
     </tr>
   </table>
 </center>
@@ -579,3 +581,39 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
     </tr>
   </table>
 </center>
+
+这些符号分散在以下几个 Unicode 区块（block）中：
+
+- Enclosed Alphanumerics (`U+2460`&ndash;`U+24FF`)
+- Dingbats (`U+2700`&ndash;`U+27BF`)
+- Enclosed CJK Letters and Months (`U+3200`&ndash;`U+32FF`)
+- Enclosed Alphanumeric Supplement (`U+1F100`&ndash;`U+1F1FF`)
+- Enclosed Ideographic Supplement (`U+1F200`&ndash;`U+1F2FF`)
+
+直接输入，或者利用码位，都可以在 LaTeX 中使用以上这些带圈数字（注意 Unicode 码位的大小写）：
+
+```latex
+\documentclass{article}
+\usepackage{fontspec}
+\setmainfont{Source Han Serif SC}
+
+\begin{document}
+① ② ③ ④ ⑤
+
+\symbol{"2776} \symbol{"2777} \symbol{"2778} \symbol{"2779} \symbol{"277A}
+
+\char"3248\ \char"3249\ \char"324A\ \char"324B\ \char"324C
+
+^^^^3280 ^^^^3281 ^^^^3282 ^^^^3283 ^^^^3284
+
+^^^^^1f229 ^^^^^1f214 ^^^^^1f22a
+\end{document}
+```
+
+使用 XeLaTeX 或 LuaLaTeX 编译，效果如下：
+
+<!-- ![textcircled-fontspec.png](../images/textcircled-fontspec.png) -->
+
+## `xunicode` 宏包
+
+在实际使用中，无论是依靠码位，还是借由输入法直接录入这些特殊字符，都不是很方便。

@@ -6,6 +6,9 @@ last_modified_at: 2019-01-24
 categories: Fonts
 ---
 
+* toc
+{:toc}
+
 ## 介绍
 
 现代 TeX 引擎（包括 XeTeX、LuaTeX 和 [ApTeX](https://github.com/clerkma/ptex-ng)）已经全面支持使用 OpenType 字体，因而可以很方便地实现类似 Microsoft Word、Adobe Indesign 等软件的效果。
@@ -249,7 +252,9 @@ information.
 \end{document}
 ```
 
-![fontspec-basic](/images/fontspec-basic.png)
+<figure>
+  <img src="/images/fontspec-basic.png" alt="fontspec-basic">
+</figure>
 
 这里选用的三个字体分别是 Times New Roman、Helvetica 和 Courier New 的开源复刻版本。注意这里我们还用 `\textit` 和 `\textsc` 命令使用了意大利体和小型大写字母，它们是由 `fontspec` 自动选取的。
 
@@ -290,7 +295,9 @@ information.
 \end{document}
 ```
 
-![fontspec-ad-hoc](/images/fontspec-ad-hoc.png)
+<figure>
+  <img src="/images/fontspec-ad-hoc.png" alt="fontspec-ad-hoc">
+</figure>
 
 粗体和意大利体在这里也被正确调用了；但值得注意的是，示例中的前后引号 ``` `` ``` 和 `''` 并没有正确地转换为 `“` 和 `”`，其原因在于 `\newfontfamily` 等命令默认没有开启合字功能。
 
@@ -361,7 +368,9 @@ LaTeX 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span id=
 \end{document}
 ```
 
-![ctex-basic](/images/ctex-basic.png)
+<figure>
+  <img src="/images/ctex-basic.png" alt="ctex-basic">
+</figure>
 
 关于这一示例，有几点说明：
 
