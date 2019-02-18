@@ -1,13 +1,13 @@
 .DS_Store
-
-_site
-.sass-cache
-.jekyll-metadata
 Gemfile.lock
+package-lock.json
 
 _draft/
+_site/
 .bundle/
+.sass-cache/
 .vscode/
 images/font-samples/
+node_modules/
 temp/
 vendor/

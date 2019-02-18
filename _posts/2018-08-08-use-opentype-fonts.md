@@ -6,9 +6,6 @@ last_modified_at: 2019-01-24
 categories: Fonts
 ---
 
-* toc
-{:toc}
-
 ## 介绍
 
 现代 TeX 引擎（包括 XeTeX、LuaTeX 和 [ApTeX](https://github.com/clerkma/ptex-ng)）已经全面支持使用 OpenType 字体，因而可以很方便地实现类似 Microsoft Word、Adobe Indesign 等软件的效果。
@@ -130,7 +127,7 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
   </table>
 </center>
 
-### 等宽字体（Monospaced font）
+### 等宽字体
 
 等宽字体与比例字体相对，其中的所有字母、符号均有相同的宽度。严格来说，等宽字体并不能单独作为一个分类，但由于其用法比较特殊（现代主要用于计算机程序的排版），这里还是把它单独列出来。
 

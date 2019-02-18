@@ -55,27 +55,20 @@ main {
 
 
 
-/**
- * Images
- */
-img {
-  max-width: 90%;
-  vertical-align: middle;
-  outline: 1px solid $grey-color-light;
-  outline-offset: -1px;
-}
+// Images
 
-
-/**
- * Figures
- */
 figure {
   margin-inline-start: auto;
   margin-inline-end: auto;
   text-align: center;
+
+  img {
+    max-width: 90%;
+    vertical-align: middle;
+    outline: 1px solid $grey-color-light;
+    outline-offset: -1px;
+  }
 }
-// figure > img {
-// }
 
 figcaption {
   font-size: $small-font-size;
@@ -172,29 +165,6 @@ pre {
 }
 
 
-
-/**
- * Wrapper
- */
-.wrapper {
-  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-  max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-  margin-right: $sidebar-width;
-  margin-left: auto;
-  padding-right: $spacing-unit / 2;
-  padding-left: $spacing-unit / 2;
-  @extend %clearfix;
-
-  @media screen and (min-width: $on-large) {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-  }
-}
-
-
-
 /**
  * Clearfix
  */
@@ -204,9 +174,17 @@ pre {
   clear: both;
 }
 
-
 .footnote {
   font-feature-settings: "sups";
+}
+
+.cc-by-sa-logo {
+  text-align: center;
+
+  img {
+    padding: 2px;
+    width: 40px;
+  }
 }
 
 /**
