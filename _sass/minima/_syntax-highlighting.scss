@@ -3,7 +3,7 @@
  */
 .highlight {
   background: #fff;
-  @extend %vertical-rhythm;
+  // @extend %vertical-rhythm; // TODO
 
   .highlighter-rouge & {
     background: $code-bg-color;

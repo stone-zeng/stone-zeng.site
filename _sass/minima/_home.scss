@@ -1,0 +1,45 @@
+/* Homepage */
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: $spacing-unit;
+  }
+
+  h1 {
+    font-size: $h2-font-size;
+    font-weight: normal;
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover, &:active, &:focus {
+      border-bottom: 1px solid $link-color;
+    }
+  }
+
+  .post-meta {
+    font-size: $small-font-size;
+    color: $visited-color;
+    display: flex;
+    margin: 0;
+  }
+}
+
+/* About */
+
+.cc-by-sa-logo {
+  text-align: center;
+
+  img {
+    padding: 2px;
+    width: 36px;
+  }
+    svg path {
+      fill: red;
+    }
+}

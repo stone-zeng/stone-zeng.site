@@ -1,6 +1,6 @@
-/**
- * Reset some basic elements
- */
+/* Basic styling */
+
+// Reset some basic elements
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
@@ -8,21 +8,12 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
-
-
-/**
- * Basic styling
- */
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
   color: $text-color;
   background-color: $bg-color;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-feature-settings: "kern" 1;
-     -moz-font-feature-settings: "kern" 1;
-       -o-font-feature-settings: "kern" 1;
-          font-feature-settings: "kern" 1;
-  font-kerning: normal;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -32,185 +23,223 @@ body {
   font-family: $base-ja-font-family;
 }
 
+// Set `margin-bottom` to maintain vertical rhythm
+// TODO
+// p, blockquote, pre,
+// ul, ol, dl, figure,
+// %vertical-rhythm {
+//   margin-bottom: $spacing-unit / 2;
+// }
 
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-  margin-bottom: $spacing-unit / 2;
-}
-
-
-
-/**
- * `main` element
- */
+// Default value of `display` of `main` element is 'inline' in IE 11
 main {
-  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+  display: block;
 }
 
+// /**
+//  * Clearfix
+//  */
+// %clearfix:after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// }
 
 
-// Images
+/* Wrapper */
 
-figure {
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-  text-align: center;
+.wrapper {
+  max-width: -webkit-calc(#{$content-width} + #{$sidebar-width} + #{$spacing-unit});
+  max-width:         calc(#{$content-width} + #{$sidebar-width} + #{$spacing-unit});
+  margin: 0 auto;
+  padding: 0 $spacing-unit / 2;
+  // // @extend %clearfix; // TODO
 
-  img {
-    max-width: 90%;
-    vertical-align: middle;
-    outline: 1px solid $grey-color-light;
-    outline-offset: -1px;
+  @include media-on-large {
+    padding: 0 $spacing-unit;
   }
 }
 
-figcaption {
-  font-size: $small-font-size;
+.page-content {
+  padding: $spacing-unit 0;
+  flex: 1 0 auto;
 }
 
+/* Site header */
 
+.site-header {
+  border-top: 5px solid $border-dark-color;
+  border-bottom: 1px solid $border-color;
+  min-height: 54px;
+  line-height: 54px;
 
-/**
- * Lists
- */
-ul, ol {
-  margin-left: $spacing-unit;
+  // Positioning context for the mobile navigation icon
+  position: relative;
 }
 
-li {
-  > ul,
-  > ol {
-    margin-bottom: 0;
+.site-title {
+  font-weight: 200;
+  font-size: $h2-font-size;
+  letter-spacing: -1px;
+  text-decoration: none;
+  margin-bottom: 0;
+  float: left;
+
+  // TODO
+  // @include media-on-medium {
+  //   padding-right: 45px;
+  // }
+
+  &,
+  &:visited {
+    color: $text-color;
   }
-}
-
-
-
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
-}
-
-
-
-/**
- * Links
- */
-a {
-  margin: 0 0.1em;
-  color: $text-color;
-  text-decoration: underline lighten($grey-color, 20%);
-  text-underline-position: under;
-
   &:hover {
-    color: $link-color;
-    text-decoration: underline $grey-color-dark;
-  }
-
-  .social-media-list &:hover {
     text-decoration: none;
-
-    .username {
-      text-decoration: underline;
-    }
+    text-underline-position: auto;
   }
 }
 
-
-/**
- * Blockquotes
- */
-blockquote {
-  color: $grey-color;
-  border-left: 4px solid $grey-color-light;
-  padding-left: $spacing-unit / 2;
-
-  > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-
-
-/**
- * Code formatting
- */
-pre,
-code {
-  font-family: $mono-font-family;
-  background-color: $code-bg-color;
-}
-
-code {
-  padding: 1px 4px;
-}
-
-pre {
-  padding: 8px 12px;
-  overflow-x: auto;
-
-  > code {
-    border: 0;
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-
-
-/**
- * Clearfix
- */
-%clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.footnote {
-  font-feature-settings: "sups";
-}
-
-.cc-by-sa-logo {
-  text-align: center;
-
-  img {
-    padding: 2px;
-    width: 40px;
-  }
-}
-
-/**
- * Tables
- */
-table {
-  margin-bottom: $spacing-unit;
-  width: 100%;
-  text-align: left;
-  color: lighten($text-color, 18%);
-  border-collapse: collapse;
+// TODO
+.site-nav {
+  position: absolute;
+  top: 9px;
+  right: $spacing-unit / 2;
+  background-color: $bg-color;
   border: 1px solid $grey-color-light;
-  tr {
-    &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
+  border-radius: 5px;
+  text-align: right;
+
+  .nav-trigger {
+    display: none;
+  }
+
+  .menu-icon {
+    float: right;
+    width: 36px;
+    height: 26px;
+    line-height: 0;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  label[for="nav-trigger"] {
+    display: block;
+    float: right;
+    width: 36px;
+    height: 36px;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  input ~ .trigger {
+    clear: both;
+    display: none;
+  }
+
+  input:checked ~ .trigger {
+    display: block;
+    padding-bottom: 5px;
+  }
+
+  .page-link {
+    text-decoration: none;
+    color: $text-color;
+    line-height: $base-line-height;
+    display: block;
+    padding: 5px 10px;
+
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+    // &:hover {
+    //   text-decoration: none;
+    // }
+    margin-left: 20px;
+  }
+
+  @media screen and (min-width: $on-medium) {
+    position: static;
+    float: right;
+    border: none;
+    background-color: inherit;
+
+    label[for="nav-trigger"] {
+      display: none;
+    }
+
+    .menu-icon {
+      display: none;
+    }
+
+    input ~ .trigger {
+      display: block;
+    }
+
+    .page-link {
+      display: inline;
+      padding: 0;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+      margin-left: auto;
     }
   }
-  th, td {
-    padding: ($spacing-unit / 3) ($spacing-unit / 2);
+}
+
+
+/* Site footer */
+
+.site-footer {
+  border-top: 1px solid $grey-color-light;
+  padding: $spacing-unit 0;
+}
+
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.footer-col-wrapper {
+  font-size: $tiny-font-size;
+  color: $grey-color;
+  // @extend %clearfix; // TODO
+}
+
+.social-links,
+.copyright {
+  text-align: center;
+}
+
+.social-links {
+  margin-bottom: 16px;
+}
+
+.social-media-list {
+  display: table;
+  margin: 0 auto;
+  li {
+    font-size: $large-font-size;
+    float: left;
+    margin: 0 12px;
+
+    &:first-of-type { margin-left: 0 }
+    &:last-of-type { margin-right: 0 }
+
+    a {
+      color: #828282; // TODO: different colors for different icons
+
+      &:hover, &:active, &:focus {
+        color: $link-color;
+      }
+    }
   }
-  th {
-    background-color: lighten($grey-color-light, 3%);
-    border: 1px solid darken($grey-color-light, 4%);
-    border-bottom-color: darken($grey-color-light, 12%);
-  }
-  td {
-    border: 1px solid $grey-color-light;
-  }
+}
+
+/* Grid helpers TODO */
+.one-half {
+  width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+  width:         calc(50% - (#{$spacing-unit} / 2));
 }

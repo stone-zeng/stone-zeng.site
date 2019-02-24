@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: about
 title: 关于
 permalink: /about/
 ---
@@ -8,9 +8,9 @@ Major in theoretical physics. Lover of typesetting and LaTeX.
 
 ## 致谢
 
-- [Font Awesome](https://fontawesome.com)
 - [Inter font family](https://rsms.me/inter/)
 - [Iosevka](https://typeof.net/Iosevka/) & [Sarasa Gothic](https://github.com/be5invis/Sarasa-Gothic)
+- [Font Awesome](https://fontawesome.com)
 - [Jekyll Minima Theme](https://jekyll.github.io/minima/)
 - [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc)
 - [Sticky Sidebar](https://abouolia.github.io/sticky-sidebar/)
