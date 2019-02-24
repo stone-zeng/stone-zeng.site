@@ -131,7 +131,7 @@ TODO
 
 到此整个 TeX Live 2018 就已经安装完毕。可以做下面的一些检查：
 
-### 基本命令：
+### 基本命令
 
 ```sh
 tlmgr --version
@@ -177,8 +177,10 @@ lualatex hello
 
 ## 注释
 
-1. <a id="fn_li-a-ling" href="#fnref_li-a-ling">**^**</a> 李阿玲. [还是不要装源里面的 TeX Live！](https://zhuanlan.zhihu.com/p/19699561) 这篇文章写于 2014 年，现在来看也未必完全合理。
-1. <a id="fn_profile" href="#fnref_profile">**^**</a> 见 [`texlive.profile`](https://github.com/latex3/latex3/blob/master/support/texlive.profile)。这一配置文件用于 LaTeX3 的代码测试。
+1. <span class="backref" id="fn_li-a-ling"><a href="#fnref_li-a-ling">^</a></span>
+   李阿玲. [还是不要装源里面的 TeX Live！](https://zhuanlan.zhihu.com/p/19699561) 这篇文章写于 2014 年，现在来看也未必完全合理。
+1. <span class="backref" id="fn_profile"><a href="#fnref_profile">^</a></span>
+   见 [`texlive.profile`](https://github.com/latex3/latex3/blob/master/support/texlive.profile)。这一配置文件用于 LaTeX3 的代码测试。
 
 ## 参考
 

@@ -40,8 +40,13 @@ fc-cache
 
 ## 注释
 
-1. <a id="fn_tl2018" href="#fnref_tl2018">**^**</a> 该问题在 TeX Live 2018 中应该已经得到修复。
-1. <span id="fn_thuthesis">^ <a href="#fnref_thuthesis_a">**ᵃ**</a> <a href="#fnref_thuthesis_b">**ᵇ**</a></span> 原因不明，见 xueruini/thuthesis [#278](https://github.com/xueruini/thuthesis/issues/278) 中的讨论。
+1. <span class="backref" id="fn_tl2018"><a href="#fnref_tl2018">^</a></span>
+   该问题在 TeX Live 2018 中应该已经得到修复。
+1. <span class="backref" id="fn_thuthesis">
+     <a href="#fnref_thuthesis_a">a</a>
+     <a href="#fnref_thuthesis_b">b</a>
+   </span>
+   原因不明，见 xueruini/thuthesis [#278](https://github.com/xueruini/thuthesis/issues/278) 中的讨论。
 
 ## 参考
 

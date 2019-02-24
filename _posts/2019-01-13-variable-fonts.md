@@ -149,9 +149,15 @@ categories: Fonts
 
 ## 注释
 
-1. <a id="fn_can-i-use-vf" href="#fnref_can-i-use-vf">**^**</a> [Can I use... Support tables for HTML5, CSS3, etc - Variable fonts](https://caniuse.com/#feat=variable-fonts)
-1. <a id="fn_wiki-vf" href="#fnref_wiki-vf">**^**</a> Wikipedia. [Variable fonts](https://en.wikipedia.org/wiki/Variable_fonts)
-1. <span id="fn_hans-context">^ <a href="#fnref_hans-context_a">**ᵃ**</a> <a href="#fnref_hans-context_b">**ᵇ**</a></span> Hans Hagen. [[NTG-context] beta](https://mailman.ntg.nl/pipermail/ntg-context/2017/088343.html)
+1. <span class="backref" id="fn_can-i-use-vf"><a href="#fnref_can-i-use-vf">^</a></span>
+   [Can I use... Support tables for HTML5, CSS3, etc - Variable fonts](https://caniuse.com/#feat=variable-fonts)
+1. <span class="backref" id="fn_wiki-vf"><a href="#fnref_wiki-vf">^</a></span>
+   Wikipedia. [Variable fonts](https://en.wikipedia.org/wiki/Variable_fonts)
+1. <span class="backref" id="fn_hans-context">
+     <a href="#fnref_hans-context_a">a</a>
+     <a href="#fnref_hans-context_b">b</a>
+   </span>
+   Hans Hagen. [[NTG-context] beta](https://mailman.ntg.nl/pipermail/ntg-context/2017/088343.html)
 
 ## 参考
 

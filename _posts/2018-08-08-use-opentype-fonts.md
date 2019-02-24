@@ -6,6 +6,25 @@ last_modified_at: 2019-01-24
 categories: Fonts
 ---
 
+<style type="text/css">
+  table.font-sample {
+    font-size: 14px;
+  }
+  table.font-sample td {
+    text-align: center;
+  }
+  table.font-sample a {
+    border-bottom: none;
+  }
+  table.font-sample a:hover, table.font-sample a:active, table.font-sample a:focus {
+    border-bottom: none;
+  }
+  table.font-sample img {
+    width: 9em;
+    max-width: 100%;
+  }
+</style>
+
 ## 介绍
 
 现代 TeX 引擎（包括 XeTeX、LuaTeX 和 [ApTeX](https://github.com/clerkma/ptex-ng)）已经全面支持使用 OpenType 字体，因而可以很方便地实现类似 Microsoft Word、Adobe Indesign 等软件的效果。
@@ -39,120 +58,114 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 所谓「衬线」，是指笔画末端的一种装饰细节，一般认为起源于古罗马的[石刻拉丁字母](https://en.wikipedia.org/wiki/Roman_square_capitals)。衬线据说有引导视线的作用，因而往往被用作书籍、文章等的正文字体。根据产生年代以及风格样式，又可以细分为几类<span id="fnref_atypi" class="footnote">[[1]](#fn_atypi)</span>。
 
-<center>
-  <table>
-    <tr>
-      <th></th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Garamond">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/GaramondSpecimenA.svg" alt="Garamond" style="height: 180px">
+<table class="font-sample">
+  <tr>
+    <th></th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Garamond">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/GaramondSpecimenA.svg" alt="Garamond">
+      </a>
+    </th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Times_New_Roman">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Times_New_Roman-sample.svg" alt="Times New Roman">
         </a>
-      </th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Times_New_Roman">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Times_New_Roman-sample.svg" alt="Times New Roman" style="height: 180px">
-         </a>
-      </th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Century_type_family">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/CenturySchoolbookSAIB.svg" alt="Century Schoolbook" style="height: 180px">
-        </a>
-      </th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Palatino">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Palatino_font_sample.svg" alt="Palatino" style="height: 180px">
-        </a>
-      </th>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>名称</strong></td>
-      <td style="text-align: center">Adobe Garamond</td>
-      <td style="text-align: center">Times New Roman</td>
-      <td style="text-align: center">Century Schoolbook</td>
-      <td style="text-align: center">Palatino</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><strong>分类</strong></td>
-      <td style="text-align: center">Old-style (Garalde)</td>
-      <td style="text-align: center">Transitional</td>
-      <td style="text-align: center">Didone (Modern)</td>
-      <td style="text-align: center">Old-style</td>
-    </tr>
-  </table>
-</center>
+    </th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Century_type_family">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/CenturySchoolbookSAIB.svg" alt="Century Schoolbook">
+      </a>
+    </th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Palatino">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Palatino_font_sample.svg" alt="Palatino">
+      </a>
+    </th>
+  </tr>
+  <tr>
+    <td><strong>名称</strong></td>
+    <td>Adobe Garamond</td>
+    <td>Times New Roman</td>
+    <td>Century Schoolbook</td>
+    <td>Palatino</td>
+  </tr>
+  <tr>
+    <td><strong>分类</strong></td>
+    <td>Old-style (Garalde)</td>
+    <td>Transitional</td>
+    <td>Didone (Modern)</td>
+    <td>Old-style</td>
+  </tr>
+</table>
 
 ### 无衬线体
 
 顾名思义，无衬线体就是指没有衬线的字体，它在近现代才得到广泛的发展与运用。早些年，屏幕分辨率远达不到印刷质量，衬线等细节很难反映出来，因此无衬线体在屏幕、网页显示上大行其道。
 
-<center>
-  <table>
-    <tr>
-      <th></th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Futura_(typeface)">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Futura_Specimen.svg" alt="Futura" style="height: 180px">
-        </a>
-      </th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Helvetica">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/HelveticaSpecimenCH.svg" alt="Helvetica" style="height: 180px">
-        </a>
-      </th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Frutiger_(typeface)">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/FrutigerSpec-1.svg" alt="Frutiger" style="height: 180px">
-        </a>
-      </th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Optima">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Optima_font_sample.svg" alt="Optima" style="height: 180px">
-        </a>
-      </th>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>名称</strong></td>
-      <td style="text-align: center">Futura</td>
-      <td style="text-align: center">Helvetica</td>
-      <td style="text-align: center">Frutiger</td>
-      <td style="text-align: center">Optima</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>分类</strong></td>
-      <td style="text-align: center">Geometric</td>
-      <td style="text-align: center">Neo-grotesque</td>
-      <td style="text-align: center">Humanist</td>
-      <td style="text-align: center">Humanist</td>
-    </tr>
-  </table>
-</center>
+<table class="font-sample">
+  <tr>
+    <th></th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Futura_(typeface)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Futura_Specimen.svg" alt="Futura" >
+      </a>
+    </th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Helvetica">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/HelveticaSpecimenCH.svg" alt="Helvetica">
+      </a>
+    </th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Frutiger_(typeface)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/FrutigerSpec-1.svg" alt="Frutiger">
+      </a>
+    </th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Optima">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Optima_font_sample.svg" alt="Optima">
+      </a>
+    </th>
+  </tr>
+  <tr>
+    <td><strong>名称</strong></td>
+    <td>Futura</td>
+    <td>Helvetica</td>
+    <td>Frutiger</td>
+    <td>Optima</td>
+  </tr>
+  <tr>
+    <td><strong>分类</strong></td>
+    <td>Geometric</td>
+    <td>Neo-grotesque</td>
+    <td>Humanist</td>
+    <td>Humanist</td>
+  </tr>
+</table>
 
 ### 等宽字体
 
 等宽字体与比例字体相对，其中的所有字母、符号均有相同的宽度。严格来说，等宽字体并不能单独作为一个分类，但由于其用法比较特殊（现代主要用于计算机程序的排版），这里还是把它单独列出来。
 
-<center>
-  <table>
-    <tr>
-      <th></th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Courier_(typeface)">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Courier.svg" alt="Courier New" style="height: 180px">
-        </a>
-      </th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Monaco_(typeface)">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/MonacoSpecimen.svg" style="height: 180px">
-        </a>
-      </th>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>名称</strong></td>
-      <td style="text-align: center">Courier New</td>
-      <td style="text-align: center">Monaco</td>
-    </tr>
-  </table>
-</center>
+<table class="font-sample">
+  <tr>
+    <th></th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Courier_(typeface)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Courier.svg" alt="Courier New">
+      </a>
+    </th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Monaco_(typeface)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/MonacoSpecimen.svg" alt="Monaco">
+      </a>
+    </th>
+  </tr>
+  <tr>
+    <td><strong>名称</strong></td>
+    <td>Courier New</td>
+    <td>Monaco</td>
+  </tr>
+</table>
 
 ### 变体
 
@@ -174,41 +187,26 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 - 楷体（<span lang="ja">楷書体</span>）：来源于传统书法，字形端庄，对应与西文字体中的手写体
 - 仿宋（<span lang="ja">宋朝体</span>）：源自于宋朝的刻书字体，但实际成形于民国初年。特点是兼有宋体的结构与楷体的笔画，较为清秀挺拔
 
-<center>
-  <table>
-    <tr>
-      <th></th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Source_Han_Serif">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Source_Han_Serif.svg" alt="Source Han Serif" style="height: 180px">
-        </a>
-      </th>
-      <th style="text-align: center">
-        <a href="https://en.wikipedia.org/wiki/Source_Han_Sans">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/SourceHanSans.svg" alt="Source Han Sans" style="height: 180px">
-        </a>
-      </th>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>名称</strong></td>
-      <td style="text-align: center">思源宋体<br>（Source Han Serif）</td>
-      <td style="text-align: center">思源黑体<br>（Source Han Sans）</td>
-    </tr>
-  </table>
-</center>
-
-<!--
-<img src="../images/font-samples/garamond.svg"           alt="" height="180px"/>
-<img src="../images/font-samples/century-schoolbook.svg" alt="" height="180px"/>
-<img src="../images/font-samples/times-new-roman.svg"    alt="" height="180px"/>
-<img src="../images/font-samples/futura.svg"             alt="" height="180px"/>
-<img src="../images/font-samples/helvetica.svg"          alt="" height="180px"/>
-<img src="../images/font-samples/frutiger.svg"           alt="" height="180px"/>
-<img src="../images/font-samples/courier-new.svg"        alt="" height="180px"/>
-<img src="../images/font-samples/inconsolata.svg"        alt="" height="180px"/>
-<img src="../images/font-samples/source-han-serif.svg"   alt="" height="180px"/>
-<img src="../images/font-samples/source-han-sans.svg"    alt="" height="180px"/>
--->
+<table class="font-sample">
+  <tr>
+    <th></th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Source_Han_Serif">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Source_Han_Serif.svg" alt="Source Han Serif">
+      </a>
+    </th>
+    <th>
+      <a href="https://en.wikipedia.org/wiki/Source_Han_Sans">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/SourceHanSans.svg" alt="Source Han Sans">
+      </a>
+    </th>
+  </tr>
+  <tr>
+    <td><strong>名称</strong></td>
+    <td>思源宋体<br>（Source Han Serif）</td>
+    <td>思源黑体<br>（Source Han Sans）</td>
+  </tr>
+</table>
 
 ## 基础篇（I）
 
@@ -377,9 +375,12 @@ LaTeX 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span id=
 
 ## 注释
 
-1. <a id="fn_atypi" href="#fnref_atypi">**^**</a> 字体分类是一个复杂的话题，也没有统一的标准。这里我们大致采用的是 [Vox-A TypI 方案](https://en.wikipedia.org/wiki/Vox-ATypI_classification)。
-1. <a id="fn_typeface" href="#fnref_typeface">**^**</a> 所谓「字体」（typeface），更多的侧重于一种设计风格；而「字型」（font），则是指某一款字体设计的具体式样，包括字重、尺寸等。举例来说，Frutiger 是一款字体，而 Frutiger 55 Roman 就是一个字型。但在实际使用中，这两者经常混用，我们这里也不做严格区分。参见[英语术语「typeface」和「font」的区别是什么？- 知乎](https://www.zhihu.com/question/19566628)。
-1. <a id="fn_ctex" href="#fnref_ctex">**^**</a> 社区另有名为 CTeX 套装的 TeX 发行版，与这里所述的 `CTeX` 宏集并非是同一事物。CTeX 套装现已过时，不建议使用。
+1. <span class="backref" id="fn_atypi"><a href="#fnref_atypi">^</a></span>
+   字体分类是一个复杂的话题，也没有统一的标准。这里我们大致采用的是 [Vox-A TypI 方案](https://en.wikipedia.org/wiki/Vox-ATypI_classification)。
+1. <span class="backref" id="fn_typeface"><a href="#fnref_typeface">^</a></span>
+   所谓「字体」（typeface），更多的侧重于一种设计风格；而「字型」（font），则是指某一款字体设计的具体式样，包括字重、尺寸等。举例来说，Frutiger 是一款字体，而 Frutiger 55 Roman 就是一个字型。但在实际使用中，这两者经常混用，我们这里也不做严格区分。参见[英语术语「typeface」和「font」的区别是什么？- 知乎](https://www.zhihu.com/question/19566628)。
+1. <span class="backref" id="fn_ctex"><a href="#fnref_ctex">^</a></span>
+   社区另有名为 CTeX 套装的 TeX 发行版，与这里所述的 `CTeX` 宏集并非是同一事物。CTeX 套装现已过时，不建议使用。
 
 ## 参考
 
