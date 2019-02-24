@@ -36,6 +36,10 @@ main {
   display: block;
 }
 
+.zh-punct {
+  font-family: $punct-font-family;
+}
+
 // /**
 //  * Clearfix
 //  */

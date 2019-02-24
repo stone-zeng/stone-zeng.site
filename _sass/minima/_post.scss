@@ -69,6 +69,11 @@
       color: $link-color;
     }
   }
+
+  code {
+    font-family: $mono-font-family;
+    background-color: $code-bg-color;
+  }
 }
 
 .post-content {

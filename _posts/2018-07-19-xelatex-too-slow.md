@@ -50,7 +50,7 @@ fc-cache
 
 ## 参考
 
-1. 刘海洋. [XeLaTeX 编译时间太长是什么原因？](https://www.zhihu.com/question/53981204/answer/189872891)
+1. 刘海洋. [XeLaTeX 编译时间太长是什么原因？- 知乎](https://www.zhihu.com/question/53981204/answer/189872891)
 1. @GregH. [XeLaTeX runs slow on Windows machine](https://tex.stackexchange.com/q/325278)
 1. @jdhao. [compiling tex files with xelatex is insanely slow on my Windows machine](https://tex.stackexchange.com/q/357098)
 1. Ulrike Fischer. [[tex-live] xe(la)ex and font searching delay](https://tug.org/pipermail/tex-live/2017-March/039768.html)

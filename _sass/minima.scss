@@ -16,6 +16,8 @@ $base-ja-font-family:
   'Inter', 'Sarasa UI J', $ja-font-fallback, sans-serif !default;
 $mono-font-family:
   'Sarasa Mono SC', 'Iosevka', 'Iosevka Web', $zh-font-fallback, monospace !default;
+$punct-font-family:
+  'Sarasa UI SC', $zh-font-fallback, sans-serif !default;
 
 // Font related
 $base-font-weight:  400 !default;
