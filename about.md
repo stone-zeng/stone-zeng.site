@@ -20,7 +20,7 @@ Major in theoretical physics. Lover of typesetting and LaTeX.
 
 ## 许可证
 
-若无特殊声明，本站所有文章均按照 [CC BY-SA 4.0 协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)发布。
+若无特殊声明，本站所有文章均按照 [CC BY-SA 4.0 协议](https://creativecommons.org/licenses/by-sa/4.0/)发布。
 
 <div class="cc-by-sa-logo">
   <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg">
