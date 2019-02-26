@@ -2,6 +2,7 @@
 layout: post
 title: LaTeX3 教程（一）——背景知识
 date: 2019-02-24
+last_modified_at: 2019-02-26
 categories: LaTeX3
 ---
 
@@ -11,7 +12,7 @@ LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 年），�
 
 众所周知，[Donald E. Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) 在排版他的传世巨著 *The Art of Computer Programming* 时，[忍受不了当时的数字排版技术](https://tex.stackexchange.com/q/367058/)，于是一咬牙，花了近十年开发出了伟大的排版软件 TeX。
 
-然而这个 TeX 本身是为 Knuth 自己服务的，智商一般的人用起来会比较吃力。上世纪 80 年代，同样身为计算机科学家的 [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport) 教授开发出了 LaTeX（**La**mport **TeX**），隐藏了一些排版细节，成为了一套结构化的文档语言。Lamport 也是在准备他的著作 *The Great American Concurrency Book* 时发明了 LaTeX；可等有了 LaTeX，这本书却懒得动笔了<span class='zh-punct'>……</span><span id="fnref_lamport-book" class="footnote">[[1]](#fn_lamport-book)</span>
+然而这个 TeX 本身是为 Knuth 自己服务的，普通人用起来会比较吃力。上世纪 80 年代，同样身为计算机科学家的 [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport) 教授开发出了 LaTeX（**La**mport **TeX**），隐藏了一些排版细节，成为了一套结构化的文档语言。Lamport 也是在准备他的著作 *The Great American Concurrency Book* 时发明了 LaTeX；可等有了 LaTeX，这本书却懒得动笔了<span class='zh-punct'>……</span><span id="fnref_lamport-book" class="footnote">[[1]](#fn_lamport-book)</span>
 
 1992 年，LaTeX 2.09 发布，之后 Lamport 便退居二线，开发工作交给由 Frank Mittelbach 领导的 [LaTeX3 团队](https://www.latex-project.org/about/team/)负责。顾名思义，这个团队就是要代表 LaTeX 行业的发展要求，代表 LaTeX 界最新技术的前进方向，代表 LaTeX 最广大用户的根本利益。于是他们埋头苦干了两年，搞了个大新闻——推出了 LaTeX2*ε*。
 
@@ -124,7 +125,7 @@ LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 年），�
 1. <span class="backref" id="fn_footnote"><a href="#fnref_footnote">^</a></span>
    李清. [LaTeX 脚注要怎么在行内垂直居中呢？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
 1. <span class="backref" id="fn_expandafter"><a href="#fnref_expandafter">^</a></span>
-   刘海洋. [多个 \expandafter 的展开过程是怎样的？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
+   2015 年 `CTeX` 宏集进行了较为彻底的重构，这里给出的代码实际上已经不再使用，但仍然保留在[代码库](https://github.com/CTeX-org/ctex-kit/blob/ctex-1.02d/def/ctex-common.def#L44-L50)中。参考：刘海洋. [多个 \expandafter 的展开过程是怎样的？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213) 
 
 ## 参考
 

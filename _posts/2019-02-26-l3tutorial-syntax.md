@@ -78,7 +78,7 @@ LaTeX3 中的命令，无论是函数还是变量，仍然都是以反斜杠 `\`
 
 还有两个特殊的参数指定：
 
-- `D`：表示不要使用（**D**o note use）。由 `D` 开头的命令是原语的封装，在 `l3kernel` 之外尽量不要直接使用（当然有时候不可避免）
+- `D`：表示不要使用（**D**o not use）。由 `D` 开头的命令是原语的封装，在 `l3kernel` 之外尽量不要直接使用（当然有时候不可避免）
 - `w`：奇异型（**w**eird）参数，表示不遵循标准参数指定的一些特例
 
 参数指定在 LaTeX3 中发挥着至关重要的作用。LaTeX3 的展开控制机制将会引入更多类型的参数指定，以后我们会详细介绍。
@@ -294,14 +294,14 @@ LaTeX3 中的变量与相关函数组成了一个个模块。之后我们就将�
 \RequirePackage{expl3}
 
 % 宏包使用 \ProvidesExplPackage
-% 文档类使用 \ProvidesExplPackage
+% 文档类使用 \ProvidesExplClass
 % 其他文件使用 \ProvidesExplFile
 \ProvidesExplPackage{<package>}{<data>}{<version>}{<description>}
 
 % 之后开启 LaTeX3 语法，文件末尾处则会自动关闭
 ```
 
-第二种方法继承并扩展了 LaTeX2*ε* 中 `\ProvidesPackage`、`\ProvidesPackage` 和 `\ProvidesFile` 的功能，大致相当于
+第二种方法继承并扩展了 LaTeX2*ε* 中 `\ProvidesPackage`、`\ProvidesExplClass` 和 `\ProvidesFile` 的功能，大致相当于
 
 ```latex
 % Package info
