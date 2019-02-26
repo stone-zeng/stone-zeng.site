@@ -78,7 +78,7 @@ LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 年），�
 时代总是在发展的，[Till Tantau](https://fr.wikipedia.org/wiki/Till_Tantau) 教授在准备他的博士论文答辩时，编写了 [`beamer`](https://ctan.org/pkg/beamer) 文档类，用以构建幻灯片（为此，他还编写了绘图包 [`PGF/TikZ`](https://ctan.org/pkg/pgf)，简直令人叹为观止）。就架构而言，`beamer` 的设计是高度创造性的。它划分了 3 个层次：
 
 - 幻灯片作者只需要了解 `frame`、`theorem`、`emph` 这些与演示相关的命令或环境，只需选择相应的主题（theme），就可以完成制作；
-- 模板/主题设计师，可以用 `\setbeamertemplate`、 `\setbeamercolor`、 `\setbeamerfont` 等命令来设置各成分的格式，但却无需考虑演示文稿的具体内容；
+- 模板 / 主题设计师，可以用 `\setbeamertemplate`、 `\setbeamercolor`、 `\setbeamerfont` 等命令来设置各成分的格式，但却无需考虑演示文稿的具体内容；
 - 高级设计师（或者 TeX 程序员），对于每种语义成分，又可以独立调控，直接操纵具体实现细节。
 
 这种层次化的界面，自然就把用户分成了三类，于是内容编写、格式设计与具体实现就可以彻底分离。
