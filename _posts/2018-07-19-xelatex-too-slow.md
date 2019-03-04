@@ -11,7 +11,7 @@ Windows 平台使用 XeLaTeX 编译时，偶尔会出现卡住不动的情况。
 
 正常情况下，`xetex` 在发现字体变动时，会自动调用 `fontconfig` 库刷新字体缓存，因此在后续编译过程中速度便可恢复正常。
 
-不过，在 Windows 下 TeX Live 2016、2017 似乎实现有问题（fontconfig [Bug 99360](https://bugs.freedesktop.org/show_bug.cgi?id=99360)），导致 `xetex` 再刷新缓存时无法正确覆盖旧的文件，因此每次编译都需花费大量时间<span id="fnref_tl2018" class="footnote">[[1]](#fn_tl2018)</span>。
+不过，在 Windows 下 TeX Live 2016、2017 似乎实现有问题（fontconfig [Bug 99360](https://bugs.freedesktop.org/show_bug.cgi?id=99360)），导致 `xetex` 在刷新缓存时无法正确覆盖旧的文件，因此每次编译都需花费大量时间<span id="fnref_tl2018" class="footnote">[[1]](#fn_tl2018)</span>。
 
 ## 解决方法
 

@@ -301,7 +301,7 @@ LaTeX3 中的变量与相关函数组成了一个个模块。之后我们就将�
 % 之后开启 LaTeX3 语法，文件末尾处则会自动关闭
 ```
 
-第二种方法继承并扩展了 LaTeX2*ε* 中 `\ProvidesPackage`、`\ProvidesExplClass` 和 `\ProvidesFile` 的功能，大致相当于
+第二种方法继承并扩展了 LaTeX2*ε* 中 `\ProvidesPackage`、`\ProvidesClass` 和 `\ProvidesFile` 的功能，大致相当于
 
 ```latex
 % Package info
