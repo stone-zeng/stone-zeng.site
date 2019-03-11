@@ -2,6 +2,7 @@
 layout: post
 title: 带圈数字
 date: 2019-02-09
+last_modified_at: 2019-03-12
 categories: Symbols
 ---
 
@@ -11,7 +12,7 @@ categories: Symbols
   <img src="/images/textcircled.png" alt="\textcircled">
 </figure>
 
-实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是无法在宏编程层面解决的。因此，要得到比较好的效果，最好能使用预先设计的字符形。
+实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是几乎无法在 TeX 宏层面解决的。因此，要得到比较好的效果，最好能使用预先设计的字符形（glyph）。
 
 ## 传统方案
 
@@ -19,28 +20,17 @@ categories: Symbols
 
 使用 `\ding{<number>}` 可以很方便地使用带圈数字（共有四种），当然也有其他符号。具体数字可参见下图：
 
-<!-- ![pifont](/images/pifont.png) -->
+<figure>
+  <img src="/images/pifont.png" alt="pifont">
+</figure>
 
 在主流的 TeX 引擎下，`pifont` 宏包都可以使用。
 
 ## Unicode
 
-数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 TeX 引擎（XeTeX 和 LuaTeX）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：
-TODO: 该表的正确显示有赖于计算机上的字体支持
+数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 TeX 引擎（XeTeX 和 LuaTeX）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：<span id="fnref_font" class="footnote">[[1]](#fn_font)</span>
 
-<style type="text/css">
-tr.circled-number-glyph {
-  text-align: center;
-  font-size: 24px;
-  border: none;
-}
-tr.circled-number-encoding {
-  text-align: center;
-  /* font-size: 8px; */
-}
-</style>
-
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>⓪</td>
@@ -56,17 +46,17 @@ tr.circled-number-encoding {
       <td>⑩</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+24EA</code></td>
-      <td><code>U+2460</code></td>
-      <td><code>U+2461</code></td>
-      <td><code>U+2462</code></td>
-      <td><code>U+2463</code></td>
-      <td><code>U+2464</code></td>
-      <td><code>U+2465</code></td>
-      <td><code>U+2466</code></td>
-      <td><code>U+2467</code></td>
-      <td><code>U+2468</code></td>
-      <td><code>U+2469</code></td>
+      <td>24EA</td>
+      <td>2460</td>
+      <td>2461</td>
+      <td>2462</td>
+      <td>2463</td>
+      <td>2464</td>
+      <td>2465</td>
+      <td>2466</td>
+      <td>2467</td>
+      <td>2468</td>
+      <td>2469</td>
     </tr>
     <tr class="circled-number-glyph">
       <td></td>
@@ -83,16 +73,16 @@ tr.circled-number-encoding {
     </tr>
     <tr class="circled-number-encoding">
       <td></td>
-      <td><code>U+246A</code></td>
-      <td><code>U+246B</code></td>
-      <td><code>U+246C</code></td>
-      <td><code>U+246D</code></td>
-      <td><code>U+246E</code></td>
-      <td><code>U+246F</code></td>
-      <td><code>U+2470</code></td>
-      <td><code>U+2471</code></td>
-      <td><code>U+2472</code></td>
-      <td><code>U+2473</code></td>
+      <td>246A</td>
+      <td>246B</td>
+      <td>246C</td>
+      <td>246D</td>
+      <td>246E</td>
+      <td>246F</td>
+      <td>2470</td>
+      <td>2471</td>
+      <td>2472</td>
+      <td>2473</td>
     </tr>
     <tr class="circled-number-glyph">
       <td></td>
@@ -109,16 +99,16 @@ tr.circled-number-encoding {
     </tr>
     <tr class="circled-number-encoding">
       <td></td>
-      <td><code>U+3251</code></td>
-      <td><code>U+3252</code></td>
-      <td><code>U+3253</code></td>
-      <td><code>U+3254</code></td>
-      <td><code>U+3255</code></td>
-      <td><code>U+3256</code></td>
-      <td><code>U+3257</code></td>
-      <td><code>U+3258</code></td>
-      <td><code>U+3259</code></td>
-      <td><code>U+325A</code></td>
+      <td>3251</td>
+      <td>3252</td>
+      <td>3253</td>
+      <td>3254</td>
+      <td>3255</td>
+      <td>3256</td>
+      <td>3257</td>
+      <td>3258</td>
+      <td>3259</td>
+      <td>325A</td>
     </tr>
     <tr class="circled-number-glyph">
       <td></td>
@@ -135,16 +125,16 @@ tr.circled-number-encoding {
     </tr>
     <tr class="circled-number-encoding">
       <td></td>
-      <td><code>U+325B</code></td>
-      <td><code>U+325C</code></td>
-      <td><code>U+325D</code></td>
-      <td><code>U+325E</code></td>
-      <td><code>U+325F</code></td>
-      <td><code>U+32B1</code></td>
-      <td><code>U+32B2</code></td>
-      <td><code>U+32B3</code></td>
-      <td><code>U+32B4</code></td>
-      <td><code>U+32B5</code></td>
+      <td>325B</td>
+      <td>325C</td>
+      <td>325D</td>
+      <td>325E</td>
+      <td>325F</td>
+      <td>32B1</td>
+      <td>32B2</td>
+      <td>32B3</td>
+      <td>32B4</td>
+      <td>32B5</td>
     </tr>
     <tr class="circled-number-glyph">
       <td></td>
@@ -161,25 +151,25 @@ tr.circled-number-encoding {
     </tr>
     <tr class="circled-number-encoding">
       <td></td>
-      <td><code>U+32B6</code></td>
-      <td><code>U+32B7</code></td>
-      <td><code>U+32B8</code></td>
-      <td><code>U+32B9</code></td>
-      <td><code>U+32BA</code></td>
-      <td><code>U+32BB</code></td>
-      <td><code>U+32BC</code></td>
-      <td><code>U+32BD</code></td>
-      <td><code>U+32BE</code></td>
-      <td><code>U+32BF</code></td>
+      <td>32B6</td>
+      <td>32B7</td>
+      <td>32B8</td>
+      <td>32B9</td>
+      <td>32BA</td>
+      <td>32BB</td>
+      <td>32BC</td>
+      <td>32BD</td>
+      <td>32BE</td>
+      <td>32BF</td>
     </tr>
   </table>
-</center>
+</div>
 
 Zapf Dingbats 中的其他几种样式也分配有码位：
 
 - 反白（negative circled digits）
 
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>⓿</td>
@@ -195,17 +185,17 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>❿</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+24FF</code></td>
-      <td><code>U+2776</code></td>
-      <td><code>U+2777</code></td>
-      <td><code>U+2778</code></td>
-      <td><code>U+2779</code></td>
-      <td><code>U+277A</code></td>
-      <td><code>U+277B</code></td>
-      <td><code>U+277C</code></td>
-      <td><code>U+277D</code></td>
-      <td><code>U+277E</code></td>
-      <td><code>U+277F</code></td>
+      <td>24FF</td>
+      <td>2776</td>
+      <td>2777</td>
+      <td>2778</td>
+      <td>2779</td>
+      <td>277A</td>
+      <td>277B</td>
+      <td>277C</td>
+      <td>277D</td>
+      <td>277E</td>
+      <td>277F</td>
     </tr>
     <tr class="circled-number-glyph">
       <td></td>
@@ -222,23 +212,23 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
     </tr>
     <tr class="circled-number-encoding">
       <td></td>
-      <td><code>U+24EB</code></td>
-      <td><code>U+24EC</code></td>
-      <td><code>U+24ED</code></td>
-      <td><code>U+24EE</code></td>
-      <td><code>U+24EF</code></td>
-      <td><code>U+24F0</code></td>
-      <td><code>U+24F1</code></td>
-      <td><code>U+24F2</code></td>
-      <td><code>U+24F3</code></td>
-      <td><code>U+24F4</code></td>
+      <td>24EB</td>
+      <td>24EC</td>
+      <td>24ED</td>
+      <td>24EE</td>
+      <td>24EF</td>
+      <td>24F0</td>
+      <td>24F1</td>
+      <td>24F2</td>
+      <td>24F3</td>
+      <td>24F4</td>
     </tr>
   </table>
-</center>
+</div>
 
 - 无衬线（circled sans-serif digits）
 
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>🄋</td>
@@ -254,24 +244,24 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>➉</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+1F10B</code></td>
-      <td><code>U+2780</code></td>
-      <td><code>U+2781</code></td>
-      <td><code>U+2782</code></td>
-      <td><code>U+2783</code></td>
-      <td><code>U+2784</code></td>
-      <td><code>U+2785</code></td>
-      <td><code>U+2786</code></td>
-      <td><code>U+2787</code></td>
-      <td><code>U+2788</code></td>
-      <td><code>U+2789</code></td>
+      <td>1F10B</td>
+      <td>2780</td>
+      <td>2781</td>
+      <td>2782</td>
+      <td>2783</td>
+      <td>2784</td>
+      <td>2785</td>
+      <td>2786</td>
+      <td>2787</td>
+      <td>2788</td>
+      <td>2789</td>
     </tr>
   </table>
-</center>
+</div>
 
 - 无衬线反白（negative circled sans-serif digits）
 
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>🄌</td>
@@ -287,26 +277,26 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>➓</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+1F10C</code></td>
-      <td><code>U+278A</code></td>
-      <td><code>U+278B</code></td>
-      <td><code>U+278C</code></td>
-      <td><code>U+278D</code></td>
-      <td><code>U+278E</code></td>
-      <td><code>U+278F</code></td>
-      <td><code>U+2790</code></td>
-      <td><code>U+2791</code></td>
-      <td><code>U+2792</code></td>
-      <td><code>U+2793</code></td>
+      <td>1F10C</td>
+      <td>278A</td>
+      <td>278B</td>
+      <td>278C</td>
+      <td>278D</td>
+      <td>278E</td>
+      <td>278F</td>
+      <td>2790</td>
+      <td>2791</td>
+      <td>2792</td>
+      <td>2793</td>
     </tr>
   </table>
-</center>
+</div>
 
 此外，还额外增加了一些样式：
 
 - 双线（double circled digits）
 
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>⓵</td>
@@ -321,23 +311,23 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>⓾</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+24F5</code></td>
-      <td><code>U+24F6</code></td>
-      <td><code>U+24F7</code></td>
-      <td><code>U+24F8</code></td>
-      <td><code>U+24F9</code></td>
-      <td><code>U+24FA</code></td>
-      <td><code>U+24FB</code></td>
-      <td><code>U+24FC</code></td>
-      <td><code>U+24FD</code></td>
-      <td><code>U+24FE</code></td>
+      <td>24F5</td>
+      <td>24F6</td>
+      <td>24F7</td>
+      <td>24F8</td>
+      <td>24F9</td>
+      <td>24FA</td>
+      <td>24FB</td>
+      <td>24FC</td>
+      <td>24FD</td>
+      <td>24FE</td>
     </tr>
   </table>
-</center>
+</div>
 
 - 加框（circled numbers on black square）
 
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>㉈</td>
@@ -350,21 +340,21 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>㉏</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+3248</code></td>
-      <td><code>U+3249</code></td>
-      <td><code>U+324A</code></td>
-      <td><code>U+324B</code></td>
-      <td><code>U+324C</code></td>
-      <td><code>U+324D</code></td>
-      <td><code>U+324E</code></td>
-      <td><code>U+324F</code></td>
+      <td>3248</td>
+      <td>3249</td>
+      <td>324A</td>
+      <td>324B</td>
+      <td>324C</td>
+      <td>324D</td>
+      <td>324E</td>
+      <td>324F</td>
     </tr>
   </table>
-</center>
+</div>
 
 - 带圆括号（parenthesized digits）
 
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>⑴</td>
@@ -379,16 +369,16 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>⑽</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+2474</code></td>
-      <td><code>U+2475</code></td>
-      <td><code>U+2476</code></td>
-      <td><code>U+2477</code></td>
-      <td><code>U+2478</code></td>
-      <td><code>U+2479</code></td>
-      <td><code>U+247A</code></td>
-      <td><code>U+247B</code></td>
-      <td><code>U+247C</code></td>
-      <td><code>U+247D</code></td>
+      <td>2474</td>
+      <td>2475</td>
+      <td>2476</td>
+      <td>2477</td>
+      <td>2478</td>
+      <td>2479</td>
+      <td>247A</td>
+      <td>247B</td>
+      <td>247C</td>
+      <td>247D</td>
     </tr>
     <tr class="circled-number-glyph">
       <td>⑾</td>
@@ -403,23 +393,23 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>⒇</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+247E</code></td>
-      <td><code>U+247F</code></td>
-      <td><code>U+2480</code></td>
-      <td><code>U+2481</code></td>
-      <td><code>U+2482</code></td>
-      <td><code>U+2483</code></td>
-      <td><code>U+2484</code></td>
-      <td><code>U+2485</code></td>
-      <td><code>U+2486</code></td>
-      <td><code>U+2487</code></td>
+      <td>247E</td>
+      <td>247F</td>
+      <td>2480</td>
+      <td>2481</td>
+      <td>2482</td>
+      <td>2483</td>
+      <td>2484</td>
+      <td>2485</td>
+      <td>2486</td>
+      <td>2487</td>
     </tr>
   </table>
-</center>
+</div>
 
 - 带点（digits with full stop）
 
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>🄀</td>
@@ -435,17 +425,17 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>⒑</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+1F100</code></td>
-      <td><code>U+2488</code></td>
-      <td><code>U+2489</code></td>
-      <td><code>U+248A</code></td>
-      <td><code>U+248B</code></td>
-      <td><code>U+248C</code></td>
-      <td><code>U+248D</code></td>
-      <td><code>U+248E</code></td>
-      <td><code>U+248F</code></td>
-      <td><code>U+2490</code></td>
-      <td><code>U+2491</code></td>
+      <td>1F100</td>
+      <td>2488</td>
+      <td>2489</td>
+      <td>248A</td>
+      <td>248B</td>
+      <td>248C</td>
+      <td>248D</td>
+      <td>248E</td>
+      <td>248F</td>
+      <td>2490</td>
+      <td>2491</td>
     </tr>
     <tr class="circled-number-glyph">
       <td></td>
@@ -462,23 +452,23 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
     </tr>
     <tr class="circled-number-encoding">
       <td></td>
-      <td><code>U+2492</code></td>
-      <td><code>U+2493</code></td>
-      <td><code>U+2494</code></td>
-      <td><code>U+2495</code></td>
-      <td><code>U+2496</code></td>
-      <td><code>U+2497</code></td>
-      <td><code>U+2498</code></td>
-      <td><code>U+2499</code></td>
-      <td><code>U+249A</code></td>
-      <td><code>U+249B</code></td>
+      <td>2492</td>
+      <td>2493</td>
+      <td>2494</td>
+      <td>2495</td>
+      <td>2496</td>
+      <td>2497</td>
+      <td>2498</td>
+      <td>2499</td>
+      <td>249A</td>
+      <td>249B</td>
     </tr>
   </table>
-</center>
+</div>
 
 - 带逗号（digits with comma）
 
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>🄁</td>
@@ -493,23 +483,23 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>🄊</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+1F101</code></td>
-      <td><code>U+1F102</code></td>
-      <td><code>U+1F103</code></td>
-      <td><code>U+1F104</code></td>
-      <td><code>U+1F105</code></td>
-      <td><code>U+1F106</code></td>
-      <td><code>U+1F107</code></td>
-      <td><code>U+1F108</code></td>
-      <td><code>U+1F109</code></td>
-      <td><code>U+1F10A</code></td>
+      <td>1F101</td>
+      <td>1F102</td>
+      <td>1F103</td>
+      <td>1F104</td>
+      <td>1F105</td>
+      <td>1F106</td>
+      <td>1F107</td>
+      <td>1F108</td>
+      <td>1F109</td>
+      <td>1F10A</td>
     </tr>
   </table>
-</center>
+</div>
 
 这些姑且也算上吧：
 
-<center>
+<div class="circled-number">
   <table>
     <tr class="circled-number-glyph">
       <td>㈠</td>
@@ -524,16 +514,16 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>㈩</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+3220</code></td>
-      <td><code>U+3221</code></td>
-      <td><code>U+3222</code></td>
-      <td><code>U+3223</code></td>
-      <td><code>U+3224</code></td>
-      <td><code>U+3225</code></td>
-      <td><code>U+3226</code></td>
-      <td><code>U+3227</code></td>
-      <td><code>U+3228</code></td>
-      <td><code>U+3229</code></td>
+      <td>3220</td>
+      <td>3221</td>
+      <td>3222</td>
+      <td>3223</td>
+      <td>3224</td>
+      <td>3225</td>
+      <td>3226</td>
+      <td>3227</td>
+      <td>3228</td>
+      <td>3229</td>
     </tr>
     <tr class="circled-number-glyph">
       <td>㊀</td>
@@ -548,16 +538,16 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>㊉</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+3280</code></td>
-      <td><code>U+3281</code></td>
-      <td><code>U+3282</code></td>
-      <td><code>U+3283</code></td>
-      <td><code>U+3284</code></td>
-      <td><code>U+3285</code></td>
-      <td><code>U+3286</code></td>
-      <td><code>U+3287</code></td>
-      <td><code>U+3288</code></td>
-      <td><code>U+3289</code></td>
+      <td>3280</td>
+      <td>3281</td>
+      <td>3282</td>
+      <td>3283</td>
+      <td>3284</td>
+      <td>3285</td>
+      <td>3286</td>
+      <td>3287</td>
+      <td>3288</td>
+      <td>3289</td>
     </tr>
     <tr class="circled-number-glyph">
       <td>🈩</td>
@@ -565,9 +555,9 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
       <td>🈪</td>
     </tr>
     <tr class="circled-number-encoding">
-      <td><code>U+1F229</code></td>
-      <td><code>U+1F214</code></td>
-      <td><code>U+1F22A</code></td>
+      <td>1F229</td>
+      <td>1F214</td>
+      <td>1F22A</td>
     </tr>
     <tr class="circled-number-glyph">
       <td></td>
@@ -576,11 +566,11 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
     </tr>
     <tr class="circled-number-encoding">
       <td></td>
-      <td><code>U+1F242</code></td>
-      <td><code>U+1F241</code></td>
+      <td>1F242</td>
+      <td>1F241</td>
     </tr>
   </table>
-</center>
+</div>
 
 这些符号分散在以下几个 Unicode 区块（block）中：
 
@@ -590,7 +580,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 - Enclosed Alphanumeric Supplement (`U+1F100`&ndash;`U+1F1FF`)
 - Enclosed Ideographic Supplement (`U+1F200`&ndash;`U+1F2FF`)
 
-直接输入，或者利用码位，都可以在 LaTeX 中使用以上这些带圈数字（注意 Unicode 码位的大小写）：
+直接输入，或者利用码位，都可以在 LaTeX 中使用以上这些带圈数字（注意不同方法对大小写的要求有差异）：
 
 ```latex
 \documentclass{article}
@@ -612,8 +602,17 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 使用 XeLaTeX 或 LuaLaTeX 编译，效果如下：
 
-<!-- ![textcircled-fontspec.png](../images/textcircled-fontspec.png) -->
+<figure>
+  <img src="/images/textcircled-fontspec.png" alt="textcircled-fontspec.png">
+</figure>
 
 ## `xunicode` 宏包
 
 在实际使用中，无论是依靠码位，还是借由输入法直接录入这些特殊字符，都不是很方便。
+
+（未完待续）
+
+## 注释
+
+1. <span class="backref" id="fn_font"><a href="#fnref_font">^</a></span>
+   在本页面的 CSS 中，带圈数字使用思源宋体（Source Han Serif）显示，但具体显示结果仍然取决于计算机中字体的安装情况。

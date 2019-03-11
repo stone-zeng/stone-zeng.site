@@ -1,0 +1,19 @@
+.circled-number {
+  // table-layout: fixed;
+  table {
+    width: 100%;
+  }
+  overflow-x: scroll;
+}
+.circled-number-glyph {
+  text-align: center;
+  font-family: 'Noto Serif CJK SC', 'Source Han Serif SC', 'Source Han Serif CN', $mono-font-family;
+  font-size: 24px;
+  border: none;
+}
+.circled-number-encoding {
+  text-align: center;
+  font-family: $mono-font-family;
+  font-size: $small-font-size;
+  line-height: 1ex;
+}
