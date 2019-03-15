@@ -615,4 +615,4 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 ## 注释
 
 1. <span class="backref" id="fn_font"><a href="#fnref_font">^</a></span>
-   在本页面的 CSS 中，带圈数字使用思源宋体（Source Han Serif）显示，但具体显示结果仍然取决于计算机中字体的安装情况。
+   在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于计算机中字体的安装情况。

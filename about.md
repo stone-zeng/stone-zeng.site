@@ -6,11 +6,16 @@ permalink: /about/
 
 Major in theoretical physics. Lover of typesetting and LaTeX.
 
+## 项目
+
+- [fduthesis](https://github.com/stone-zeng/fduthesis) - 复旦大学论文模板
+- [firamath](https://github.com/firamath/firamath) - Sans-serif font with Unicode math support
+
 ## 致谢
 
+- [Font Awesome](https://fontawesome.com)
 - [Inter font family](https://rsms.me/inter/)
 - [Iosevka](https://typeof.net/Iosevka/) & [Sarasa Gothic](https://github.com/be5invis/Sarasa-Gothic)
-- [Font Awesome](https://fontawesome.com)
 - [Jekyll Minima Theme](https://jekyll.github.io/minima/)
 - [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc)
 - [Sticky Sidebar](https://abouolia.github.io/sticky-sidebar/)
