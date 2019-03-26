@@ -78,13 +78,13 @@
 
 .post-content {
   h2, h3, h4, p, ul, ol, pre, figure, table {
-    margin-bottom: $spacing-unit / 4;
+    margin-bottom: $spacing-unit / 2;
   }
 
   h2, h3, h4 {
     color: $link-color;
     font-weight: normal;
-    padding: $spacing-unit / 4 0;
+    padding: $spacing-unit / 2 0;
   }
 
   h2 {
@@ -105,6 +105,8 @@
 
   table {
     max-width: 100%;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
     color: lighten($text-color, 18%);
     border-collapse: collapse;
     border: 1px solid $grey-color-light;
@@ -168,6 +170,7 @@
   pre, code {
     font-family: $mono-font-family;
     background-color: $code-bg-color;
+    font-variant-ligatures: none;
   }
 
   code {

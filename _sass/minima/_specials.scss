@@ -1,9 +1,26 @@
+.font-sample {
+  font-size: 14px;
+  td {
+    text-align: center;
+  }
+  a {
+    border-bottom: none;
+  }
+  a:hover, table.font-sample a:active, table.font-sample a:focus {
+    border-bottom: none;
+  }
+  img {
+    width: 9em;
+    max-width: 100%;
+  }
+}
+
 .circled-number {
-  // table-layout: fixed;
   table {
     width: 100%;
   }
-  overflow-x: scroll;
+  overflow-x: auto;
+  margin-bottom: $spacing-unit / 2;
 }
 .circled-number-glyph {
   text-align: center;

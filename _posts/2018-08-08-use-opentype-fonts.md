@@ -6,25 +6,6 @@ last_modified_at: 2019-01-24
 categories: Fonts
 ---
 
-<style type="text/css">
-  table.font-sample {
-    font-size: 14px;
-  }
-  table.font-sample td {
-    text-align: center;
-  }
-  table.font-sample a {
-    border-bottom: none;
-  }
-  table.font-sample a:hover, table.font-sample a:active, table.font-sample a:focus {
-    border-bottom: none;
-  }
-  table.font-sample img {
-    width: 9em;
-    max-width: 100%;
-  }
-</style>
-
 ## 介绍
 
 现代 TeX 引擎（包括 XeTeX、LuaTeX 和 [ApTeX](https://github.com/clerkma/ptex-ng)）已经全面支持使用 OpenType 字体，因而可以很方便地实现类似 Microsoft Word、Adobe Indesign 等软件的效果。
@@ -60,27 +41,27 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 <table class="font-sample">
   <tr>
-    <th></th>
-    <th>
+    <td></td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Garamond">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/GaramondSpecimenA.svg" alt="Garamond">
       </a>
-    </th>
-    <th>
+    </td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Times_New_Roman">
         <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Times_New_Roman-sample.svg" alt="Times New Roman">
         </a>
-    </th>
-    <th>
+    </td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Century_type_family">
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/CenturySchoolbookSAIB.svg" alt="Century Schoolbook">
       </a>
-    </th>
-    <th>
+    </td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Palatino">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Palatino_font_sample.svg" alt="Palatino">
       </a>
-    </th>
+    </td>
   </tr>
   <tr>
     <td><strong>名称</strong></td>
@@ -104,27 +85,27 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 <table class="font-sample">
   <tr>
-    <th></th>
-    <th>
+    <td></td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Futura_(typeface)">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Futura_Specimen.svg" alt="Futura" >
       </a>
-    </th>
-    <th>
+    </td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Helvetica">
         <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/HelveticaSpecimenCH.svg" alt="Helvetica">
       </a>
-    </th>
-    <th>
+    </td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Frutiger_(typeface)">
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/FrutigerSpec-1.svg" alt="Frutiger">
       </a>
-    </th>
-    <th>
+    </td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Optima">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Optima_font_sample.svg" alt="Optima">
       </a>
-    </th>
+    </td>
   </tr>
   <tr>
     <td><strong>名称</strong></td>
@@ -148,17 +129,17 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 <table class="font-sample">
   <tr>
-    <th></th>
-    <th>
+    <td></td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Courier_(typeface)">
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Courier.svg" alt="Courier New">
       </a>
-    </th>
-    <th>
+    </td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Monaco_(typeface)">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/MonacoSpecimen.svg" alt="Monaco">
       </a>
-    </th>
+    </td>
   </tr>
   <tr>
     <td><strong>名称</strong></td>
@@ -189,17 +170,17 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 <table class="font-sample">
   <tr>
-    <th></th>
-    <th>
+    <td></td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Source_Han_Serif">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Source_Han_Serif.svg" alt="Source Han Serif">
       </a>
-    </th>
-    <th>
+    </td>
+    <td>
       <a href="https://en.wikipedia.org/wiki/Source_Han_Sans">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/SourceHanSans.svg" alt="Source Han Sans">
       </a>
-    </th>
+    </td>
   </tr>
   <tr>
     <td><strong>名称</strong></td>
