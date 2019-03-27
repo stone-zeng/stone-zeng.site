@@ -2,7 +2,7 @@
 layout: post
 title: 带圈数字
 date: 2019-02-09
-last_modified_at: 2019-03-12
+last_modified_at: 2019-03-27
 categories: Symbols
 ---
 
@@ -28,7 +28,7 @@ categories: Symbols
 
 ## Unicode
 
-数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 TeX 引擎（XeTeX 和 LuaTeX）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：<span id="fnref_font" class="footnote">[[1]](#fn_font)</span>
+数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 TeX 引擎（XeTeX 和 LuaTeX，以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：<span id="fnref_font" class="footnote">[[1]](#fn_font)</span>
 
 <div class="circled-number">
   <table>
@@ -575,12 +575,28 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 这些符号分散在以下几个 Unicode 区块（block）中：
 
 - Enclosed Alphanumerics (`U+2460`&ndash;`U+24FF`)
+  - 带圈 0&ndash;20（以及 a&ndash;z、A&ndash;Z）
+  - 反白 0、11&ndash;20
+  - 双线 1&ndash;10
+  - 带圆括号 1&ndash;20
+  - 带点 1&ndash;20
 - Dingbats (`U+2700`&ndash;`U+27BF`)
+  - 反白 1&ndash;10
+  - 无衬线 1&ndash;10
+  - 无衬线反白 1&ndash;10
 - Enclosed CJK Letters and Months (`U+3200`&ndash;`U+32FF`)
+  - 带圈 21&ndash;50
+  - 加框 10&ndash;80（仅限整十）
+  - 带圈 `一`～`十`
+  - 带圆括号 `一`～`十`
 - Enclosed Alphanumeric Supplement (`U+1F100`&ndash;`U+1F1FF`)
+  - 带逗号 0&ndash;9
+  - 无衬线、无衬线反白以及带点的 0
 - Enclosed Ideographic Supplement (`U+1F200`&ndash;`U+1F2FF`)
+  - 带方框 `一`、`二`、`三`
+  - 带六角括号 `二`、`三`
 
-直接输入，或者利用码位，都可以在 LaTeX 中使用以上这些带圈数字（注意不同方法对大小写的要求有差异）：
+直接输入，或者利用码位，都能在 LaTeX 中使用以上这些带圈数字（注意不同方法对大小写的要求有差异）：
 
 ```latex
 \documentclass{article}
@@ -589,30 +605,155 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 \begin{document}
 ① ② ③ ④ ⑤
-
 \symbol{"2776} \symbol{"2777} \symbol{"2778} \symbol{"2779} \symbol{"277A}
-
-\char"3248\ \char"3249\ \char"324A\ \char"324B\ \char"324C
-
-^^^^3280 ^^^^3281 ^^^^3282 ^^^^3283 ^^^^3284
-
-^^^^^1f229 ^^^^^1f214 ^^^^^1f22a
+\char"3248\    \char"3249\    \char"324A\    \char"324B\    \char"324C\
+^^^^3280       ^^^^3281       ^^^^3282       ^^^^3283       ^^^^3284
+^^^^^1f229     ^^^^^1f214     ^^^^^1f22a
 \end{document}
 ```
 
 使用 XeLaTeX 或 LuaLaTeX 编译，效果如下：
 
 <figure>
-  <img src="/images/textcircled-fontspec.png" alt="textcircled-fontspec.png">
+  <img src="/images/textcircled-fontspec.png" alt="textcircled-fontspec">
 </figure>
 
-## `xunicode` 宏包
+## OpenType 的 `nalt` 特性
 
-在实际使用中，无论是依靠码位，还是借由输入法直接录入这些特殊字符，都不是很方便。
+在 OpenType 中，有一项名为 `nalt`（Alternate Annotation Forms）的特性。
 
-（未完待续）
+TODO
+
+## `xunicode-addon` 宏包
+
+在实际使用中，无论是依靠码位，还是借由输入法直接录入这些特殊字符，都不是很方便。在 `xunicode-addon` 宏包（从属于 `xeCJK`）中，`\textcircled` 等一系列命令被重新定义，从而能够显示 Unicode 所分配的带圈数字（和字母等）。举例如下：
+
+```latex
+\documentclass{article}
+\usepackage{fontspec,xunicode-addon}
+\setmainfont{Source Han Serif SC}
+
+\begin{document}
+\textcircled{1}
+\textcircled{25}
+\textcircled{a}
+\textcircled{Z}
+\end{document}
+```
+
+利用 LaTeX3 语法也可以迅速写出如下循环而不伤身体：
+
+```latex
+\ExplSyntaxOn
+\cs_set:Npn \TESTi
+  {
+    \int_step_inline:nnn {  0 } { 25 } { \textcircled{##1} ~ } \par
+    \int_step_inline:nnn { 26 } { 50 } { \textcircled{##1} ~ } \par
+  }
+\cs_set:Npn \TESTii
+  { \tl_map_inline:nn { abcdefghijklmnopqrstuvwxyz } { \textcircled{##1} ~ } \par }
+\cs_set:Npn \TESTiii
+  { \tl_map_inline:nn { ABCDEFGHIJKLMNOPQRSTUVWXYZ } { \textcircled{##1} ~ } \par }
+\ExplSyntaxOff
+
+\TESTi
+\TESTii
+\TESTiii
+```
+
+<figure>
+  <img src="/images/textcircled-xunicode-addon.png" alt="textcircled-xunicode-addon">
+</figure>
+
+当然，其他样式的带圈数字并没有提供快捷的输入方式。
+
+## 在 `ctex` 宏集中使用
+
+以上的案例都是在标准文档类 `article` 中搭配 `fontspec` 宏包完成的。如果切换成 `ctex` 宏集，则需要额外做一些调整。
+
+对于中文文档，我们通常需要为中西文（「西文」主要指 Latin script）分别设置字体。上面已经提到过，带圈数字分散在了几个 Unicode 区块中。`xeCJK` 将其中的 Enclosed CJK Letters and Months 和 Enclosed Ideographic Supplement 设置为了 CJK 字符类，使用中文字体；其余则为 Default 字符类，使用西文字体。
+
+LuaTeX 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 ALchar 和 JAchar 的划分，大致相当于西文和日文（AL=**AL**phabetic，JA=**JA**panese）；同时又预定义了一些字符范围。默认设置中，上文所列的所有带圈数字均会使用日文字体。其后，`ctex` 宏集为了适应中文排版的需求又做了一些修改。结果是，Enclosed Alphanumerics 被设置为了 ALchar，即使用西文字体。
+
+总而言之，在 `ctex` 宏集的默认配置下：
+
+| Unicode 区块                    | XeLaTeX | LuaLaTeX |
+|:-------------------------------:|:-------:|:--------:|
+| Enclosed Alphanumerics          | 西文    | 西文     |
+| Dingbats                        | 西文    | 西文     |
+| Enclosed CJK Letters and Months | 中文    | 中文     |
+| Enclosed Alphanumeric Supplement| 西文    | 西文     |
+| Enclosed Ideographic Supplement | 中文    | 西文     |
+
+在 XeLaTeX 下，可以做如下修改：
+
+```latex
+{% raw %}% 使用中文字体
+\xeCJKDeclareCharClass{CJK}{%
+  "24EA,        % ⓪
+  "2460->"2473, % ①–⑳
+  "3251->"32BF, % ㉑–㊿
+  "24FF,        % ⓿
+  "2776->"277F, % ❶–❿
+  "24EB->"24F4  % ⓫–⓴
+}
+\setCJKmainfont{Source Han Serif SC}
+
+% 或使用西文字体
+% \xeCJKDeclareCharClass{Default}{%
+%   "24EA, "2460->"2473, "3251->"32BF,
+%   "24FF, "2776->"277F, "24EB->"24F4}
+% \setmainfont{Garamond-Math.otf}{% endraw %}
+```
+
+在 LuaLaTeX 下，也完全类似：
+
+```latex
+{% raw %}% 使用中文字体
+\ltjdefcharrange{6}{%
+  "24EA, "2460-"2473, "3251-"32BF,
+  "24FF, "2776-"277F, "24EB-"24F4}
+\setCJKmainfont{Source Han Serif SC}
+
+% 或使用西文字体
+% \ltjdefcharrange{3}{%
+%   "24EA, "2460-"2473, "3251-"32BF,
+%   "24FF, "2776-"277F, "24EB-"24F4}
+% \setmainfont{Garamond-Math.otf}{% endraw %}
+```
+
+这里的 `6` 和 `3` 原先分别对应日文字符和西文标点、符号。还需注意范围的写法与 `xeCJK` 中不同。
+
+配合 `xunicode-addon` 宏包，在 `ctex` 宏集中也同样可以使用 `\textcircled` 命令输入预定义的带圈数字。但需注意，`\textcircled` 会预先检查字符是否存在，且仅在西文字体中进行。所以如需使用中文字体进行显示，就要「指鹿为马」：
+TODO： 感谢李清
+
+```latex
+% XeLaTeX 下需要把全体带圈数字都设置成 Default 类
+% LuaLaTeX 下无须额外设置
+\xeCJKDeclareCharClass{Default}{"24EA, "2460->"2473, "3251->"32BF}
+
+% 将中文字体声明为（西文）字体族
+\newfontfamily\EnclosedNumbers{Source Han Serif SC}
+
+% 放置钩子，只让带圈字符才需更换字体
+\AtBeginUTFCommand[\textcircled]{\begingroup\EnclosedNumbers}
+\AtEndUTFCommand[\textcircled]{\endgroup}
+```
+
+对于字体中没有的带圈数字，`\textcircled` 也能够自动生成（由圆圈和相应的数字拼合）。选择合适的字体之后，便可做一些比较暴力的尝试：
+
+<figure>
+  <img src="/images/textcircled-matrix.png" alt="textcircled-matrix">
+</figure>
+
+即使是三位数，效果也尚能接受。
+TODO: 字体的选择
+
+## Adobe Japan1-6
+
+## 字体的选择
 
 ## 注释
 
 1. <span class="backref" id="fn_font"><a href="#fnref_font">^</a></span>
-   在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于计算机中字体的安装情况。
+   在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于字体的安装情况以及浏览器的渲染方式。
