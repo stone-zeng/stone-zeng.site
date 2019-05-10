@@ -167,7 +167,7 @@ LaTeX3 中，变量的名称包括四个部分：作用域（`scope`）、模块
 - `box`：盒子变量
 - `dimen`：刚性长度（**dimen**sion）
 - `skip`：弹性长度
-- `muskip`：数学弹性长度（**skip** in **mu** unit）
+- `muskip`：数学弹性长度（**skip** in **m**ath **u**nit）
 
 LaTeX3 在 TeX 的基础上做了很大的扩充，新定义了一些新的变量类型。
 

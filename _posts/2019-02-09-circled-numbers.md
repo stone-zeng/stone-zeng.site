@@ -2,7 +2,7 @@
 layout: post
 title: 带圈数字
 date: 2019-02-09
-last_modified_at: 2019-03-27
+last_modified_at: 2019-05-10
 categories: Symbols
 ---
 
@@ -28,7 +28,7 @@ categories: Symbols
 
 ## Unicode
 
-数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 TeX 引擎（XeTeX 和 LuaTeX，以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：<span id="fnref_font" class="footnote">[[1]](#fn_font)</span>
+数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 TeX 引擎（XeTeX 和 LuaTeX，若无特殊说明以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：<span id="fnref_font" class="footnote">[[1]](#fn_font)</span>
 
 <div class="circled-number">
   <table>
@@ -618,12 +618,6 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
   <img src="/images/textcircled-fontspec.png" alt="textcircled-fontspec">
 </figure>
 
-## OpenType 的 `nalt` 特性
-
-在 OpenType 中，有一项名为 `nalt`（Alternate Annotation Forms）的特性。
-
-TODO
-
 ## `xunicode-addon` 宏包
 
 在实际使用中，无论是依靠码位，还是借由输入法直接录入这些特殊字符，都不是很方便。在 `xunicode-addon` 宏包（从属于 `xeCJK`）中，`\textcircled` 等一系列命令被重新定义，从而能够显示 Unicode 所分配的带圈数字（和字母等）。举例如下：
@@ -724,8 +718,7 @@ LuaTeX 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 ALc
 
 这里的 `6` 和 `3` 原先分别对应日文字符和西文标点、符号。还需注意范围的写法与 `xeCJK` 中不同。
 
-配合 `xunicode-addon` 宏包，在 `ctex` 宏集中也同样可以使用 `\textcircled` 命令输入预定义的带圈数字。但需注意，`\textcircled` 会预先检查字符是否存在，且仅在西文字体中进行。所以如需使用中文字体进行显示，就要「指鹿为马」：
-TODO： 感谢李清
+配合 `xunicode-addon` 宏包，在 `ctex` 宏集中也同样可以使用 `\textcircled` 命令输入预定义的带圈数字。但需注意，`\textcircled` 会预先检查字符是否存在，且仅在西文字体中进行。所以如需使用中文字体进行显示，就要「指鹿为马」：<span id="fnref_textcircled-ctex" class="footnote">[[2]](#fn_textcircled-ctex)</span>
 
 ```latex
 % XeLaTeX 下需要把全体带圈数字都设置成 Default 类
@@ -742,18 +735,362 @@ TODO： 感谢李清
 
 对于字体中没有的带圈数字，`\textcircled` 也能够自动生成（由圆圈和相应的数字拼合）。选择合适的字体之后，便可做一些比较暴力的尝试：
 
+<!--
+```latex
+\documentclass{standalone}
+\usepackage{ctex,xunicode-addon}
+\xeCJKDeclareCharClass{Default}{"24EA, "2460->"2473, "3251->"32BF}
+\newfontfamily\EnclosedNumbers{Source Han Serif SC}
+\AtBeginUTFCommand[\textcircled]{\begingroup\EnclosedNumbers}
+\AtEndUTFCommand[\textcircled]{\endgroup}
+\makeatletter
+\ExplSyntaxOn
+\int_const:Nn \c_@@_col_int { 50 }
+\int_const:Nn \c_@@_row_int { 20 }
+\cs_set:Npn \TEST
+  {
+    \exp_args:Nnx \begin{tabular}{ * { \int_use:N \c_@@_col_int } { @{} c } @{} }
+      \int_step_inline:nnn {0} { \c_@@_row_int - 2 }
+        { \@@_row:x { \int_eval:n { ##1 * \c_@@_col_int } } \\ }
+      \@@_row:x { \int_eval:n { (\c_@@_row_int - 1) * \c_@@_col_int } }
+    \end{tabular}
+  }
+\cs_set:Npn \@@_row:n #1
+  {
+    \int_step_inline:nnn {#1} { #1 + \c_@@_col_int - 2 } { \textcircled {##1} & }
+    \exp_args:Nx \textcircled { \int_eval:n { #1 + \c_@@_col_int - 1 } }
+  }
+\cs_generate_variant:Nn \@@_row:n { x }
+\ExplSyntaxOff
+\makeatother
+
+\begin{document}
+\TEST
+\end{document}
+```
+-->
+
 <figure>
   <img src="/images/textcircled-matrix.png" alt="textcircled-matrix">
 </figure>
 
 即使是三位数，效果也尚能接受。
-TODO: 字体的选择
 
-## Adobe Japan1-6
+## OpenType 的 `nalt` 特性
+
+在 OpenType 中，有一项名为 [`nalt`](https://docs.microsoft.com/typography/opentype/spec/features_ko#nalt)（Alternate Annotation Forms）的 GSUB 特性，它的作用是把特定的字符形替换成符号标注形式（notational forms）。不少日文字体都包含这一特性，我们可以利用 `fontspec` 宏包提供的相关选项调用。举例如下：
+
+```latex
+\documentclass{article}
+\usepackage{fontspec}
+\setmainfont{ipaexm.ttf}  % IPAex 明朝，TeX Live 自带
+
+\begin{document}
+{\addfontfeature{Annotation=0}123456789}
+{\addfontfeature{Annotation=1}123456789}
+{\addfontfeature{Annotation=2}123456789}
+\end{document}
+```
+
+<figure>
+  <img src="/images/textcircled-nalt.png" alt="textcircled-nalt">
+</figure>
+
+需要注意的是，`Annotation=X` 中的某个 `X` 具体对应何种样式，这是由字体设计者决定的。此外，在一些字体中，部分假名、汉字也有类似的标注形式，可以用相同方法使用：
+
+```latex
+\documentclass{ctexart}
+\setCJKmainfont{Hiragino Mincho Pro W3}
+
+\begin{document}
+{\addCJKfontfeature{Annotation=0}あア}
+{\addCJKfontfeature{Annotation=1}かカ}
+{\addCJKfontfeature{Annotation=2}さサ}
+{\addCJKfontfeature{Annotation=3}たタ}
+{\addCJKfontfeature{Annotation=4}なナ}
+{\addCJKfontfeature{Annotation=5}はハ}
+{\addCJKfontfeature{Annotation=6}まマ}
+\end{document}
+```
+
+<figure>
+  <img src="/images/textcircled-nalt-kana.png" alt="textcircled-nalt-kana">
+</figure>
+
+这里我们用 `\addCJKfontfeature` 代替了 `\addfontfeature`。此处作为演示的字体是 macOS 自带的<span lang="ja">ヒラギノ明朝</span>，在 Windows/Linux 上可换用其他字体。
+
+## Adobe-Japan1-7
+
+[Adobe-Japan1-7 字符集](https://github.com/adobe-type-tools/Adobe-Japan1)定义了更多的带圈数字，很多样式都支持 0&ndash;100 的数字范围。但由于 Unicode 没有为它们分配码位，我们必须用 CID（**C**haracter **ID**entifier）来指定。<span id="fnref_cid" class="footnote">[[3]](#fn_cid)</span>
+
+由于 CID 到具体字符的映照比较复杂，因而这里我们提供了一个宏包 [`textcircle-cid`](https://github.com/stone-zeng/latex-showcase/blob/master/textcircle-cid/textcircle-cid.sty)，用来通过 CID 调用带圈数字。`textcircle-cid` 宏包提供了下面一组命令：
+
+- `\CIDtextcircled`
+- `\CIDtextblackcircled`
+- `\CIDtextboxed`
+- `\CIDtextblackboxed`
+- `\CIDtextrboxed`
+- `\CIDtextblackrboxed`
+
+支持的数字范围是 0&ndash;100 和 00&ndash;09。XeTeX、LuaTeX 和 upTeX 这三种 Unicode 引擎均可使用，但需要配合其他宏包及命令以实现正确的字体调用：
+
+- XeLaTeX 下需要通过 `\setmainfont` 等命令设置字体
+- LuaLaTeX 下需要通过 `\setmainjfont` 等命令设置（日文）字体
+- upLaTeX 下需要调用 `pxchfon` 宏包，并且使用 `\setminchofont` 等命令设置字体，具体可以参考以下示例：
+
+  ```latex
+  {% raw %}% test-uptex.tex
+  \documentclass{ujarticle}
+  \usepackage{pxchfon,textcircle-cid}
+  \setminchofont{KozMinPr6N-Regular.otf}
+  \setgothicfont{KozGoPr6N-Regular.otf}
+
+  \def\TEST{%
+    \CIDtextcircled{0}
+    \CIDtextblackcircled{1}
+    \CIDtextboxed{00}
+    \CIDtextblackboxed{10}
+    \CIDtextrboxed{50}
+    \CIDtextblackrboxed{100}}
+
+  \begin{document}
+  \textmc{\TEST} \par
+  \textgt{\TEST}
+  \end{document}{% endraw %}
+  ```
+
+  <figure>
+    <img src="/images/textcircled-cid-uptex.png" alt="textcircled-cid-uptex">
+  </figure>
+
+  注意 upTeX 不直接生成 PDF，因此编译时可采取如下方式：
+
+  ```sh
+  uplatex test-uptex && dvipdfmx test-uptex
+  ```
+
+  在上面的示例中，我们使用的字体是 Adobe 的<span lang="ja">小塚明朝</span>和<span lang="ja">小塚ゴシック</span>。事实上，只有遵从 Adobe-Japan1 的字体，才能利用 CID 正确地调用相应的字符。
 
 ## 字体的选择
+
+上文我们多次提及，带圈数字的具体使用与字体密切相关。下面我们整理了 TeX Live 自带的、可使用带圈数字的字体，以及对应的数字范围：
+
+<div class="circled-number-fonts">
+  <table>
+    <thead>
+      <tr>
+        <th>字体</th>
+        <th>带圈</th>
+        <th>反白</th>
+        <th>无衬线</th>
+        <th>无衬线反白</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="circled-number-fonts-name">Baekmuk Batang/Dotum/Gulim/Headline</td>
+        <td>1&ndash;15</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">Carlito</td>
+        <td>0&ndash;20</td>
+        <td>0&ndash;20</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">DejaVuSans</td>
+        <td>1&ndash;10</td>
+        <td>1&ndash;10</td>
+        <td>1&ndash;10</td>
+        <td>1&ndash;10</td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">FreeMono, FreeSans</td>
+        <td>1&ndash;10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">FreeSerif</td>
+        <td>1&ndash;10</td>
+        <td>1&ndash;10</td>
+        <td>1&ndash;10</td>
+        <td>1&ndash;10</td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">Garamond Math</td>
+        <td>0&ndash;50</td>
+        <td>0&ndash;20</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">IPAGothic, IPAMincho</td>
+        <td>1&ndash;50</td>
+        <td>1&ndash;20</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">Junicode</td>
+        <td>0&ndash;20</td>
+        <td>0&ndash;20</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">Lato</td>
+        <td>0&ndash;20</td>
+        <td>0&ndash;20</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">Libertinus Serif/Sans/Math, Linux Libertine, Linux Biolinum</td>
+        <td>0&ndash;20</td>
+        <td>0&ndash;20</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">Libertinus Keyboard, Linux Biolinum Keyboard</td>
+        <td></td>
+        <td>1&ndash;10</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">STIX, STIX Math</td>
+        <td>0&ndash;9</td>
+        <td></td>
+        <td>1&ndash;10</td>
+        <td>1&ndash;10</td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">STIX Two Math</td>
+        <td>0&ndash;20</td>
+        <td>0&ndash;20</td>
+        <td>1&ndash;10</td>
+        <td>1&ndash;10</td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">UnBatang, UnDinaru, UnDotum, UnGraphic, UnGungseo, UnJamoBatang, UnJamoDotum, UnJamoNovel, UnJamoSora, UnPen, UnPenheulim, UnPilgi, UnPilgia, UnShinmun, UnVada, UnYetgul</td>
+        <td>0&ndash;20</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">XITS, XITS Math</td>
+        <td>0&ndash;9</td>
+        <td></td>
+        <td>1&ndash;10</td>
+        <td>1&ndash;10</td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">文鼎ＰＬ简报宋、文鼎ＰＬ简中楷</td>
+        <td>1&ndash;10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+以下是其他一些常见中、日文字体，其中很多是操作系统自带的：
+
+<div class="circled-number-fonts">
+  <table>
+    <thead>
+      <tr>
+        <th>字体</th>
+        <th>带圈</th>
+        <th>反白</th>
+        <th>无衬线</th>
+        <th>无衬线反白</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="circled-number-fonts-name">思源宋体、思源黑体</td>
+        <td>0&ndash;50</td>
+        <td>0&ndash;20</td>
+        <td>0&ndash;10</td>
+        <td>0&ndash;10</td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">微软雅黑、微软正黑</td>
+        <td>1&ndash;10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">苹方</td>
+        <td>0&ndash;50</td>
+        <td>0&ndash;20</td>
+        <td>0&ndash;10</td>
+        <td>1&ndash;10</td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">方正书宋、方正黑体、方正楷体、方正仿宋、等线</td>
+        <td>1&ndash;10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">宋体、黑体、楷体、仿宋（中易）</td>
+        <td>1&ndash;10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name">更纱黑体 (Sarasa Gothic)</td>
+        <td>0&ndash;50</td>
+        <td>0&ndash;20</td>
+        <td>0&ndash;10</td>
+        <td>0&ndash;10</td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name"><span lang="ja">小塚明朝</span> (Kozuka Mincho)、<span lang="ja">小塚ゴシック</span> (Kozuka Gothic)</td>
+        <td>0&ndash;100</td>
+        <td>0&ndash;100</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name"><span lang="ja">游明朝</span> (Yu Mincho)、<span lang="ja">游ゴシック</span> (Yu Gothic)</td>
+        <td>0&ndash;100</td>
+        <td>0&ndash;100</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="circled-number-fonts-name"><span lang="ja">メイリオ</span> (Meiryo)</td>
+        <td>0&ndash;50</td>
+        <td>1&ndash;20</td>
+        <td>0&ndash;10</td>
+        <td>1&ndash;10</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+这里我们用了 Python 脚本 [`check-circled-number.py`](https://github.com/stone-zeng/latex-showcase/blob/master/textcircle-cid/check-circled-number.py) 来读取字体信息，它还依赖 [FontForge](https://fontforge.github.io/)。注意由于字体版本不同，不保证表中所列结果与实际情况完全一致。
 
 ## 注释
 
 1. <span class="backref" id="fn_font"><a href="#fnref_font">^</a></span>
    在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于字体的安装情况以及浏览器的渲染方式。
+1. <span class="backref" id="fn_textcircled-ctex"><a href="#fnref_textcircled-ctex">^</a></span>
+   感谢 [@qinglee](https://github.com/qinglee) 的指导！见 CTeX-org/ctex-kit [#399](https://github.com/CTeX-org/ctex-kit/issues/399)。
+1. <span class="backref" id="fn_cid"><a href="#fnref_cid">^</a></span>
+   感谢 [@clerkma](https://github.com/clerkma) 的指导！见 CTeX-org/forum [#20](https://github.com/CTeX-org/forum/issues/20)。

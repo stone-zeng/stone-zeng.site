@@ -34,3 +34,15 @@
   font-size: $small-font-size;
   line-height: 1ex;
 }
+.circled-number-fonts {
+  table {
+    width: 100%;
+  }
+  overflow-x: auto;
+  margin-bottom: $spacing-unit / 2;
+  text-align: center;
+  white-space: nowrap;
+}
+.circled-number-fonts-name {
+  white-space: normal;
+}
