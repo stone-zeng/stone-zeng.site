@@ -11,16 +11,16 @@ categories: Fonts
 
 废话不多说。截至目前（2019 年初），可变字体的支持仍然相当受限。目前已知的有：
 
-- 主要浏览器端<span id="fnref_can-i-use-vf" class="footnote">[[1]](#fn_can-i-use-vf)</span>
+- 主要浏览器端<span id="fnref-can-i-use-vf" class="footnote">[[1]](#fn-can-i-use-vf)</span>
   - Chrome 66+
   - FireFox 62+
   - Edge 17+
   - Safari 11+
   - Opera 53+
-- Adobe 软件套装<span id="fnref_wiki-vf" class="footnote">[[2]](#fn_wiki-vf)</span>
+- Adobe 软件套装<span id="fnref-wiki-vf" class="footnote">[[2]](#fn-wiki-vf)</span>
   - Photoshop CC 2018+
   - Illustrator CC 2018+
-- ConTeXt beta 版（2017-04 之后）<span id="fnref_hans-context_a" class="footnote">[[3]](#fn_hans-context)</span>
+- ConTeXt beta 版（2017-04 之后）<span id="fnref-hans-context-a" class="footnote">[[3]](#fn-hans-context)</span>
 
 在 TeX 界，目前尝试可变字体的唯一选择便是使用这个 beta 版的 ConTeXt。LaTeX 方面至今还没有实现。
 
@@ -28,7 +28,7 @@ categories: Fonts
 
 ### Bahnschrift
 
-我们参考 <a id="fnref_hans-context_b" href="#fn_hans-context">[3]</a> 和 Hans Hagen 在 ConTeXt 2017 年会上的[报告](https://meeting.contextgarden.net/2017/talks/2017-09-12-hans-variable-fonts/variable-fonts.pdf)和随后在 *TUGboat* 上发表的[文章](https://tug.org/TUGboat/tb38-2/tb119hagen-variable.pdf)，便可以如愿使用 OpenType 可变字体。
+我们参考 <a id="fnref-hans-context-b" href="#fn-hans-context">[3]</a> 和 Hans Hagen 在 ConTeXt 2017 年会上的[报告](https://meeting.contextgarden.net/2017/talks/2017-09-12-hans-variable-fonts/variable-fonts.pdf)和随后在 *TUGboat* 上发表的[文章](https://tug.org/TUGboat/tb38-2/tb119hagen-variable.pdf)，便可以如愿使用 OpenType 可变字体。
 
 相比 LaTeX，ConTeXt 的内核设计得比较庞大，通过 Lua 又可以玩各式花样，所以不再需要调用大堆宏包，而是可以直接用原生命令定义各种样式。
 
@@ -149,13 +149,13 @@ categories: Fonts
 
 ## 注释
 
-1. <span class="backref" id="fn_can-i-use-vf"><a href="#fnref_can-i-use-vf">^</a></span>
+1. <span class="backref" id="fnref-can-i-use-vf"><a href="#fnref-can-i-use-vf">^</a></span>
    [Can I use... Support tables for HTML5, CSS3, etc - Variable fonts](https://caniuse.com/#feat=variable-fonts)
-1. <span class="backref" id="fn_wiki-vf"><a href="#fnref_wiki-vf">^</a></span>
+1. <span class="backref" id="fnref-wiki-vf"><a href="#fnref-wiki-vf">^</a></span>
    Wikipedia. [Variable fonts](https://en.wikipedia.org/wiki/Variable_fonts)
-1. <span class="backref" id="fn_hans-context">
-     <a href="#fnref_hans-context_a">a</a>
-     <a href="#fnref_hans-context_b">b</a>
+1. <span class="backref" id="fnref-hans-context">
+     <a href="#fnref-hans-context-a">a</a>
+     <a href="#fnref-hans-context-b">b</a>
    </span>
    Hans Hagen. [[NTG-context] beta](https://mailman.ntg.nl/pipermail/ntg-context/2017/088343.html)
 

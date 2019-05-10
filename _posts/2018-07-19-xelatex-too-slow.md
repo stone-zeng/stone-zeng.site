@@ -11,7 +11,7 @@ Windows 平台使用 XeLaTeX 编译时，偶尔会出现卡住不动的情况。
 
 正常情况下，`xetex` 在发现字体变动时，会自动调用 `fontconfig` 库刷新字体缓存，因此在后续编译过程中速度便可恢复正常。
 
-不过，在 Windows 下 TeX Live 2016、2017 似乎实现有问题（fontconfig [Bug 99360](https://bugs.freedesktop.org/show_bug.cgi?id=99360)），导致 `xetex` 在刷新缓存时无法正确覆盖旧的文件，因此每次编译都需花费大量时间<span id="fnref_tl2018" class="footnote">[[1]](#fn_tl2018)</span>。
+不过，在 Windows 下 TeX Live 2016、2017 似乎实现有问题（fontconfig [Bug 99360](https://bugs.freedesktop.org/show_bug.cgi?id=99360)），导致 `xetex` 在刷新缓存时无法正确覆盖旧的文件，因此每次编译都需花费大量时间<span id="fnref-tl2018" class="footnote">[[1]](#fn-tl2018)</span>。
 
 ## 解决方法
 
@@ -34,17 +34,17 @@ fc-cache
 - 加上选项 `-f` 或 `-r` 来执行 `fc-cache`
 - 开启管理员权限，即在「命令提示符（管理员）」中执行上述命令
 - 删除字体缓存目录（`texlive/<年份>/texmf-var/fonts/cache/`）下的所有文件，并检查目录权限
-- 在 `xelatex.exe`（位于 `texlive/<年份>/bin/win32/` 下）的属性中设置「以兼容性模式运行这个程序：Windows 7」<span id="fnref_thuthesis_a" class="footnote">[[2]](#fn_thuthesis)</span>
-- 设置兼容性模式后再取消<span id="fnref_thuthesis_b" class="footnote">[[2]](#fn_thuthesis)</span>
+- 在 `xelatex.exe`（位于 `texlive/<年份>/bin/win32/` 下）的属性中设置「以兼容性模式运行这个程序：Windows 7」<span id="fnref-thuthesis-a" class="footnote">[[2]](#fn-thuthesis)</span>
+- 设置兼容性模式后再取消<span id="fnref-thuthesis-b" class="footnote">[[2]](#fn-thuthesis)</span>
 - 卸载并重新安装 TeX Live
 
 ## 注释
 
-1. <span class="backref" id="fn_tl2018"><a href="#fnref_tl2018">^</a></span>
+1. <span class="backref" id="fnref-tl2018"><a href="#fnref-tl2018">^</a></span>
    该问题在 TeX Live 2018 中应该已经得到修复。
-1. <span class="backref" id="fn_thuthesis">
-     <a href="#fnref_thuthesis_a">a</a>
-     <a href="#fnref_thuthesis_b">b</a>
+1. <span class="backref" id="fnref-thuthesis">
+     <a href="#fnref-thuthesis-a">a</a>
+     <a href="#fnref-thuthesis-b">b</a>
    </span>
    原因不明，见 xueruini/thuthesis [#278](https://github.com/xueruini/thuthesis/issues/278) 中的讨论。
 
