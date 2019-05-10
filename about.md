@@ -28,7 +28,7 @@ Major in theoretical physics. Lover of typesetting and LaTeX.
 若无特殊声明，本站所有文章均按照 [CC BY-SA 4.0 协议](https://creativecommons.org/licenses/by-sa/4.0/)发布。
 
 <div class="cc-by-sa-logo">
-  <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg">
-  <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg">
-  <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg">
+  <i class="fab fa-creative-commons"></i>
+  <i class="fab fa-creative-commons-by"></i>
+  <i class="fab fa-creative-commons-sa"></i>
 </div>

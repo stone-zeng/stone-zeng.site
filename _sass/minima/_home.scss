@@ -35,12 +35,6 @@
 .cc-by-sa-logo {
   text-align: center;
   margin-top: $spacing-unit / 2;
-
-  img {
-    padding: 2px;
-    width: 36px;
-  }
-    svg path {
-      fill: red;
-    }
+  font-size: 36px;
+  color: $text-color;
 }
