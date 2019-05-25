@@ -125,7 +125,7 @@ LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 年），�
 1. <span class="backref" id="fnref-footnote"><a href="#fnref-footnote">^</a></span>
    李清. [LaTeX 脚注要怎么在行内垂直居中呢？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
 1. <span class="backref" id="fnref-expandafter"><a href="#fnref-expandafter">^</a></span>
-   2015 年 `CTeX` 宏集进行了较为彻底的重构，这里给出的代码实际上已经不再使用，但仍然保留在[代码库](https://github.com/CTeX-org/ctex-kit/blob/ctex-1.02d/def/ctex-common.def#L44-L50)中。参考：刘海洋. [多个 \expandafter 的展开过程是怎样的？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213) 
+   2015 年 `CTeX` 宏集进行了较为彻底的重构，这里给出的代码实际上已经不再使用，但仍然保留在[代码库](https://github.com/CTeX-org/ctex-kit/blob/ctex-1.02d/def/ctex-common.def#L44-L50)中。参考：刘海洋. [多个 \expandafter 的展开过程是怎样的？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
 
 ## 参考
 
