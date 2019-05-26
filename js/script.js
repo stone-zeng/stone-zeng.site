@@ -25,7 +25,7 @@ const ZH_PUNCT_MAP = ([
   [/([，、：；。！？])([（「《])/g,                         '<span class="zh-punct-kern">$1</span>$2'],
   [/([）」》])([，、：；。！？]|<span class="zh-punct">)/g, '<span class="zh-punct-kern">$1</span>$2'],
   [/([）」》])([（「《])/g,                                 '<span class="zh-lrpunct-kern">$1</span>$2'],
-  [/^[（「《]/g,                                            '<span class="zh-punct-bound">$1</span>'],
+  [/^([（「《])/g,                                          '<span class="zh-punct-bound">$1</span>'],
 ]);
 
 function tex_logo_replacer(match, name, offset, string) {
