@@ -32,6 +32,15 @@ main {
   font-family: $punct-font-family;
   font-feature-settings: "fwid";
 }
+.zh-punct-kern{
+  letter-spacing: -.5em;
+}
+.zh-lrpunct-kern {
+  letter-spacing: -.8em;
+}
+.zh-punct-bound {
+  margin-left: -.5em;
+}
 
 // /**
 //  * Clearfix
