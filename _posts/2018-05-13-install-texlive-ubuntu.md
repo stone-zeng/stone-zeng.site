@@ -1,23 +1,23 @@
 ---
 layout: post
-title: 在 Ubuntu 中安装 TeX Live 2018
+title: 在 Ubuntu 中安装 <span class="tex-logo">TeX</span> Live 2018
 date: 2018-05-13
 last_modified_at: 2019-01-24
 categories: TeX Live
 ---
 
-Ubuntu 安装源已经打包了 TeX Live。对于大部分的用户，源里面的 TeX Live 安装简单，稳定性通常也足够，所以可以直接安装<span id="fnref-li-a-ling" class="footnote">[[1]](#fn-li-a-ling)</span>。为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）：
+Ubuntu 安装源已经打包了 <span class="tex-logo">TeX</span> Live。对于大部分的用户，源里面的 <span class="tex-logo">TeX</span> Live 安装简单，稳定性通常也足够，所以可以直接安装<span id="fnref-li-a-ling" class="footnote">[[1]](#fn-li-a-ling)</span>。为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）：
 
 ```sh
 sudo apt-get install texlive-full
 ```
 
-然而，源里面的 TeX Live 相比于「纯净版」，也有一些缺点：
+然而，源里面的 <span class="tex-logo">TeX</span> Live 相比于「纯净版」，也有一些缺点：
 
-- 相比于几乎每日都有更新的 CTAN，源里面的 TeX Live 更新较慢，频率接近每月一次，对于宏包开发者和有特殊需要的 TeX 用户是远远不够的
-- 不使用 TeX Live 自带的包管理器，也就不能通过 `tlmgr` 安装、管理和更新宏包（当然实际上跟上一条说的是一件事）
+- 相比于几乎每日都有更新的 CTAN，源里面的 <span class="tex-logo">TeX</span> Live 更新较慢，频率接近每月一次，对于宏包开发者和有特殊需要的 <span class="tex-logo">TeX</span> 用户是远远不够的
+- 不使用 <span class="tex-logo">TeX</span> Live 自带的包管理器，也就不能通过 `tlmgr` 安装、管理和更新宏包（当然实际上跟上一条说的是一件事）
 
-下面就介绍安装「纯净版」TeX Live 的方法。
+下面就介绍安装「纯净版」<span class="tex-logo">TeX</span> Live 的方法。
 
 ## 下载安装包
 
@@ -33,7 +33,7 @@ tar -xzf install-tl-unx.tar.gz
 cd install-tl-2018*
 ```
 
-## 安装 TeX Live
+## 安装 <span class="tex-logo">TeX</span> Live
 
 命令行中执行
 
@@ -49,7 +49,7 @@ sudo apt-get install perl-tk perl-doc
 
 等待片刻后会进入选项菜单，根据需要酌情选取。也可以事先写好配置文件 `texlive.profile`<span id="fnref-profile" class="footnote">[[2]](#fn-profile)</span>。
 
-没有特殊需要的话，collection 可以不必全部安装，尤其是很多小语种。不过后果是之后可能会缺包。不愿意之后手动安装，并且空间足够、网速足够，也可以全部安装。注意 TeX Live 完全安装后大约要占 6 GB 空间，安装前请务必做好准备。中途断网很可能导致安装失败。
+没有特殊需要的话，collection 可以不必全部安装，尤其是很多小语种。不过后果是之后可能会缺包。不愿意之后手动安装，并且空间足够、网速足够，也可以全部安装。注意 <span class="tex-logo">TeX</span> Live 完全安装后大约要占 6 GB 空间，安装前请务必做好准备。中途断网很可能导致安装失败。
 
 其他选项没有必要保持默认即可。
 
@@ -75,7 +75,7 @@ TODO
 
 ## 环境变量设置
 
-此时 TeX Live 虽已安装，但其路径对于 Linux 来说仍是不可识别的。所以需要更改环境变量。
+此时 <span class="tex-logo">TeX</span> Live 虽已安装，但其路径对于 Linux 来说仍是不可识别的。所以需要更改环境变量。
 
 打开 `~/.bashrc`，在最后添加
 
@@ -105,11 +105,11 @@ Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 Defaults        secure_path="/usr/local/texlive/2018/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 ```
 
-也就是加入 TeX Live 的执行路径。如果在安装时作了修改，这里的路径也都要与安装时的保持一致。
+也就是加入 <span class="tex-logo">TeX</span> Live 的执行路径。如果在安装时作了修改，这里的路径也都要与安装时的保持一致。
 
 ## 字体设置
 
-要在整个系统中使用 TeX 字体，还需要将 TeX 自带的配置文件复制到系统目录下。命令行中执行
+要在整个系统中使用 <span class="tex-logo">TeX</span> 字体，还需要将 <span class="tex-logo">TeX</span> 自带的配置文件复制到系统目录下。命令行中执行
 
 ```sh
 sudo cp /usr/local/texlive/2018/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
@@ -129,7 +129,7 @@ TODO
 
 ## 检查
 
-到此整个 TeX Live 2018 就已经安装完毕。可以做下面的一些检查：
+到此整个 <span class="tex-logo">TeX</span> Live 2018 就已经安装完毕。可以做下面的一些检查：
 
 ### 基本命令
 
@@ -173,19 +173,19 @@ xelatex hello
 lualatex hello
 ```
 
-编译得到的 PDF 文件如果显示正常，则说明 TeX Live 基本工作正常。
+编译得到的 PDF 文件如果显示正常，则说明 <span class="tex-logo">TeX</span> Live 基本工作正常。
 
 ## 注释
 
 1. <span class="backref" id="fnref-li-a-ling"><a href="#fnref-li-a-ling">^</a></span>
-   李阿玲. [还是不要装源里面的 TeX Live！](https://zhuanlan.zhihu.com/p/19699561) 这篇文章写于 2014 年，现在来看也未必完全合理。
+   李阿玲. [还是不要装源里面的 <span class="tex-logo">TeX</span> Live！](https://zhuanlan.zhihu.com/p/19699561) 这篇文章写于 2014 年，现在来看也未必完全合理。
 1. <span class="backref" id="fnref-profile"><a href="#fnref-profile">^</a></span>
-   见 [`texlive.profile`](https://github.com/latex3/latex3/blob/master/support/texlive.profile)。这一配置文件用于 LaTeX3 的代码测试。
+   见 [`texlive.profile`](https://github.com/latex3/latex3/blob/master/support/texlive.profile)。这一配置文件用于 <span class="tex-logo">LaTeX3</span> 的代码测试。
 
 ## 参考
 
-1. Karl Berry. 江疆 译. [TeX Live 指南——2018](http://tug.org/texlive/doc/texlive-zh-cn/texlive-zh-cn.pdf)
+1. Karl Berry. 江疆 译. [<span class="tex-logo">TeX</span> Live 指南——2018](http://tug.org/texlive/doc/texlive-zh-cn/texlive-zh-cn.pdf)
 1. [TeX Live and Debian/Ubuntu](https://www.tug.org/texlive/debian.html)
 1. [Ubuntu 软件包: `texlive-full`](https://packages.ubuntu.com/disco/texlive-full)
-1. @Dima. [How to install "vanilla" TeXLive on Debian or Ubuntu?](https://tex.stackexchange.com/q/1092)
-1. Enrico Gregorio. [Installing TeX Live 2010 on Ubuntu](http://www.tug.org/TUGboat/tb32-1/tb100gregorio.pdf)
+1. @Dima. [How to install &ldquo;vanilla&rdquo; TeXLive on Debian or Ubuntu?](https://tex.stackexchange.com/q/1092)
+1. Enrico Gregorio. [Installing <span class="tex-logo">TeX</span> Live 2010 on Ubuntu](http://www.tug.org/TUGboat/tb32-1/tb100gregorio.pdf)

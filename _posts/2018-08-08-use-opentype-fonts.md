@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 在 LaTeX 中使用 OpenType 字体
+title: 在 <span class="tex-logo">LaTeX</span> 中使用 OpenType 字体
 date: 2018-08-08
 last_modified_at: 2019-01-24
 categories: Fonts
@@ -8,7 +8,7 @@ categories: Fonts
 
 ## 介绍
 
-现代 TeX 引擎（包括 XeTeX、LuaTeX 和 [ApTeX](https://github.com/clerkma/ptex-ng)）已经全面支持使用 OpenType 字体，因而可以很方便地实现类似 Microsoft Word、Adobe Indesign 等软件的效果。
+现代 <span class="tex-logo">TeX</span> 引擎（包括 <span class="tex-logo">XeTeX</span>、<span class="tex-logo">LuaTeX</span> 和 [<span class="tex-logo">ApTeX</span>](https://github.com/clerkma/ptex-ng)）已经全面支持使用 OpenType 字体，因而可以很方便地实现类似 Microsoft Word、Adobe Indesign 等软件的效果。
 
 OpenType 字体格式由微软和 Adobe 联合开发，它有以下特点：
 
@@ -23,13 +23,13 @@ OpenType 字体的文件扩展名可为 `.otf`、`.ttf`、`.ttc`，它们的区�
 - `.ttf`：单个字体，使用 TrueType 轮廓
 - `.ttc`：字体集合（**T**rue**T**ype/OpenType **C**ollection），在单个文件中打包多个字体，允许使用 TrueType 或 PostScript 轮廓
 
-LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
+<span class="tex-logo">LaTeX</span> 中使用 OpenType 字体，主要依靠下列宏包：
 
 - `fontspec`：通用字体选取
-- `CTeX`：LaTeX 中文排版框架，依据引擎的不同，底层分别利用 `xeCJK` 宏包（XeTeX）和 `luatexja` 宏包（LuaTeX）来处理
+- `CTeX`：<span class="tex-logo">LaTeX</span> 中文排版框架，依据引擎的不同，底层分别利用 `xeCJK` 宏包（<span class="tex-logo">XeTeX</span>）和 `luatexja` 宏包（<span class="tex-logo">LuaTeX</span>）来处理
 - `unicode-math`：实验性的 Unicode 数学排版功能
 
-考虑到 ApTeX 仍处于开发状态，尚未提供良好的用户接口，因此下文**仅适用于 XeTeX 和 LuaTeX 引擎**。
+考虑到 <span class="tex-logo">ApTeX</span> 仍处于开发状态，尚未提供良好的用户接口，因此下文**仅适用于 <span class="tex-logo">XeTeX</span> 和 <span class="tex-logo">LuaTeX</span> 引擎<span class="tex-logo">LaTeX</span>**。
 
 ## 字体背景知识
 
@@ -191,7 +191,7 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 ## 基础篇（I）
 
-接下来的部分我们来介绍在 LaTeX 中使用 OpenType 字体的方法。首先需要在导言区调用 `fontspec` 宏包：
+接下来的部分我们来介绍在 <span class="tex-logo">LaTeX</span> 中使用 OpenType 字体的方法。首先需要在导言区调用 `fontspec` 宏包：
 
 ```latex
 % 导言区
@@ -208,7 +208,7 @@ LaTeX 中使用 OpenType 字体，主要依靠下列宏包：
 
 这三个命令分别用来选择正文字体（一般为衬线字体）、无衬线字体以及等宽字体。这里的参数 `<字体名>`，允许使用字体的字族名、全名、PostScript 名称，也可以使用文件名。可选参数 `<选项>` 将在之后介绍。
 
-在进行配置之后，与 LaTeX 传统字体调用机制类似，无衬线字体以及等宽字体可以分别用命令 `\textsf`、`\texttt`（或 `\sffamily`、`\ttfamily`）来指定。
+在进行配置之后，与 <span class="tex-logo">LaTeX</span> 传统字体调用机制类似，无衬线字体以及等宽字体可以分别用命令 `\textsf`、`\texttt`（或 `\sffamily`、`\ttfamily`）来指定。
 
 一个简短但完整的示例如下：
 
@@ -281,7 +281,7 @@ information.
 
 ## 基础篇（II）——中西文混排
 
-LaTeX 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span id="fnref-ctex" class="footnote">[[3]](#fn-ctex)</span>。`CTeX` 宏集由 `ctexart` 等文档类和 `ctex` 等宏包组成，支持 TeX、pdfTeX、XeTeX、LuaTeX、upTeX 和 ApTeX 等多种引擎，并提供了统一的界面。在 XeTeX 或 LuaTeX 引擎下使用时，`CTeX` 宏集底层将依赖 `fontspec` 宏包。
+<span class="tex-logo">LaTeX</span> 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span id="fnref-ctex" class="footnote">[[3]](#fn-ctex)</span>。`CTeX` 宏集由 `ctexart` 等文档类和 `ctex` 等宏包组成，支持 <span class="tex-logo">LaTeX</span>、<span class="tex-logo">pdfTeX</span>、<span class="tex-logo">XeTeX</span>、<span class="tex-logo">LuaTeX</span>、<span class="tex-logo">upTeX</span> 和 <span class="tex-logo">ApTeX</span> 等多种引擎，并提供了统一的界面。在 <span class="tex-logo">XeTeX</span> 或 <span class="tex-logo">LuaTeX</span> 引擎下使用时，`CTeX` 宏集底层将依赖 `fontspec` 宏包。
 
 默认情况下，`CTeX` 宏集会根据系统和编译方式选择合适的中文字库，也可以利用 `fontset` 选项指定所需加载的字库。这里我们介绍的是手工设置字体的方法，基本与 `fontspec` 宏包一致，主要命令有：
 
@@ -361,7 +361,7 @@ LaTeX 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span id=
 1. <span class="backref" id="fnref-typeface"><a href="#fnref-typeface">^</a></span>
    所谓「字体」（typeface），更多的侧重于一种设计风格；而「字型」（font），则是指某一款字体设计的具体式样，包括字重、尺寸等。举例来说，Frutiger 是一款字体，而 Frutiger 55 Roman 就是一个字型。但在实际使用中，这两者经常混用，我们这里也不做严格区分。参见[英语术语「typeface」和「font」的区别是什么？- 知乎](https://www.zhihu.com/question/19566628)。
 1. <span class="backref" id="fnref-ctex"><a href="#fnref-ctex">^</a></span>
-   社区另有名为 CTeX 套装的 TeX 发行版，与这里所述的 `CTeX` 宏集并非是同一事物。CTeX 套装现已过时，不建议使用。
+   社区另有名为 <span class="tex-logo">CTeX</span> 套装的 <span class="tex-logo">TeX</span> 发行版，与这里所述的 `CTeX` 宏集并非是同一事物。<span class="tex-logo">CTeX</span> 套装现已过时，不建议使用。
 
 ## 参考
 

@@ -168,28 +168,17 @@
 
   pre, code {
     font-family: $mono-font-family;
-    background-color: $code-bg-color;
     font-variant-ligatures: none;
-  }
-
-  code {
-    padding: 1px 4px;
   }
 
   pre {
     padding: 8px 12px;
     overflow-x: auto;
-
-    > code {
-      border: 0;
-      padding: 0;
-    }
   }
-
 
   a {
     color: $text-color;
-    margin: 0 0.1em;
+    margin: 0 .1em;
     border-bottom: 1px solid $ul-color;
     text-decoration: none;
 
@@ -207,7 +196,7 @@
   .backref a {
     border-bottom: none;
     font-feature-settings: "sups";
-    margin: 0 0.1em;
+    margin: 0 .1em;
 
     &:hover, &:active, &:focus {
       border-bottom: 1px solid $link-color;

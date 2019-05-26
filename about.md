@@ -4,7 +4,7 @@ title: 关于
 permalink: /about/
 ---
 
-Major in theoretical physics. Lover of typesetting and LaTeX.
+Major in theoretical physics. Lover of typesetting and <span class="tex-logo">LaTeX</span>.
 
 ## 项目
 

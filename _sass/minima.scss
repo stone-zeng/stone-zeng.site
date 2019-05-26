@@ -13,7 +13,7 @@ $base-ja-font-family:
 $mono-font-family:
   'Sarasa Mono SC', 'Iosevka', 'Iosevka Web', $zh-font-fallback, monospace !default;
 $punct-font-family:
-  'Sarasa UI SC', $zh-font-fallback, sans-serif !default;
+  'Noto Sans CJK SC', 'Source Han Sans SC', 'Sarasa UI SC', 'PingFang SC', 'Microsoft YaHei UI', sans-serif !default;
 
 // Font related
 $base-font-weight:  400 !default;
@@ -46,7 +46,7 @@ $grey-color-dark:   darken($grey-color, 25%) !default;
 // Width of the content area
 $spacing-unit:      30px  !default;
 $content-width:     720px !default;
-$sidebar-width:     0.25 * $content-width !default;
+$sidebar-width:     .25 * $content-width !default;
 
 $on-palm:           600px !default; // TODO: to be removed
 $on-laptop:         900px !default; // TODO: to be removed
