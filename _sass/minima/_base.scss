@@ -10,18 +10,19 @@ dl, dd, ol, ul, figure {
 
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-  font-feature-settings: "kern";
+  font-feature-settings: 'kern';
   font-kerning: normal;
   color: $text-color;
   background-color: $bg-color;
   display: flex;
   min-height: 100vh;
+  min-width: 320px;
   flex-direction: column;
 }
 
-:lang(ja) {
-  font-family: $base-ja-font-family;
-}
+// :lang(ja) {
+//   font-family: $base-ja-font-family;
+// }
 
 // Default value of `display` of `main` element is 'inline' in IE 11
 main {
@@ -30,7 +31,7 @@ main {
 
 .zh-punct {
   font-family: $punct-font-family;
-  font-feature-settings: "fwid";
+  font-feature-settings: 'fwid';
 }
 .zh-punct-kern{
   letter-spacing: -.5em;
@@ -46,7 +47,7 @@ main {
 //  * Clearfix
 //  */
 // %clearfix:after {
-//   content: "";
+//   content: '';
 //   display: table;
 //   clear: both;
 // }
@@ -106,92 +107,12 @@ main {
   }
 }
 
-// TODO
 .site-nav {
-  position: absolute;
-  top: 9px;
-  right: $spacing-unit / 2;
-  background-color: $bg-color;
-  border: 1px solid $grey-color-light;
-  border-radius: 5px;
-  text-align: right;
-
-  .nav-trigger {
-    display: none;
-  }
-
-  .menu-icon {
-    float: right;
-    width: 36px;
-    height: 26px;
-    line-height: 0;
-    padding-top: 10px;
-    text-align: center;
-  }
-
-  label[for="nav-trigger"] {
-    display: block;
-    float: right;
-    width: 36px;
-    height: 36px;
-    z-index: 2;
-    cursor: pointer;
-  }
-
-  input ~ .trigger {
-    clear: both;
-    display: none;
-  }
-
-  input:checked ~ .trigger {
-    display: block;
-    padding-bottom: 5px;
-  }
+  float: right;
 
   .page-link {
     text-decoration: none;
     color: $text-color;
-    line-height: $base-line-height;
-    display: block;
-    padding: 5px 10px;
-
-    // Gaps between nav items, but not on the last one
-    &:not(:last-child) {
-      margin-right: 0;
-    }
-    // &:hover {
-    //   text-decoration: none;
-    // }
-    margin-left: 20px;
-  }
-
-  @media screen and (min-width: $on-medium) {
-    position: static;
-    float: right;
-    border: none;
-    background-color: inherit;
-
-    label[for="nav-trigger"] {
-      display: none;
-    }
-
-    .menu-icon {
-      display: none;
-    }
-
-    input ~ .trigger {
-      display: block;
-    }
-
-    .page-link {
-      display: inline;
-      padding: 0;
-
-      &:not(:last-child) {
-        margin-right: 20px;
-      }
-      margin-left: auto;
-    }
   }
 }
 

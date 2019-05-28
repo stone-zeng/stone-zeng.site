@@ -5,6 +5,13 @@ date: 2019-01-13
 categories: Fonts
 ---
 
+<span lang="zh-Hans">骨头遍花</span>
+<span lang="zh-Hant">骨头遍花</span>
+<span lang="zh-Hant-TW">骨头遍花</span>
+<span lang="zh-Hant-HK">骨头遍花</span>
+<span lang="ja">骨头遍花</span>
+<span lang="ko">骨头遍花</span>
+
 在 2016 年，随着 [OpenType 标准 1.8 版](https://docs.microsoft.com/typography/opentype/spec)的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
 
 可变字体的源头是 Knuth 在创造 $TeX$ 时「顺便」实现的 [METAFONT](https://en.wikipedia.org/wiki/Metafont)。时间过去了近 40 年，$TeX$ 依然大受欢迎，而 METAFONT 却几乎仅限于极客们的玩具，高质量的商业字体几乎没有采用这套流程进行开发。然而 Knuth 高瞻远瞩的理念在最近终于被从故纸堆中翻了出来，参数化字体设计伴着可变字体的火热又重回人们的视线。

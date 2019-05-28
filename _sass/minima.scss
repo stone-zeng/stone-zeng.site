@@ -1,19 +1,11 @@
-@import url(https://rsms.me/inter/inter.css);
+// @import url(https://rsms.me/inter/inter.css);
+@import url(../css/inter.css);
 @import url(https://typeof.net/Iosevka/iosevka/webfont.css);
 
 // Fonts
-$zh-font-fallback:
-  'PingFang SC', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Microsoft YaHei UI' !default;
-$ja-font-fallback:
-  'Hiragino Kaku Gothic ProN', 'Noto Sans CJK JP', 'Source Han Sans', 'Meiryo UI' !default;
-$base-font-family:
-  'Inter', 'Sarasa UI SC', $zh-font-fallback, sans-serif !default;
-$base-ja-font-family:
-  'Inter', 'Sarasa UI J', $ja-font-fallback, sans-serif !default;
-$mono-font-family:
-  'Sarasa Mono SC', 'Iosevka', 'Iosevka Web', $zh-font-fallback, monospace !default;
-$punct-font-family:
-  'Noto Sans CJK SC', 'Source Han Sans SC', 'Sarasa UI SC', 'PingFang SC', 'Microsoft YaHei UI', sans-serif !default;
+$base-font-family: Inter, 'Source Han Sans', 'Noto Sans CJK', source-han-sans-cjk-sc, sans-serif !default;
+$mono-font-family: Iosevka, 'Iosevka Web', 'Source Han Sans', 'Noto Sans CJK', source-han-sans-cjk-sc, monospace !default;
+$punct-font-family: 'Source Han Sans', 'Noto Sans CJK', source-han-sans-cjk-sc, sans-serif !default;
 
 // Font related
 $base-font-weight:  400 !default;

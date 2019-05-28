@@ -24,7 +24,7 @@
     margin: 0;
 
     > li::before {
-      content: "\2022";
+      content: '\2022';
       margin: 0 8px;
     }
 
@@ -32,7 +32,7 @@
       display: flex;
 
       :first-child::before {
-        content: "";
+        content: '';
         margin: 0;
       }
     }
@@ -72,7 +72,7 @@
 
   code {
     font-family: $mono-font-family;
-    background-color: $code-bg-color;
+    font-variant-ligatures: none;
   }
 }
 
@@ -195,7 +195,7 @@
   .footnote a,
   .backref a {
     border-bottom: none;
-    font-feature-settings: "sups";
+    font-feature-settings: 'sups';
     margin: 0 .1em;
 
     &:hover, &:active, &:focus {

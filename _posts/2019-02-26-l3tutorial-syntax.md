@@ -120,7 +120,7 @@ $LaTeX3$ 中，变量的名称包括四个部分：作用域（`scope`）、模�
 
     \<scope>_<module>_<description>_<type>
 
-通常来说，变量名中只包含字母和下划线 `_`。
+通常来说，变量名中只包含字母和下划线（`_`）。\TeX `\TeX` `\LaTeX` `\def\LaTeX` `\LaTeXing`
 
 #### 作用域
 

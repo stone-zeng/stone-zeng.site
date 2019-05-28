@@ -15,9 +15,10 @@ Major in theoretical physics. Lover of typesetting and $LaTeX$.
 
 - [Font Awesome](https://fontawesome.com)
 - [Inter font family](https://rsms.me/inter/)
-- [Iosevka](https://typeof.net/Iosevka/) & [Sarasa Gothic](https://github.com/be5invis/Sarasa-Gothic)
+- [Iosevka](https://typeof.net/Iosevka/)
 - [Jekyll Minima Theme](https://jekyll.github.io/minima/)
 - [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc)
+- [Source Han Sans](https://fonts.adobe.com/fonts/source-han-sans-cjk-simplified-chinese)
 - [Sticky Sidebar](https://abouolia.github.io/sticky-sidebar/)
 - [Type is Beautiful](https://thetype.com/)
 - [不蒜子 - 极简网页计数器](https://busuanzi.ibruce.info)

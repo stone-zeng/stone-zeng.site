@@ -44,7 +44,7 @@ for (var i = 0; i < elements.length; i++) {
 }
 
 var h1_elements = document.body.querySelectorAll("h1");
-for (var i = 0; i < elements.length; i++) {
-  elements[i].innerHTML = elements[i].innerHTML.replace(
+for (var i = 0; i < h1_elements.length; i++) {
+  h1_elements[i].innerHTML = h1_elements[i].innerHTML.replace(
     /((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|CTeX|2e)/g, tex_logo_replacer);
 }
