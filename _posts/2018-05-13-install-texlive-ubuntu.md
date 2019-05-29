@@ -177,9 +177,9 @@ lualatex hello
 
 ## 注释
 
-1. <span class="backref" id="fnref-li-a-ling"><a href="#fnref-li-a-ling">^</a></span>
+1. <span class="backref" id="fn-li-a-ling"><a href="#fnref-li-a-ling">^</a></span>
    李阿玲. [还是不要装源里面的 $TeX$ Live！](https://zhuanlan.zhihu.com/p/19699561) 这篇文章写于 2014 年，现在来看也未必完全合理。
-1. <span class="backref" id="fnref-profile"><a href="#fnref-profile">^</a></span>
+1. <span class="backref" id="fn-profile"><a href="#fnref-profile">^</a></span>
    见 [`texlive.profile`](https://github.com/latex3/latex3/blob/master/support/texlive.profile)。这一配置文件用于 $LaTeX3$ 的代码测试。
 
 ## 参考

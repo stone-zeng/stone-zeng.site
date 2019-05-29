@@ -356,11 +356,11 @@ $LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span i
 
 ## 注释
 
-1. <span class="backref" id="fnref-atypi"><a href="#fnref-atypi">^</a></span>
+1. <span class="backref" id="fn-atypi"><a href="#fnref-atypi">^</a></span>
    字体分类是一个复杂的话题，也没有统一的标准。这里我们大致采用的是 [Vox-A TypI 方案](https://en.wikipedia.org/wiki/Vox-ATypI_classification)。
-1. <span class="backref" id="fnref-typeface"><a href="#fnref-typeface">^</a></span>
+1. <span class="backref" id="fn-typeface"><a href="#fnref-typeface">^</a></span>
    所谓「字体」（typeface），更多的侧重于一种设计风格；而「字型」（font），则是指某一款字体设计的具体式样，包括字重、尺寸等。举例来说，Frutiger 是一款字体，而 Frutiger 55 Roman 就是一个字型。但在实际使用中，这两者经常混用，我们这里也不做严格区分。参见[英语术语「typeface」和「font」的区别是什么？- 知乎](https://www.zhihu.com/question/19566628)。
-1. <span class="backref" id="fnref-ctex"><a href="#fnref-ctex">^</a></span>
+1. <span class="backref" id="fn-ctex"><a href="#fnref-ctex">^</a></span>
    社区另有名为 $CTeX$ 套装的 $TeX$ 发行版，与这里所述的 `CTeX` 宏集并非是同一事物。$CTeX$ 套装现已过时，不建议使用。
 
 ## 参考

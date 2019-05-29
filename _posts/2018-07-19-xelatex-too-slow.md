@@ -40,9 +40,9 @@ fc-cache
 
 ## 注释
 
-1. <span class="backref" id="fnref-tl2018"><a href="#fnref-tl2018">^</a></span>
+1. <span class="backref" id="fn-tl2018"><a href="#fnref-tl2018">^</a></span>
    该问题在 $TeX$ Live 2018 中应该已经得到修复。
-1. <span class="backref" id="fnref-thuthesis">
+1. <span class="backref" id="fn-thuthesis">
      <a href="#fnref-thuthesis-a">a</a>
      <a href="#fnref-thuthesis-b">b</a>
    </span>

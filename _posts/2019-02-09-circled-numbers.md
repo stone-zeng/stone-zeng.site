@@ -1088,9 +1088,9 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
 
 ## 注释
 
-1. <span class="backref" id="fnref-font"><a href="#fnref-font">^</a></span>
+1. <span class="backref" id="fn-font"><a href="#fnref-font">^</a></span>
    在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于字体的安装情况以及浏览器的渲染方式。
-1. <span class="backref" id="fnref-textcircled-ctex"><a href="#fnref-textcircled-ctex">^</a></span>
+1. <span class="backref" id="fn-textcircled-ctex"><a href="#fnref-textcircled-ctex">^</a></span>
    感谢 [@qinglee](https://github.com/qinglee) 的指导！见 CTeX-org/ctex-kit [#399](https://github.com/CTeX-org/ctex-kit/issues/399)。
-1. <span class="backref" id="fnref-cid"><a href="#fnref-cid">^</a></span>
+1. <span class="backref" id="fn-cid"><a href="#fnref-cid">^</a></span>
    感谢 [@clerkma](https://github.com/clerkma) 的指导！见 CTeX-org/forum [#20](https://github.com/CTeX-org/forum/issues/20)。
