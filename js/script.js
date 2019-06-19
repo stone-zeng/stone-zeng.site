@@ -5,7 +5,7 @@ const LATEX_2E     = '2<span class="epsilon">ε</span>';
 const TEX_LOGO_MAP = new Map([
   ['TeX',      TEX_LOGO],
   ['LaTeX',    LATEX_LOGO],
-  ['LaTeXe',   LATEX_LOGO + ' ' + LATEX_2E],
+  ['LaTeXe',   LATEX_LOGO + '&thinsp;' + LATEX_2E],
   ['LaTeX3',   LATEX_LOGO + '3'],
   ['(La)TeX',  '<span class="rkern">(</span>' + LATEX_LA + '<span class="rparen-kern">)</span>' + TEX_LOGO],
   ['ConTeXt',  'Co<span class="rkern">n</span>' + TEX_LOGO + 't'],
@@ -22,10 +22,11 @@ const TEX_LOGO_MAP = new Map([
   ['2e',       LATEX_2E],
 ]);
 const ZH_PUNCT_MAP = ([
-  [/([，、：；。！？])([（「《])/g,                         '<span class="zh-punct-kern">$1</span>$2'],
-  [/([）」》])([，、：；。！？]|<span class="zh-punct">)/g, '<span class="zh-punct-kern">$1</span>$2'],
-  [/([）」》])([（「《])/g,                                 '<span class="zh-lrpunct-kern">$1</span>$2'],
-  [/^([（「《])/g,                                          '<span class="zh-punct-bound">$1</span>'],
+  [/(——|……)/g,                  '<span class="zh-punct">$1</span>'],
+  [/([，、：；。！？])([（「《])/g, '<span class="zh-punct-kern">$1</span>$2'],
+  [/([）」》])([，、：；。！？])/g, '<span class="zh-punct-kern">$1</span>$2'],
+  [/([）」》])([（「《])/g,         '<span class="zh-lrpunct-kern">$1</span>$2'],
+  [/^([（「《])/g,                  '<span class="zh-punct-bound">$1</span>'],
 ]);
 
 function tex_logo_replacer(match, name, offset, string) {

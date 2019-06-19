@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LaTeX3 教程（一）<span class="zh-punct">——</span>背景知识
+title: LaTeX3 教程（一）——背景知识
 date: 2019-02-24
 last_modified_at: 2019-02-26
 categories: LaTeX3
@@ -12,9 +12,9 @@ $LaTeX3$ 教程这个系列的文章其实早已动笔（开始于 2017 年）�
 
 众所周知，[Donald E. Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) 在排版他的传世巨著 *The Art of Computer Programming* 时，[忍受不了当时的数字排版技术](https://tex.stackexchange.com/q/367058/)，于是一咬牙，花了近十年开发出了伟大的排版软件 $TeX$。
 
-然而这个 $TeX$ 本身是为 Knuth 自己服务的，普通人用起来会比较吃力。上世纪 80 年代，同样身为计算机科学家的 [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport) 教授开发出了 $LaTeX$（**La**mport **$TeX$**），隐藏了一些排版细节，成为了一套结构化的文档语言。Lamport 也是在准备他的著作 *The Great American Concurrency Book* 时发明了 $LaTeX$；可等有了 $LaTeX$，这本书却懒得动笔了<span class="zh-punct">……</span><span id="fnref-lamport-book" class="footnote">[[1]](#fn-lamport-book)</span>
+然而这个 $TeX$ 本身是为 Knuth 自己服务的，普通人用起来会比较吃力。上世纪 80 年代，同样身为计算机科学家的 [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport) 教授开发出了 $LaTeX$（**La**mport **$TeX$**），隐藏了一些排版细节，成为了一套结构化的文档语言。Lamport 也是在准备他的著作 *The Great American Concurrency Book* 时发明了 $LaTeX$；可等有了 $LaTeX$，这本书却懒得动笔了……<span id="fnref-lamport-book" class="footnote">[[1]](#fn-lamport-book)</span>
 
-1992 年，$LaTeX$ 2.09 发布，之后 Lamport 便退居二线，开发工作交给由 Frank Mittelbach 领导的 [$LaTeX3$ 团队](https://www.latex-project.org/about/team/)负责。顾名思义，这个团队就是要代表 $LaTeX$ 行业的发展要求，代表 $LaTeX$ 界最新技术的前进方向，代表 $LaTeX$ 最广大用户的根本利益。于是他们埋头苦干了两年，搞了个大新闻<span class="zh-punct">——</span>推出了 $LaTeXe$。
+1992 年，$LaTeX$ 2.09 发布，之后 Lamport 便退居二线，开发工作交给由 Frank Mittelbach 领导的 [$LaTeX3$ 团队](https://www.latex-project.org/about/team/)负责。顾名思义，这个团队就是要代表 $LaTeX$ 行业的发展要求，代表 $LaTeX$ 界最新技术的前进方向，代表 $LaTeX$ 最广大用户的根本利益。于是他们埋头苦干了两年，搞了个大新闻——推出了 $LaTeXe$。
 
 「$LaTeXe$」这个名字，一看就知道来源于微积分里面的 [*ε*-*δ* 语言](https://en.wikipedia.org/wiki/(%CE%B5,_%CE%B4)-definition_of_limit)。「$2e$」比 2 大，但是作为一个无穷小量，离 3 却还有着十万八千里。因此过了二十多年，$LaTeX3$ 的正式发布依然还是遥遥无期。
 
@@ -94,7 +94,7 @@ $LaTeX3$ 教程这个系列的文章其实早已动笔（开始于 2017 年）�
 
 ## $LaTeX3$ 与 `expl3`
 
-总而言之，$LaTeXe$ 尽管是目前最流行的 $TeX$ 格式，却也有着相当大的局限性，而且这种局限性不是小修小补能够解决的，必须另起炉灶，重新搭建一套新的格式<span class="zh-punct">——</span>$LaTeX3$。
+总而言之，$LaTeXe$ 尽管是目前最流行的 $TeX$ 格式，却也有着相当大的局限性，而且这种局限性不是小修小补能够解决的，必须另起炉灶，重新搭建一套新的格式——$LaTeX3$。
 
 所谓**格式**，就是对 $TeX$ 提供的原语（primitive）进行封装，以方便使用。常见的有 plain $TeX$、$LaTeX$ 以及 $ConTeXt$。$LaTeX3$ 就是下一代 $LaTeX$ 格式。当然，鉴于 $LaTeXe$ 无可撼动的地位，这套格式也不会被放弃，$LaTeX3$ 格式只会作为额外的选择。至于 $LaTeX3$ 什么时候可以真的被做成一个完整的格式文件（`.fmt`），目前仍是一个未知数。
 

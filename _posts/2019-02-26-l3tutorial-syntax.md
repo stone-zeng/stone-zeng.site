@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LaTeX3 教程（二）<span class="zh-punct">——</span>语法概要
+title: LaTeX3 教程（二）——语法概要
 date: 2019-02-26
 last_modified_at: 2019-03-22
 categories: LaTeX3
@@ -120,7 +120,7 @@ $LaTeX3$ 中，变量的名称包括四个部分：作用域（`scope`）、模�
 
     \<scope>_<module>_<description>_<type>
 
-通常来说，变量名中只包含字母和下划线（`_`）。\TeX `\TeX` `\LaTeX` `\def\LaTeX` `\LaTeXing`
+通常来说，变量名中只包含字母和下划线（`_`）。
 
 #### 作用域
 
