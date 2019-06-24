@@ -47,6 +47,9 @@
 
   @include media-on-large {
     display: block;
+    position: -webkit-sticky;
+    position:         sticky;
+    top: 20px;
   }
 
   h3 {
@@ -133,15 +136,18 @@
     text-align: center;
 
     img {
+      width: 100%;
       max-width: 100%;
+      background-color: white;
       vertical-align: middle;
       outline: 1px solid $grey-color-light;
       outline-offset: -1px;
     }
-  }
 
-  figcaption {
-    font-size: $small-font-size;
+    figcaption {
+      font-size: $small-font-size;
+      margin-top: 10px;
+    }
   }
 
   ul, ol {
