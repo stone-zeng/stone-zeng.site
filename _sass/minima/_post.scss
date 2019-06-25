@@ -25,7 +25,7 @@
 
     > li::before {
       content: '\2022';
-      margin: 0 8px;
+      margin-right: 8px;
     }
 
     @include media-on-large {
@@ -34,6 +34,10 @@
       :first-child::before {
         content: '';
         margin: 0;
+      }
+
+      > li::before {
+        margin: 0 8px;
       }
     }
   }
@@ -49,7 +53,7 @@
     display: block;
     position: -webkit-sticky;
     position:         sticky;
-    top: 20px;
+    top: $spacing-unit;
   }
 
   h3 {
@@ -63,6 +67,10 @@
   li {
     font-size: $small-font-size
   };
+
+  .active {
+    font-weight: $bold-font-weight;
+  }
 
   a {
     color: $text-color;
@@ -211,7 +219,7 @@
   }
 
   .backref a {
-    font-weight: bold;
+    font-weight: $bold-font-weight;
     margin: 0;
   }
 }
