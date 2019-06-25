@@ -223,4 +223,13 @@
     font-weight: $bold-font-weight;
     margin: 0;
   }
+
+  a.hash-tag {
+    margin-left: 0.2em;
+    visibility: hidden;
+  }
+
+  a.visible {
+    visibility: visible;
+  }
 }
