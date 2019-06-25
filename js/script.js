@@ -35,9 +35,17 @@ function texLogoReplacer(match, name, offset, string) {
   return "<span class='tex-logo'>" + TEX_LOGO_MAP[name] + "</span>";
 }
 
-document.body.querySelectorAll("h1, h2, h3, h4, p, ul, ol, dl, blockquote, figure, table").forEach((e) => {
+document.body.querySelectorAll("h2, h3, h4, p, ul, ol, dl, blockquote, figure, table").forEach((e) => {
   e.innerHTML = e.innerHTML.replace(
     /\$((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|CTeX|2e)\$/g, texLogoReplacer);
+  ZH_PUNCT_MAP.forEach((p) => {
+    e.innerHTML = e.innerHTML.replace(p[0], p[1]);
+  })
+});
+
+document.body.querySelectorAll("h1").forEach((e) => {
+  e.innerHTML = e.innerHTML.replace(
+    /((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|CTeX|2e)/g, texLogoReplacer);
   ZH_PUNCT_MAP.forEach((p) => {
     e.innerHTML = e.innerHTML.replace(p[0], p[1]);
   })
