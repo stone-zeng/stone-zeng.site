@@ -6,6 +6,11 @@
     max-width:         calc(100% - #{$sidebar-width} - #{$spacing-unit});
     padding-right: #{$spacing-unit};
   }
+
+  // Require lang='en'
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
 }
 
 .post-header {
@@ -57,6 +62,7 @@
   }
 
   h3 {
+    color: $link-color;
     font-weight: normal;
     margin-bottom: 8px;
   }
@@ -84,7 +90,7 @@
 
   code {
     font-family: $mono-font-family;
-    font-variant-ligatures: none;
+    font-variant: none;
   }
 }
 
@@ -183,7 +189,7 @@
 
   pre, code {
     font-family: $mono-font-family;
-    font-variant-ligatures: none;
+    font-variant: none;
   }
 
   pre {

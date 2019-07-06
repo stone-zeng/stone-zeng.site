@@ -1,11 +1,10 @@
-// @import url(https://rsms.me/inter/inter.css);
 @import url(../css/inter.css);
 @import url(https://typeof.net/Iosevka/iosevka/webfont.css);
 
 // Fonts
-$base-font-family: Inter, 'Source Han Sans', 'Noto Sans CJK', source-han-sans-cjk-sc, sans-serif !default;
-$mono-font-family: Iosevka, 'Iosevka Web', 'Source Han Sans', 'Noto Sans CJK', source-han-sans-cjk-sc, monospace !default;
-$punct-font-family: 'Source Han Sans', 'Noto Sans CJK', source-han-sans-cjk-sc, sans-serif !default;
+$base-font-family: Inter, 'Source Han Sans SC', 'Noto Sans CJK SC', source-han-sans-cjk-sc, sans-serif !default;
+$mono-font-family: Iosevka, 'Iosevka Web', 'Source Han Sans SC', 'Noto Sans CJK SC', source-han-sans-cjk-sc, monospace !default;
+$punct-font-family: 'Source Han Sans SC', 'Noto Sans CJK SC', source-han-sans-cjk-sc, sans-serif !default;
 
 // Font related
 $base-font-weight:  400 !default;
@@ -75,5 +74,5 @@ $on-large:          $on-laptop !default;
 @import 'minima/base',
         'minima/home',
         'minima/post',
-        'minima/syntax-highlighting',
-        'minima/specials';
+        'minima/specials',
+        'minima/syntax-highlighting';
