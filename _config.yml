@@ -39,6 +39,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - _draft/
+  - node_modules/
   - temp/
   - vendor/
 

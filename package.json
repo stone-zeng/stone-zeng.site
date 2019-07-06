@@ -1,0 +1,14 @@
+{
+  "name": "stone-zeng.github.io",
+  "version": "0.1.0",
+  "description": "Personal website of Xiangdong Zeng",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stone-zeng/stone-zeng.github.io.git"
+  },
+  "author": "Xiangdong Zeng",
+  "bugs": {
+    "url": "https://github.com/stone-zeng/stone-zeng.github.io/issues"
+  },
+  "homepage": "https://stone-zeng.github.io/"
+}
