@@ -48,6 +48,22 @@ strong, th, .post-sidebar .active {
   }
 }
 
+.small-caps {
+  font-variant: small-caps;
+  font-weight: 500;
+}
+
+.slab-I {
+  font-feature-settings: "cv08";
+}
+
+.zh-emph {
+  -webkit-text-emphasis: filled;
+          text-emphasis: filled;
+  -webkit-text-emphasis-position: under;
+          text-emphasis-position: under;
+}
+
 .font-sample {
   font-size: 14px;
   td {
@@ -95,4 +111,12 @@ strong, th, .post-sidebar .active {
 }
 .circled-number-fonts-name {
   white-space: normal;
+}
+
+.font-weight {
+  td {
+    text-align: center;
+  }
+  overflow-x: auto;
+  margin-bottom: $spacing-unit / 2;
 }
