@@ -1,6 +1,6 @@
 'use strict';
 
-(function (d) {
+(function () {
   const span = (className, e) => `<span class="${className}">${e}</span>`;
   const TEX   = `T${span('e', 'e')}X`;
   const LA    = `L${span('a', 'a')}`;
@@ -26,19 +26,20 @@
     '2e':       TWO_E,
   };
   const replacePunct = (str) =>
-    str .replace(/(——|……)/g,                      span('zh-punct', '$1'))
-        .replace(/([，、：；。！？])([（『「《〈])/g, span('zh-punct-kern', '$1') + '$2')
-        .replace(/([）』」》〉])([，、：；。！？])/g, span('zh-punct-kern', '$1') + '$2')
-        .replace(/([）』」》〉])([（『「《])/g,       span('zh-lrpunct-kern', '$1') + '$2')
-        .replace(/^([（『「《〈])/g,                  span('zh-punct-bound', '$1'));
+    str .replace(/(——|……)/g,                         span('zh-punct', '$1'))
+        .replace(/([，、：；。！？])([（『「《〈])/g,    span('zh-punct-kern', '$1') + '$2')
+        .replace(/([）』」》〉])([，、：；。！？])/g,    span('zh-punct-kern', '$1') + '$2')
+        .replace(/([，、：；。！？）』」》〉])(<sup)/g,  span('zh-punct-kern', '$1') + '$2')
+        .replace(/([）』」》〉])([（『「《])/g,          span('zh-lrpunct-kern', '$1') + '$2')
+        .replace(/^([（『「《〈])/g,                     span('zh-punct-bound', '$1'));
   const replaceLogo = (str) =>
     str.replace(/\$((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|CTeX|2e)\$/g,
-        (match, name) => span('tex-logo', LOGO[name]));
+        (_, name) => span('tex-logo', LOGO[name]));
   const replaceLogoH1 = (str) =>
     str.replace(/((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|CTeX|2e)/g,
-        (match, name) => span('tex-logo', LOGO[name]));
-  d.body.querySelectorAll('h2, h3, h4, p, li, figcaption, td, th').forEach((e) =>
+        (_, name) => span('tex-logo', LOGO[name]));
+  document.body.querySelectorAll('h2, h3, h4, p, li, figcaption, td, th').forEach((e) =>
     e.innerHTML = replacePunct(replaceLogo(e.innerHTML)));
-  d.body.querySelectorAll('h1').forEach((e) =>
+  document.body.querySelectorAll('h1').forEach((e) =>
     e.innerHTML = replacePunct(replaceLogoH1(e.innerHTML)));
-})(document);
+})();

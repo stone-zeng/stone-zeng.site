@@ -2,6 +2,7 @@
 layout: post
 title: 在 LaTeX 中使用 OpenType 字体（二）
 date: 2019-07-06
+last_modified_at: 2019-07-09
 categories: Fonts
 ---
 
@@ -23,23 +24,25 @@ categories: Fonts
 - `\T1/ptm/b/it/1in`：表示 Adobe Times Bold Italic @ 1 inch
 - `\OML/cmm/m/it/12pt`：表示 Computer Modern Math Italic @ 10 point
 
-## Word 做了什么？
+## 与 Word 的比较
 
-对于刚接触 $LaTeX$ 的朋友来说，字体问题一定是一个大坑。在 Word 里面，选择字体只需在下拉菜单中选一下，加粗点「**B**」，倾斜点「<em><span class="slab-I">I</span></em>」，字号也可以很轻易地改为任意想要的数字。为什么 $LaTeX$ 就要制造这么多困难呢？
+对于刚接触 $LaTeX$ 的朋友来说，字体问题一定是一个大坑。在 Word 里面，选择字体只需在下拉菜单中选一下，加粗选「**B**」，倾斜选「<em><span class="slab-I">I</span></em>」，字号也可以很轻易地改为任意想要的数字。为什么 $LaTeX$ 就要制造这么多困难呢？
 
-<figure>
-  <img src="/images/word-font-settings.png" alt="word-font-settings" style="max-width: 400px;">
-  <figcaption>Word 中的字体面板</figcaption>
-</figure>
+<div class="figure-slideshow">
+  <figure>
+    <img src="/images/word-font-settings.png" alt="word-font-settings" style="max-width: 400px;">
+    <figcaption>Word 中的字体面板</figcaption>
+  </figure>
+  <!-- TODO -->
+  <!-- <figure>
+    <img src="/images/indesign-font-settings.png" alt="indesign-font-settings">
+    <figcaption>Adobe Indesign 中的字体面板</figcaption>
+  </figure> -->
+</div>
 
-<figure>
-  <img src="/images/indesign-font-settings.png" alt="indesign-font-settings">
-  <figcaption>Adobe Indesign 中的字体面板</figcaption>
-</figure>
+一方面，人类的语言文字无比复杂，字体技术也必须有足够的规模才能够把它们支撑起来；另一方面，$TeX$ 和 $LaTeX$ 又太过古老，那个年代既没有 Unicode 也没有 OpenType，Word 也不知在哪里。此外，Word 作为字处理软件，隐藏了字体排印中的许多细节，相当于一部「能拍照的智能手机」；而 $TeX$ 则是一部「全功能单反相机」[^eric-liu-camera]，它把繁琐的细节都交给了用户。Word 里面那几个按钮所做的工作远不止看上去那么简单，下面我们就来一一解释。
 
-最根本的原因：$TeX$ 和 $LaTeX$ 实在是太古老了。八十年代末九十年代初，既没有 Unicode，也没有 OpenType；甚至 $TeX$ 最早只支持 7-bit，这意味着一个字体文件只能装下 128 个字符形。
-
-而在现代 $TeX$ 引擎中，Unicode 以及 OpenType 得到了完善的支持，选择字体早已不像先前那般困难，但相比 Word 依然复杂得多。原因其实很显然——Word 隐藏了太多的细节，而 $TeX$ 把它们都扔给了用户。实际上，加粗、倾斜、修改字号远不止看上去那么简单，下面我们就来一一解释。
+[^eric-liu-camera]: 语出播客节目[《字谈字畅》](https://thetype.com/typechat/)
 
 ## 字体的坐标
 
@@ -71,7 +74,7 @@ Name ID 4 是字体的完整名称，即族名与子族名的组合。一般来�
 
 Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允许出现空格、括号等特殊符号。其中往往会用连字符「`-`」连接各部分。
 
-具体的示例可以参考[附录](#字体名示例)。在实际运用中，不同设计师以及字体厂商对于名称的处理不尽相同，OpenType 标准对 `name` 表的要求也并非十分严格，因而需考虑各种情形，并且往往要反复试验。
+`name` 表的具体的示例可以参考[附录](#字体名示例)。在实际运用中，不同设计师以及字体厂商对于名称的处理不尽相同，OpenType 标准对 `name` 表的要求也并非十分严格，因而需考虑各种情形，并且往往要反复试验。
 
 ### 字重
 
@@ -79,7 +82,7 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 
 前面已经提到过，传统上一个字体族往往有 4 个标准样式。对于这些字体，选择「加粗」就意味着选择 Bold 样式。而对于那些较为庞大的字体家族，这样的划分显然是不够的。
 
-著名字体设计师 Adrian Frutiger 在设计 Univers 字体时，采用数字对不同字重进行标记：
+著名字体设计师 [Adrian Frutiger](https://en.wikipedia.org/wiki/Adrian_Frutiger) 在设计 [Univers](https://en.wikipedia.org/wiki/Univers) 字体时，采用数字对不同字重进行标记：
 
 <div class="font-weight">
   <table>
@@ -147,7 +150,9 @@ $LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold�
 
 ### 倾斜
 
-另一种广泛使用的样式是倾斜。实际上倾斜有两种，一种是简单把字符斜过来（oblique 或 slant），另一种是模仿手写体风格的意大利体（italic）。字体设计师[<span lang="ja">大曲都市</span>](http://tosche.net/about)曾给出过一个形象的图示，用以说明它们的区别：
+另一种广泛使用的样式是倾斜。实际上倾斜有两种，一种是简单把字符斜过来（oblique 或 slant），另一种是模仿手写体风格的意大利体（italic）。字体设计师[<span lang="ja">大曲都市</span>](http://tosche.net/about)曾给出过一个形象的图示，用以说明它们的区别：[^italic]
+
+[^italic]: Toshi Omagari. [Italic subtleties](http://tosche.net/2014/02/italic-subtleties_en.html)
 
 <figure>
   <img src="http://tosche.net/blog/wp-content/uploads/jacksons1.png" alt="jacksons1" style="max-width: 360px;">
@@ -166,7 +171,9 @@ $LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold�
   <img src="/images/cm-italic.svg" alt="cm-italic">
 </figure>
 
-对于汉字来说，传统上并没有倾斜这一变体形式。从源流来说，意大利体这一手写风格与楷体更为接近。表示强调意味的话，习惯上也会使用<span class="zh-emph">着重号</span>而非改变字体。
+对于汉字来说，传统上并没有倾斜这一变体形式。从源流来说，意大利体这一手写风格与楷体更为接近[^han-italic]。表示强调意味的话，习惯上也会使用<span class="zh-emph">着重号</span>而非改变字体。
+
+[^han-italic]: 刘育黎. [楷书、斜体、连笔，意大利体的汉字匹配方案探索](https://mp.weixin.qq.com/s/gd2rB0hjZhPGavGcZKtSOg)
 
 ### 小型大写
 
@@ -177,7 +184,9 @@ $LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold�
 - 缩略词，如 <span class="small-caps">ad</span>、<span class="small-caps">bc</span>、<span class="small-caps">am</span>、<span class="small-caps">pm</span> 等
 - 每章第一段的第一个词
 - 圣经中的「主」：L<span class="small-caps">ord</span>
-- 苹果的一些商标，如 iPhone X<span class="small-caps">s</span> 和 iPhone X<span class="small-caps">r</span>
+- 苹果的一些商标，如 iPhone X<span class="small-caps">s</span> 和 iPhone X<span class="small-caps">r</span>[^iphone-xs-xr]
+
+[^iphone-xs-xr]: 刘育黎. [这届 iPhone X，最大的看点其实在这儿。](https://mp.weixin.qq.com/s/tbCbvcXjM-mXRcnWV5kbgA)
 
 小型大写同样不是大写字母的简单缩小。一般来说，为了保持灰度的统一，小型大写字母会略增加字重，并且拉开字距：
 
@@ -191,7 +200,7 @@ $LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold�
 
 字号在今天往往并不会被认为是字体的一种样式，因为各种软件都允许我们很容易地进行缩放。然而在活字时代，自由缩放显然是不可能的，每种尺寸的金属活字都要单独铸造。不同尺寸的活字字体还可能采取不同的设计。比如小字号下衬线适当加粗、笔画交界处留出细微的空缺等。
 
-在现代，字体设计还要兼顾屏幕显示的需求。早期计算机屏幕分辨率不高，而大多数字体又只依靠一种设计打遍天下，为此小字号下常常需要进行渲染提示（hinting），以使视觉效果得以优化。但这在一定程度上将不可避免地扭曲了原始的设计。随着高分辨率屏幕的逐渐普及，渲染提示的作用正在日益减弱。取而代之的是，越来越多的字体开始为不同字号做出不同的设计（即视觉字号，optical size），这正类似于活字时代字体铸造师的工作。
+在现代，字体设计还要兼顾屏幕显示的需求。早期计算机屏幕分辨率不高，而大多数字体又只依靠一种设计打遍天下，为此小字号下常常需要进行渲染提示（[hinting](https://en.wikipedia.org/wiki/Font_hinting)），以使视觉效果得以优化。但这在一定程度上将不可避免地扭曲了原始的设计。随着高分辨率屏幕的逐渐普及，渲染提示的作用正在日益减弱。取而代之的是，越来越多的字体开始为不同字号做出不同的设计（即视觉字号，optical size），这正类似于活字时代字体铸造师的工作。
 
 Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号的设计：
 
@@ -234,7 +243,7 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
 
 - 使用文件名时不会自动处理变体，必须手动配置
 - 后缀名需要是 `.otf`、`.ttf` 或 `.ttc`
-- 字体文件需要能被 kpathsea 库找到，否则需要手动添加路径，例如： TODO
+- 字体文件需要能被 kpathsea 库找到，否则需要手动添加路径，例如：
 
   ```latex
   \setmainfont{SourceSerifPro-Regular.otf}[Path=/Users/xdzeng/]
@@ -243,7 +252,7 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
   关于路径，又有以下几点说明：
 
   - 路径中尽量不要出现 ASCII 之外的字符；如果有逗号，需要把整个路径作为整体放进一组花括号
-  - 使用 `/` 而非 `\` 分隔路径，并且最后不要漏掉 `/`
+  - 无论何种系统均使用 `/` 而非 `\` 分隔路径，并且最后不要漏掉 `/`
   - 可以使用绝对路径（从头开始写），也可以使用相对路径（利用 `.` 或 `..`），但不能使用 `~` 展开
 
 ### 变体的选择
@@ -260,9 +269,7 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
   ...]
 ```
 
-如果省略某些选项，`fontspec` 则会自动进行回退。
-
-下面是一个具体的例子：
+如果省略某些选项，`fontspec` 则会自动进行回退。下面是一个具体的例子：
 
 ```latex
 % 导言区
@@ -411,9 +418,13 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 如果只是要写一篇文章，那自然没有问题；可要写一篇**符合要求**的文章（比如学位论文），它却并不能让所有人满意：
 
-- 「正文中标题使用了雅黑字体，格式审查不幸被认为不合格」<https://github.com/xueruini/thuthesis/issues/271>
-- 「例如标题，别人的标题更粗一些，像是黑体中等；而我的标题就细一些，像是黑体细体」<https://github.com/xueruini/thuthesis/issues/416>
-- 「我这正文都是宋体，该强调也强调了，怎么？哎！……怎么宋体里面多了楷体？？？」<https://zhuanlan.zhihu.com/p/52006922>
+- 「正文中标题使用了雅黑字体，格式审查不幸被认为不合格」[^ctex-yahei]
+- 「例如标题，别人的标题更粗一些，像是黑体中等；而我的标题就细一些，像是黑体细体」[^ctex-xihei]
+- 「我这正文都是宋体，该强调也强调了，怎么？哎！……怎么宋体里面多了楷体？？？」[^ctex-emph]
+
+[^ctex-yahei]: 见 xueruini/thuthesis [#271](https://github.com/xueruini/thuthesis/issues/271)
+[^ctex-xihei]: 见 xueruini/thuthesis [#416](https://github.com/xueruini/thuthesis/issues/416)
+[^ctex-emph]: @朴素的贝叶斯. [$LaTeX$ 的罪与罚](https://zhuanlan.zhihu.com/p/52006922)
 
 而 `fandol` 字库，虽然配齐了宋黑楷仿也有粗宋和粗黑，但毕竟天下没有免费的午餐，它缺字得厉害：
 
@@ -801,3 +812,18 @@ Pattern has 21 elts (size 32)
 ```
 
 分别是 [Skia](https://v-fonts.com/fonts/skia) 和[方正悠宋](http://www.foundertype.com/index.php/FontInfo/index.html?id=410)。
+
+## 引用与注释
+
+<div id="footnotes"></div>
+
+## 参考
+
+- [OpenType® specification](https://docs.microsoft.com/typography/opentype/spec/) - OpenType 官方技术说明
+- Wikipedia. [Font](https://en.wikipedia.org/wiki/Font)
+- Clerk Ma. [对于不了解字体的人，在使用 $LaTeX$ 排版时如何通过 `fontspec` 包选择字体？- 知乎](https://www.zhihu.com/question/20563044/answer/15494226)
+- 宏包文档，本地可使用 `texdoc <宏包名>` 打开：
+  - Will Robert­son. [`fontspec` 宏包](https://ctan.org/pkg/fontspec)
+  - ctex.org. [`xeCJK` 宏包](https://ctan.org/pkg/xecjk)
+  - ctex.org. [`CTeX` 宏集](https://ctan.org/pkg/ctex)
+  - The $LuaTeX$-ja project. [`LuaTeX-ja` 宏集](https://ctan.org/pkg/luatexja)

@@ -54,7 +54,7 @@ strong, th, .post-sidebar .active {
 }
 
 .slab-I {
-  font-feature-settings: "cv08";
+  font-feature-settings: 'cv08';
 }
 
 .zh-emph {
@@ -119,4 +119,7 @@ strong, th, .post-sidebar .active {
   }
   overflow-x: auto;
   margin-bottom: $spacing-unit / 2;
+  -webkit-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none;
 }

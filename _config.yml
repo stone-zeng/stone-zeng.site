@@ -14,7 +14,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: stone-zeng.github.io
-lang: zh-Hans
+# For correct hyphenation, we need set the language to en-US.
+lang: en-US
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://stone-zeng.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
 google_analytics: UA-132846370-1

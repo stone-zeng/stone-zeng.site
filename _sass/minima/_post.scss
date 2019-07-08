@@ -7,7 +7,6 @@
     padding-right: #{$spacing-unit};
   }
 
-  // Require lang='en'
   -webkit-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
@@ -29,7 +28,7 @@
     margin: 0;
 
     > li::before {
-      content: '\2022';
+      content: '\2022';  // Bullet
       margin-right: 8px;
     }
 
@@ -49,16 +48,16 @@
 }
 
 .post-sidebar {
-  float: right;
-  width: $sidebar-width;
   display: none;
-  font-weight: normal;
 
   @include media-on-large {
     display: block;
+    float: right;
+    width: $sidebar-width;
     position: -webkit-sticky;
     position:         sticky;
     top: $spacing-unit;
+    font-weight: normal;
   }
 
   h3 {
@@ -95,14 +94,14 @@
 }
 
 .post-content {
-  h2, h3, h4, p, ul, ol, dl, pre, blockquote, figure, table {
+  p, ul, ol, dl, pre, blockquote, figure, table {
     margin-bottom: $spacing-unit / 2;
   }
 
   h2, h3, h4 {
     color: $link-color;
     font-weight: normal;
-    padding: $spacing-unit / 2 0;
+    margin: $spacing-unit 0;
   }
 
   h2 {
@@ -213,8 +212,38 @@
     }
   }
 
-  .footnote a,
-  .backref a {
+  sup.fnref {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+    font-size: $base-font-size;
+    font-feature-settings: 'sups';
+    transition: 0s background-color;
+
+    &:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .tooltip {
+      visibility: hidden;
+      position: absolute;
+      width: max-content;
+      max-width: 300px;
+      bottom: 100%;
+      margin-left: -200%;
+      padding: 2px 8px;
+      border: 1px solid darken($grey-color-light, 4%);
+      font-size: $small-font-size;
+      font-feature-settings: normal;
+      background-color: lighten($grey-color-light, 6%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity .6s;
+    }
+  }
+
+  .fnref>a, .backref>a {
     border-bottom: none;
     font-feature-settings: 'sups';
     margin: 0 .1em;
@@ -225,13 +254,16 @@
     }
   }
 
-  .backref a {
-    font-weight: $bold-font-weight;
+  .backref>a {
     margin: 0;
+    font-weight: $bold-font-weight;
+    &:after {
+      content: '\2009';  // Thin space
+    }
   }
 
   a.hash-tag {
-    margin-left: 0.2em;
+    margin-left: .2em;
     visibility: hidden;
   }
 
