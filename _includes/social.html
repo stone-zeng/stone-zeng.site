@@ -1,21 +1,21 @@
 {%- assign social = site.minima.social_links -%}
 <ul class="social-media-list">
   {%- if social.github -%}
-    <li><a href="https://github.com/{{ social.github | cgi_escape | escape }}" title="{{ social.github | escape }}"><i class="fab fa-github"></i></a></li>
+    <li><a href="https://github.com/{{ social.github | cgi_escape | escape }}" title="{{ social.github | escape }}"><svg class="icon"><use xlink:href="/assets/icons.svg#github-brands" /></svg></a></li>
   {%- endif -%}
   {%- if social.stackexchange -%}
-    <li><a href="https://tex.stackexchange.com/users/{{ social.stackexchange | escape }}"><i class="fab fa-stack-exchange"></i></a></li>
+    <li><a href="https://tex.stackexchange.com/users/{{ social.stackexchange | escape }}"><svg class="icon"><use xlink:href="/assets/icons.svg#stack-exchange-brands" /></svg></a></li>
   {%- endif -%}
   {%- if social.twitter -%}
-    <li><a href="https://twitter.com/{{ social.twitter | cgi_escape | escape }}" title="{{ social.twitter | escape }}"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="https://twitter.com/{{ social.twitter | cgi_escape | escape }}" title="{{ social.twitter | escape }}"><svg class="icon"><use xlink:href="/assets/icons.svg#twitter-brands" /></svg></a></li>
   {%- endif -%}
   {%- if social.telegram -%}
-    <li><a href="https://t.me/{{ social.telegram | cgi_escape | escape }}" title="{{ social.telegram | escape }}"><i class="fab fa-telegram-plane"></i></a></li>
+    <li><a href="https://t.me/{{ social.telegram | cgi_escape | escape }}" title="{{ social.telegram | escape }}"><svg class="icon"><use xlink:href="/assets/icons.svg#telegram-plane-brands" /></svg></a></li>
   {%- endif -%}
   {%- if social.email -%}
-    <li><a href="mailto:{{ social.email }}" title="{{ social.email | escape }}"><i class="fab fas fa-envelope"></i></a></li>
+    <li><a href="mailto:{{ social.email }}" title="{{ social.email | escape }}"><svg class="icon"><use xlink:href="/assets/icons.svg#envelope-solid" /></svg></a></li>
   {%- endif -%}
   {%- if social.rss -%}
-    <li><a href="{{ 'feed.xml' | relative_url }}" title="{{ social.rss | escape }}"><i class="fas fa-rss"></i></a></li>
+    <li><a href="{{ 'feed.xml' | relative_url }}" title="{{ social.rss | escape }}"><svg class="icon"><use xlink:href="/assets/icons.svg#rss-solid" /></svg></a></li>
   {%- endif -%}
 </ul>
