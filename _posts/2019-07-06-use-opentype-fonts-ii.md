@@ -22,7 +22,7 @@ categories: Fonts
 
 - `\OT1/cmr/m/n/10`：表示 Computer Modern Roman @ 10 point
 - `\T1/ptm/b/it/1in`：表示 Adobe Times Bold Italic @ 1 inch
-- `\OML/cmm/m/it/12pt`：表示 Computer Modern Math Italic @ 10 point
+- `\OML/cmm/m/it/12pt`：表示 Computer Modern Math Italic @ 12 point
 
 ## 与 Word 的比较
 
@@ -407,7 +407,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 就能够很愉快地开始干活。
 
-默认的字库配置基于一下逻辑：
+默认的字库配置基于以下逻辑：
 
 - 宋体对应到 `\rmfamily` 的 `\upshape`
 - 黑体（或微软雅黑、苹方等现代黑体）对应到 `\sffamily` 的 `\upshape`
