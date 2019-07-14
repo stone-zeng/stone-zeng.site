@@ -39,6 +39,9 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - LICENSE
+  - package.json
+  - README.md
   - _draft/
   - node_modules/
   - temp/

@@ -1,5 +1,9 @@
 'use strict';
 
+// Helper functions
+const nodeListToObject = (nodeList) =>
+  Array.from(nodeList).reduce((obj, e) => (obj[e.id] = e, obj), {});
+
 (function () {
   updatePunctLogo();
 
@@ -81,17 +85,22 @@ function updateSidebar(headers) {
 }
 
 function updateFootnotes() {
-  const footnoteList  = document.querySelector('.footnotes');
-  if (!(footnoteList === null)) {
-    const footnoteItems = getFootnotesItems(footnoteList.querySelectorAll('li'));
-    footnoteList.remove();
-    updateFnref(footnoteItems);
-    updateFnlist(footnoteItems);
+  const oldFnList = document.querySelector('.footnotes');
+  if (!(oldFnList === null)) {
+    const newFnList = document.querySelector('#footnotes');
+    const fnItems = getFnItems(oldFnList, newFnList);
+    oldFnList.remove();
+    updateFnref(fnItems);
+    updateFnlist(fnItems);
   }
 }
 
-function getFootnotesItems(li) {
-  const footnotes = Array.from(li).reduce((obj, e) => (obj[e.id] = e, obj), {});
+function getFnItems(oldFnList, newFnList) {
+  const fn = nodeListToObject(oldFnList.querySelectorAll('li[id^="fn:"]'));
+  if (!(newFnList.innerHTML === '')) {
+    const replaceFn = nodeListToObject(newFnList.querySelectorAll('li[id^="fn:"]'));
+    Object.keys(replaceFn).forEach((i) => fn[i] = replaceFn[i]);
+  }
   const makeBackref = (href, count) => {
     if (count === 1) {
       return `<span class="backref"><a href="#${href}">^</a></span>`;
@@ -101,19 +110,20 @@ function getFootnotesItems(li) {
       return `<span class="backref">${hrefList.join('')}</span>`;
     }
   };
-  const newFootnotes = {};
-  for (const [id, val] of Object.entries(footnotes)) {
-    const text = val.innerHTML.match(/<p>(.+?)&nbsp;<a href="#(.+?)"/)[1];
-    const hrefCount = val.querySelectorAll('a.reversefootnote').length;
-    newFootnotes[id] = {
+  const newFn = {};
+  for (const [id, val] of Object.entries(fn)) {
+    const match = val.innerHTML.match(/<p>(.+?)&nbsp;<a href="#fnref(.+?)"/);
+    const text = match === null ? val.innerHTML : match[1];
+    const hrefCount = Math.max(1, val.querySelectorAll('a.reversefootnote').length);
+    newFn[id] = {
       text: text,
       HTML: `<li id="${id}">${makeBackref(id.replace('fn:', 'fnref:'), hrefCount)}${text}</li>`,
     };
   }
-  return newFootnotes;
+  return newFn;
 }
 
-function updateFnref(footnoteItems) {
+function updateFnref(fnItems) {
   const makeFnref = (sup, href, num, tooltip) =>
     `<sup${sup} class="fnref">` +
       `<a href="#${href}">[${num}]</a>` +
@@ -122,12 +132,11 @@ function updateFnref(footnoteItems) {
   document.querySelectorAll('sup[id^="fnref:"]').forEach((e) => {
     e.outerHTML = e.outerHTML.replace(
         /<sup(.+?)><a href="#(.+?)"(.+?)>(.+?)<\/a><\/sup>/g,
-        (_, p1, p2, p3, p4) => makeFnref(p1, p2, p4, footnoteItems[p2].text));
+        (_, p1, p2, p3, p4) => makeFnref(p1, p2, p4, fnItems[p2].text));
   });
 }
 
-function updateFnlist(footnoteItems) {
+function updateFnlist(fnItems) {
   document.querySelector('#footnotes').innerHTML =
-    `<ol>${Object.values(footnoteItems).map((e) => e.HTML).join('')}</ol>`;
+    `<ol>${Object.values(fnItems).map((e) => e.HTML).join('')}</ol>`;
 }
-
