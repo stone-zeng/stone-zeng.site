@@ -64,7 +64,9 @@ $LaTeX3$ 中的命令，无论是函数还是变量，仍然都是以反斜杠 `
 
 按照规范，$LaTeX3$ 中的函数名包括三部分：模块名（`module`）、描述（`description`）以及参数指定（`arg-spec`），形如
 
-    \<module>_<description>:<arg-spec>
+```
+\<module>_<description>:<arg-spec>
+```
 
 注意参数指定需要放在冒号 `:` 后面。
 
@@ -118,7 +120,9 @@ $LaTeX3$ 中的命令，无论是函数还是变量，仍然都是以反斜杠 `
 
 $LaTeX3$ 中，变量的名称包括四个部分：作用域（`scope`）、模块名（`module`）、描述（`description`）以及变量类型（`type`），形如
 
-    \<scope>_<module>_<description>_<type>
+```
+\<scope>_<module>_<description>_<type>
+```
 
 通常来说，变量名中只包含字母和下划线（`_`）。
 
@@ -320,8 +324,8 @@ $LaTeX3$ 中的变量与相关函数组成了一个个模块。之后我们就�
 
 ## 参考
 
-1. [The `expl3` package and $LaTeX3$ programming](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/expl3.pdf) - `texdoc expl3`
-1. [The $LaTeX3$ kernel: style guide for code authors](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/l3styleguide.pdf) - `texdoc l3styleguide`
-1. [The $LaTeX3$ Interfaces](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/interface3.pdf) - `texdoc interface3`
-1. [The $LaTeX3$ Sources](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/source3.pdf) - `texdoc source3`
-1. Joseph Wright. [Programming LaTeX3: The programming environment](https://www.texdev.net/2011/12/11/programming-latex3-the-programming-environment/)
+- [The `expl3` package and $LaTeX3$ programming](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/expl3.pdf) - `texdoc expl3`
+- [The $LaTeX3$ kernel: style guide for code authors](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/l3styleguide.pdf) - `texdoc l3styleguide`
+- [The $LaTeX3$ Interfaces](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/interface3.pdf) - `texdoc interface3`
+- [The $LaTeX3$ Sources](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/source3.pdf) - `texdoc source3`
+- Joseph Wright. [Programming LaTeX3: The programming environment](https://www.texdev.net/2011/12/11/programming-latex3-the-programming-environment/)

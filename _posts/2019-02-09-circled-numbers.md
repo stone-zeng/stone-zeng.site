@@ -28,7 +28,9 @@ categories: Symbols
 
 ## Unicode
 
-数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 $TeX$ 引擎（$XeTeX$ 和 $LuaTeX$，若无特殊说明以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：<span id="fnref-font" class="footnote">[[1]](#fn-font)</span>
+数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 $TeX$ 引擎（$XeTeX$ 和 $LuaTeX$，若无特殊说明以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：[^font]
+
+[^font]: 在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于字体的安装情况以及浏览器的渲染方式。
 
 <div class="circled-number">
   <table>
@@ -368,7 +370,9 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
 
 这里的 `6` 和 `3` 原先分别对应日文字符和西文标点、符号。还需注意范围的写法与 `xeCJK` 中不同。
 
-配合 `xunicode-addon` 宏包，在 `ctex` 宏集中也同样可以使用 `\textcircled` 命令输入预定义的带圈数字。但需注意，`\textcircled` 会预先检查字符是否存在，且仅在西文字体中进行。所以如需使用中文字体进行显示，就要「指鹿为马」：<span id="fnref-textcircled-ctex" class="footnote">[[2]](#fn-textcircled-ctex)</span>
+配合 `xunicode-addon` 宏包，在 `ctex` 宏集中也同样可以使用 `\textcircled` 命令输入预定义的带圈数字。但需注意，`\textcircled` 会预先检查字符是否存在，且仅在西文字体中进行。所以如需使用中文字体进行显示，就要「指鹿为马」：[^textcircled-ctex]
+
+[^textcircled-ctex]: 感谢 [@qinglee](https://github.com/qinglee) 的指导！见 CTeX-org/ctex-kit [#399](https://github.com/CTeX-org/ctex-kit/issues/399)。
 
 ```latex
 % XeLaTeX 下需要把全体带圈数字都设置成 Default 类
@@ -436,7 +440,9 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
 
 ## Adobe-Japan1-7
 
-[Adobe-Japan1-7 字符集](https://github.com/adobe-type-tools/Adobe-Japan1)定义了更多的带圈数字，很多样式都支持 0&ndash;100 的数字范围。但由于 Unicode 没有为它们分配码位，我们必须用 CID（**C**haracter **ID**entifier）来指定。<span id="fnref-cid" class="footnote">[[3]](#fn-cid)</span>
+[Adobe-Japan1-7 字符集](https://github.com/adobe-type-tools/Adobe-Japan1)定义了更多的带圈数字，很多样式都支持 0&ndash;100 的数字范围。但由于 Unicode 没有为它们分配码位，我们必须用 CID（**C**haracter **ID**entifier）来指定。[^cid]
+
+[^cid]: 感谢 [@clerkma](https://github.com/clerkma) 的指导！见 CTeX-org/forum [#20](https://github.com/CTeX-org/forum/issues/20)。
 
 由于 CID 到具体字符的映照比较复杂，因而这里我们提供了一个宏包 [`textcircle-cid`](https://github.com/stone-zeng/latex-showcase/blob/master/textcircle-cid/textcircle-cid.sty)，用来通过 CID 调用带圈数字。`textcircle-cid` 宏包提供了下面一组命令：
 
@@ -703,9 +709,4 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
 
 ## 注释
 
-1. <span class="backref" id="fn-font"><a href="#fnref-font">^</a></span>
-   在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于字体的安装情况以及浏览器的渲染方式。
-2. <span class="backref" id="fn-textcircled-ctex"><a href="#fnref-textcircled-ctex">^</a></span>
-   感谢 [@qinglee](https://github.com/qinglee) 的指导！见 CTeX-org/ctex-kit [#399](https://github.com/CTeX-org/ctex-kit/issues/399)。
-3. <span class="backref" id="fn-cid"><a href="#fnref-cid">^</a></span>
-   感谢 [@clerkma](https://github.com/clerkma) 的指导！见 CTeX-org/forum [#20](https://github.com/CTeX-org/forum/issues/20)。
+<div id="footnotes"></div>

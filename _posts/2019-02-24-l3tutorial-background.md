@@ -12,7 +12,9 @@ $LaTeX3$ 教程这个系列的文章其实早已动笔（开始于 2017 年）�
 
 众所周知，[Donald E. Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) 在排版他的传世巨著 *The Art of Computer Programming* 时，[忍受不了当时的数字排版技术](https://tex.stackexchange.com/q/367058/)，于是一咬牙，花了近十年开发出了伟大的排版软件 $TeX$。
 
-然而这个 $TeX$ 本身是为 Knuth 自己服务的，普通人用起来会比较吃力。上世纪 80 年代，同样身为计算机科学家的 [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport) 教授开发出了 $LaTeX$（**La**mport **$TeX$**），隐藏了一些排版细节，成为了一套结构化的文档语言。Lamport 也是在准备他的著作 *The Great American Concurrency Book* 时发明了 $LaTeX$；可等有了 $LaTeX$，这本书却懒得动笔了……<span id="fnref-lamport-book" class="footnote">[[1]](#fn-lamport-book)</span>
+然而这个 $TeX$ 本身是为 Knuth 自己服务的，普通人用起来会比较吃力。上世纪 80 年代，同样身为计算机科学家的 [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport) 教授开发出了 $LaTeX$（**La**mport **$TeX$**），隐藏了一些排版细节，成为了一套结构化的文档语言。Lamport 也是在准备他的著作 *The Great American Concurrency Book* 时发明了 $LaTeX$；可等有了 $LaTeX$，这本书却懒得动笔了……[^lamport-book]
+
+[^lamport-book]: [$LaTeX$: A Document Preparation System - The Writings of Leslie Lamport](https://lamport.azurewebsites.net/pubs/pubs.html#latex)
 
 1992 年，$LaTeX$ 2.09 发布，之后 Lamport 便退居二线，开发工作交给由 Frank Mittelbach 领导的 [$LaTeX3$ 团队](https://www.latex-project.org/about/team/)负责。顾名思义，这个团队就是要代表 $LaTeX$ 行业的发展要求，代表 $LaTeX$ 界最新技术的前进方向，代表 $LaTeX$ 最广大用户的根本利益。于是他们埋头苦干了两年，搞了个大新闻——推出了 $LaTeXe$。
 
@@ -24,7 +26,9 @@ $LaTeX3$ 教程这个系列的文章其实早已动笔（开始于 2017 年）�
 
 ### 用户层次
 
-要完成高质量的排版，就需要对格式进行精确地控制。然而，很多时候格式控制却没有提供简单易用的接口，往往需要手动修改内部定义。比如要使脚注中的编号行内居中，就需要这么做<span id="fnref-footnote" class="footnote">[[2]](#fn-footnote)</span>：
+要完成高质量的排版，就需要对格式进行精确地控制。然而，很多时候格式控制却没有提供简单易用的接口，往往需要手动修改内部定义。比如要使脚注中的编号行内居中，就需要这么做：[^footnote]
+
+[^footnote]: 李清. [$LaTeX$ 脚注要怎么在行内垂直居中呢？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
 
 ```latex
 {% raw %}\makeatletter
@@ -46,7 +50,9 @@ $LaTeX3$ 教程这个系列的文章其实早已动笔（开始于 2017 年）�
 
 ### 编程层次
 
-另一方面，$LaTeXe$ 缺乏良好的编程界面，简单的流程控制语句也相当繁琐和低效。更不用提丧心病狂的宏展开<span id="fnref-expandafter" class="footnote">[[3]](#fn-expandafter)</span>：
+另一方面，$LaTeXe$ 缺乏良好的编程界面，简单的流程控制语句也相当繁琐和低效。更不用提丧心病狂的宏展开：[^expandafter]
+
+[^expandafter]: 2015 年 `CTeX` 宏集进行了较为彻底的重构，这里给出的代码实际上已经不再使用，但仍然保留在[代码库](https://github.com/CTeX-org/ctex-kit/blob/ctex-1.02d/def/ctex-common.def#L44-L50)中。参考：刘海洋. [多个 \expandafter 的展开过程是怎样的？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
 
 ```latex
 {% raw %}\def\CTEX@replacecommand#1#2#3{%
@@ -120,17 +126,12 @@ $LaTeX3$ 教程这个系列的文章其实早已动笔（开始于 2017 年）�
 
 ## 注释
 
-1. <span class="backref" id="fn-lamport-book"><a href="#fnref-lamport-book">^</a></span>
-   [$LaTeX$: A Document Preparation System - The Writings of Leslie Lamport](https://lamport.azurewebsites.net/pubs/pubs.html#latex)
-1. <span class="backref" id="fn-footnote"><a href="#fnref-footnote">^</a></span>
-   李清. [$LaTeX$ 脚注要怎么在行内垂直居中呢？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
-1. <span class="backref" id="fn-expandafter"><a href="#fnref-expandafter">^</a></span>
-   2015 年 `CTeX` 宏集进行了较为彻底的重构，这里给出的代码实际上已经不再使用，但仍然保留在[代码库](https://github.com/CTeX-org/ctex-kit/blob/ctex-1.02d/def/ctex-common.def#L44-L50)中。参考：刘海洋. [多个 \expandafter 的展开过程是怎样的？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
+<div id="footnotes"></div>
 
 ## 参考
 
-1. [The LaTeX3 Project](https://www.latex-project.org/latex3/)
-1. @bryn. [Why is LaTeX3 taking so long to come out?](https://tex.stackexchange.com/q/953)
-1. Joseph Wright. Series on programming LaTeX3
+- [The LaTeX3 Project](https://www.latex-project.org/latex3/)
+- @bryn. [Why is LaTeX3 taking so long to come out?](https://tex.stackexchange.com/q/953)
+- Joseph Wright. Series on programming LaTeX3
   - [Programming LaTeX3: Introduction](https://www.texdev.net/2011/12/06/programming-latex3-introduction/)
   - [Programming LaTeX3: Background](https://www.texdev.net/2011/12/07/programming-latex3-background/)

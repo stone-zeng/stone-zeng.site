@@ -2,7 +2,7 @@
 layout: post
 title: 在 LaTeX 中使用 OpenType 字体
 date: 2018-08-08
-last_modified_at: 2019-07-14
+last_modified_at: 2019-07-15
 categories: Fonts
 ---
 
@@ -37,7 +37,9 @@ $LaTeX$ 中使用 OpenType 字体，主要依靠下列宏包：
 
 ### 衬线体
 
-所谓「衬线」，是指笔画末端的一种装饰细节，一般认为起源于古罗马的[石刻拉丁字母](https://en.wikipedia.org/wiki/Roman_square_capitals)。衬线据说有引导视线的作用，因而往往被用作书籍、文章等的正文字体。根据产生年代以及风格样式，又可以细分为几类<span id="fnref-atypi" class="footnote">[[1]](#fn-atypi)</span>。
+所谓「衬线」，是指笔画末端的一种装饰细节，一般认为起源于古罗马的[石刻拉丁字母](https://en.wikipedia.org/wiki/Roman_square_capitals)。衬线据说有引导视线的作用，因而往往被用作书籍、文章等的正文字体。根据产生年代以及风格样式，又可以细分为几类[^atypi]。
+
+[^atypi]: 字体分类是一个复杂的话题，也没有统一的标准。这里我们大致采用的是 [Vox-A TypI 方案](https://en.wikipedia.org/wiki/Vox-ATypI_classification)。
 
 <table class="font-sample">
   <tr>
@@ -150,7 +152,9 @@ $LaTeX$ 中使用 OpenType 字体，主要依靠下列宏包：
 
 ### 变体
 
-直立、正体的字型通常被称为**罗马体**（Roman type）。除此之外，一套完整的字体往往还具有若干其他字型<span id="fnref-typeface" class="footnote">[[2]](#fn-typeface)</span>。
+直立、正体的字型通常被称为**罗马体**（Roman type）。除此之外，一套完整的字体往往还具有若干其他字型[^typeface]。
+
+[^typeface]: 所谓「字体」（typeface），更多的侧重于一种设计风格；而「字型」（font），则是指某一款字体设计的具体式样，包括字重、尺寸等。举例来说，Frutiger 是一款字体，而 Frutiger 55 Roman 就是一个字型。但在实际使用中，这两者经常混用，我们这里也不做严格区分。参见[英语术语「typeface」和「font」的区别是什么？- 知乎](https://www.zhihu.com/question/19566628)。
 
 - 意大利体（italic type）：字形稍向右倾，笔画带有手写体的风格。它不是罗马体的简单倾斜
 - 斜体（oblique/slant type）：大部分是原字形的简单倾斜，少数设计精良的字体（如 Univers、Helvetica 等）也会再额外进行视觉修正
@@ -281,7 +285,9 @@ information.
 
 ## 基础篇（II）——中西文混排
 
-$LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span id="fnref-ctex" class="footnote">[[3]](#fn-ctex)</span>。`CTeX` 宏集由 `ctexart` 等文档类和 `ctex` 等宏包组成，支持 $LaTeX$、$pdfTeX$、$XeTeX$、$LuaTeX$、$upTeX$ 和 $ApTeX$ 等多种引擎，并提供了统一的界面。在 $XeTeX$ 或 $LuaTeX$ 引擎下使用时，`CTeX` 宏集底层将依赖 `fontspec` 宏包。
+$LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架[^ctex]。`CTeX` 宏集由 `ctexart` 等文档类和 `ctex` 等宏包组成，支持 $LaTeX$、$pdfTeX$、$XeTeX$、$LuaTeX$、$upTeX$ 和 $ApTeX$ 等多种引擎，并提供了统一的界面。在 $XeTeX$ 或 $LuaTeX$ 引擎下使用时，`CTeX` 宏集底层将依赖 `fontspec` 宏包。
+
+[^ctex]: 社区另有名为 $CTeX$ 套装的 $TeX$ 发行版，与这里所述的 `CTeX` 宏集并非是同一事物。$CTeX$ 套装现已过时，不建议使用。
 
 默认情况下，`CTeX` 宏集会根据系统和编译方式选择合适的中文字库，也可以利用 `fontset` 选项指定所需加载的字库。这里我们介绍的是手工设置字体的方法，基本与 `fontspec` 宏包一致，主要命令有：
 
@@ -356,17 +362,13 @@ $LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架<span i
 
 ## 注释
 
-1. <span class="backref" id="fn-atypi"><a href="#fnref-atypi">^</a></span>
-   字体分类是一个复杂的话题，也没有统一的标准。这里我们大致采用的是 [Vox-A TypI 方案](https://en.wikipedia.org/wiki/Vox-ATypI_classification)。
-1. <span class="backref" id="fn-typeface"><a href="#fnref-typeface">^</a></span>
-   所谓「字体」（typeface），更多的侧重于一种设计风格；而「字型」（font），则是指某一款字体设计的具体式样，包括字重、尺寸等。举例来说，Frutiger 是一款字体，而 Frutiger 55 Roman 就是一个字型。但在实际使用中，这两者经常混用，我们这里也不做严格区分。参见[英语术语「typeface」和「font」的区别是什么？- 知乎](https://www.zhihu.com/question/19566628)。
-1. <span class="backref" id="fn-ctex"><a href="#fnref-ctex">^</a></span>
-   社区另有名为 $CTeX$ 套装的 $TeX$ 发行版，与这里所述的 `CTeX` 宏集并非是同一事物。$CTeX$ 套装现已过时，不建议使用。
+<div id="footnotes"></div>
 
 ## 参考
 
-1. Wikipedia. [OpenType](https://en.wikipedia.org/wiki/OpenType)
-1. Wikipedia. [Serif](https://en.wikipedia.org/wiki/Serif)
-1. Will Robert­son. [`fontspec` 宏包](https://ctan.org/pkg/fontspec)
-1. ctex.org. [`xeCJK` 宏包](https://ctan.org/pkg/xecjk)
-1. ctex.org. [`CTeX` 宏集](https://ctan.org/pkg/ctex)
+- Wikipedia. [OpenType](https://en.wikipedia.org/wiki/OpenType)
+- Wikipedia. [Serif](https://en.wikipedia.org/wiki/Serif)
+- 宏包文档，本地可使用 `texdoc <宏包名>` 打开：
+  - Will Robert­son. [`fontspec` 宏包](https://ctan.org/pkg/fontspec)
+  - ctex.org. [`xeCJK` 宏包](https://ctan.org/pkg/xecjk)
+  - ctex.org. [`CTeX` 宏集](https://ctan.org/pkg/ctex)
