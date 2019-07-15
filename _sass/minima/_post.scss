@@ -221,12 +221,13 @@
     transition: 0s background-color;
 
     &:hover .tooltip {
-      opacity: 1;
-      visibility: visible;
+      @include media-on-large {
+        display: block;
+      }
     }
 
     .tooltip {
-      visibility: hidden;
+      display: none;
       position: absolute;
       width: max-content;
       max-width: 300px;
@@ -238,8 +239,6 @@
       font-feature-settings: normal;
       background-color: lighten($grey-color-light, 6%);
       z-index: 1;
-      opacity: 0;
-      transition: opacity .6s;
 
       ul, ol {
         margin-bottom: 2px;
