@@ -1,0 +1,29 @@
+% xelatex fontspec-basic.tex && dvisvgm --pdf fontspec-basic.pdf && svgo fontspec-basic.svg
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{fontspec}
+\setmainfont{texgyretermes}[
+  Extension      = .otf,
+  UprightFont    = *-regular,
+  BoldFont       = *-bold,
+  ItalicFont     = *-italic,
+  BoldItalicFont = *-bolditalic]
+\setsansfont{texgyreheros}[
+  Extension      = .otf,
+  UprightFont    = *-regular,
+  BoldFont       = *-bold,
+  ItalicFont     = *-italic,
+  BoldItalicFont = *-bolditalic]
+\setmonofont{texgyrecursor}[
+  Extension      = .otf,
+  UprightFont    = *-regular,
+  BoldFont       = *-bold,
+  ItalicFont     = *-italic,
+  BoldItalicFont = *-bolditalic]
+
+\begin{document}
+\qquad
+The \textsf{fontspec} package provides an \emph{automatic} and \emph{unified} interface for loading
+fonts in \LaTeX. This package also provides access to the large number of font features available
+with \textsc{OpenType} (and other) fonts. See the documentation \texttt{fontspec.pdf} for full
+information.
+\end{document}

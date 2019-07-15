@@ -1,0 +1,21 @@
+% xelatex textcircled-xunicode-addon.tex && dvisvgm --pdf textcircled-xunicode-addon.pdf && svgo textcircled-xunicode-addon.svg
+\documentclass[varwidth, margin=6pt]{standalone}
+\usepackage{fontspec,xunicode-addon}
+\setmainfont{Source Han Serif SC}
+\begin{document}
+\ExplSyntaxOn
+\cs_set:Npn \TESTi
+  {
+    \int_step_inline:nnn {  0 } { 25 } { \textcircled{##1} ~ } \par
+    \int_step_inline:nnn { 26 } { 50 } { \textcircled{##1} ~ } \par
+  }
+\cs_set:Npn \TESTii
+  { \tl_map_inline:nn { abcdefghijklmnopqrstuvwxyz } { \textcircled{##1} ~ } \par }
+\cs_set:Npn \TESTiii
+  { \tl_map_inline:nn { ABCDEFGHIJKLMNOPQRSTUVWXYZ } { \textcircled{##1} ~ } \par }
+\ExplSyntaxOff
+
+\TESTi
+\TESTii
+\TESTiii
+\end{document}

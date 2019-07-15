@@ -1,0 +1,11 @@
+% xelatex textcircled-fontspec.tex && dvisvgm --pdf textcircled-fontspec.pdf && svgo textcircled-fontspec.svg
+\documentclass[varwidth, margin=6pt]{standalone}
+\usepackage{fontspec}
+\setmainfont{Source Han Serif SC}
+\begin{document}
+① ② ③ ④ ⑤
+\symbol{"2776} \symbol{"2777} \symbol{"2778} \symbol{"2779} \symbol{"277A}
+\char"3248\    \char"3249\    \char"324A\    \char"324B\    \char"324C\
+^^^^3280       ^^^^3281       ^^^^3282       ^^^^3283       ^^^^3284
+^^^^^1f229     ^^^^^1f214     ^^^^^1f22a
+\end{document}

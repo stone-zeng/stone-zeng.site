@@ -1,0 +1,22 @@
+% xelatex ctex-basic.tex && dvisvgm --pdf ctex-basic.pdf && svgo ctex-basic.svg
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{ctex}
+\setmainfont{Source Serif Pro}
+\setsansfont{Source Sans Pro}
+\setmonofont{Source Code Pro}
+\setCJKmainfont{Source Han Serif SC}
+\setCJKsansfont{Source Han Sans SC}
+\setCJKmonofont{Source Han Sans SC}
+\setCJKfamilyfont{boldsong}{Source Han Serif SC Heavy}
+
+\begin{document}
+\qquad
+\CTeX{} 宏集的源头有两个：一是{\CJKfamily{boldsong}王磊}编写的 \texttt{cjkbook} 文档类，二是%
+{\CJKfamily{boldsong}吴凌云}编写的 \texttt{GB.cap}。这些工作没有经过认真、系统的设计，也没有用户
+文档，不利于维护和改进。
+
+\qquad
+\textsf{2014 年 3 月，为了适应 \LaTeX{} 的最新发展，\textbf{特别是 \LaTeX3 的逐渐成熟}，
+  {\CJKfamily{boldsong}李清}用 \LaTeX3 重构了整个宏包的代码，并重新使用 \texttt{doc} 和
+  \texttt{DocStrip} 工具进行代码的管理，升级版本号为 2.0，并改称 \CTeX{} 宏集。}
+\end{document}

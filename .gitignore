@@ -2,6 +2,14 @@
 Gemfile.lock
 package-lock.json
 
+*.aux
+*.dvi
+*.log
+*.xdv
+
+*.otf
+*.pdf
+
 _draft/
 _site/
 .bundle/

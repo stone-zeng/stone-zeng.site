@@ -1,0 +1,13 @@
+% xelatex textcircled-nalt-kana.tex && dvisvgm --pdf textcircled-nalt-kana.pdf && svgo textcircled-nalt-kana.svg
+\documentclass[varwidth, margin=6pt]{standalone}
+\usepackage{ctex}
+\setCJKmainfont{Hiragino Mincho Pro W3}
+\begin{document}
+{\addCJKfontfeature{Annotation=0}あア}
+{\addCJKfontfeature{Annotation=1}かカ}
+{\addCJKfontfeature{Annotation=2}さサ}
+{\addCJKfontfeature{Annotation=3}たタ}
+{\addCJKfontfeature{Annotation=4}なナ}
+{\addCJKfontfeature{Annotation=5}はハ}
+{\addCJKfontfeature{Annotation=6}まマ}
+\end{document}

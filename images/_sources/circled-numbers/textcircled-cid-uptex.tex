@@ -1,0 +1,18 @@
+% uplatex textcircled-cid-uptex.tex && dvipdfmx textcircled-cid-uptex.dvi && dvisvgm --pdf textcircled-cid-uptex.pdf && svgo textcircled-cid-uptex.svg
+\documentclass[class=ujarticle, varwidth, margin={20pt 6pt}]{standalone}
+\usepackage{pxchfon,textcircle-cid}
+\setminchofont{KozMinPr6N-Regular.otf}
+\setgothicfont{KozGoPr6N-Regular.otf}
+
+\def\TEST{%
+  \CIDtextcircled{0}
+  \CIDtextblackcircled{1}
+  \CIDtextboxed{00}
+  \CIDtextblackboxed{10}
+  \CIDtextrboxed{50}
+  \CIDtextblackrboxed{100}}
+
+\begin{document}
+\textmc{\TEST} \par
+\textgt{\TEST}
+\end{document}

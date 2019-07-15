@@ -30,12 +30,12 @@ categories: Fonts
 
 <div class="figure-slideshow">
   <figure>
-    <img src="/images/word-font-settings.png" alt="word-font-settings" style="max-width: 400px;">
+    <img src="/images/use-opentype-fonts-ii/word-font-settings.png" alt="word-font-settings" style="max-width: 400px;">
     <figcaption>Word 中的字体面板</figcaption>
   </figure>
   <!-- TODO -->
   <!-- <figure>
-    <img src="/images/indesign-font-settings.png" alt="indesign-font-settings">
+    <img src="/images/use-opentype-fonts-ii/indesign-font-settings.png" alt="indesign-font-settings">
     <figcaption>Adobe Indesign 中的字体面板</figcaption>
   </figure> -->
 </div>
@@ -137,7 +137,7 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 在实际的字体设计中，不同字重的字体一般需要独立绘制，或通过多母版技术进行插值。换而言之，「加粗」并不是一个简单的几何变换。如果某个字体没有额外设计粗体，那么通过 Word 的加粗按钮得到的就是所谓「伪粗体」，它一般是通过加粗所有笔画来实现的。下图我们可以看到「伪粗」和「真粗」的区别：
 
 <figure>
-  <img src="/images/bold-vs-fake-bold.svg" alt="bold-vs-fake-bold">
+  <img src="/images/use-opentype-fonts-ii/bold-vs-fake-bold.svg" alt="bold-vs-fake-bold">
 </figure>
 
 左侧真正的粗体有鲜明的笔画对比，显得端庄、优雅；而右侧的伪粗体不仅损失了这样的特色，而且笔画粘连，黑度不均，难于辨认。
@@ -145,7 +145,7 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 $LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold」。它会连续输出三个相同的符号，但使其稍稍错位，以实现加粗的效果：
 
 <figure>
-  <img src="/images/bold-vs-pmb.svg" alt="bold-vs-pmb">
+  <img src="/images/use-opentype-fonts-ii/bold-vs-pmb.svg" alt="bold-vs-pmb">
 </figure>
 
 ### 倾斜
@@ -161,14 +161,14 @@ $LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold�
 他同时也指出，非意大利体的倾斜有些时候也是必要的，但需要做额外的调整以达到视觉平衡。下图是 Helvetica 与 Neue Helvetica 的对比。Helvetica（第一行）使用的是单纯的的 oblique，而 Neue Helvetica（第二行）则进行了细致的修正。除去字重的调整，可以看出 O 的形状、c 的开口和 f 的头部都有优化之处：
 
 <figure>
-  <img src="/images/helvetica-vs-neue-outline.png" alt="helvetica-vs-neue-outline" style="width: 49%;">
-  <img src="/images/helvetica-vs-neue.png" alt="helvetica-vs-neue" style="width: 49%;">
+  <img src="/images/use-opentype-fonts-ii/helvetica-vs-neue-outline.png" alt="helvetica-vs-neue-outline" style="width: 49%;">
+  <img src="/images/use-opentype-fonts-ii/helvetica-vs-neue.png" alt="helvetica-vs-neue" style="width: 49%;">
 </figure>
 
 另一方面，意大利体也未必一定是倾斜的。$TeX$ 的默认字体 Computer Modern 家族中就包含了一个未倾斜的意大利体；当然倾斜的意大利体和伪斜体也是有的（这里的 slant 没有经过额外的调整，所以是「伪」斜）：
 
 <figure>
-  <img src="/images/cm-italic.svg" alt="cm-italic">
+  <img src="/images/use-opentype-fonts-ii/cm-italic.svg" alt="cm-italic">
 </figure>
 
 对于汉字来说，传统上并没有倾斜这一变体形式。从源流来说，意大利体这一手写风格与楷体更为接近[^han-italic]。表示强调意味的话，习惯上也会使用<span class="zh-emph">着重号</span>而非改变字体。
@@ -191,7 +191,7 @@ $LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold�
 小型大写同样不是大写字母的简单缩小。一般来说，为了保持灰度的统一，小型大写字母会略增加字重，并且拉开字距：
 
 <figure>
-  <img src="/images/small-caps.svg" alt="small-caps">
+  <img src="/images/use-opentype-fonts-ii/small-caps.svg" alt="small-caps">
 </figure>
 
 最后需要说明的是，小型大写字母是为了和小写字母更好地匹配。在中西文混排的时候，由于汉字字面一般较大，因此不太适合搭配使用小型大写字母。
@@ -205,7 +205,7 @@ $LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold�
 Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号的设计：
 
 <figure>
-  <img src="/images/lm-optical-size.svg" alt="lm-optical-size">
+  <img src="/images/use-opentype-fonts-ii/lm-optical-size.svg" alt="lm-optical-size">
 </figure>
 
 至此我们简要回顾了几种字体的坐标，下面我们就重新回到 $TeX$ 的轨道上，介绍在 `fontspec` 中的使用方法。
@@ -293,7 +293,7 @@ sed do eiusmod tempor incididunt ut.
 这里我们只显式指定了 upright 和 bold，而 italic 仍然是由 `fontspec` 自动选择的：
 
 <figure>
-  <img src="/images/fontspec-selection-a.svg" alt="fontspec-selection-a">
+  <img src="/images/use-opentype-fonts-ii/fontspec-selection-a.svg" alt="fontspec-selection-a">
 </figure>
 
 很多时候同一字体家族内字体的名称会很类似，此时可以用 `*` 代替重复的部分。另外，对于使用文件名调用的情况，扩展名可以通过 `Extension` 选项统一指定：
@@ -323,7 +323,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 ```
 
 <figure>
-  <img src="/images/fontspec-selection-b.svg" alt="fontspec-selection-b">
+  <img src="/images/use-opentype-fonts-ii/fontspec-selection-b.svg" alt="fontspec-selection-b">
 </figure>
 
 ### 更多变体
@@ -363,7 +363,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 ```
 
 <figure>
-  <img src="/images/fontspec-firasans.svg" alt="fontspec-firasans">
+  <img src="/images/use-opentype-fonts-ii/fontspec-firasans.svg" alt="fontspec-firasans">
 </figure>
 
 ### 小型大写的使用
@@ -371,7 +371,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 现代字体中往往会把小型大写作为一项 OpenType 特性，因而在 `fontspec` 中是自动开启的，直接使用 `\textsc` 或 `\scshape` 就可以调用。但需要注意的是，并不是所有字体（的每种子样式）都会配备小型大写字母，所以有时候会回退到其他字体：
 
 <figure>
-  <img src="/images/fontspec-small-caps.svg" alt="fontspec-small-caps">
+  <img src="/images/use-opentype-fonts-ii/fontspec-small-caps.svg" alt="fontspec-small-caps">
 </figure>
 
 ## `CTeX` 宏集提高篇
@@ -444,7 +444,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 ```
 
 <figure>
-  <img src="/images/fandol.svg" alt="fandol">
+  <img src="/images/use-opentype-fonts-ii/fandol.svg" alt="fandol">
 </figure>
 
 实际上各高校学位论文几乎都是只给了 Word 模版，于是我们要做的就是模仿出一套 Word 风格：
@@ -568,7 +568,7 @@ macOS 中没有自带中易字体，但如果安装了 Office，则可以找到�
 效果如下（这里修改了页边距和页面大小以方便显示）：
 
 <figure>
-  <img src="/images/ctex-demo.svg" alt="ctex-demo">
+  <img src="/images/use-opentype-fonts-ii/ctex-demo.svg" alt="ctex-demo">
 </figure>
 
 ## 附录

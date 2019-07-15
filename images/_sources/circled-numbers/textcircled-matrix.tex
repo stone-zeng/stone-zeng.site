@@ -1,0 +1,31 @@
+% xelatex textcircled-matrix.tex && pdftopng -gray -r 500 textcircled-matrix.pdf 1 && pngquant 1-000001.png && mv 1-000001-fs8.png textcircled-matrix.png
+\documentclass[margin=2pt]{standalone}
+\usepackage{ctex,xunicode-addon}
+\xeCJKDeclareCharClass{Default}{"24EA, "2460->"2473, "3251->"32BF}
+\newfontfamily\EnclosedNumbers{Source Han Serif SC}
+\AtBeginUTFCommand[\textcircled]{\begingroup\EnclosedNumbers}
+\AtEndUTFCommand[\textcircled]{\endgroup}
+\makeatletter
+\ExplSyntaxOn
+\int_const:Nn \c_@@_col_int { 50 }
+\int_const:Nn \c_@@_row_int { 20 }
+\cs_set:Npn \TEST
+  {
+    \exp_args:Nnx \begin{tabular}{ * { \int_use:N \c_@@_col_int } { @{} c } @{} }
+      \int_step_inline:nnn {0} { \c_@@_row_int - 2 }
+        { \@@_row:x { \int_eval:n { ##1 * \c_@@_col_int } } \\ }
+      \@@_row:x { \int_eval:n { (\c_@@_row_int - 1) * \c_@@_col_int } }
+    \end{tabular}
+  }
+\cs_set:Npn \@@_row:n #1
+  {
+    \int_step_inline:nnn {#1} { #1 + \c_@@_col_int - 2 } { \textcircled {##1} & }
+    \exp_args:Nx \textcircled { \int_eval:n { #1 + \c_@@_col_int - 1 } }
+  }
+\cs_generate_variant:Nn \@@_row:n { x }
+\ExplSyntaxOff
+\makeatother
+
+\begin{document}
+\TEST
+\end{document}

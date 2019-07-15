@@ -37,12 +37,15 @@ plugins:
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 exclude:
+  - .gitignore
+  - .gitattributes
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - package.json
   - README.md
   - _draft/
+  - images/_sources/
   - node_modules/
   - temp/
   - vendor/

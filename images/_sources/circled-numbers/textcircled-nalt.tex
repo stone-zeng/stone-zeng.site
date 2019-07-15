@@ -1,0 +1,10 @@
+% xelatex textcircled-nalt.tex && dvisvgm --pdf textcircled-nalt.pdf && svgo textcircled-nalt.svg
+\documentclass[varwidth, margin=6pt]{standalone}
+\usepackage{fontspec}
+% \setmainfont{ipaexm.ttf}  % It's in TrueType format and can't be load by dvisvgm (bug?)
+\setmainfont{myipaexm.otf}[Path=./font/]
+\begin{document}
+{\addfontfeature{Annotation=0}123456789}
+{\addfontfeature{Annotation=1}123456789}
+{\addfontfeature{Annotation=2}123456789}
+\end{document}

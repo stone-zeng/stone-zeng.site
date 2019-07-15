@@ -1,0 +1,29 @@
+% xelatex fontspec-ad-hoc.tex && dvisvgm --pdf fontspec-ad-hoc.pdf && svgo fontspec-ad-hoc.svg
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[
+  Extension      = .otf,
+  UprightFont    = *-regular,
+  BoldFont       = *-bold,
+  ItalicFont     = *-italic,
+  BoldItalicFont = *-bolditalic]
+\newfontfamily\adventor{texgyreadventor}[
+  Extension      = .otf,
+  UprightFont    = *-regular,
+  BoldFont       = *-bold,
+  ItalicFont     = *-italic,
+  BoldItalicFont = *-bolditalic]
+
+\begin{document}
+\qquad
+\LaTeX{} is a document preparation system.
+
+\qquad
+{\adventor When writing, the writer uses plain text as opposed to the formatted text found in
+  \textit{WYSIWYG} (``what you see is what you get'') word processors like \textbf{Microsoft Word},
+  \textbf{LibreOffice Writer} and \textbf{Apple Pages}.}
+
+\qquad
+{\fontspec{texgyreheros-regular.otf}The writer uses markup tagging conventions to define the general structure
+  of a document, to stylise text throughout a document, and to add citations and cross-references.}
+\end{document}
