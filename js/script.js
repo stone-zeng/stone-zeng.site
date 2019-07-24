@@ -53,13 +53,16 @@ function updatePunctLogo(d) {
         .replace(/([）』」》〉])([，、：；。！？])/g,    span('zh-punct-kern', '$1') + '$2')
         .replace(/([，、：；。！？）』」》〉])(<sup)/g,  span('zh-punct-kern', '$1') + '$2')
         .replace(/([）』」》〉])([（『「《])/g,          span('zh-lrpunct-kern', '$1') + '$2')
-        .replace(/^([（『「《〈])/g,                     span('zh-punct-bound', '$1'));
+        .replace(/^([（『「《〈])/g,                     span('zh-punct-bound', '$1'))
+        // No-break thin space
+        .replace(/\\,/g, '\u2060\u2009\u2060');
+  const patternH1 =
+    /((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|BibTeX|CTeX|MacTeX|2e)/g;
+  const pattern = new RegExp(`\\\$${patternH1.source}\\\$`, 'g');
   const replaceLogo = (str) =>
-    str.replace(/\$((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|BibTeX|CTeX|MacTeX|2e)\$/g,
-        (_, name) => span('tex-logo', LOGO[name]));
+    str.replace(pattern, (_, name) => span('tex-logo', LOGO[name]));
   const replaceLogoH1 = (str) =>
-    str.replace(/((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|CTeX|2e)/g,
-        (_, name) => span('tex-logo', LOGO[name]));
+    str.replace(patternH1, (_, name) => span('tex-logo', LOGO[name]));
   document.querySelectorAll('h2, h3, h4, p, li, figcaption, td, th').forEach((e) =>
     e.innerHTML = replacePunct(replaceLogo(e.innerHTML)));
   document.querySelectorAll('h1').forEach((e) =>
