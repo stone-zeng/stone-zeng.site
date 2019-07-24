@@ -323,13 +323,13 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
 
 总而言之，在 `ctex` 宏集的默认配置下：
 
-| Unicode 区块 | $XeLaTeX$ | $LuaLaTeX$ |
-|:--------------------------------:|:----:|:----:|
-| Enclosed Alphanumerics           | 西文 | 西文 |
-| Dingbats                         | 西文 | 西文 |
-| Enclosed CJK Letters and Months  | 中文 | 中文 |
-| Enclosed Alphanumeric Supplement | 西文 | 西文 |
-| Enclosed Ideographic Supplement  | 中文 | 西文 |
+| Unicode 区块                     | $XeLaTeX$ | $LuaLaTeX$ |
+|:--------------------------------:|:----------:|:---------:|
+| Enclosed Alphanumerics           | 西文      | 西文       |
+| Dingbats                         | 西文      | 西文       |
+| Enclosed CJK Letters and Months  | 中文      | 中文       |
+| Enclosed Alphanumeric Supplement | 西文      | 西文       |
+| Enclosed Ideographic Supplement  | 中文      | 西文       |
 
 在 $XeLaTeX$ 下，可以做如下修改：
 

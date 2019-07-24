@@ -569,7 +569,7 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 
 原来的问题简单得很：
 
-```tex
+```latex
 \documentclass{ctexart}
 \usepackage{fancyvrb}
 \begin{document}
@@ -599,7 +599,7 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 
 接下来，@yihui 提供了代码（第一份代码只是引号的正常宽度，与本问题无关），那么问题就好解决多了：
 
-```tex
+```latex
 \documentclass[UTF8]{ctexart}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -634,7 +634,7 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 1. 使用 `article` + `xeCJK` 代替 `ctexart` 文档类，同样出现问题。
 1. 在 `xeCJK` 的文档中搜索有关抄录环境的问题，可以找到 `Verb` 选项和 `\xeCJKVerbAddon` 等命令。根据说明，我们可以把它添加到 `fancyvrb` 宏包的 `formatcom` 选项中：
 
-   ```tex
+   ```latex
    {% raw %}\documentclass{article}
    \usepackage{xeCJK,fancyvrb}
    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{%

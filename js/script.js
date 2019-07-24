@@ -21,7 +21,8 @@ function updatePunctLogo(d) {
   const TEX   = `T${span('e', 'e')}X`;
   const LA    = `L${span('a', 'a')}`;
   const LATEX = LA + TEX;
-  const TWO_E = `2${span('epsilon', '&epsilon;')}`;
+  const E_    = `${span('epsilon', '&epsilon;')}${span('rkern', '-')}`;
+  const TWO_E = `2${span('two-e-epsilon', '&epsilon;')}`;
   const LOGO  = {
     'TeX':      TEX,
     'LaTeX':    LATEX,
@@ -29,17 +30,21 @@ function updatePunctLogo(d) {
     'LaTeX3':   `${LATEX}3`,
     '(La)TeX':  `${span('rkern', '(')}${LA}${span('rparen-kern', ')')}${TEX}`,
     'ConTeXt':  `Co${span('rkern', 'n')}${TEX}t`,
+    'eTeX':     `${E_}${TEX}`,
     'pdfTeX':   `pdf${TEX}`,
     'pdfLaTeX': `pdf${LATEX}`,
     'XeTeX':    `X${span('xe-e xe-e-kern', 'e')}${TEX}`,
     'XeLaTeX':  `X${span('xe-e', 'e')}${LATEX}`,
     'LuaTeX':   `Lu${span('rkern', 'a')}${TEX}`,
     'LuaLaTeX': `Lua${LATEX}`,
+    'pTeX':     `${span('rkern', 'p')}${TEX}`,
+    'pLaTeX':   `p${LATEX}`,
     'upTeX':    `u${span('rkern', 'p')}${TEX}`,
     'upLaTeX':  `up${LATEX}`,
     'ApTeX':    `A${span('rkern', 'p')}${TEX}`,
     'BibTeX':   `B${span('bib-ib rkern', 'ib')}${TEX}`,
     'CTeX':     `C${TEX}`,
+    'MacTeX':   `Ma${span('rkern', 'c')}${TEX}`,
     '2e':       TWO_E,
   };
   const replacePunct = (str) =>
@@ -50,7 +55,7 @@ function updatePunctLogo(d) {
         .replace(/([）』」》〉])([（『「《])/g,          span('zh-lrpunct-kern', '$1') + '$2')
         .replace(/^([（『「《〈])/g,                     span('zh-punct-bound', '$1'));
   const replaceLogo = (str) =>
-    str.replace(/\$((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|BibTeX|CTeX|2e)\$/g,
+    str.replace(/\$((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|BibTeX|CTeX|MacTeX|2e)\$/g,
         (_, name) => span('tex-logo', LOGO[name]));
   const replaceLogoH1 = (str) =>
     str.replace(/((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|CTeX|2e)/g,
