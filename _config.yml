@@ -45,8 +45,8 @@ exclude:
   - package.json
   - README.md
   - _draft/
-  - images/_sources/
   - node_modules/
+  - src/
   - temp/
   - vendor/
 

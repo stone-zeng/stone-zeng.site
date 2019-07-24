@@ -24,9 +24,9 @@ plotFunc[data_, opts: OptionsPattern[]] := ListPlot[data,
   FilterRules[{opts}, Options @ ListPlot]]
 Row[{
   plotFunc[(# /. {t_, ops_} -> t) & /@ data,
-    ScalingFunctions -> "Linear", AspectRatio -> 0.59, ImagePadding -> {{20, Automatic}, {Automatic, Automatic}}, PlotLegends -> None],
-  plotFunc[(# /. {t_, ops_} -> t) & /@ data, ScalingFunctions -> "Log"]}, "  "]
-Export["zh-benchmark.svg", %]
+    ScalingFunctions -> "Linear", AspectRatio -> 0.6, ImagePadding -> {{20, Automatic}, {Automatic, Automatic}}, PlotLegends -> None],
+  plotFunc[(# /. {t_, ops_} -> t) & /@ data, ScalingFunctions -> "Log"]}]
+(*Export["zh-benchmark.svg", %]*)
 
 
 fitFunc[engine_] := Module[{fitData, model},
