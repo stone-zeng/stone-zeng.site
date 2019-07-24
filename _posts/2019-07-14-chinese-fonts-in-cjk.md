@@ -803,8 +803,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
 <div id="footnotes">
   <ol>
-    <li id="fn:tl-source">
-      原文章写于 2006 年，在这之后本文所引述的一些代码均有所修改，主要有：
+    <li id="fn:tl-source">原文章写于 2006 年，在这之后本文所引述的一些代码均有所修改，主要有：
       <ul>
         <li>ttf2pk 基于 FreeType2 重构，因此文件路径更改为 <code class="highlighter-rouge">texk/ttf2pk2</code></li>
         <li>2014 年 Knuth 对 $TeX$、TFtoPL 等进行了一些修订</li>

@@ -31,6 +31,10 @@
     position: relative;
     bottom: -.5ex;
   }
+  .bib-ib {
+    font-variant: small-caps;
+    font-weight: 500;
+  }
   .rkern {
     margin-right: -.05em;
   }
@@ -43,8 +47,10 @@
   }
 }
 strong, th, .post-sidebar .active {
-  .tex-logo .a {
-    font-weight: 900;
+  .tex-logo {
+    .a, .bib-ib {
+      font-weight: 900;
+    }
   }
 }
 

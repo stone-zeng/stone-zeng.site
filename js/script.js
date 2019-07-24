@@ -38,6 +38,7 @@ function updatePunctLogo(d) {
     'upTeX':    `u${span('rkern', 'p')}${TEX}`,
     'upLaTeX':  `up${LATEX}`,
     'ApTeX':    `A${span('rkern', 'p')}${TEX}`,
+    'BibTeX':   `B${span('bib-ib rkern', 'ib')}${TEX}`,
     'CTeX':     `C${TEX}`,
     '2e':       TWO_E,
   };
@@ -49,7 +50,7 @@ function updatePunctLogo(d) {
         .replace(/([）』」》〉])([（『「《])/g,          span('zh-lrpunct-kern', '$1') + '$2')
         .replace(/^([（『「《〈])/g,                     span('zh-punct-bound', '$1'));
   const replaceLogo = (str) =>
-    str.replace(/\$((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|CTeX|2e)\$/g,
+    str.replace(/\$((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|BibTeX|CTeX|2e)\$/g,
         (_, name) => span('tex-logo', LOGO[name]));
   const replaceLogoH1 = (str) =>
     str.replace(/((?:pdf|Xe|Lua|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|CTeX|2e)/g,
