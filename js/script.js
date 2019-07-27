@@ -58,7 +58,7 @@ function updatePunctLogo(d) {
         .replace(/\\,/g, '\u2060\u2009\u2060');
   const patternH1 =
     /((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|BibTeX|CTeX|MacTeX|2e)/g;
-  const pattern = new RegExp(`\\\$${patternH1.source}\\\$`, 'g');
+  const pattern = new RegExp(`\\\$\\\\${patternH1.source}\\\$`, 'g');
   const replaceLogo = (str) =>
     str.replace(pattern, (_, name) => span('tex-logo', LOGO[name]));
   const replaceLogoH1 = (str) =>

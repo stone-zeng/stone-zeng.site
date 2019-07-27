@@ -6,13 +6,13 @@ last_modified_at: 2019-07-15
 categories: Symbols
 ---
 
-众所周知，$LaTeX$ 提供了 `\textcircled` 命令用以给字符加圈，但效果却不怎么好：
+众所周知，$\LaTeX$ 提供了 `\textcircled` 命令用以给字符加圈，但效果却不怎么好：
 
 <figure>
   <img src="/images/circled-numbers/textcircled.svg" alt="\textcircled">
 </figure>
 
-实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是几乎无法在 $TeX$ 宏层面解决的。因此，要得到比较好的效果，最好能使用预先设计的字符形（glyph）。
+实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是几乎无法在 $\TeX$ 宏层面解决的。因此，要得到比较好的效果，最好能使用预先设计的字符形（glyph）。
 
 ## 传统方案
 
@@ -24,11 +24,11 @@ categories: Symbols
   <img src="/images/circled-numbers/pifont.svg" alt="pifont">
 </figure>
 
-在主流的 $TeX$ 引擎下，`pifont` 宏包都可以使用。
+在主流的 $\TeX$ 引擎下，`pifont` 宏包都可以使用。
 
 ## Unicode
 
-数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 $TeX$ 引擎（$XeTeX$ 和 $LuaTeX$，若无特殊说明以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：[^font]
+数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 $\TeX$ 引擎（$\XeTeX$ 和 $\LuaTeX$，若无特殊说明以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：[^font]
 
 [^font]: 在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于字体的安装情况以及浏览器的渲染方式。
 
@@ -248,7 +248,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
   - 带方框 `一`、`二`、`三`
   - 带六角括号 `二`、`三`
 
-直接输入，或者利用码位，都能在 $LaTeX$ 中使用以上这些带圈数字（注意不同方法对大小写的要求有差异）：
+直接输入，或者利用码位，都能在 $\LaTeX$ 中使用以上这些带圈数字（注意不同方法对大小写的要求有差异）：
 
 ```latex
 \documentclass{article}
@@ -264,7 +264,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 \end{document}
 ```
 
-使用 $XeLaTeX$ 或 $LuaLaTeX$ 编译，效果如下：
+使用 $\XeLaTeX$ 或 $\LuaLaTeX$ 编译，效果如下：
 
 <figure>
   <img src="/images/circled-numbers/textcircled-fontspec.svg" alt="textcircled-fontspec">
@@ -287,7 +287,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 \end{document}
 ```
 
-利用 $LaTeX3$ 语法也可以迅速写出如下循环而不伤身体：
+利用 $\LaTeX3$ 语法也可以迅速写出如下循环而不伤身体：
 
 ```latex
 \ExplSyntaxOn
@@ -319,11 +319,11 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 对于中文文档，我们通常需要为中西文（「西文」主要指 Latin script）分别设置字体。上面已经提到过，带圈数字分散在了几个 Unicode 区块中。`xeCJK` 将其中的 Enclosed CJK Letters and Months 和 Enclosed Ideographic Supplement 设置为了 CJK 字符类，使用中文字体；其余则为 Default 字符类，使用西文字体。
 
-$LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 ALchar 和 JAchar 的划分，大致相当于西文和日文（AL=**AL**phabetic，JA=**JA**panese）；同时又预定义了一些字符范围。默认设置中，上文所列的所有带圈数字均会使用日文字体。其后，`ctex` 宏集为了适应中文排版的需求又做了一些修改。结果是，Enclosed Alphanumerics 被设置为了 ALchar，即使用西文字体。
+$\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 ALchar 和 JAchar 的划分，大致相当于西文和日文（AL=**AL**phabetic，JA=**JA**panese）；同时又预定义了一些字符范围。默认设置中，上文所列的所有带圈数字均会使用日文字体。其后，`ctex` 宏集为了适应中文排版的需求又做了一些修改。结果是，Enclosed Alphanumerics 被设置为了 ALchar，即使用西文字体。
 
 总而言之，在 `ctex` 宏集的默认配置下：
 
-| Unicode 区块                     | $XeLaTeX$ | $LuaLaTeX$ |
+| Unicode 区块                     | $\XeLaTeX$ | $\LuaLaTeX$ |
 |:--------------------------------:|:----------:|:---------:|
 | Enclosed Alphanumerics           | 西文      | 西文       |
 | Dingbats                         | 西文      | 西文       |
@@ -331,7 +331,7 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
 | Enclosed Alphanumeric Supplement | 西文      | 西文       |
 | Enclosed Ideographic Supplement  | 中文      | 西文       |
 
-在 $XeLaTeX$ 下，可以做如下修改：
+在 $\XeLaTeX$ 下，可以做如下修改：
 
 ```latex
 {% raw %}% 使用中文字体
@@ -352,7 +352,7 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
 % \setmainfont{Garamond-Math.otf}{% endraw %}
 ```
 
-在 $LuaLaTeX$ 下，也完全类似：
+在 $\LuaLaTeX$ 下，也完全类似：
 
 ```latex
 {% raw %}% 使用中文字体
@@ -453,11 +453,11 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
 - `\CIDtextrboxed`
 - `\CIDtextblackrboxed`
 
-支持的数字范围是 0&ndash;100 和 00&ndash;09。$XeTeX$、$LuaTeX$ 和 $upTeX$ 这三种 Unicode 引擎均可使用，但需要配合其他宏包及命令以实现正确的字体调用：
+支持的数字范围是 0&ndash;100 和 00&ndash;09。$\XeTeX$、$\LuaTeX$ 和 $\upTeX$ 这三种 Unicode 引擎均可使用，但需要配合其他宏包及命令以实现正确的字体调用：
 
-- $XeLaTeX$ 下需要通过 `\setmainfont` 等命令设置字体
-- $LuaLaTeX$ 下需要通过 `\setmainjfont` 等命令设置（日文）字体
-- $upLaTeX$ 下需要调用 `pxchfon` 宏包，并且使用 `\setminchofont` 等命令设置字体，具体可以参考以下示例：
+- $\XeLaTeX$ 下需要通过 `\setmainfont` 等命令设置字体
+- $\LuaLaTeX$ 下需要通过 `\setmainjfont` 等命令设置（日文）字体
+- $\upLaTeX$ 下需要调用 `pxchfon` 宏包，并且使用 `\setminchofont` 等命令设置字体，具体可以参考以下示例：
 
   ```latex
   {% raw %}% test-uptex.tex
@@ -484,7 +484,7 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
     <img src="/images/circled-numbers/textcircled-cid-uptex.svg" alt="textcircled-cid-uptex">
   </figure>
 
-  注意 $upTeX$ 不直接生成 PDF，因此编译时可采取如下方式：
+  注意 $\upTeX$ 不直接生成 PDF，因此编译时可采取如下方式：
 
   ```sh
   uplatex test-uptex && dvipdfmx test-uptex
@@ -494,7 +494,7 @@ $LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 A
 
 ## 字体的选择
 
-上文我们多次提及，带圈数字的具体使用与字体密切相关。下面我们整理了 $TeX$ Live 自带的、可使用带圈数字的字体，以及对应的数字范围：
+上文我们多次提及，带圈数字的具体使用与字体密切相关。下面我们整理了 $\TeX$ Live 自带的、可使用带圈数字的字体，以及对应的数字范围：
 
 <div class="circled-number-fonts">
   <table>

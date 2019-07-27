@@ -7,13 +7,13 @@ categories: XeTeX
 
 ## 问题概述
 
-Windows 平台使用 $XeLaTeX$ 编译时，偶尔会出现卡住不动的情况。特点是会卡在读入字体文件的时候，比如 `size10.clo`、`eu1lmr.fd` 等，并且往往出现在新安装字体之后。
+Windows 平台使用 $\XeLaTeX$ 编译时，偶尔会出现卡住不动的情况。特点是会卡在读入字体文件的时候，比如 `size10.clo`、`eu1lmr.fd` 等，并且往往出现在新安装字体之后。
 
 正常情况下，`xetex` 在发现字体变动时，会自动调用 `fontconfig` 库刷新字体缓存，因此在后续编译过程中速度便可恢复正常。
 
-不过，在 Windows 下 $TeX$ Live 2016、2017 似乎实现有问题（fontconfig [Bug 99360](https://bugs.freedesktop.org/show_bug.cgi?id=99360)），导致 `xetex` 在刷新缓存时无法正确覆盖旧的文件，因此每次编译都需花费大量时间[^tl2018]。
+不过，在 Windows 下 $\TeX$ Live 2016、2017 似乎实现有问题（fontconfig [Bug 99360](https://bugs.freedesktop.org/show_bug.cgi?id=99360)），导致 `xetex` 在刷新缓存时无法正确覆盖旧的文件，因此每次编译都需花费大量时间[^tl2018]。
 
-[^tl2018]: 该问题在 $TeX$ Live 2018 中应该已经得到修复。
+[^tl2018]: 该问题在 $\TeX$ Live 2018 中应该已经得到修复。
 
 ## 解决方法
 
@@ -38,7 +38,7 @@ fc-cache
 - 删除字体缓存目录（`texlive/<年份>/texmf-var/fonts/cache/`）下的所有文件，并检查目录权限
 - 在 `xelatex.exe`（位于 `texlive/<年份>/bin/win32/` 下）的属性中设置「以兼容性模式运行这个程序：Windows 7」[^thuthesis]
 - 设置兼容性模式后再取消[^thuthesis]
-- 卸载并重新安装 $TeX$ Live
+- 卸载并重新安装 $\TeX$ Live
 
 [^thuthesis]: 原因不明，见 xueruini/thuthesis [#278](https://github.com/xueruini/thuthesis/issues/278) 中的讨论。
 

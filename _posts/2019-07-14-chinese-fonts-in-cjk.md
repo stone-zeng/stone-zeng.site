@@ -6,19 +6,19 @@ date: 2019-07-14
 categories: Fonts
 ---
 
-> 本文原作者为[王越](https://www.zhihu.com/people/w-y-w-y/)，2009 年 5 月发表在 $CTeX$ 论坛上（[原始网址](http://bbs.ctex.org/viewthread.php?tid=50078)，已失效）。由于 $CTeX$ 论坛目前已关闭，这里将其整理后重新发布。[^newsmth]
+> 本文原作者为[王越](https://www.zhihu.com/people/w-y-w-y/)，2009 年 5 月发表在 $\CTeX$ 论坛上（[原始网址](http://bbs.ctex.org/viewthread.php?tid=50078)，已失效）。由于 $\CTeX$ 论坛目前已关闭，这里将其整理后重新发布。[^newsmth]
 >
-> 本文实际上是 [`zhmetrics` 包](https://ctan.org/pkg/zhmetrics)的实现思路。该包由王越和吴凌云发布，并且一直被 $CTeX$ 宏集所使用至今。在此基础上，刘海洋又开发了 [`zhmCJK` 包](https://ctan.org/pkg/zhmcjk)，允许动态设置 CJK 字体，并且提供了尽可能简单的用户界面。
+> 本文实际上是 [`zhmetrics` 包](https://ctan.org/pkg/zhmetrics)的实现思路。该包由王越和吴凌云发布，并且一直被 $\CTeX$ 宏集所使用至今。在此基础上，刘海洋又开发了 [`zhmCJK` 包](https://ctan.org/pkg/zhmcjk)，允许动态设置 CJK 字体，并且提供了尽可能简单的用户界面。
 
-[^newsmth]: 在水木社区 $TeX$ 版还保留有[原文](http://www.newsmth.net/bbsanc.php?path=%2Fgroups%2Fcomp.faq%2FTeX%2Fchinese%2FM.1243072730.10)。
+[^newsmth]: 在水木社区 $\TeX$ 版还保留有[原文](http://www.newsmth.net/bbsanc.php?path=%2Fgroups%2Fcomp.faq%2FTeX%2Fchinese%2FM.1243072730.10)。
 
-嗯，此为一连载。背景是，我们希望 [ctex-kit](https://github.com/CTeX-org/ctex-kit) 最终提交到 $TeX$ Live 或者 CTAN 的时候，可以带上所有中文字体的 TFM、MAP 和 ENC，来让用户差不多是零配置地使用 `CJK` 中文，因此我们需要产生这些文件。而产生过程中可能会用到中文字体进行转换，故可能有版权问题，而且可能产生的 TFM 文件存在不通用的情况（尤其是只覆盖一部分 GBK 区域的字体产生的文件），所以我们考虑如何不依赖中文字体来产生这些文件。这就需要我们对 $TeX$ 的字体原理有一定的掌握，然后就能够从原理出发，直接写脚本产生不依赖字体的字体配置文件。本文的目的就是为了 ctex-kit 能够写出一个很好很强大的东东来，实现自动凭空产生中文字体的 TFM、ENC 以及 MAP 文件。
+嗯，此为一连载。背景是，我们希望 [ctex-kit](https://github.com/CTeX-org/ctex-kit) 最终提交到 $\TeX$ Live 或者 CTAN 的时候，可以带上所有中文字体的 TFM、MAP 和 ENC，来让用户差不多是零配置地使用 `CJK` 中文，因此我们需要产生这些文件。而产生过程中可能会用到中文字体进行转换，故可能有版权问题，而且可能产生的 TFM 文件存在不通用的情况（尤其是只覆盖一部分 GBK 区域的字体产生的文件），所以我们考虑如何不依赖中文字体来产生这些文件。这就需要我们对 $\TeX$ 的字体原理有一定的掌握，然后就能够从原理出发，直接写脚本产生不依赖字体的字体配置文件。本文的目的就是为了 ctex-kit 能够写出一个很好很强大的东东来，实现自动凭空产生中文字体的 TFM、ENC 以及 MAP 文件。
 
-既然是探秘，俗话说，源代码背后没有秘密可言，因此，本文在阐述的过程中，旁征博引目前 $TeX$ 相关的多个软件的源代码。文中所有的代码，指的是当前 $TeX$ Live 的代码版本（当前 SVN 版本为 13423）[^tl-version]。文中的开发者，特指完成上述任务（也就是写脚本生成字体无关配置文件）的开发者。
+既然是探秘，俗话说，源代码背后没有秘密可言，因此，本文在阐述的过程中，旁征博引目前 $\TeX$ 相关的多个软件的源代码。文中所有的代码，指的是当前 $\TeX$ Live 的代码版本（当前 SVN 版本为 13423）[^tl-version]。文中的开发者，特指完成上述任务（也就是写脚本生成字体无关配置文件）的开发者。
 
-[^tl-version]: 目前，$TeX$ Live 源代码同时通过 [SVN](https://www.tug.org/svn/texlive/trunk/) 和 [Git](https://github.com/TeX-Live/texlive-source) 两种方式进行版本管理。
+[^tl-version]: 目前，$\TeX$ Live 源代码同时通过 [SVN](https://www.tug.org/svn/texlive/trunk/) 和 [Git](https://github.com/TeX-Live/texlive-source) 两种方式进行版本管理。
 
-由于我对 $TeX$ 的 [WEB](https://www.ctan.org/pkg/web) 源代码比较熟悉，对于 [ttf2pk](https://github.com/TeX-Live/texlive-source/tree/trunk/texk/ttf2pk2)、[DVIPDFMx](https://ctan.org/pkg/dvipdfmx)、以及 $pdfTeX$ 的代码也略通一二，因此写这篇文章采用了比较宏观和触类旁通的笔法。文章中对于 $TeX$ 的字体相关的诸多概念和数据结构进行了扼要的阐述，每讲到一知识点，我就尽量引用 `tex.web`、`tftopl.web`、`ttf2tfm.c` 等代码[^tl-source]来阐明背后的原理，此外还在多处引申开来讲述了一些 $TeX$ 的算法原理。因此这篇文章不仅仅是给上述所说的开发者看的，任何对 $TeX$ 的字体原理感兴趣的读者，都能从中获得你想了解的东西。
+由于我对 $\TeX$ 的 [WEB](https://www.ctan.org/pkg/web) 源代码比较熟悉，对于 [ttf2pk](https://github.com/TeX-Live/texlive-source/tree/trunk/texk/ttf2pk2)、[DVIPDFMx](https://ctan.org/pkg/dvipdfmx)、以及 $\pdfTeX$ 的代码也略通一二，因此写这篇文章采用了比较宏观和触类旁通的笔法。文章中对于 $\TeX$ 的字体相关的诸多概念和数据结构进行了扼要的阐述，每讲到一知识点，我就尽量引用 `tex.web`、`tftopl.web`、`ttf2tfm.c` 等代码[^tl-source]来阐明背后的原理，此外还在多处引申开来讲述了一些 $\TeX$ 的算法原理。因此这篇文章不仅仅是给上述所说的开发者看的，任何对 $\TeX$ 的字体原理感兴趣的读者，都能从中获得你想了解的东西。
 
 [^tl-source]:
 
@@ -26,7 +26,7 @@ categories: Fonts
 
 ## 连载一
 
-首先看一下 UTF8 字体下的 TFM 字体的奥秘。大家都知道，一般来说 CJK 中采用 subfonts 的概念，来让 $TeX$ 能够吞下大字符集。而 UTF8 字体，会分成 256 个 subfonts。这些字符的字体名可以设为：
+首先看一下 UTF8 字体下的 TFM 字体的奥秘。大家都知道，一般来说 CJK 中采用 subfonts 的概念，来让 $\TeX$ 能够吞下大字符集。而 UTF8 字体，会分成 256 个 subfonts。这些字符的字体名可以设为：
 
 ```
 <fontname><num><num>.tfm
@@ -42,7 +42,7 @@ GBK 的 TFM 字体信息采用了相类似的 subfonts 方案，只不过文件�
 
 其中，`<num-num>` 可是十进制的两位数字，从 `00`&ndash;`94`，共 95 个字体（其中 `00` 不使用）。很多情况下为了区分，`fontname` 以 `gbk` 开头。
 
-$TeX$ 的 TFM 字体为了节约空间（要知道 $TeX$ 开发的时代计算机设备是很土的），采用二进制进行编码，因此采用普通的文本编辑器是看不到任何肉眼能读懂的信息的。但是事实上看 `tex.web` 的代码就知道，TFM 代表的就是一串普通的数组，这串数组分为两个部分，前一部分包括了给 $TeX$ 自己检查 TFM 完整性的信息，主要的就是接下来的各个表格会包含多少的数组，后一部分就是完整的字体的长宽高以及 liga/kern 等 table 的信息了。定义相对来说是非常清晰易懂的，有兴趣的可以看 [$TeX$ 源代码的第 30 章](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L10399)。
+$\TeX$ 的 TFM 字体为了节约空间（要知道 $\TeX$ 开发的时代计算机设备是很土的），采用二进制进行编码，因此采用普通的文本编辑器是看不到任何肉眼能读懂的信息的。但是事实上看 `tex.web` 的代码就知道，TFM 代表的就是一串普通的数组，这串数组分为两个部分，前一部分包括了给 $\TeX$ 自己检查 TFM 完整性的信息，主要的就是接下来的各个表格会包含多少的数组，后一部分就是完整的字体的长宽高以及 liga/kern 等 table 的信息了。定义相对来说是非常清晰易懂的，有兴趣的可以看 [$\TeX$ 源代码的第 30 章](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L10399)。
 
 中文字体有个很好的地方，就是
 
@@ -53,7 +53,7 @@ $TeX$ 的 TFM 字体为了节约空间（要知道 $TeX$ 开发的时代计算�
 
 TFM 的可读性不好，即使是把二进制信息转换成数字，也难让人直接阅读，因为它是按照 table 本身排序的，比如先叙述所有的 glyph 的宽度，再叙述所有字符的高度，再叙述深度，再叙述斜体修正……而不是按照字符本身排序。因此 Knuth 老爷爷写了两个程序，叫做 TFtoPL 和 PLtoTF，实现 TFM 和 PL 文件的相互转化。而 PL 文件是按照字符本身的顺序排列的。因此人类读起来就非常方便。
 
-所以想要揭开 TFM 字体的神秘面纱，TFtoPL 就是第一步需要干的事情。TFtoPL 的使用方法很容易，从任何的 $TeX$ 发行版中拷贝出来就可以使用，执行方法为：
+所以想要揭开 TFM 字体的神秘面纱，TFtoPL 就是第一步需要干的事情。TFtoPL 的使用方法很容易，从任何的 $\TeX$ 发行版中拷贝出来就可以使用，执行方法为：
 
 ```sh
 tftopl foobar.tfm foobar.pl
@@ -76,7 +76,7 @@ tftopl foobar.tfm foobar.pl
 (CHECKSUM O 12045601744)
 ```
 
-以上的这些信息，都对应于 $TeX$ 中一个叫 `header[]` 的数组。`header` 数组是 TFM 中的一个重要数据结构，$TeX$ 中规定，`header` 至少是一个长度为 2 的数组，即 `header[0]` 和 `header[1]`（详细见 [$TeX$ 源代码 542 小节](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L10466-L10508)），下面就来逐行说明这个开头部分。
+以上的这些信息，都对应于 $\TeX$ 中一个叫 `header[]` 的数组。`header` 数组是 TFM 中的一个重要数据结构，$\TeX$ 中规定，`header` 至少是一个长度为 2 的数组，即 `header[0]` 和 `header[1]`（详细见 [$\TeX$ 源代码 542 小节](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L10466-L10508)），下面就来逐行说明这个开头部分。
 
 `header[0]` 是一个 32 位的 check sum，用来直接灌入 DVI 文件的，用来检查目标系统（比如在另一台机器打印 DVI，或者使用 DVIPDFMx 转换 DVI 为 PDF）所包含的 TFM 字体是否和灌入 DVI 的那套 TFM 是同一个。在这里，check sum 就是上面列出的 `12045601744`。这个数值是设计字体时所定下的，和字体本身没有任何关系。
 
@@ -117,7 +117,7 @@ checksum(ttfinfo **array)
 
 而 `inencptrs` 就是一个简单的 TTF 的 CMAP 中前 256 个字节的 mapping 信息。
 
-但有没有办法不干 check sum 这件事情呢？$TeX$ 中并没有对 check sum 有任何的规定，因为它是 DVI driver 负责的事情。而 $TeX$ 中暗示，如果把 `checksum` 设为 0，那么 DVI 的驱动应该默认不检查 check sum。[$TeX$ 源代码的 542 小节](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L10485-L10486)明确写道：
+但有没有办法不干 check sum 这件事情呢？$\TeX$ 中并没有对 check sum 有任何的规定，因为它是 DVI driver 负责的事情。而 $\TeX$ 中暗示，如果把 `checksum` 设为 0，那么 DVI 的驱动应该默认不检查 check sum。[$\TeX$ 源代码的 542 小节](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L10485-L10486)明确写道：
 
 > However, if the check sum is zero in either the font file or the `TFM` file, no check is made.
 
@@ -129,7 +129,7 @@ checksum(ttfinfo **array)
 \font\myfont=cmr10 at 12pt
 ```
 
-由于 `cmr10` 的 design size 为 10，那接下来 $TeX$ 干的事情就是，把字体中所有的参数乘上 `12pt`，再除以 `10pt`，就得到了字体在 $TeX$ 中的真实长宽深等参数。因此可见，design size 是非常重要、必不可少的。
+由于 `cmr10` 的 design size 为 10，那接下来 $\TeX$ 干的事情就是，把字体中所有的参数乘上 `12pt`，再除以 `10pt`，就得到了字体在 $\TeX$ 中的真实长宽深等参数。因此可见，design size 是非常重要、必不可少的。
 
 在 `ttf2tfm` 中，design size 在 [`texk/ttf2pk/tfmaux.c` 文件](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/tfmaux.c#L371)中是被定义成这样的：
 
@@ -141,7 +141,7 @@ header[1] = 0xA00000;                     /* 10pt design size */
 
 ## 连载三
 
-$TeX$ 源代码中只定义了 `header[0]` 和 `header[1]`，并且这个是每个 TFM 字体所必须的。而其他的 `header[]` 则是用户可以随便定义的。
+$\TeX$ 源代码中只定义了 `header[0]` 和 `header[1]`，并且这个是每个 TFM 字体所必须的。而其他的 `header[]` 则是用户可以随便定义的。
 
 当然 Knuth 还是在其他文件中定义了一些默认 `header` 该做的行为，那就是 `texk/web2c/tftopl.web`，TFtoPL 的源文件。
 
@@ -174,7 +174,7 @@ if (fnt->outname_postfix)
   strcat(fnt->fullname, fnt->outname_postfix);
 ```
 
-至于 `outname` 和 `codingscheme`，前者目前版本的 ttf2tfm 是直接由用户给定的，而后者是使用的用户制定的 SFD 文件的文件名。当然我这里给出的字体并非由当前版本产生，因此和源代码描述会有所一定区别，我们会在第五次连载给出一个当前版本 ttf2tfm 产生的 GBK 的 TFM 来进行说明。不过一般来说，中文开发者不需要严格遵守上面的规定，因为 DVIPDFMx 和 $pdfTeX$ 并不在字体嵌入的时候检查这两项。
+至于 `outname` 和 `codingscheme`，前者目前版本的 ttf2tfm 是直接由用户给定的，而后者是使用的用户制定的 SFD 文件的文件名。当然我这里给出的字体并非由当前版本产生，因此和源代码描述会有所一定区别，我们会在第五次连载给出一个当前版本 ttf2tfm 产生的 GBK 的 TFM 来进行说明。不过一般来说，中文开发者不需要严格遵守上面的规定，因为 DVIPDFMx 和 $\pdfTeX$ 并不在字体嵌入的时候检查这两项。
 
 最后遗留的是两行 `COMMENT`。这个不是 TFM 信息中留下的，而是 TFtoPL 程序中指定的。在 TFtoPL 程序输出 `DESIGNSIZE` 的时候，就默认会产生这两行 `COMMENT`。见 [`tftopl.web` 的代码](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tftopl.web#L872-L881)：
 
@@ -204,13 +204,13 @@ out('(COMMENT OTHER SIZES ARE MULTIPLES OF DESIGNSIZE)'); out_ln
    )
 ```
 
-想知道这些参数代表什么，它们在 $TeX$ 代码、TFtoPL 代码以及 ttf2tfm 代码中是如何定义的，请继续阅读连载四。
+想知道这些参数代表什么，它们在 $\TeX$ 代码、TFtoPL 代码以及 ttf2tfm 代码中是如何定义的，请继续阅读连载四。
 
 ## 连载四
 
-看上去 `FONTDIMEN` 直接出现在上面的 `header[]` 参数后，但事实上在实际的 TFM 中，这组信息出现在 TFM 的末尾，在 $TeX$ 中表述这组信息也有一组变量，叫做 `param[]` 数组。`param` 数组在 $TeX$ 中非常重要，是控制排版的主要依据。为了讲述 `FONTDIMEN` 表的各个参数，我们不得不回到 $TeX$ 的源代码 `tex.web` 中，来一一点数这些参数的功能。
+看上去 `FONTDIMEN` 直接出现在上面的 `header[]` 参数后，但事实上在实际的 TFM 中，这组信息出现在 TFM 的末尾，在 $\TeX$ 中表述这组信息也有一组变量，叫做 `param[]` 数组。`param` 数组在 $\TeX$ 中非常重要，是控制排版的主要依据。为了讲述 `FONTDIMEN` 表的各个参数，我们不得不回到 $\TeX$ 的源代码 `tex.web` 中，来一一点数这些参数的功能。
 
-值得注意的是，$TeX$ 的 Pascal WEB 代码中 `param` 数组是从 1 开始的，而 ttf2tfm 的 C 代码中 `tparam` 数组是从 0 开始的，希望读者注意区别，也就是例如 `tparam[3]` 这个变量实际对应的是 `param[4]`，请不要混淆。
+值得注意的是，$\TeX$ 的 Pascal WEB 代码中 `param` 数组是从 1 开始的，而 ttf2tfm 的 C 代码中 `tparam` 数组是从 0 开始的，希望读者注意区别，也就是例如 `tparam[3]` 这个变量实际对应的是 `param[4]`，请不要混淆。
 
 `SLANT` 参数对应着 `param[1]`。这个参数指定意大利字体的斜率，这个数值在给拉丁字母标注重音符号（accent）的时候会变得很有用，因为这样就能够直接根据斜率计算重音符号的位置。对于中文字体一没有意大利体之说，二没有重音符号之说，所以显然为 0。但是用户可以在执行 ttf2tfm 的时候指定这个数值。不过不管如何，开发者可以直接把它设置成 0。
 
@@ -233,7 +233,7 @@ tparam[1] = scale((long)fnt->fontspace);
 
 对于中文字体，直接设置成 1 即可。
 
-有了 space 的概念，那就是个 glue 的概念，我们知道，$TeX$ 中的 glue 是可伸缩的，比如某个 glue 可以被定义成 `5pt plus 3pt minus 2pt`。因此其实 $TeX$ 中的空格长度是可伸缩的，而且可以根据伸缩的长度确定 badness，最后，使用最短路径算法最优计算 badness 最低的情况，这个就是为什么 $TeX$ 的断行非常漂亮的原因。因此，`param[3]` 和 `param[4]` 被定义出来，分别对应 `STRETCH` 和 `SHRINK` 两个变量。这两个变量在 [`texk/ttf2pk/tfmaux.c`](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/tfmaux.c#L524-L525) 中是如此定义的：
+有了 space 的概念，那就是个 glue 的概念，我们知道，$\TeX$ 中的 glue 是可伸缩的，比如某个 glue 可以被定义成 `5pt plus 3pt minus 2pt`。因此其实 $\TeX$ 中的空格长度是可伸缩的，而且可以根据伸缩的长度确定 badness，最后，使用最短路径算法最优计算 badness 最低的情况，这个就是为什么 $\TeX$ 的断行非常漂亮的原因。因此，`param[3]` 和 `param[4]` 被定义出来，分别对应 `STRETCH` 和 `SHRINK` 两个变量。这两个变量在 [`texk/ttf2pk/tfmaux.c`](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/tfmaux.c#L524-L525) 中是如此定义的：
 
 ```c
 tparam[2] = (fnt->fixedpitch ? 0 : scale((long)(300 * fnt->efactor + 0.5)));
@@ -250,7 +250,7 @@ fnt->fixedpitch = properties.postscript->isFixedPitch;
 
 也就是通过 FreeType 读取 TTF 字体的 PostScript 信息中的 `isFixedPitch` 项，来确定字体是不是等宽的。对于中文来说，目前局势下虽说新的中文字体的英文部分已经有很大改善，但是在 CJK 中我们是不使用英文部分的，而中文部分又一定是等宽的，因此这个变量不存在太大的意义。只需要把  `STRETCH` 定义为默认值 0.3，把 `SHRINK` 定义为 0.1 即可。这部分不影响中文排版，因为中文排版不使用这个信息。
 
-`XHEIGHT` 参数是通过 `param[5]` 定义的，这个变量告诉 $TeX$ 字体的 x-height，差不多就是字体 x 字母的高度（在 $TeX$ 中如此，CM 的 x height 和 x 字母高度相同，而在现代的字体中未必如此），因此可以看作是小写的 a、e、o 等字母的高度，所以这个变量就能告诉 $TeX$ 放置重音符号时是否挤压了重音符号下的 a、e、o 等字母本身，来决定是否需要升高或者降低重音符号。通过 [`texk/ttf2pk/tfmaux.c` 的 526 行](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/tfmaux.c#L526)定义：
+`XHEIGHT` 参数是通过 `param[5]` 定义的，这个变量告诉 $\TeX$ 字体的 x-height，差不多就是字体 x 字母的高度（在 $\TeX$ 中如此，CM 的 x height 和 x 字母高度相同，而在现代的字体中未必如此），因此可以看作是小写的 a、e、o 等字母的高度，所以这个变量就能告诉 $\TeX$ 放置重音符号时是否挤压了重音符号下的 a、e、o 等字母本身，来决定是否需要升高或者降低重音符号。通过 [`texk/ttf2pk/tfmaux.c` 的 526 行](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/tfmaux.c#L526)定义：
 
 ```c
 tparam[4] = scale((long)fnt->xheight);
@@ -264,7 +264,7 @@ fnt->xheight = 400;
 
 因此开发者直接将它设置为 0.4 即可。
 
-`QUAD` 这个变量对应 `param[6]`，这个表示字体的全方（em）宽度。em 宽度可以在排版中设定 glue 或者 box 的相对于字体的长度，因此可以方便地做到字体无关性，是非常方便的一个单位（关于距离的字体无关性，我举个例子，比如我想让两个字符间空上 `2em plus 1em minus 1em` 的距离，就可以直接这么写，如果没有这个单位就需要换算到 `pt`，这样万一我调整了字体的大小，空格宽度和字符大小比例就会失衡了）。在 $TeX$ 时代或者经典排版理论中，全方长度就是 M 字母的宽度，因为 M 字母一般设计得是最宽的。而半方（en）就是字母 n 的宽度，当然在现代字体中，事情往往并非如此。在 ttf2tfm 中，这个数值是设死的，见 [`texk/ttf2pk/tfmaux.c` 的 527 行](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/tfmaux.c#L527)定义：
+`QUAD` 这个变量对应 `param[6]`，这个表示字体的全方（em）宽度。em 宽度可以在排版中设定 glue 或者 box 的相对于字体的长度，因此可以方便地做到字体无关性，是非常方便的一个单位（关于距离的字体无关性，我举个例子，比如我想让两个字符间空上 `2em plus 1em minus 1em` 的距离，就可以直接这么写，如果没有这个单位就需要换算到 `pt`，这样万一我调整了字体的大小，空格宽度和字符大小比例就会失衡了）。在 $\TeX$ 时代或者经典排版理论中，全方长度就是 M 字母的宽度，因为 M 字母一般设计得是最宽的。而半方（en）就是字母 n 的宽度，当然在现代字体中，事情往往并非如此。在 ttf2tfm 中，这个数值是设死的，见 [`texk/ttf2pk/tfmaux.c` 的 527 行](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/tfmaux.c#L527)定义：
 
 ```c
 tparam[5] = scale((long)(1000 * fnt->efactor + 0.5));
@@ -272,7 +272,7 @@ tparam[5] = scale((long)(1000 * fnt->efactor + 0.5));
 
 因此开发者直接将此设置为 1 即可。
 
-其实对于正常字体，`param[7]` 也是存在的，名为 `EXTRASPACE`，对应的就是标点符号后的空格的附加长度，也就是说，出现在句号后的空格需要空上 `param[2]`+`param[7]` 长度的距离。在 [$TeX$ 的源代码的 1044 小节](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L20351-L20354)中，对于空格后的代码就会有如下的定义：
+其实对于正常字体，`param[7]` 也是存在的，名为 `EXTRASPACE`，对应的就是标点符号后的空格的附加长度，也就是说，出现在句号后的空格需要空上 `param[2]`+`param[7]` 长度的距离。在 [$\TeX$ 的源代码的 1044 小节](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L20351-L20354)中，对于空格后的代码就会有如下的定义：
 
 ```pascal
 @ @<Modify the glue specification in |main_p| according to the space factor@>=
@@ -283,7 +283,7 @@ shrink(main_p):=xn_over_d(shrink(main_p),1000,space_factor)
 
 也就是默认情况下（非 french spacing），一般设定 `space_factor` 后，就会该标点符号后的长度 width 就会增加 `extra_space`（也就是 `param[7]`）的长度。而该空格长度的伸缩距离，是通过 `space_factor` 来计算的。不过对于中文排版没有用，因此开发者不必关注。
 
-讲完了上面这么多，可以轻松一下。所以我顺便说一个问题，也就是为什么普通的字体拿到 $TeX$ 中，是不能被用来排公式的。很多 $TeX$ 用户问这个问题，尤其是 $XeTeX$ 出来后，可以用系统字体了，甚至还有一个 $LaTeX$ 宏包专门指定数学字体（`unicode-math`），不过排出来的公式却效果非常糟糕。我就简单解释一下。普通的 $TeX$ 字体，一般都有上面 7 个全局变量，而数学公式中，需要考虑的位置关系就多得多，比如排分数，分子分母之间会不会重合啊，分子分母和分数线之间会不会重合啊，等等等等，因此为了充分考虑这些关系，$TeX$ 给出了全面的算法，而为了贯彻这个算法，更多的变量就被设计出来了。一个普通的数学字体会带有 22 个全局变量，他们的变量名可以从下面这段从 [`tftopl.web` 中截取的程序](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tftopl.web#L994-L1009)看出：
+讲完了上面这么多，可以轻松一下。所以我顺便说一个问题，也就是为什么普通的字体拿到 $\TeX$ 中，是不能被用来排公式的。很多 $\TeX$ 用户问这个问题，尤其是 $\XeTeX$ 出来后，可以用系统字体了，甚至还有一个 $\LaTeX$ 宏包专门指定数学字体（`unicode-math`），不过排出来的公式却效果非常糟糕。我就简单解释一下。普通的 $\TeX$ 字体，一般都有上面 7 个全局变量，而数学公式中，需要考虑的位置关系就多得多，比如排分数，分子分母之间会不会重合啊，分子分母和分数线之间会不会重合啊，等等等等，因此为了充分考虑这些关系，$\TeX$ 给出了全面的算法，而为了贯彻这个算法，更多的变量就被设计出来了。一个普通的数学字体会带有 22 个全局变量，他们的变量名可以从下面这段从 [`tftopl.web` 中截取的程序](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tftopl.web#L994-L1009)看出：
 
 ```pascal
 @ @<Output the name...@>=
@@ -304,13 +304,13 @@ else if (i<=13)and(font_type=mathex) then
 else out('PARAMETER D ',i:1)
 ```
 
-而普通的系统字体也好，$TeX$ 中一般的文本字体也好，不会定义这些变量，而且除去上面这些全局变量外，每个字符也有额外的数学相关的变量（比如连接大符号需要的 `top`、`mid`、`bot`、`rep` 变量）。为了能够让 TTF/OTF 字体支持这些扩展，OpenType MATH Table 被 Microsoft 设计出来，成为 $TeX$ 公式排版算法和数学字体变量的超集。
+而普通的系统字体也好，$\TeX$ 中一般的文本字体也好，不会定义这些变量，而且除去上面这些全局变量外，每个字符也有额外的数学相关的变量（比如连接大符号需要的 `top`、`mid`、`bot`、`rep` 变量）。为了能够让 TTF/OTF 字体支持这些扩展，OpenType MATH Table 被 Microsoft 设计出来，成为 $\TeX$ 公式排版算法和数学字体变量的超集。
 
 ## 连载五
 
 上面的我们已经完整地分析了 `unifs5c.tfm` 的头部的 `header[]` 数组和尾部的 `param` 数组，因此，`unifs5c.pl` 的开头如何编写，各位开发者应该是轻车熟路了。GBK 字体的 TFM 造法和 Unicode 字体基本相同，我就不多叙述。在这个连载中，我们看看 TFM 还能包括哪些数据，因此我们拿出一个不同版本 ttf2tfm 产生的 GBK 字体来做分析。
 
-选取 $CTeX$ 发行版中的 `gbkhei44.tfm` 文件，这个 TFM 是采用当前版本的 ttf2tfm 产生的。我们使用 TFtoPL 转换成我们需要的 PL 格式，用编辑器打开，看到头部比我们想象得来得复杂（这也是我把它放到连载五中讲述的原因）：
+选取 $\CTeX$ 发行版中的 `gbkhei44.tfm` 文件，这个 TFM 是采用当前版本的 ttf2tfm 产生的。我们使用 TFtoPL 转换成我们需要的 PL 格式，用编辑器打开，看到头部比我们想象得来得复杂（这也是我把它放到连载五中讲述的原因）：
 
 ```clojure
 (FAMILY GBKHEI44)
@@ -381,7 +381,7 @@ for (i = len - 1; i >= 0; i--)
 temp[end] = '\0';
 ```
 
-也就是说，这个是根据字体生成的时候的 SFD 文件名而产生的。产生 GBK 字体我们用到的 SFD 名字为 `UGBK.sfd`，因此，自然这腾出来的 `CODINGSCHEME` 就成了 `CJK-UGBK`。不过对于开发者来说，这个名字并不重要，当然为了求规范，不妨设为 `CJK-UGBK`。当前的版本的 ttf2tfm 产生的 Unicode 字体的 `CODINGSCHEME` 为 `CJK-UNICODE`，而 GBK 字体为 `CJK-UGBK`。而之所以前面给出的 `unifs5c.tfm` 产生的是 `FONTSPECIFIC`，是由于用老版本的 ttf2tfm 产生的缘故。我写这篇文章时，分析的是 $TeX$ Live 中的新 ttf2pk 代码，目前的 $TeX$ Live 的 SVN 版本号为 13423。这个版本给出的 `CODINGSCHEME` 都符合这个格式。
+也就是说，这个是根据字体生成的时候的 SFD 文件名而产生的。产生 GBK 字体我们用到的 SFD 名字为 `UGBK.sfd`，因此，自然这腾出来的 `CODINGSCHEME` 就成了 `CJK-UGBK`。不过对于开发者来说，这个名字并不重要，当然为了求规范，不妨设为 `CJK-UGBK`。当前的版本的 ttf2tfm 产生的 Unicode 字体的 `CODINGSCHEME` 为 `CJK-UNICODE`，而 GBK 字体为 `CJK-UGBK`。而之所以前面给出的 `unifs5c.tfm` 产生的是 `FONTSPECIFIC`，是由于用老版本的 ttf2tfm 产生的缘故。我写这篇文章时，分析的是 $\TeX$ Live 中的新 ttf2pk 代码，目前的 $\TeX$ Live 的 SVN 版本号为 13423。这个版本给出的 `CODINGSCHEME` 都符合这个格式。
 
 这个文件有个巨长的 `HEADER` 表。在 [`tftopl.web` 的源代码](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tftopl.web#L256-L257)中，有如下的解释：
 
@@ -406,9 +406,9 @@ charinfo = makebcpl(header + 18, buffer, 255);
 Created by `c:\ctex-source\texmf\miktex\bin\ttf2tfm c:\winnt\fonts\simhei -q gbkhei@UGBK@'
 ```
 
-有趣的是，DVIPDFMx 和 $pdfTeX$ 一样忽略这串 `header` 数组，因此开发者不必考虑如何添加一个漂亮的 `header`。有读者可能会问，为何先前展示的 Unicode 字体中并没有这行 `header` 呢？我只能回答，它们用的是不同版本的 ttf2tfm 产生的。至少当前版本的 ttf2tfm 都会产生这个 `header`。
+有趣的是，DVIPDFMx 和 $\pdfTeX$ 一样忽略这串 `header` 数组，因此开发者不必考虑如何添加一个漂亮的 `header`。有读者可能会问，为何先前展示的 Unicode 字体中并没有这行 `header` 呢？我只能回答，它们用的是不同版本的 ttf2tfm 产生的。至少当前版本的 ttf2tfm 都会产生这个 `header`。
 
-最后一个大家不熟悉的变量就是 `FACE` 了。`FACE` 变量其实就是一个用来识别字体款式的一个特征标记，DVIPDFMx 和 $pdfTeX$ 一样不追究这个标记。它实际上是 `header[17]` 的最后一个字节（也就是第四个字节），转换成标记后就变成三个字母，也就是大家看到的 `MRR` 这样的表示方法。其中，第一个字母表示 Medium，可选的还有 `B` 和 `L`，表示 Bold 和 Light。第二个 `R` 表示的是 Roman，可选的还有 Italic。第三个表示 Regular，可选的还有 Condensed 和 Extended。对于开发者来讲，这一行可以省略。
+最后一个大家不熟悉的变量就是 `FACE` 了。`FACE` 变量其实就是一个用来识别字体款式的一个特征标记，DVIPDFMx 和 $\pdfTeX$ 一样不追究这个标记。它实际上是 `header[17]` 的最后一个字节（也就是第四个字节），转换成标记后就变成三个字母，也就是大家看到的 `MRR` 这样的表示方法。其中，第一个字母表示 Medium，可选的还有 `B` 和 `L`，表示 Bold 和 Light。第二个 `R` 表示的是 Roman，可选的还有 Italic。第三个表示 Regular，可选的还有 Condensed 和 Extended。对于开发者来讲，这一行可以省略。
 
 在我自己生成的一个 GBK 字体 `gbksimkai44.tfm` 中，有时候还会有一行
 
@@ -416,7 +416,7 @@ Created by `c:\ctex-source\texmf\miktex\bin\ttf2tfm c:\winnt\fonts\simhei -q gbk
 (SEVENBITSAFEFLAG TRUE)
 ```
 
-这个是 `header[17]` 的第一个字节，表示这个 TFM 可以在 7 位的 $TeX$ 中依然可以使用（$TeX$ 是八十年代末才变成 8 位的）。而这个无论对 $TeX$ 还是对 DVI 驱动来说都不重要，开发者一样可以省略。
+这个是 `header[17]` 的第一个字节，表示这个 TFM 可以在 7 位的 $\TeX$ 中依然可以使用（$\TeX$ 是八十年代末才变成 8 位的）。而这个无论对 $\TeX$ 还是对 DVI 驱动来说都不重要，开发者一样可以省略。
 
 刚才所说的那个 `unifs5c.tfm` 字体的 `param` 变量如下：
 
@@ -446,7 +446,7 @@ Created by `c:\ctex-source\texmf\miktex\bin\ttf2tfm c:\winnt\fonts\simhei -q gbk
 
 这些区别完全是由于中文字体的等宽属性设成是或者否而造成的，不同的中文字体，如果等宽属性设置得不一样，造成的结果就不一样。但是我前面讲过，`SPACE`、`STRETCH` 和 `SHRINK` 对于中文排版是没有影响的，因此开发者可以采用上面任何一组变量设置。
 
-所以，这里讲述了新版本的 ttf2tfm，会产生不太一样的 `FAMILY` 和 `CODINGSCHEME`，同时还会新增 `FACE` 和 `HEADER` 等变量，但不管如何，这些变量的改变或者新增都不会影响 $TeX$ 的编译，和 DVI 驱动的转换，开发者完全可以对这里讲述的一些改变不予理会。
+所以，这里讲述了新版本的 ttf2tfm，会产生不太一样的 `FAMILY` 和 `CODINGSCHEME`，同时还会新增 `FACE` 和 `HEADER` 等变量，但不管如何，这些变量的改变或者新增都不会影响 $\TeX$ 的编译，和 DVI 驱动的转换，开发者完全可以对这里讲述的一些改变不予理会。
 
 ## 连载六
 
@@ -509,9 +509,9 @@ Created by `c:\ctex-source\texmf\miktex\bin\ttf2tfm c:\winnt\fonts\simhei -q gbk
 
 开发者并不需注意按照 TFtoPL 结果的写法来写自己的 PL 文件，因为 TFtoPL 程序产生 TFM 字体时，可以接受任何一种输入方式，比如你想用 `k`、`i`、`M` 这样的 ASCII 字母，就使用 `C` 这个前缀，如果用十进制，就采用 `D` 前缀，十六进制就用 `H` 前缀，八进制就用 `O` 前缀。详见 `pltotf.web` 中对于 `CHARACTER` 的说明。
 
-在 PL 文件中，这张表的排列顺序是按照字符顺序来的，而在 $TeX$ 内部的数据结构和 TFM 实际的文件中，则是按照数据本身排列的，比如从前往后依次放置所有字符的宽度信息，所有字符的高度信息等等，PL 文件只是为了让人容易看懂，对这个数组按照字符顺序重新整理了一下。
+在 PL 文件中，这张表的排列顺序是按照字符顺序来的，而在 $\TeX$ 内部的数据结构和 TFM 实际的文件中，则是按照数据本身排列的，比如从前往后依次放置所有字符的宽度信息，所有字符的高度信息等等，PL 文件只是为了让人容易看懂，对这个数组按照字符顺序重新整理了一下。
 
-$TeX$ 的源代码 [`tex.web` 的第 541 小节](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L10444-L10464)中，定义了 `width[]`、`height[]`、`depth[]`、`italic[]`、`lig_kern[]`、`kern[]`、`exten[]` 这些和每个字符有关的变量，分别对应 PL 文件的 `CHARWD`、`CHARHT`、`CHARDP`、`CHARIC`、`LIGTABLE`、`KERN`、`EXTENSIBLE` 这几个变量。对于中文字体，只存在 `width`、`height` 以及 `depth` 三项，其他的几个都是给英文字体用的。每个变量望文生义，不用多解释。`EXTENSIBLE` 是包含了组成大符号（比如大括号）所需要的几个设置（`top`、`mid`、`bot`、`rep`），和中文字体无关，我也不多说明了，有兴趣的可以去看 $TeX$ 源代码的实现。
+$\TeX$ 的源代码 [`tex.web` 的第 541 小节](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L10444-L10464)中，定义了 `width[]`、`height[]`、`depth[]`、`italic[]`、`lig_kern[]`、`kern[]`、`exten[]` 这些和每个字符有关的变量，分别对应 PL 文件的 `CHARWD`、`CHARHT`、`CHARDP`、`CHARIC`、`LIGTABLE`、`KERN`、`EXTENSIBLE` 这几个变量。对于中文字体，只存在 `width`、`height` 以及 `depth` 三项，其他的几个都是给英文字体用的。每个变量望文生义，不用多解释。`EXTENSIBLE` 是包含了组成大符号（比如大括号）所需要的几个设置（`top`、`mid`、`bot`、`rep`），和中文字体无关，我也不多说明了，有兴趣的可以去看 $\TeX$ 源代码的实现。
 
 对于中文字体，由于都是等宽的，`CHARWD` 没什么好多说，一律设置为 `1.0`。具体的代码就在 [`texk/ttf2pk/ttfaux.c` 的 591 行](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/ttfaux.c#L591-L592)：
 
@@ -549,7 +549,7 @@ ti->ury = bbox.yMax * 1000 / fnt->units_per_em;
 
 由于描绘每个中文字的曲线都不一样，每个中文字的大小也有差别，这就会造成 bounding box 的不同。写到这里，开发者们似乎会问，那这就说明我们必须根据具体的字体来定义每个字符的 `height` 和 `depth` 了，因此我们就没有办法凭空产生一个通用的 TFM 文件，所以结果就是我们前面所有的分析都是白费功夫。
 
-先不要着急，我们仔细思考一下，字体的 `height` 和 `depth` 到底在 $TeX$ 中有什么作用呢？仔细看 $TeX$ 源代码就会发现，$TeX$ 靠 TFM 的 `height` 和 `depth` 产生一个 box，然后把一个个 box 并起来组成一个水平的长行，经过断行分割后组成一个垂直的 box 来方便组页，而 `height` 和 `depth` 的实际作用就是为了检测组页的时候采用一定的行距，是不是上下两行有可能盒子之间互相重叠了。而如果重叠了，$TeX$ 就额外分配给这行更多的垂直间距离，使得上面一行不会有字的下部分和下面一行的字的上部分重叠在一起。想通了这一点，我们就豁然开朗了：**对于中文排版，由于都是方块字，只要中文部分的行距大于字体本身的宽度，那就不可能出现英文排版中两行重叠的情况，因此我们大可以把所有的字符的 bounding box 设置成一样的即可**。
+先不要着急，我们仔细思考一下，字体的 `height` 和 `depth` 到底在 $\TeX$ 中有什么作用呢？仔细看 $\TeX$ 源代码就会发现，$\TeX$ 靠 TFM 的 `height` 和 `depth` 产生一个 box，然后把一个个 box 并起来组成一个水平的长行，经过断行分割后组成一个垂直的 box 来方便组页，而 `height` 和 `depth` 的实际作用就是为了检测组页的时候采用一定的行距，是不是上下两行有可能盒子之间互相重叠了。而如果重叠了，$\TeX$ 就额外分配给这行更多的垂直间距离，使得上面一行不会有字的下部分和下面一行的字的上部分重叠在一起。想通了这一点，我们就豁然开朗了：**对于中文排版，由于都是方块字，只要中文部分的行距大于字体本身的宽度，那就不可能出现英文排版中两行重叠的情况，因此我们大可以把所有的字符的 bounding box 设置成一样的即可**。
 
 鉴于 `CHARHT` 和 `CHARDP` 的实际数值为 `0.8` 和 `0.1` 左右，因此，开发者只需要把高度设置为 `0.8`，深度设置为 `0.1`，就万事大吉。
 
@@ -617,7 +617,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
   以前不输出信息是因为你们都用 `-q` 选项……
 
-  恩，这种情况就彻底没办法了用上面的方法了。$TeX$ 提供在 runtime 修改字体的全局参数，但是不能修改字符内的参数。因此到时候需要用户自己产生 tfm（我们可以提供 lua 脚本）。
+  恩，这种情况就彻底没办法了用上面的方法了。$\TeX$ 提供在 runtime 修改字体的全局参数，但是不能修改字符内的参数。因此到时候需要用户自己产生 tfm（我们可以提供 lua 脚本）。
 
   不过我写这个其实也只是为了让用户直接能用系统中有的常见中文字体，加上给大家提供一些有用的信息，一般用户不会用这些稀奇古怪的字体的，呵呵。
 
@@ -695,7 +695,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
 - #32 (by yulewang)
 
-  milksea 的说法忽略了一个事实，那就是 virtual font 和 $TeX$ 没有丝毫的关系。Virtual font 是给 driver 用的，$TeX$ 自身不支持，去 `tex.web` 看一看就会发现三万行代码没有一行提到 vf。事实上 $TeX$ 自己只认识 tfm。因此即使搞 vf，也需要两套 tfm，$TeX$ 才能用.
+  milksea 的说法忽略了一个事实，那就是 virtual font 和 $\TeX$ 没有丝毫的关系。Virtual font 是给 driver 用的，$\TeX$ 自身不支持，去 `tex.web` 看一看就会发现三万行代码没有一行提到 vf。事实上 $\TeX$ 自己只认识 tfm。因此即使搞 vf，也需要两套 tfm，$\TeX$ 才能用.
 
   而个人不推荐这样的做法，不带来好处，反而容易引起问题。例如 vf 字体的复制粘贴问题到现在也没有宏包有好的解决方案（理论上可以做，实际上没人做）。
 
@@ -703,7 +703,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
 - #19 - 写了个 dos 脚本生成 gbksong 的 tfm (by zoho)
 
-  按照 yulewang 的指南，写了个 dos 脚本，生成了 `gbksong` 的 tfm 文件，替换 $CTeX$ 2.7 中的 tfm 文件，然后编译一个简单例子：
+  按照 yulewang 的指南，写了个 dos 脚本，生成了 `gbksong` 的 tfm 文件，替换 $\CTeX$ 2.7 中的 tfm 文件，然后编译一个简单例子：
 
   ```latex
   % !TEX encoding = System
@@ -726,7 +726,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
 - #22 (by yulewang)
 
-  感谢您的测试（我电脑上没有 $TeX$，自己写这篇文章还问别人拷了个 tftopl 用，字体还是 milksea 发给我的，代码什么都上 TUG 的 svn 上看，其实写这篇文章自己都没自己测试过……），看来您的测试证实了我文中的观点，谢谢。
+  感谢您的测试（我电脑上没有 $\TeX$，自己写这篇文章还问别人拷了个 tftopl 用，字体还是 milksea 发给我的，代码什么都上 TUG 的 svn 上看，其实写这篇文章自己都没自己测试过……），看来您的测试证实了我文中的观点，谢谢。
 
   不要制作斜体字体，我们希望改掉用户用斜体的坏习惯。（其实制作起来也容易，但我有意不介绍斜体字体的 tfm 结构）。
 
@@ -748,7 +748,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
   好吧呀，那现在这个就蛮好了。只要再添几行 map 就完了。
 
-  另：donated，那个 $pdfTeX$ 的 map 使用单行 TTC 字体，怎么写？如何支持斜体？
+  另：donated，那个 $\pdfTeX$ 的 map 使用单行 TTC 字体，怎么写？如何支持斜体？
 
 - #34 (by aloft)
 
@@ -779,9 +779,9 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
 - #4 (by yulewang)
 
-  已发邮件建议 hth 修改 $pdfTeX$。
+  已发邮件建议 hth 修改 $\pdfTeX$。
 
-[^hth]: 即 [Hàn Thế Thành](https://de.wikipedia.org/wiki/H%C3%A0n_Th%E1%BA%BF_Th%C3%A0nh)，$pdfTeX$ 作者。
+[^hth]: 即 [Hàn Thế Thành](https://de.wikipedia.org/wiki/H%C3%A0n_Th%E1%BA%BF_Th%C3%A0nh)，$\pdfTeX$ 作者。
 
 ### Typo
 
@@ -791,7 +791,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
   >
   > 然后写下一个循环来产生 256 个这样的结构：
 
-  我有个疑问，我看了 $CTeX$ 2.7 里面的 `gbksong` 目录，发现文件名是从 `gbksong00.tfm` 到 `gbksong94.tfm`，而且看来文件名的后两位不是十六进制而是十进制，因为没有看到任何一个 `a`&ndash;`f` 的字母。
+  我有个疑问，我看了 $\CTeX$ 2.7 里面的 `gbksong` 目录，发现文件名是从 `gbksong00.tfm` 到 `gbksong94.tfm`，而且看来文件名的后两位不是十六进制而是十进制，因为没有看到任何一个 `a`&ndash;`f` 的字母。
 
   更新：发现你前面已经说了 GBK 编码确实是从 `00`&ndash;`94` 的十进制，看来是你后面不小心写错了。
 
@@ -806,7 +806,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
     <li id="fn:tl-source">原文章写于 2006 年，在这之后本文所引述的一些代码均有所修改，主要有：
       <ul>
         <li>ttf2pk 基于 FreeType2 重构，因此文件路径更改为 <code class="highlighter-rouge">texk/ttf2pk2</code></li>
-        <li>2014 年 Knuth 对 $TeX$、TFtoPL 等进行了一些修订</li>
+        <li>2014 年 Knuth 对 $\TeX$、TFtoPL 等进行了一些修订</li>
       </ul>
       文中列出的代码片段，ttf2pk 相关部分来自<a href="https://github.com/TeX-Live/texlive-source/tree/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk">提交 5ead665c0c</a>（重构之前），而 web2c 部分来自<a href="https://github.com/TeX-Live/texlive-source/tree/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c">提交 e0e5ba1ea9</a>（Knuth 修订后，所列代码实际没有改动）。
     </li>
