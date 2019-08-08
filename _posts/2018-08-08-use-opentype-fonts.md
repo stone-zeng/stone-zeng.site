@@ -29,7 +29,7 @@ $\LaTeX$ 中使用 OpenType 字体，主要依靠下列宏包：
 - `CTeX`：$\LaTeX$ 中文排版框架，依据引擎的不同，底层分别利用 `xeCJK` 宏包（$\XeTeX$）和 `luatexja` 宏包（$\LuaTeX$）来处理
 - `unicode-math`：实验性的 Unicode 数学排版功能
 
-考虑到 $\ApTeX$ 仍处于开发状态，尚未提供良好的用户接口，因此下文**仅适用于 $\XeTeX$ 和 $\LuaTeX$ 引擎$\LaTeX$**。
+考虑到 $\ApTeX$ 仍处于开发状态，尚未提供良好的用户接口，因此下文**仅适用于 $\XeTeX$ 和 $\LuaTeX$ 引擎**。
 
 ## 字体背景知识
 
