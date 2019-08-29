@@ -2,6 +2,7 @@
 layout: post
 title: TeX 性能评测
 date: 2019-07-24
+last_modified_at: 2019-08-29
 categories: Engines
 ---
 
@@ -21,12 +22,14 @@ categories: Engines
 
 - $\pdfTeX$: 3.14159265-2.6-1.40.20 (TeX Live 2019)
 - $\XeTeX$: 3.14159265-2.6-0.999991 (TeX Live 2019)
-- $\LuaTeX$: Version 1.10.0 (TeX Live 2019)
+- $\LuaTeX$: 1.10.0 (TeX Live 2019)
 - $\upTeX$: 3.14159265-p3.8.2-u1.25 (utf8.uptex) (TeX Live 2019)
-- $\ApTeX$: Version 3.14159265 (compiled time: 2019 Jul 22 02:48:20 with Darwin/Clang)
+- $\ApTeX$: 3.14159265 (compiled time: 2019 Aug 29 22:21:47 with Darwin/Clang)[^aptex-version]
 - dvipdfmx: 20190503
 
 这里的 3.14159265 是 Knuth $\TeX$ 的版本号，2.6 是 $\eTeX$ 的版本号。
+
+[^aptex-version]: $\ApTeX$ 最近（2019 年 8 月）[加入了计时等相关原语](https://github.com/clerkma/ptex-ng/issues/40)，但只在「汉字处理的时间复杂度」部分中使用；其他部分使用的是 2019 Jul 22 02:48:20 编译的版本。
 
 ## 测试过程
 
@@ -236,7 +239,7 @@ Hello, world!
 
 - 总的来说 $\pdfTeX$ 性能最好，但不支持 OpenType 是一个重大不足
 - $\XeTeX$ 比较平庸，而 `zhlipsum` 测试中表现比较糟糕
-- $\LuaTeX$ 在 Ti*k*Z 和 `zhlipsum` 测试中的表现都比较好，大概是利用 Lua 进行了优化；但在 Source Han 测试中调用字体花费了过多的时间，这还是在之前已经做好字体的前提下进行的测试
+- $\LuaTeX$ 在 Ti*k*Z 和 `zhlipsum` 测试中的表现都比较好，大概是利用 Lua 进行了优化；但在 Source Han 测试中调用字体花费了过多的时间，这还是在之前已经做好字体缓存的前提下进行的测试
 - $\upTeX$ 和类似的 $\ApTeX$ 在汉字处理上的性能格外出色
 
 有两点比较出乎我的意料：
@@ -279,8 +282,9 @@ Hello, world!
 | $\XeTeX$  | 4153.96 + 394.331\,*N* +   851.092\,*N*² | 0.999982 |
 | $\LuaTeX$ | 324.892 + 29.6847\,*N* +  0.209515\,*N*² | 0.996993 |
 | $\upTeX$  | 311.188 + 24.9441\,*N* + 0.0965613\,*N*² | 0.997172 |
+| $\ApTeX$  | 357.736 + 18.2673\,*N* +  0.137575\,*N*² | 0.992757 |
 
-对于 $\XeTeX$，大致有时间复杂度 ~\,*O*(*N*²)，其他引擎则是 ~\,*O*(*N*)，这也验证了 $\XeTeX$ 在长段落下表现不佳的猜测，不知道和 `xeCJK` 的实现是否有关呢？另外，就系数而言，$\LuaTeX$ 和 $\upTeX$ 要比同一时间复杂度的 $\pdfTeX$ 还要好上很多，想必是日本那边专门做过优化的。
+对于 $\XeTeX$，大致有时间复杂度 ~\,*O*(*N*²)，其他引擎则是 ~\,*O*(*N*)，这也验证了 $\XeTeX$ 在长段落下表现不佳的猜测，不知道和 `xeCJK` 的实现是否有关呢？另外，就系数而言，$\LuaTeX$、$\upTeX$ 和 $\ApTeX$ 要比同一时间复杂度的 $\pdfTeX$ 还要好上很多，想必是日本那边（和[@李阿玲](https://www.zhihu.com/people/li-a-ling)小姐）专门做过优化的。
 
 ## 注释
 
