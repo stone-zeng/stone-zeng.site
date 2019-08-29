@@ -19,13 +19,22 @@ Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 - [Jekyll Minima Theme](https://jekyll.github.io/minima/)
 - [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc)
 - [Source Han Sans](https://fonts.adobe.com/fonts/source-han-sans-cjk-simplified-chinese)
-- [Type is Beautiful](https://thetype.com/)
+- [The Type (Type is Beautiful)](https://thetype.com/)
 - [不蒜子 - 极简网页计数器](https://busuanzi.ibruce.info)
-- [始终 - Liam Huang’s blog](https://liam.page/)
+- [始终 - Liam Huang&rsquo;s blog](https://liam.page/)
 
 <!--
 - [Sticky Sidebar](https://abouolia.github.io/sticky-sidebar/)
 -->
+
+## 链接
+
+- [Bēhance](https://www.behance.net/pssysrq586b)
+- [Facebook](https://www.facebook.com/pssysrq)
+- [GitHub](https://github.com/stone-zeng)
+- [Stack Exchange](https://stackexchange.com/users/11190499/stone-zeng)
+- [Twitter](https://twitter.com/xiangdong_zeng)
+- [知乎](https://www.zhihu.com/people/stone-zeng-32)
 
 ## 许可证
 
