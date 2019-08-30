@@ -55,6 +55,7 @@ function updatePunctLogo(d) {
         .replace(/([）』」》〉])([（『「《])/g,          span('zh-lrpunct-kern', '$1') + '$2')
         .replace(/^([（『「《〈])/g,                     span('zh-punct-bound', '$1'))
         // No-break thin space
+        // U+2060: Word joiner, U+2009: Thin space
         .replace(/\\,/g, '\u2060\u2009\u2060');
   const patternH1 =
     /((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|BibTeX|CTeX|MacTeX|2e)/g;
