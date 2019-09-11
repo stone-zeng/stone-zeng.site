@@ -154,8 +154,9 @@ $\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man&rsquo;
 
 [^italic]: Toshi Omagari. [Italic subtleties](http://tosche.net/2014/02/italic-subtleties_en.html)
 
+<!-- http://tosche.net/blog/wp-content/uploads/jacksons1.png -->
 <figure>
-  <img src="http://tosche.net/blog/wp-content/uploads/jacksons1.png" alt="jacksons1" style="max-width: 360px;">
+  <img src="/images/use-opentype-fonts-ii/italic-jackson.png" alt="italic-jackson" style="max-width: 360px;">
 </figure>
 
 他同时也指出，非意大利体的倾斜有些时候也是必要的，但需要做额外的调整以达到视觉平衡。下图是 Helvetica 与 Neue Helvetica 的对比。Helvetica（第一行）使用的是单纯的的 oblique，而 Neue Helvetica（第二行）则进行了细致的修正。除去字重的调整，可以看出 O 的形状、c 的开口和 f 的头部都有优化之处：
