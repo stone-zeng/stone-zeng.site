@@ -27,6 +27,7 @@ copyright: © 2018–2019 Xiangdong Zeng
 github_username: stone-zeng
 
 # Build settings
+incremental: true
 markdown: kramdown
 permalink: :year-:month-:day-:title/
 theme: minima
@@ -57,3 +58,7 @@ minima:
     stackexchange: 136923/stone-zeng
     telegram: xdzeng96
     rss: rss
+
+# Markdown Processors
+kramdown:
+  math_engine: nil

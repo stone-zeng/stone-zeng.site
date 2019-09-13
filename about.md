@@ -6,11 +6,6 @@ permalink: /about/
 
 Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 
-## 项目
-
-- [fduthesis](https://github.com/stone-zeng/fduthesis) - 复旦大学论文模板
-- [firamath](https://github.com/firamath/firamath) - Sans-serif font with Unicode math support
-
 ## 致谢
 
 - [Font Awesome](https://fontawesome.com)
@@ -27,6 +22,12 @@ Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 - [Sticky Sidebar](https://abouolia.github.io/sticky-sidebar/)
 -->
 
+## 项目
+
+- [fduthesis](https://github.com/stone-zeng/fduthesis) - 复旦大学论文模板
+- [firamath](https://github.com/firamath/firamath) - Sans-serif font with Unicode math support
+- A collection of my [presentations](https://github.com/stone-zeng/presentations)
+
 ## 链接
 
 - [Bēhance](https://www.behance.net/pssysrq586b)
@@ -35,6 +36,12 @@ Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 - [Stack Exchange](https://stackexchange.com/users/11190499/stone-zeng)
 - [Twitter](https://twitter.com/xiangdong_zeng)
 - [知乎](https://www.zhihu.com/people/stone-zeng-32)
+
+## 统计
+
+<span id="busuanzi_container_site_uv">
+  本站总访客数 <span id="busuanzi_value_site_uv"></span> 人次。
+</span>
 
 ## 许可证
 
