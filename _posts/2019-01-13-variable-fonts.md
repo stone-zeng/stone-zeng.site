@@ -56,7 +56,7 @@ categories: Fonts
 
 下面给一个完整的示例，所用字体是 Windows 系统自带的 Bahnschrift，它是一套类似 DIN 的「德国风」字体。
 
-如上所述，可变字体的「轴」要通过 `axis` 选项指定。Bahnschrift 只有一个字重轴（weight），取值范围是 300&ndash;700。注意超过允许的范围之后便会无效。我们用到了 5 个实例（即 5 个不同字重），那只好定义 5 个 features 以及相对应的命令，毕竟 $\TeX$ 里面没办法（很容易地）做个滑块出来。
+如上所述，可变字体的「轴」要通过 `axis` 选项指定。Bahnschrift 只有一个字重轴（weight），取值范围是 300--700。注意超过允许的范围之后便会无效。我们用到了 5 个实例（即 5 个不同字重），那只好定义 5 个 features 以及相对应的命令，毕竟 $\TeX$ 里面没办法（很容易地）做个滑块出来。
 
 ```tex
 \definefontfeature[w300][default][axis={weight:300}]

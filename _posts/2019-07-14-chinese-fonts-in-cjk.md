@@ -32,7 +32,7 @@ categories: Fonts
 <fontname><num><num>.tfm
 ```
 
-其中，`<fontname>` 是一个字符串，代表字体名，比如 `song`、`hei`、`kai` 等。而 `num` 的概念其实就是一个十六进制的数字，可以从 `0`&ndash;`9`，以及 `a`&ndash;`f`（注意是小写）中任意选一个（CJK 不使用 `00`，退回到英文字体代替）。当然很多情况下 `fontname` 以 `uni` 开头。
+其中，`<fontname>` 是一个字符串，代表字体名，比如 `song`、`hei`、`kai` 等。而 `num` 的概念其实就是一个十六进制的数字，可以从 `0`--`9`，以及 `a`--`f`（注意是小写）中任意选一个（CJK 不使用 `00`，退回到英文字体代替）。当然很多情况下 `fontname` 以 `uni` 开头。
 
 GBK 的 TFM 字体信息采用了相类似的 subfonts 方案，只不过文件名为
 
@@ -40,7 +40,7 @@ GBK 的 TFM 字体信息采用了相类似的 subfonts 方案，只不过文件�
 <fontname><num-num>.tfm
 ```
 
-其中，`<num-num>` 可是十进制的两位数字，从 `00`&ndash;`94`，共 95 个字体（其中 `00` 不使用）。很多情况下为了区分，`fontname` 以 `gbk` 开头。
+其中，`<num-num>` 可是十进制的两位数字，从 `00`--`94`，共 95 个字体（其中 `00` 不使用）。很多情况下为了区分，`fontname` 以 `gbk` 开头。
 
 $\TeX$ 的 TFM 字体为了节约空间（要知道 $\TeX$ 开发的时代计算机设备是很土的），采用二进制进行编码，因此采用普通的文本编辑器是看不到任何肉眼能读懂的信息的。但是事实上看 `tex.web` 的代码就知道，TFM 代表的就是一串普通的数组，这串数组分为两个部分，前一部分包括了给 $\TeX$ 自己检查 TFM 完整性的信息，主要的就是接下来的各个表格会包含多少的数组，后一部分就是完整的字体的长宽高以及 liga/kern 等 table 的信息了。定义相对来说是非常清晰易懂的，有兴趣的可以看 [$\TeX$ 源代码的第 30 章](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tex.web#L10399)。
 
@@ -145,9 +145,9 @@ $\TeX$ 源代码中只定义了 `header[0]` 和 `header[1]`，并且这个是每
 
 当然 Knuth 还是在其他文件中定义了一些默认 `header` 该做的行为，那就是 `texk/web2c/tftopl.web`，TFtoPL 的源文件。
 
-我们继续往下讲：`header[2]`&ndash;`header[11]` 这个数组指代的是字体的 coding scheme。比如 `TEXT`、`ASCII` 或者 `UNSPECIFIED`。
+我们继续往下讲：`header[2]`--`header[11]` 这个数组指代的是字体的 coding scheme。比如 `TEXT`、`ASCII` 或者 `UNSPECIFIED`。
 
-`header[12]`&ndash;`header[16]` 是字体标识名，对应 PL 文件中的 `FAMILY`，可以指定实际的字体名字，比如 `CMR`。在 ttf2tfm 的源代码中（[`texk/ttf2pk/tfmaux.c` 文件 373 行](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/tfmaux.c#L373-L374)），写入 tfm 的实际信息为：
+`header[12]`--`header[16]` 是字体标识名，对应 PL 文件中的 `FAMILY`，可以指定实际的字体名字，比如 `CMR`。在 ttf2tfm 的源代码中（[`texk/ttf2pk/tfmaux.c` 文件 373 行](https://github.com/TeX-Live/texlive-source/blob/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk/tfmaux.c#L373-L374)），写入 tfm 的实际信息为：
 
 ```c
 (void)makebcpl(header + 2, fnt->codingscheme, 39);
@@ -400,7 +400,7 @@ strncat(buffer, "'", 1);
 charinfo = makebcpl(header + 18, buffer, 255);
 ```
 
-所以事情就很明确了，那么长的 `HEADER` 表，无非告诉我们一个长字符串。18&ndash;40 这串字符串（注意，`header` 数组是一个 `word` 的数组，也就是说，单但一个 `header[18]`，就占了一个 `word`，也就是 32 位）告诉我们这个无聊的信息：
+所以事情就很明确了，那么长的 `HEADER` 表，无非告诉我们一个长字符串。18--40 这串字符串（注意，`header` 数组是一个 `word` 的数组，也就是说，单但一个 `header[18]`，就占了一个 `word`，也就是 32 位）告诉我们这个无聊的信息：
 
 ```
 Created by `c:\ctex-source\texmf\miktex\bin\ttf2tfm c:\winnt\fonts\simhei -q gbkhei@UGBK@'
@@ -505,7 +505,7 @@ Created by `c:\ctex-source\texmf\miktex\bin\ttf2tfm c:\winnt\fonts\simhei -q gbk
    )
 ```
 
-其中，`<num1>`、`<num2>`、`<num3>` 是三个浮点数，`<num>` 是一个八进位数，在 0&ndash;399 之间，而 `<char>` 是一个字符，例如 `k`、`i`、`M` 等等。
+其中，`<num1>`、`<num2>`、`<num3>` 是三个浮点数，`<num>` 是一个八进位数，在 0--399 之间，而 `<char>` 是一个字符，例如 `k`、`i`、`M` 等等。
 
 开发者并不需注意按照 TFtoPL 结果的写法来写自己的 PL 文件，因为 TFtoPL 程序产生 TFM 字体时，可以接受任何一种输入方式，比如你想用 `k`、`i`、`M` 这样的 ASCII 字母，就使用 `C` 这个前缀，如果用十进制，就采用 `D` 前缀，十六进制就用 `H` 前缀，八进制就用 `O` 前缀。详见 `pltotf.web` 中对于 `CHARACTER` 的说明。
 
@@ -791,9 +791,9 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
   >
   > 然后写下一个循环来产生 256 个这样的结构：
 
-  我有个疑问，我看了 $\CTeX$ 2.7 里面的 `gbksong` 目录，发现文件名是从 `gbksong00.tfm` 到 `gbksong94.tfm`，而且看来文件名的后两位不是十六进制而是十进制，因为没有看到任何一个 `a`&ndash;`f` 的字母。
+  我有个疑问，我看了 $\CTeX$ 2.7 里面的 `gbksong` 目录，发现文件名是从 `gbksong00.tfm` 到 `gbksong94.tfm`，而且看来文件名的后两位不是十六进制而是十进制，因为没有看到任何一个 `a`--`f` 的字母。
 
-  更新：发现你前面已经说了 GBK 编码确实是从 `00`&ndash;`94` 的十进制，看来是你后面不小心写错了。
+  更新：发现你前面已经说了 GBK 编码确实是从 `00`--`94` 的十进制，看来是你后面不小心写错了。
 
 - #21 (by yulewang)
 

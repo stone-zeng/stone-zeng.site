@@ -28,7 +28,7 @@ categories: Symbols
 
 ## Unicode
 
-数字 0&ndash;50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 $\TeX$ 引擎（$\XeTeX$ 和 $\LuaTeX$，若无特殊说明以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：[^font]
+数字 0--50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 $\TeX$ 引擎（$\XeTeX$ 和 $\LuaTeX$，若无特殊说明以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：[^font]
 
 [^font]: 在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于字体的安装情况以及浏览器的渲染方式。
 
@@ -226,25 +226,25 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 这些符号分散在以下几个 Unicode 区块（block）中：
 
-- Enclosed Alphanumerics (`U+2460`&ndash;`U+24FF`)
-  - 带圈 0&ndash;20（以及 a&ndash;z、A&ndash;Z）
-  - 反白 0、11&ndash;20
-  - 双线 1&ndash;10
-  - 带圆括号 1&ndash;20
-  - 带点 1&ndash;20
-- Dingbats (`U+2700`&ndash;`U+27BF`)
-  - 反白 1&ndash;10
-  - 无衬线 1&ndash;10
-  - 无衬线反白 1&ndash;10
-- Enclosed CJK Letters and Months (`U+3200`&ndash;`U+32FF`)
-  - 带圈 21&ndash;50
-  - 加框 10&ndash;80（仅限整十）
+- Enclosed Alphanumerics (`U+2460`--`U+24FF`)
+  - 带圈 0--20（以及 a--z、A--Z）
+  - 反白 0、11--20
+  - 双线 1--10
+  - 带圆括号 1--20
+  - 带点 1--20
+- Dingbats (`U+2700`--`U+27BF`)
+  - 反白 1--10
+  - 无衬线 1--10
+  - 无衬线反白 1--10
+- Enclosed CJK Letters and Months (`U+3200`--`U+32FF`)
+  - 带圈 21--50
+  - 加框 10--80（仅限整十）
   - 带圈 `一`～`十`
   - 带圆括号 `一`～`十`
-- Enclosed Alphanumeric Supplement (`U+1F100`&ndash;`U+1F1FF`)
-  - 带逗号 0&ndash;9
+- Enclosed Alphanumeric Supplement (`U+1F100`--`U+1F1FF`)
+  - 带逗号 0--9
   - 无衬线、无衬线反白以及带点的 0
-- Enclosed Ideographic Supplement (`U+1F200`&ndash;`U+1F2FF`)
+- Enclosed Ideographic Supplement (`U+1F200`--`U+1F2FF`)
   - 带方框 `一`、`二`、`三`
   - 带六角括号 `二`、`三`
 
@@ -440,7 +440,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 
 ## Adobe-Japan1-7
 
-[Adobe-Japan1-7 字符集](https://github.com/adobe-type-tools/Adobe-Japan1)定义了更多的带圈数字，很多样式都支持 0&ndash;100 的数字范围。但由于 Unicode 没有为它们分配码位，我们必须用 CID（**C**haracter **ID**entifier）来指定。[^cid]
+[Adobe-Japan1-7 字符集](https://github.com/adobe-type-tools/Adobe-Japan1)定义了更多的带圈数字，很多样式都支持 0--100 的数字范围。但由于 Unicode 没有为它们分配码位，我们必须用 CID（**C**haracter **ID**entifier）来指定。[^cid]
 
 [^cid]: 感谢 [@clerkma](https://github.com/clerkma) 的指导！见 CTeX-org/forum [#20](https://github.com/CTeX-org/forum/issues/20)。
 
@@ -453,7 +453,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 - `\CIDtextrboxed`
 - `\CIDtextblackrboxed`
 
-支持的数字范围是 0&ndash;100 和 00&ndash;09。$\XeTeX$、$\LuaTeX$ 和 $\upTeX$ 这三种 Unicode 引擎均可使用，但需要配合其他宏包及命令以实现正确的字体调用：
+支持的数字范围是 0--100 和 00--09。$\XeTeX$、$\LuaTeX$ 和 $\upTeX$ 这三种 Unicode 引擎均可使用，但需要配合其他宏包及命令以实现正确的字体调用：
 
 - $\XeLaTeX$ 下需要通过 `\setmainfont` 等命令设置字体
 - $\LuaLaTeX$ 下需要通过 `\setmainjfont` 等命令设置（日文）字体
@@ -510,112 +510,112 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
     <tbody>
       <tr>
         <td class="circled-number-fonts-name">Baekmuk Batang/Dotum/Gulim/Headline</td>
-        <td>1&ndash;15</td>
+        <td>1--15</td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">Carlito</td>
-        <td>0&ndash;20</td>
-        <td>0&ndash;20</td>
+        <td>0--20</td>
+        <td>0--20</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">DejaVuSans</td>
-        <td>1&ndash;10</td>
-        <td>1&ndash;10</td>
-        <td>1&ndash;10</td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
+        <td>1--10</td>
+        <td>1--10</td>
+        <td>1--10</td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">FreeMono, FreeSans</td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">FreeSerif</td>
-        <td>1&ndash;10</td>
-        <td>1&ndash;10</td>
-        <td>1&ndash;10</td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
+        <td>1--10</td>
+        <td>1--10</td>
+        <td>1--10</td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">Garamond Math</td>
-        <td>0&ndash;50</td>
-        <td>0&ndash;20</td>
+        <td>0--50</td>
+        <td>0--20</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">IPAGothic, IPAMincho</td>
-        <td>1&ndash;50</td>
-        <td>1&ndash;20</td>
+        <td>1--50</td>
+        <td>1--20</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">Junicode</td>
-        <td>0&ndash;20</td>
-        <td>0&ndash;20</td>
+        <td>0--20</td>
+        <td>0--20</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">Lato</td>
-        <td>0&ndash;20</td>
-        <td>0&ndash;20</td>
+        <td>0--20</td>
+        <td>0--20</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">Libertinus Serif/Sans/Math, Linux Libertine, Linux Biolinum</td>
-        <td>0&ndash;20</td>
-        <td>0&ndash;20</td>
+        <td>0--20</td>
+        <td>0--20</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">Libertinus Keyboard, Linux Biolinum Keyboard</td>
         <td></td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">STIX, STIX Math</td>
-        <td>0&ndash;9</td>
+        <td>0--9</td>
         <td></td>
-        <td>1&ndash;10</td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
+        <td>1--10</td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">STIX Two Math</td>
-        <td>0&ndash;20</td>
-        <td>0&ndash;20</td>
-        <td>1&ndash;10</td>
-        <td>1&ndash;10</td>
+        <td>0--20</td>
+        <td>0--20</td>
+        <td>1--10</td>
+        <td>1--10</td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">UnBatang, UnDinaru, UnDotum, UnGraphic, UnGungseo, UnJamoBatang, UnJamoDotum, UnJamoNovel, UnJamoSora, UnPen, UnPenheulim, UnPilgi, UnPilgia, UnShinmun, UnVada, UnYetgul</td>
-        <td>0&ndash;20</td>
+        <td>0--20</td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">XITS, XITS Math</td>
-        <td>0&ndash;9</td>
+        <td>0--9</td>
         <td></td>
-        <td>1&ndash;10</td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
+        <td>1--10</td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">文鼎ＰＬ简报宋、文鼎ＰＬ简中楷</td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
         <td></td>
         <td></td>
         <td></td>
@@ -640,66 +640,66 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
     <tbody>
       <tr>
         <td class="circled-number-fonts-name">思源宋体、思源黑体</td>
-        <td>0&ndash;50</td>
-        <td>0&ndash;20</td>
-        <td>0&ndash;10</td>
-        <td>0&ndash;10</td>
+        <td>0--50</td>
+        <td>0--20</td>
+        <td>0--10</td>
+        <td>0--10</td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">微软雅黑、微软正黑</td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">苹方</td>
-        <td>0&ndash;50</td>
-        <td>0&ndash;20</td>
-        <td>0&ndash;10</td>
-        <td>1&ndash;10</td>
+        <td>0--50</td>
+        <td>0--20</td>
+        <td>0--10</td>
+        <td>1--10</td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">方正书宋、方正黑体、方正楷体、方正仿宋、等线</td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">宋体、黑体、楷体、仿宋（中易）</td>
-        <td>1&ndash;10</td>
+        <td>1--10</td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name">更纱黑体 (Sarasa Gothic)</td>
-        <td>0&ndash;50</td>
-        <td>0&ndash;20</td>
-        <td>0&ndash;10</td>
-        <td>0&ndash;10</td>
+        <td>0--50</td>
+        <td>0--20</td>
+        <td>0--10</td>
+        <td>0--10</td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name"><span lang="ja">小塚明朝</span> (Kozuka Mincho)、<span lang="ja">小塚ゴシック</span> (Kozuka Gothic)</td>
-        <td>0&ndash;100</td>
-        <td>0&ndash;100</td>
+        <td>0--100</td>
+        <td>0--100</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name"><span lang="ja">游明朝</span> (Yu Mincho)、<span lang="ja">游ゴシック</span> (Yu Gothic)</td>
-        <td>0&ndash;100</td>
-        <td>0&ndash;100</td>
+        <td>0--100</td>
+        <td>0--100</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td class="circled-number-fonts-name"><span lang="ja">メイリオ</span> (Meiryo)</td>
-        <td>0&ndash;50</td>
-        <td>1&ndash;20</td>
-        <td>0&ndash;10</td>
-        <td>1&ndash;10</td>
+        <td>0--50</td>
+        <td>1--20</td>
+        <td>0--10</td>
+        <td>1--10</td>
       </tr>
     </tbody>
   </table>

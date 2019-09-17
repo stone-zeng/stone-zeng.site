@@ -105,7 +105,7 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
   </table>
 </div>
 
-在 CSS 的设计中，这一精神被继承了下来。它采用数字 100&ndash;900 来标记字重，具体的对应关系如下表：
+在 CSS 的设计中，这一精神被继承了下来。它采用数字 100--900 来标记字重，具体的对应关系如下表：
 
 <div class="font-weight">
   <table>
@@ -142,7 +142,7 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 
 左侧真正的粗体有鲜明的笔画对比，显得端庄、优雅；而右侧的伪粗体不仅损失了这样的特色，而且笔画粘连，黑度不均，难于辨认。
 
-$\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man&rsquo;s bold」。它会连续输出三个相同的符号，但使其稍稍错位，以实现加粗的效果：
+$\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold」。它会连续输出三个相同的符号，但使其稍稍错位，以实现加粗的效果：
 
 <figure>
   <img src="/images/use-opentype-fonts-ii/bold-vs-pmb.svg" alt="bold-vs-pmb">

@@ -16,7 +16,7 @@ Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 - [Source Han Sans](https://fonts.adobe.com/fonts/source-han-sans-cjk-simplified-chinese)
 - [The Type (Type is Beautiful)](https://thetype.com/)
 - [不蒜子 - 极简网页计数器](https://busuanzi.ibruce.info)
-- [始终 - Liam Huang&rsquo;s blog](https://liam.page/)
+- [始终 - Liam Huang's blog](https://liam.page/)
 
 <!--
 - [Sticky Sidebar](https://abouolia.github.io/sticky-sidebar/)

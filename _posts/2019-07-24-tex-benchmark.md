@@ -95,7 +95,7 @@ Hello, world!
 
 ### Sort
 
-使用 $\LaTeX3$ 提供的接口，生成 1&ndash;65536 之间的 2048 个随机整数并排序。$\ApTeX$ 没有实现相关原语因此该项目没有包含。
+使用 $\LaTeX3$ 提供的接口，生成 1--65536 之间的 2048 个随机整数并排序。$\ApTeX$ 没有实现相关原语因此该项目没有包含。
 
 ```latex
 \documentclass{article}

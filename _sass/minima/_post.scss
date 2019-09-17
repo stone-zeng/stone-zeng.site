@@ -101,19 +101,22 @@
   h2, h3, h4 {
     color: $link-color;
     font-weight: normal;
-    margin: $spacing-unit 0;
   }
 
   h2 {
     font-size: $h2-font-size;
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit / 2;
   }
 
   h3 {
     font-size: $h3-font-size;
+    margin: $spacing-unit / 2 0;
   }
 
   h4 {
     font-size: $h4-font-size;
+    margin: $spacing-unit / 2 0;
   }
 
   // p {

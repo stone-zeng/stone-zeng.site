@@ -16,7 +16,7 @@ const nodeListToObject = (nodeList) =>
   }
 })();
 
-function updatePunctLogo(d) {
+function updatePunctLogo() {
   const span = (className, e) => `<span class="${className}">${e}</span>`;
   const TEX   = `T${span('e', 'e')}X`;
   const LA    = `L${span('a', 'a')}`;

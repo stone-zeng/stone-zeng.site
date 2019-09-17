@@ -188,5 +188,5 @@ lualatex hello
 - Karl Berry. 江疆 译. [$\TeX$ Live 指南——2018](http://tug.org/texlive/doc/texlive-zh-cn/texlive-zh-cn.pdf)
 - [TeX Live and Debian/Ubuntu](https://www.tug.org/texlive/debian.html)
 - [Ubuntu 软件包: `texlive-full`](https://packages.ubuntu.com/disco/texlive-full)
-- @Dima. [How to install &ldquo;vanilla&rdquo; TeXLive on Debian or Ubuntu?](https://tex.stackexchange.com/q/1092)
+- @Dima. [How to install "vanilla" TeXLive on Debian or Ubuntu?](https://tex.stackexchange.com/q/1092)
 - Enrico Gregorio. [Installing $\TeX$ Live 2010 on Ubuntu](http://www.tug.org/TUGboat/tb32-1/tb100gregorio.pdf)
