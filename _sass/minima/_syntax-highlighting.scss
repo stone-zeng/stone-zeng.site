@@ -2,13 +2,6 @@
  * Syntax highlighting styles
  */
 .highlight {
-  background: #fff;
-  // @extend %vertical-rhythm; // TODO
-
-  .highlighter-rouge & {
-    background: $code-bg-color;
-  }
-
   .c     { color: #998; font-style: italic } // Comment
   .err   { color: #a61717; background-color: #e3d2d2 } // Error
   .k     { font-weight: bold } // Keyword

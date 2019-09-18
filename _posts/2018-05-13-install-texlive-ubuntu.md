@@ -162,7 +162,7 @@ sudo tlmgr update --self --all
 
 可以编译一个简短的测试文件：
 
-```latex
+```tex
 % hello.tex
 \documentclass[UTF8]{ctexart}
 \begin{document}

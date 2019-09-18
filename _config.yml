@@ -1,42 +1,15 @@
 # Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: stone-zeng.github.io
-# For correct hyphenation, we need set the language to en-US.
-lang: en-US
-baseurl: "" # the subpath of your site, e.g. /blog
-url: https://stone-zeng.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
+lang: en-US  # For correct hyphenation, we need set the language to en-US.
+baseurl: ""
+url: https://stone-zeng.github.io/
 google_analytics: UA-132846370-1
-
 copyright: © 2018–2019 Xiangdong Zeng
-# description: >- # this means to ignore newlines until "baseurl:"
-#   Except where otherwise noted, content on this blog is licensed under a
-#   Creative Commons Attribution 4.0 International license.
 github_username: stone-zeng
 
-# Build settings
 incremental: true
-markdown: kramdown
 permalink: :year-:month-:day-:title/
-theme: minima
-plugins:
-  - jekyll-feed
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
 exclude:
   - .gitignore
   - .gitattributes
@@ -51,6 +24,11 @@ exclude:
   - temp/
   - vendor/
 
+markdown: kramdown
+kramdown:
+  math_engine: nil
+
+theme: minima
 minima:
   social_links:
     email: xdzeng96@gmail.com
@@ -58,7 +36,5 @@ minima:
     stackexchange: 136923/stone-zeng
     telegram: xdzeng96
     rss: rss
-
-# Markdown Processors
-kramdown:
-  math_engine: nil
+plugins:
+  - jekyll-feed

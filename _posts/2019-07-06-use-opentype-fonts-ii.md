@@ -219,7 +219,7 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
 
 `fontspec` 宏包同时支持**字体名**调用和字体**文件名**调用。具体来说，以下两种方式都可以用来使用 EB Garamond 字体：
 
-```latex
+```tex
 \setmainfont{EB Garamond}             % 字体名
 \setmainfont{EBGaramond-Regular.otf}  % 字体文件名
 ```
@@ -246,7 +246,7 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
 - 后缀名需要是 `.otf`、`.ttf` 或 `.ttc`
 - 字体文件需要能被 kpathsea 库找到，否则需要手动添加路径，例如：
 
-  ```latex
+  ```tex
   \setmainfont{SourceSerifPro-Regular.otf}[Path=/Users/xdzeng/]
   ```
 
@@ -260,7 +260,7 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
 
 对于同一个字体家族，往往会有多个「正交」的维度，包括粗细、倾斜等。大多数情况下 `fontspec` 会自动进行选择，但正如上面已经提到的，有时候仍需要开启手动档。和 Word 类似，`fontspec` 给出了经典的 4 个选项——upright、bold、italic 和 bold italic。语法如下：
 
-```latex
+```tex
 % \setsansfont 等其他命令的语法相同
 \setmainfont{<字体>}[
   UprightFont    = <字体>,  % 一般与上一行相同，故可以省略
@@ -272,7 +272,7 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
 
 如果省略某些选项，`fontspec` 则会自动进行回退。下面是一个具体的例子：
 
-```latex
+```tex
 % 导言区
 \setmainfont{Source Serif Pro Light}[
   BoldFont = Source Serif Pro Semibold]
@@ -299,7 +299,7 @@ sed do eiusmod tempor incididunt ut.
 
 很多时候同一字体家族内字体的名称会很类似，此时可以用 `*` 代替重复的部分。另外，对于使用文件名调用的情况，扩展名可以通过 `Extension` 选项统一指定：
 
-```latex
+```tex
 % 导言区
 \setsansfont{IBMPlexSans}[
   Extension      = .otf,
@@ -331,7 +331,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 通常来说，一篇文章中不宜出现过多的字体样式（本文例外），`fontspec` 也不鼓励这样写。但确有需求的话，我们也总可以用 `\newfontfamily` 等命令定义更多的字体：
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{fontspec}
 % 使用 LaTeX3 以简化代码
@@ -396,13 +396,13 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 预定义字库覆盖了所有主流操作系统，所以理论上 `CTeX` 宏集是「开箱即用」的，直接使用
 
-```latex
+```tex
 \documentclass{ctexart}
 ```
 
 或者
 
-```latex
+```tex
 \documentclass[fontset=<字库名>]{ctexart}
 ```
 
@@ -429,7 +429,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 而 `fandol` 字库，虽然配齐了宋黑楷仿也有粗宋和粗黑，但毕竟天下没有免费的午餐，它缺字得厉害：
 
-```latex
+```tex
 \documentclass[fontset=fandol]{ctexart}
 \begin{document}
 \begin{center}
@@ -456,7 +456,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 Windows 上我们可以这样设置：
 
-```latex
+```tex
 \setCJKmainfont{SimSun}[AutoFakeBold, AutoFakeSlant]
 \setCJKsansfont{SimHei}[AutoFakeBold, AutoFakeSlant]
 \setCJKmonofont{FangSong}[AutoFakeBold, AutoFakeSlant]
@@ -470,7 +470,7 @@ Windows 上我们可以这样设置：
 
 macOS 中没有自带中易字体，但如果安装了 Office，则可以找到字体目录后使用文件名调用：
 
-```latex
+```tex
 % 根据实际情况修改
 \def\WordPath{/Applications/Microsoft Word.app/Contents/Resources/DFonts/}
 
@@ -492,7 +492,7 @@ macOS 中没有自带中易字体，但如果安装了 Office，则可以找到�
 
 最后，我们给出一个完整的示例，它还包括了章节标题、页眉页脚、强调样式等的修改：
 
-```latex
+```tex
 % 使用 fontset=none 以关闭默认字体设置
 \documentclass[fontset=none]{ctexart}
 

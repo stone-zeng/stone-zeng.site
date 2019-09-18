@@ -197,14 +197,14 @@ $\LaTeX$ 中使用 OpenType 字体，主要依靠下列宏包：
 
 接下来的部分我们来介绍在 $\LaTeX$ 中使用 OpenType 字体的方法。首先需要在导言区调用 `fontspec` 宏包：
 
-```latex
+```tex
 % 导言区
 \usepackage{fontspec}
 ```
 
 它提供了以下命令：
 
-```latex
+```tex
 \setmainfont{<字体名>}[<选项>]
 \setsansfont{<字体名>}[<选项>]
 \setmonofont{<字体名>}[<选项>]
@@ -216,7 +216,7 @@ $\LaTeX$ 中使用 OpenType 字体，主要依靠下列宏包：
 
 一个简短但完整的示例如下：
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{fontspec}
 \setmainfont{TeX Gyre Termes}
@@ -240,7 +240,7 @@ information.
 
 此外，有时候需要额外声明新的字体，可用以下命令：
 
-```latex
+```tex
 \newfontfamily<字体切换命令>{<字体名>}[<选项>]
 \setfontfamily<字体切换命令>{<字体名>}[<选项>]
 \renewfontfamily<字体切换命令>{<字体名>}[<选项>]
@@ -250,13 +250,13 @@ information.
 
 `fontspec` 宏包还允许临时性地（*ad hoc*）声明新字体，并立即予以切换：
 
-```latex
+```tex
 \fontspec{<字体名>}[<选项>]
 ```
 
 下面仍然通过一个例子来说明：
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{fontspec}
 \setmainfont{TeX Gyre Pagella}
@@ -291,7 +291,7 @@ $\LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架[^ctex
 
 默认情况下，`CTeX` 宏集会根据系统和编译方式选择合适的中文字库，也可以利用 `fontset` 选项指定所需加载的字库。这里我们介绍的是手工设置字体的方法，基本与 `fontspec` 宏包一致，主要命令有：
 
-```latex
+```tex
 % 设置中文正文（衬线）、无衬线、等宽字体
 \setCJKmainfont{<字体名>}[<选项>]
 \setCJKsansfont{<字体名>}[<选项>]
@@ -309,14 +309,14 @@ $\LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架[^ctex
 
 `CTeX` 宏集还提供了 `\setCJKfamilyfont` 命令，允许以字体族的方式声明字体；上面介绍过的命令 `\newCJKfontfamily` 也允许以可选参数的形式声明字体族：
 
-```latex
+```tex
 \setCJKfamilyfont{<字体族>}{<字体名>}[<选项>]
 \newCJKfontfamily[<字体族>]<字体切换命令>{<字体名>}[<选项>]
 ```
 
 这里的 `<字体族>` 是用户自定义的名称，可以在正文中由 `\CJKfamily` 命令调用：
 
-```latex
+```tex
 \CJKfamily{<字体族>}
 \CJKfamily+{<字体族>}
 \CJKfamily-{<字体族>}
@@ -326,7 +326,7 @@ $\LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架[^ctex
 
 下面是一个综合使用各种中西文字体的例子：
 
-```latex
+```tex
 \documentclass{ctexart}
 % 西文字体
 \setmainfont{Source Serif Pro}

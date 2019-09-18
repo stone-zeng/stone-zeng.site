@@ -95,7 +95,7 @@ $\LaTeX3$ 中的命令，无论是函数还是变量，仍然都是以反斜杠 
 
   这一函数的行为类似于 `\def`（效果其实更接近 `\newcommand`）：
 
-  ```latex
+  ```tex
   % LaTeX2ε
   \def\myfunc#1{Hello #1}
   % LaTeX3
@@ -106,7 +106,7 @@ $\LaTeX3$ 中的命令，无论是函数还是变量，仍然都是以反斜杠 
 
 - `\int_if_even:nTF`：它属于 `int` 模块，用于处理整数。这一函数的作用是判断一个数字（由 `n` 参数接受）是不是偶数，若是，则执行 `T` 分支，否则执行 `F` 分支。
 
-  ```latex
+  ```tex
   \int_if_even:nTF { 12 }
     { <true code>  }
     { <false code> }
@@ -138,7 +138,7 @@ $\LaTeX3$ 中，变量的名称包括四个部分：作用域（`scope`）、模
 
 具体到应用，我们来看一个例子：
 
-```latex
+```tex
 % 声明变量
 \int_new:N \l_my_variable_int
 \int_new:N \g_my_variable_int
@@ -226,7 +226,7 @@ $\LaTeX3$ 中的变量与相关函数组成了一个个模块。之后我们就�
 
 事实上，$\LaTeX3$ 提供了 `l3docstrip` 宏包，它在文学编程宏包 `docstrip` 的基础上引入了名字空间的手法。下面我们来给出一个例子：
 
-```latex
+```tex
 % 进入名字空间 `myi`
 %<@@=myi>
 \cs_new:Npn \myi_function:n #1
@@ -264,7 +264,7 @@ $\LaTeX3$ 中的变量与相关函数组成了一个个模块。之后我们就�
 
 以下是一个示例：
 
-```latex
+```tex
 \cs_new:Npn \my_foo:nn #1#2
   {
     \tl_if_empty:nTF {#1}
@@ -284,7 +284,7 @@ $\LaTeX3$ 中的变量与相关函数组成了一个个模块。之后我们就�
 
 如果只在一个 `.tex` 文件中使用，可以这样做：
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{expl3}
 
@@ -295,7 +295,7 @@ $\LaTeX3$ 中的变量与相关函数组成了一个个模块。之后我们就�
 
 如果是要编写宏包或文档类，标准做法与在 $\LaTeXe$ 中类似：
 
-```latex
+```tex
 \RequirePackage{expl3}
 
 % 宏包使用 \ProvidesExplPackage
@@ -308,7 +308,7 @@ $\LaTeX3$ 中的变量与相关函数组成了一个个模块。之后我们就�
 
 第二种方法继承并扩展了 $\LaTeXe$ 中 `\ProvidesPackage`、`\ProvidesClass` 和 `\ProvidesFile` 的功能，大致相当于
 
-```latex
+```tex
 % Package info
 
 % 文件开头

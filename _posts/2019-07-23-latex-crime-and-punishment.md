@@ -22,7 +22,7 @@ categories: Comments
 
 我们来构造一个代码示例：
 
-```latex
+```tex
 % mytest.tex
 \documentclass{article}
 \usepackage{biblatex}
@@ -133,7 +133,7 @@ PS：我觉得 latexmk 就很靠谱，不知道为什么 PDFTeXify 不够 robust
 
 作者表示 `\fullcite` 方案失败，于是换了 `\bibentry`。其实这时已经陷入了危险的境地：上面那个方案是基于 `biblatex`/biber 的，现在又换到了 $\BibTeX$，这两种方案并不能混用。Anyway 先假定知道这一点，再构造一个例子：
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{bibentry}
 \bibliographystyle{plain}
@@ -203,7 +203,7 @@ PS：我觉得 latexmk 就很靠谱，不知道为什么 PDFTeXify 不够 robust
 
 这是个相当经典的问题，但却不太容易搜索到靠谱的解决方案。真的忘记写 `\begin{document}`，或者编译错了文件，确实也会报这个 error；但绝大多数时候，明明这行代码就白纸黑字写在那儿却还是「Missing `\begin{document}`」。原因在于，$\LaTeX$ 不允许在导言区出现任何排版语句（shipout），只有宏包调用、宏定义、选项设置等才允许出现，所以不小心多输入了一个字母，就会报错：
 
-```latex
+```tex
 \documentclass{article}
 A
 \begin{document}
@@ -569,7 +569,7 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 
 原来的问题简单得很：
 
-```latex
+```tex
 \documentclass{ctexart}
 \usepackage{fancyvrb}
 \begin{document}
@@ -599,7 +599,7 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 
 接下来，@yihui 提供了代码（第一份代码只是引号的正常宽度，与本问题无关），那么问题就好解决多了：
 
-```latex
+```tex
 \documentclass[UTF8]{ctexart}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -634,7 +634,7 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 1. 使用 `article` + `xeCJK` 代替 `ctexart` 文档类，同样出现问题。
 1. 在 `xeCJK` 的文档中搜索有关抄录环境的问题，可以找到 `Verb` 选项和 `\xeCJKVerbAddon` 等命令。根据说明，我们可以把它添加到 `fancyvrb` 宏包的 `formatcom` 选项中：
 
-   ```latex
+   ```tex
    {% raw %}\documentclass{article}
    \usepackage{xeCJK,fancyvrb}
    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{%

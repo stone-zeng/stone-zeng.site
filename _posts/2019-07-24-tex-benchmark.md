@@ -68,7 +68,7 @@ categories: Engines
 
 最简单的一份 $\LaTeX$ 文档。
 
-```latex
+```tex
 \documentclass{minimal}
 \begin{document}
 Hello, world!
@@ -79,7 +79,7 @@ Hello, world!
 
 使用 `tikz` 和 `pgfplots` 宏包作图。
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{tikz,pgfplots}
 \pgfplotsset{width=7cm, compat=1.16}
@@ -97,7 +97,7 @@ Hello, world!
 
 使用 $\LaTeX3$ 提供的接口，生成 1--65536 之间的 2048 个随机整数并排序。$\ApTeX$ 没有实现相关原语因此该项目没有包含。
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{expl3}
 \begin{document}
@@ -119,7 +119,7 @@ Hello, world!
 
 长文本测试，使用 `lipsum` 宏包提供的假文。
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{lipsum}
 \begin{document}
@@ -136,7 +136,7 @@ Hello, world!
 
 中文长文本测试，使用 `zhlipsum` 宏包提供的假文。$\pdfTeX$ 在 PDF 模式下不能使用 OpenType 字体，因此该项目没有包含。
 
-```latex
+```tex
 \documentclass[UTF8, fontset=fandol]{ctexart}
 \usepackage{zhlipsum}
 \begin{document}
@@ -159,7 +159,7 @@ Hello, world!
 
 [^aptex-font]: 参考：[在 $\ApTeX$ 中使用 OpenType](https://zhuanlan.zhihu.com/p/21383329)。
 
-```latex
+```tex
 \documentclass[UTF8, zhmap=zhmCJK, fontset=none]{ctexart}
 \usepackage{zhlipsum}
 
@@ -251,7 +251,7 @@ Hello, world!
 
 注意到 $\XeTeX$ 在 `zhlipsum` 测试中的表现与其他引擎差距很大，其实之前也注意到过这个问题。因此干脆就再跑一个 benchmark。代码见下：
 
-```latex
+```tex
 \documentclass[UTF8, fontset=fandol]{ctexart}
 \usepackage{zhlipsum,l3benchmark}
 \begin{document}

@@ -250,7 +250,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 直接输入，或者利用码位，都能在 $\LaTeX$ 中使用以上这些带圈数字（注意不同方法对大小写的要求有差异）：
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{fontspec}
 \setmainfont{Source Han Serif SC}
@@ -274,7 +274,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 在实际使用中，无论是依靠码位，还是借由输入法直接录入这些特殊字符，都不是很方便。在 `xunicode-addon` 宏包（从属于 `xeCJK`）中，`\textcircled` 等一系列命令被重新定义，从而能够显示 Unicode 所分配的带圈数字（和字母等）。举例如下：
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{fontspec,xunicode-addon}
 \setmainfont{Source Han Serif SC}
@@ -289,7 +289,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 利用 $\LaTeX3$ 语法也可以迅速写出如下循环而不伤身体：
 
-```latex
+```tex
 \ExplSyntaxOn
 \cs_set:Npn \TESTi
   {
@@ -333,7 +333,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 
 在 $\XeLaTeX$ 下，可以做如下修改：
 
-```latex
+```tex
 {% raw %}% 使用中文字体
 \xeCJKDeclareCharClass{CJK}{%
   "24EA,        % ⓪
@@ -354,7 +354,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 
 在 $\LuaLaTeX$ 下，也完全类似：
 
-```latex
+```tex
 {% raw %}% 使用中文字体
 \ltjdefcharrange{6}{%
   "24EA, "2460-"2473, "3251-"32BF,
@@ -374,7 +374,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 
 [^textcircled-ctex]: 感谢 [@qinglee](https://github.com/qinglee) 的指导！见 CTeX-org/ctex-kit [#399](https://github.com/CTeX-org/ctex-kit/issues/399)。
 
-```latex
+```tex
 % XeLaTeX 下需要把全体带圈数字都设置成 Default 类
 % LuaLaTeX 下无须额外设置
 \xeCJKDeclareCharClass{Default}{"24EA, "2460->"2473, "3251->"32BF}
@@ -399,7 +399,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 
 在 OpenType 中，有一项名为 [`nalt`](https://docs.microsoft.com/typography/opentype/spec/features_ko#nalt)（Alternate Annotation Forms）的 GSUB 特性，它的作用是把特定的字符形替换成符号标注形式（notational forms）。不少日文字体都包含这一特性，我们可以利用 `fontspec` 宏包提供的相关选项调用。举例如下：
 
-```latex
+```tex
 \documentclass{article}
 \usepackage{fontspec}
 \setmainfont{ipaexm.ttf}  % IPAex 明朝，TeX Live 自带
@@ -417,7 +417,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 
 需要注意的是，`Annotation=X` 中的某个 `X` 具体对应何种样式，这是由字体设计者决定的。此外，在一些字体中，部分假名、汉字也有类似的标注形式，可以用相同方法使用：
 
-```latex
+```tex
 \documentclass{ctexart}
 \setCJKmainfont{Hiragino Mincho Pro W3}
 
@@ -459,7 +459,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 - $\LuaLaTeX$ 下需要通过 `\setmainjfont` 等命令设置（日文）字体
 - $\upLaTeX$ 下需要调用 `pxchfon` 宏包，并且使用 `\setminchofont` 等命令设置字体，具体可以参考以下示例：
 
-  ```latex
+  ```tex
   {% raw %}% test-uptex.tex
   \documentclass{ujarticle}
   \usepackage{pxchfon,textcircle-cid}
