@@ -13,6 +13,7 @@ const nodeListToObject = (nodeList) =>
     addHashTags(headers);
     updateSidebar(headers);
     updateFootnotes();
+    updateMath();
   }
 })();
 
@@ -149,4 +150,15 @@ function updateFnref(fnItems) {
 function updateFnlist(fnItems) {
   document.querySelector('#footnotes').innerHTML =
     `<ol>${Object.values(fnItems).map((e) => e.HTML).join('')}</ol>`;
+}
+
+function updateMath() {
+  document.addEventListener('DOMContentLoaded', () => {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false},
+      ]}
+    );
+  });
 }

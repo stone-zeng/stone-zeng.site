@@ -156,16 +156,6 @@ categories: Fonts
 
 <div id="footnotes"></div>
 
-<!-- 1. <span class="backref" id="fn-can-i-use-vf"><a href="#fnref-can-i-use-vf">^</a></span>
-   [Can I use... Support tables for HTML5, CSS3, etc - Variable fonts](https://caniuse.com/#feat=variable-fonts)
-1. <span class="backref" id="fn-wiki-vf"><a href="#fnref-wiki-vf">^</a></span>
-   
-2. <span class="backref" id="fn-hans-context">
-     <a href="#fnref-hans-context-a">a</a>
-     <a href="#fnref-hans-context-b">b</a>
-   </span>
-   Hans Hagen. [[NTG-context] beta](https://mailman.ntg.nl/pipermail/ntg-context/2017/088343.html) -->
-
 ## 参考
 
 - 谭沛然. [参数化设计与字体战争：从 OpenType 1.8 说起](https://thetype.com/2016/09/10968)

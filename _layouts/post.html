@@ -2,8 +2,19 @@
 layout: default
 ---
 <div class="container">
+  {% if page.lang == "en-US" %}
+    {% assign toc_title     = "In this article" %}
+    {% assign last_modified = "Last modified: " %}
+    {% assign word_count    = "Words count: " %}
+    {% assign view_count    = "Views: " %}
+  {% else %}
+    {% assign toc_title     = "文章目录" %}
+    {% assign last_modified = "最近更新：" %}
+    {% assign word_count    = "本文字数：" %}
+    {% assign view_count    = "阅读次数：" %}
+  {% endif %}
   <div class="post-sidebar" id="sidebar" style>
-    <h3>文章目录</h3>
+    <h3>{{ toc_title }}</h3>
     {% include toc.html html=content id="sidebar-ul" %}
   </div>
   <div id="content">
@@ -16,13 +27,13 @@ layout: default
               {{ page.date | date: "%Y-%m-%d" }}</time></li>
           {%- if page.last_modified_at -%}<li><time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
               {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-              {{ page.last_modified_at | date: "最近更新：%Y-%m-%d" }}</time></li>
+              {{ last_modified }}{{ page.last_modified_at | date: "%Y-%m-%d" }}</time></li>
           {%- endif -%}
           {%- if page.author -%}<li><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span
                 class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span></li>
           {%- endif -%}
-          <li>本文字数：{%- include wordcount.html -%}</li>
-          <li><span id="busuanzi_container_page_pv">阅读次数：<span id="busuanzi_value_page_pv"></span></span></li>
+          <li>{{ word_count }}{%- include wordcount.html -%}</li>
+          <li><span id="busuanzi_container_page_pv">{{ view_count }}<span id="busuanzi_value_page_pv"></span></span></li>
         </ul>
       </header>
       <div class="post-content e-content" itemprop="articleBody" id="content">

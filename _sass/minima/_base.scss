@@ -29,6 +29,12 @@ main {
   display: block;
 }
 
+// Italic correction
+em, i {
+  margin-right: .05em;
+}
+
+// CJK punctuations
 .zh-punct {
   font-family: $punct-font-family;
   font-feature-settings: 'fwid';
@@ -42,6 +48,74 @@ main {
 .zh-punct-bound {
   margin-left: -.5em;
 }
+
+// Math (KaTeX)
+.kdmath {
+  margin: -5px 0;
+}
+.katex {
+  font-size: 108% !important;
+  line-height: 100% !important;
+}
+
+// TeX, LaTeX, etc
+.tex-logo {
+  .a {
+    font-variant: small-caps;
+    font-weight: 500;
+    margin-left: -.3em;
+    margin-right: -.1em;
+    position: relative;
+    bottom: .45ex;
+  }
+  .e {
+    text-transform: uppercase;
+    margin-left: -.18em;
+    margin-right: -.05em;
+    position: relative;
+    bottom: -.5ex;
+  }
+  .epsilon {
+    font-style: italic;
+  }
+  .two-e-epsilon {
+    font-style: italic;
+    position: relative;
+    bottom: -.3ex;
+  }
+  .xe-e {
+    display: inline-block;
+    text-transform: uppercase;
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    margin-left: -.05em;
+    margin-right: -.05em;
+    position: relative;
+    bottom: -.5ex;
+  }
+  .bib-ib {
+    font-variant: small-caps;
+    font-weight: 500;
+  }
+  .rkern {
+    margin-right: -.05em;
+  }
+  .xe-e-kern {
+    margin-right: -.18em;
+  }
+  .rparen-kern {
+    margin-left: .05em;
+    margin-right: -.05em;
+  }
+}
+strong, th, .post-sidebar .active {
+  .tex-logo {
+    .a, .bib-ib {
+      font-weight: 900;
+    }
+  }
+}
+
 
 // /**
 //  * Clearfix

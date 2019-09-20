@@ -178,6 +178,25 @@
     }
   }
 
+  ol {
+    list-style: none;
+    counter-reset: li;
+    > li {
+      counter-increment: li;
+    }
+    > li::before {
+      content: counter(li) '.';
+      display: inline-block;
+      width: 2em;
+      margin-right: .5em;
+      margin-left: -2.5em;
+      text-align: right;
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.04em;
+    }
+  }
+
   // TODO
   blockquote {
     color: $grey-color;

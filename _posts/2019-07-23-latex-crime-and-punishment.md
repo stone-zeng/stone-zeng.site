@@ -631,8 +631,8 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 这样我们就得到了一开始的那份问题代码，于是终于可以开始 debug 了。
 
 1. 使用 $\LaTeX$ 的标准 `verbatim` 环境（注意大小写），发现是正常的。
-1. 使用 `article` + `xeCJK` 代替 `ctexart` 文档类，同样出现问题。
-1. 在 `xeCJK` 的文档中搜索有关抄录环境的问题，可以找到 `Verb` 选项和 `\xeCJKVerbAddon` 等命令。根据说明，我们可以把它添加到 `fancyvrb` 宏包的 `formatcom` 选项中：
+2. 使用 `article` + `xeCJK` 代替 `ctexart` 文档类，同样出现问题。
+3. 在 `xeCJK` 的文档中搜索有关抄录环境的问题，可以找到 `Verb` 选项和 `\xeCJKVerbAddon` 等命令。根据说明，我们可以把它添加到 `fancyvrb` 宏包的 `formatcom` 选项中：
 
    ```tex
    {% raw %}\documentclass{article}
@@ -658,7 +658,7 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
      <img src="/images/latex-crime-and-punishment/debug-2.png" alt="debug-2">
    </figure>
 
-1. 查看[代码](https://github.com/CTeX-org/ctex-kit/blob/dce0e53ef106740d74e676164a9039de27b79596/xeCJK/xeCJK.dtx#L7491-L7495)可以看出，`xeCJK` 仅为 `\verbatim@font` 打了补丁，而这个是 `\verb` 或者 `verbatim` 环境内部所使用的字体样式。如果是其他抄录环境则需额外定义（`listings` 宏包由于使用自己的一套机制 `xeCJK` 对此单独做了修补）。
+4. 查看[代码](https://github.com/CTeX-org/ctex-kit/blob/dce0e53ef106740d74e676164a9039de27b79596/xeCJK/xeCJK.dtx#L7491-L7495)可以看出，`xeCJK` 仅为 `\verbatim@font` 打了补丁，而这个是 `\verb` 或者 `verbatim` 环境内部所使用的字体样式。如果是其他抄录环境则需额外定义（`listings` 宏包由于使用自己的一套机制 `xeCJK` 对此单独做了修补）。
 
 到此问题便得到了解决。我们可以总结一下：
 
@@ -682,8 +682,6 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 语言方面，宏语言捉襟见肘的表达能力确实是一个问题。但 $\LaTeX3$ 也在逐渐成熟，二十多年积累下来的方方面面的经验使得它正在成为标准库一样的东西。当有了统一的框架，可以想见开发与使用都将变得更加容易。与此同时，$\ConTeXt$ 那边也在持续地尝试新的想法，对 variable fonts 和 color fonts 的支持 2017 年就已经做了[^context]。所以，在追赶潮流的能力上 $\TeX$ 丝毫不比那几家商业公司差多少（误）。
 
 [^context]:
-
-<!-- 参考：[Variable Fonts](https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-variablefonts.pdf)（`texdoc variablefonts.pdf`）和 [Picture Fonts](https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-emoji.pdf)（`texdoc emoji.pdf`）。 -->
 
 作为开发者，我们自然希望用户的使用门槛可以一降再降，遇到的坑也能够越来越少。不过，这都建立在用户自己有尝试、探索、讨论与交流的热情之上。遇到问题，只会无头苍蝇一样四处乱撞，或者阴阳怪气地嘲讽，我们只能提醒你：**恐怕使用 Word 的能力你也没有**。
 
