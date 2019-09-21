@@ -174,7 +174,7 @@ function updateHighlight() {
 
 
 function parseWolframLang(s) {
-  const tokens = s.split(/( |\s|\$|##\d*|#[\dA-Za-z]*|"|\b)/g)
+  const tokens = s.split(/( |\s|\$|##\d*|#\d*|"|\(\*|\*\)|\b)/g)
       .filter((e) => e !== '' && e !== undefined);
 
   let commentDepth = 0;

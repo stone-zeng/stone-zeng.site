@@ -2,13 +2,13 @@
  * Syntax highlighting styles
  */
 .highlight {
-  .c     { color: #998; font-style: italic } // Comment
+  .c     { color: #999; font-style: italic } // Comment
   .err   { color: #a61717; background-color: #e3d2d2 } // Error
   .k     { font-weight: bold } // Keyword
   .o     { font-weight: bold } // Operator
-  .cm    { color: #998; font-style: italic } // Comment.Multiline
+  .cm    { color: #999; font-style: italic } // Comment.Multiline
   .cp    { color: #999; font-weight: bold } // Comment.Preproc
-  .c1    { color: #998; font-style: italic } // Comment.Single
+  .c1    { color: #999; font-style: italic } // Comment.Single
   .cs    { color: #999; font-weight: bold; font-style: italic } // Comment.Special
   .gd    { color: #000; background-color: #fdd } // Generic.Deleted
   .gd .x { color: #000; background-color: #faa } // Generic.Deleted.Specific
@@ -30,7 +30,7 @@
   .m     { color: #099 } // Literal.Number
   .s     { color: #d14 } // Literal.String
   .na    { color: #008080 } // Name.Attribute
-  .nb    { color: #0086B3 } // Name.Builtin
+  .nb    { color: #0086b3 } // Name.Builtin
   .nc    { color: #458; font-weight: bold } // Name.Class
   .no    { color: #008080 } // Name.Constant
   .ni    { color: #800080 } // Name.Entity
@@ -61,12 +61,13 @@
   .vg    { color: #008080 } // Name.Variable.Global
   .vi    { color: #008080 } // Name.Variable.Instance
   .il    { color: #099 } // Literal.Number.Integer.Long
-
-  // Used in Wolfram Language
-  .np    { color: #458; font-style: italic; } // Name.Pattern
-  .ns    { color: #0086B3; font-style: italic; } // Name.Slot
 }
 
-.language-wl {
-  font-feature-settings: 'calt';
+// Used in Wolfram Language
+.language-wl .highlight {
+  // Programming ligatures, centered star
+  font-feature-settings: 'calt', 'cv19';
+
+  .np { color: #0086b3; font-style: italic; } // Name.Pattern
+  .ns { color: #458; font-style: italic; } // Name.Slot
 }
