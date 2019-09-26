@@ -347,7 +347,7 @@ $\LaTeX$ 的机制决定了某些接口只有唯一的写法。`\section` 就必
 > - XltXtra and Graphicx 冲突
 > - Amssymb with Xunicode 冲突
 
-很多包是为 8-bit 的引擎写的，后来有了 $\XeTeX$、$\LuaTeX$ 这些东西就通通可以规避掉了。以及，没有必要画蛇添足，`graphicx` 包加上 `[xetex]` 这样的选项纯粹是多余的[^graphicx-option]。**只要涉及 ASCII 之外的东西，请一律使用 XeTeX 或者 LuaTeX 编译。**
+很多包是为 8-bit 的引擎写的，后来有了 $\XeTeX$、$\LuaTeX$ 这些东西就通通可以规避掉了。以及，没有必要画蛇添足，`graphicx` 包加上 `[xetex]` 这样的选项纯粹是多余的[^graphicx-option]。**只要涉及 ASCII 之外的东西，请一律使用 $\XeTeX$ 或者 $\LuaTeX$ 编译。**
 
 [^graphicx-option]: 传统上 $\TeX$ 的流程是先生成 `dvi`，再接后续操作（即「驱动」，如 `dvips`、`dvipdf`、`dvipdfm`、`dvipdfmx` 等）。插图、彩色支持是在第二步做的，$\TeX$ 并不知道具体细节，所以需要手动给 `graphicx` 加上选项以指定驱动使其能够写入特定代码（`\special` 命令）。但现在主流都是 $\pdfTeX$、$\XeTeX$、$\LuaTeX$ 等「一步到位」的东西，宏包可以自动判断，不需要也不建议手动指定。
 

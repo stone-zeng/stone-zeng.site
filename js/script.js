@@ -31,22 +31,22 @@ function updatePunctLogo() {
     'LaTeXe':   `${LATEX}&thinsp;${TWO_E}`,
     'LaTeX3':   `${LATEX}3`,
     '(La)TeX':  `${span('rkern', '(')}${LA}${span('rparen-kern', ')')}${TEX}`,
-    'ConTeXt':  `Co${span('rkern', 'n')}${TEX}t`,
+    'ConTeXt':  `Co${span('rkern', 'n')}&shy;${TEX}t`,
     'eTeX':     `${E_}${TEX}`,
-    'pdfTeX':   `pdf${TEX}`,
-    'pdfLaTeX': `pdf${LATEX}`,
-    'XeTeX':    `X${span('xe-e xe-e-kern', 'e')}${TEX}`,
-    'XeLaTeX':  `X${span('xe-e', 'e')}${LATEX}`,
-    'LuaTeX':   `Lu${span('rkern', 'a')}${TEX}`,
-    'LuaLaTeX': `Lua${LATEX}`,
+    'pdfTeX':   `pdf&shy;${TEX}`,
+    'pdfLaTeX': `pdf&shy;${LATEX}`,
+    'XeTeX':    `X&#x2060;${span('xe-e xe-e-kern', 'e')}&#x2060;${TEX}`,
+    'XeLaTeX':  `X&#x2060;${span('xe-e', 'e')}${LATEX}`,
+    'LuaTeX':   `Lu${span('rkern', 'a')}&shy;${TEX}`,
+    'LuaLaTeX': `Lua&shy;${LATEX}`,
     'pTeX':     `${span('rkern', 'p')}${TEX}`,
     'pLaTeX':   `p${LATEX}`,
-    'upTeX':    `u${span('rkern', 'p')}${TEX}`,
-    'upLaTeX':  `up${LATEX}`,
-    'ApTeX':    `A${span('rkern', 'p')}${TEX}`,
+    'upTeX':    `u${span('rkern', 'p')}&shy;${TEX}`,
+    'upLaTeX':  `up&shy;${LATEX}`,
+    'ApTeX':    `A${span('rkern', 'p')}&shy;${TEX}`,
     'BibTeX':   `B${span('bib-ib rkern', 'ib')}${TEX}`,
     'CTeX':     `C${TEX}`,
-    'MacTeX':   `Ma${span('rkern', 'c')}${TEX}`,
+    'MacTeX':   `Ma${span('rkern', 'c')}&shy;${TEX}`,
     '2e':       TWO_E,
   };
   const replacePunct = (str) =>
@@ -171,7 +171,6 @@ function updateHighlight() {
       `</div></div>`;
   });
 }
-
 
 function parseWolframLang(s) {
   const tokens = s.split(/( |\s|\$|##\d*|#\d*|"|\(\*|\*\)|\b)/g)
