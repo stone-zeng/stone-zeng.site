@@ -34,6 +34,11 @@ em, i {
   margin-right: .05em;
 }
 
+code {
+  font-family: $mono-font-family;
+  font-variant: none;
+}
+
 // CJK punctuations
 .zh-punct {
   font-family: $punct-font-family;

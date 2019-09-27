@@ -14,7 +14,7 @@
   }
 
   a {
-    color: $text-color;
+    color: $link-color;
     text-decoration: none;
 
     &:hover, &:active, &:focus {
@@ -27,6 +27,7 @@
     color: $visited-color;
     display: flex;
     margin: 0;
+    margin-bottom: 10px;
   }
 }
 

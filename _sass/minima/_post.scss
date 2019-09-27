@@ -86,11 +86,6 @@
       color: $link-color;
     }
   }
-
-  code {
-    font-family: $mono-font-family;
-    font-variant: none;
-  }
 }
 
 .post-content {
@@ -209,11 +204,6 @@
     > :last-child {
       margin-bottom: 0;
     }
-  }
-
-  code {
-    font-family: $mono-font-family;
-    font-variant: none;
   }
 
   pre {

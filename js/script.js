@@ -6,6 +6,7 @@ const nodeListToObject = (nodeList) =>
 
 (function () {
   updatePunctLogo();
+  updateAbstract();
 
   // For posts only.
   if (!(document.querySelector('.post-sidebar') === null)) {
@@ -15,8 +16,18 @@ const nodeListToObject = (nodeList) =>
     updateFootnotes();
     updateMath();
     updateHighlight();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      mediumZoom('[data-zoomable]');
+    });
   }
 })();
+
+function updateAbstract() {
+  document.querySelectorAll('.post-list li p').forEach((e) => {
+    e.innerHTML = e.innerHTML.replace(/`(.+?)`/g, '<code class="highlighter-rouge">$1</code>');
+  });
+}
 
 function updatePunctLogo() {
   const span = (className, e) => `<span class="${className}">${e}</span>`;

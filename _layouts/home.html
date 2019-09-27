@@ -8,9 +8,7 @@ layout: default
       {%- for post in site.posts -%}
       <li>
         <h1>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title }}
-          </a>
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h1>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <span class="post-meta">
@@ -19,9 +17,7 @@ layout: default
             （最近更新：{{ post.last_modified_at | date: "%Y-%m-%d" }}）
           {% endif %}
         </span>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
+        <p>{{ post.abstract }}</p>
       </li>
       {%- endfor -%}
     </ul>

@@ -4,6 +4,7 @@ title: 在 TeX 中使用 OpenType 可变字体
 date: 2019-01-13
 last_modified_at: 2019-07-15
 categories: Fonts
+abstract: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
 ---
 
 在 2016 年，随着 [OpenType 标准 1.8 版](https://docs.microsoft.com/typography/opentype/spec)的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。

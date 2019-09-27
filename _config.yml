@@ -38,3 +38,5 @@ minima:
     rss: rss
 plugins:
   - jekyll-feed
+sass:
+    style: compressed
