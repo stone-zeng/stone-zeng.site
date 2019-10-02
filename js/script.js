@@ -172,6 +172,9 @@ function updateMath() {
         {left: '$', right: '$', display: false},
       ]}
     );
+    document.querySelectorAll('.katex-html').forEach((e) => {
+      if (e.textContent === '') e.remove();
+    });
   });
 }
 
