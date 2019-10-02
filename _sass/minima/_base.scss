@@ -55,12 +55,15 @@ code {
 }
 
 // Math (KaTeX)
-.kdmath {
-  margin: -5px 0;
-}
 .katex {
   font-size: 108% !important;
   line-height: 100% !important;
+}
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 5px 0;
+  margin: -5px 0 10px 0;
 }
 
 // TeX, LaTeX, etc

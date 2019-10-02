@@ -16,10 +16,6 @@ const nodeListToObject = (nodeList) =>
     updateFootnotes();
     updateMath();
     updateHighlight();
-
-    document.addEventListener('DOMContentLoaded', () => {
-      mediumZoom('[data-zoomable]');
-    });
   }
 })();
 
@@ -165,6 +161,10 @@ function updateFnlist(fnItems) {
 }
 
 function updateMath() {
+  // Kramdown will use MathJax by default.
+  document.querySelectorAll('script[type="math/tex; mode=display"]').forEach((e) => {
+    e.outerHTML = `$$\n${e.innerHTML.replace(/(\% <\!\[CDATA\[\n|\%\]\]>)/g, '')}\n$$`;
+  });
   document.addEventListener('DOMContentLoaded', () => {
     renderMathInElement(document.body, {
       delimiters: [

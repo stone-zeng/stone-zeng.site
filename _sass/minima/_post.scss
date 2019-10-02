@@ -158,7 +158,11 @@
 
     figcaption {
       font-size: $small-font-size;
-      margin: 10px 60px 0px;
+      margin: 10px 0 0;
+
+      @include media-on-large {
+        margin: 10px 40px 0;
+      }
     }
   }
 
