@@ -25,7 +25,7 @@ $$
 H_{ij} = \bra{\psi_i}\hat{H}\ket{\psi_j}.
 $$
 
-From the knowledge of linear algebra, we know that the eigenvalues of a matrix will not change under such a basis transformation (namely similar transformation). So the ground state energy is simply the smallest eigenvalue of the matrix $\bm{H}$. To get the eigenvalue, there are already some powerful numerical algorithms, such as the [**Lanczos algorithm**](https://en.wikipedia.org/wiki/Lanczos_algorithm).
+From the knowledge of linear algebra, we know that the eigenvalues of a matrix will not change under such a basis transformation (namely similarity transformation). So the ground state energy is simply the smallest eigenvalue of the matrix $\bm{H}$. To get the eigenvalue, there are already some powerful numerical algorithms, such as the [**Lanczos algorithm**](https://en.wikipedia.org/wiki/Lanczos_algorithm).
 
 Now the problem becomes how to find a "good" set of basis such that $\bm{H}$ can have a simple form. If one is lucky enough that $\bm{H}$ is diagonal under his basis, then there is no need to do more thing since he has already got the solution. Clearly, it's impossible to do that in reality, but with the help of symmetry of the system, we can still greatly simplify the matrix (into block diagonal of band matrix, for example).
 
@@ -64,7 +64,7 @@ $$
 &= \sqrt{n_i+1}      \, \ket{\ldots,\, n_i+1,\, \ldots}, \\
    \vphantom{\hat{a}_i^\dagger}
    \hat{n}_i         \, \ket{\ldots,\, n_i  ,\, \ldots}
-&= n_i               \, \ket{\ldots,\, n_i+1,\, \ldots}
+&= n_i               \, \ket{\ldots,\, n_i  ,\, \ldots}.
 \end{aligned}
 $$
 
@@ -287,7 +287,7 @@ interactionPart[basis_, couplingConst_, basisNumRange_] :=
 
 `interactionPart[]` returns a list of rules like `{i, j} -> value`. They are taken by `SparseArray[]` to construct the matrix then.
 
-The `kineticPart[]` (i.e. hopping term), however, is much more comlicated and need some explanation:
+The `kineticPart[]` (i.e. hopping term), however, is much more complicated and need some explanation:
 
 ```wl
 {% raw %}kineticPart[basis_, positionMap_, basisNumRange_] :=
@@ -315,7 +315,7 @@ The basic idea is to calculate all the non-vanishing matrix elements. I use some
 
 ### Eigensystem
 
-The Lanczos algorithm is called `Arnoldi` in Mathematica. The implementation is based on the [ARPACK library](https://en.wikipedia.org/wiki/ARPACK) and it's most useful for large sparse matrices[^wolfram-eigenvalues]. Note that we need the smallest eigenvalue for the ground state, but `Eigensystem[]` can only find the largest ones. So there are two extra minus signs here:
+The Lanczos algorithm is called `Arnoldi` in Mathematica. The implementation is based on the [ARPACK library](https://en.wikipedia.org/wiki/ARPACK) and is most useful for large sparse matrices[^wolfram-eigenvalues]. Note that we need the smallest eigenvalue for the ground state, but `Eigensystem[]` can only find the largest ones. So there are two extra minus signs here:
 
 [^wolfram-eigenvalues]: [Eigenvalues&mdash;Wolfram Language Documentation](https://reference.wolfram.com/language/ref/Eigenvalues.html)
 
