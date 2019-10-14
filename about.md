@@ -8,11 +8,13 @@ Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 
 ## 致谢
 
-- [Font Awesome](https://fontawesome.com)
+- [Font Awesome](https://fontawesome.com/)
 - [Inter font family](https://rsms.me/inter/)
 - [Iosevka](https://typeof.net/Iosevka/)
 - [Jekyll Minima Theme](https://jekyll.github.io/minima/)
 - [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc)
+- [KaTeX](https://katex.org/)
+- [Medium Zoom](https://medium-zoom.francoischalifour.com/)
 - [Source Han Sans](https://fonts.adobe.com/fonts/source-han-sans-cjk-simplified-chinese)
 - [The Type (Type is Beautiful)](https://thetype.com/)
 - [不蒜子 - 极简网页计数器](https://busuanzi.ibruce.info)
@@ -42,6 +44,8 @@ Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 <span id="busuanzi_container_site_uv">
   本站总访客数 <span id="busuanzi_value_site_uv"></span> 人次。
 </span>
+
+最后构建于 {{ site.time }}。
 
 ## 许可证
 
