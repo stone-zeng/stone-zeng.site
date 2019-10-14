@@ -14,7 +14,10 @@ const nodeListToObject = (nodeList) =>
     addHashTags(headers);
     updateSidebar(headers);
     updateFootnotes();
-    updateMath();
+    document.addEventListener('DOMContentLoaded', () => {
+      updateMath();
+      updateImage();
+    });
     updateHighlight();
   }
 })();
@@ -165,17 +168,19 @@ function updateMath() {
   document.querySelectorAll('script[type="math/tex; mode=display"]').forEach((e) => {
     e.outerHTML = `$$\n${e.innerHTML.replace(/(\% <\!\[CDATA\[\n|\%\]\]>)/g, '')}\n$$`;
   });
-  document.addEventListener('DOMContentLoaded', () => {
-    renderMathInElement(document.body, {
-      delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '$', right: '$', display: false},
-      ]}
-    );
-    document.querySelectorAll('.katex-html').forEach((e) => {
-      if (e.textContent === '') e.remove();
-    });
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
+    ]}
+  );
+  document.querySelectorAll('.katex-html').forEach((e) => {
+    if (e.textContent === '') e.remove();
   });
+}
+
+function updateImage() {
+  mediumZoom('img');
 }
 
 function updateHighlight() {
