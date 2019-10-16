@@ -2,7 +2,7 @@
 layout: post
 title: LaTeX3 教程（二）——语法概要
 date: 2019-02-26
-last_modified_at: 2019-03-22
+last_modified_at: 2019-10-17
 categories: LaTeX3
 abstract: 从这次的内容开始，我们就将正式进入 $\LaTeX3$ 的世界了。上次我们已经介绍过，$\LaTeX3$ 的主要成果都凝结在了 `expl3` 之中。实际上，$\LaTeX3$ 是一套非常庞大的框架，集编程和排版为一体。根据我们之前的介绍，$\LaTeX3$ 为此做出了一个层次划分。
 ---
@@ -25,7 +25,9 @@ abstract: 从这次的内容开始，我们就将正式进入 $\LaTeX3$ 的世�
 
 对于具体的用户来说，无论是文章作者、设计师还是程序员，使用 $\LaTeX3$ 在目前阶段仍需要通过调用一系列宏包来完成。
 
-在 CTAN 中，与 $\LaTeX3$ 相关的有四个包（package）：
+目前，在 CTAN 中与 $\LaTeX3$ 相关的有五个软件包[^package]：
+
+[^package]: 这里的「软件包」是指一系列宏包、文档等的集合，可以通过 `tlmgr` 一类的包管理器进行安装、更新、备份等操作。注意与 $\LaTeX$ 语境下的「宏包」相区分，它是后缀名为 `.sty` 的 $\TeX$ 文件，通过 `\usepackage` 调用。
 
 - [`l3kernel`](https://ctan.org/pkg/l3kernel)：包含了 `expl3` 宏包的各个部分。
 - [`l3packages`](https://ctan.org/pkg/l3packages)：提供较高层次的接口（设计层和文本标记层），这些宏包的语法接口都较为稳定。主要包括：
@@ -43,7 +45,15 @@ abstract: 从这次的内容开始，我们就将正式进入 $\LaTeX3$ 的世�
   - `l3sys-shell`
   - `xcoffins`
   - `xgal­ley`
+- [`l3backend`](https://ctan.org/pkg/l3backend)：提供与后端（底层驱动）相交互的代码，处理颜色、绘图、PDF 特性等功能，目前主要支持以下几种驱动：[^l3backend]
+  - dvipdfmx
+  - dvips
+  - dvisvgm
+  - xdvipdfmx
+  - PDF 模式（即 $\pdfTeX$ 和 $\LuaTeX$）
 - [`l3build`](https://ctan.org/pkg/l3build)：$\LaTeX3$ 的构建系统，用来进行单元测试、文档排版、自动化发布等。它利用一系列 Lua 脚本来实现跨平台的功能。
+
+[^l3backend]: 2019 年 7 月 `l3backend` 的代码从 `l3kernel` 中独立出来，以便采取不同的更新策略。
 
 这就是当前 $\LaTeX3$ 的主要组成。除此以外，在 $\LaTeX3$ 的 [GitHub 存储库](https://github.com/latex3/latex3)中，忽略文档、测试文件和辅助文件等，还有以下几个部分：
 
@@ -69,7 +79,7 @@ $\LaTeX3$ 中的命令，无论是函数还是变量，仍然都是以反斜杠 
 \<module>_<description>:<arg-spec>
 ```
 
-注意参数指定需要放在冒号 `:` 后面。
+注意参数指定需要放在冒号 `:` 后面。不必奇怪，冒号也是命令的一部分。
 
 #### 参数指定
 
@@ -191,21 +201,21 @@ $\LaTeX3$ 在 $\TeX$ 的基础上做了很大的扩充，新定义了一些新�
   - `str`：字符串（**str**ing），它与 `tl` 的区别在于忽略了类别码（除空格外全部设为其他类 12，空格仍为 10）
   - `seq`：序列（**seq**uence），栈
   - `clist`：逗号分隔列表（**c**omma **list**）
-  - `prop`：属性列表（即关联列表，**prop**erty list）
+  - `prop`：属性列表（**prop**erty list），即关联列表
   - `fp`：浮点数（**f**loating **p**oints）
   - `intarray`、`fparray`：整型、浮点型数组（**int**eger/**f**loating **p**oint **array**）
-- 盒子及其推广：
-  - `hbox`、`vbox`：水平、垂直盒子
-  - `coffin`、`hcoffin`、`vcoffin`：带「把手」的盒子
+- 盒子的推广：
+  - `coffin`：带「把手」的盒子
 - 其他：
   - `bool`：布尔型变量
   - `token`：记号
-  - `ior`、`iow`：输入、输出流
+  - `ior`、`iow`：输入、输出流（**I/O** **r**ead/**w**rite）
+  - `regex`：正则表达式（**reg**ular **ex**pression）
 
 还有几种比较特殊的变量，它们不遵循通常的命名规则：
 
 - `quark`：「夸克」，是展开到自身的宏
-- `scan mark`：扫描标记
+- `mark`：扫描标记
 
 在某些地方，比如 $\LaTeX3$ 的内部实现中，这两种变量会发挥重要的作用。
 
@@ -213,9 +223,9 @@ $\LaTeX3$ 在 $\TeX$ 的基础上做了很大的扩充，新定义了一些新�
 
 - `\c_pi_fp`：常数圆周率
 - `\l_tmpa_tl`、`\g_tmpa_tl`：临时 token list 变量，注意这里做了局部与全局的区分
-- `\q_stop`：这是一个「夸克」，用来作为某些参数列表的分界符
+- `\q_stop`：这是一个「夸克」，常用来作为某些参数列表的分界符
 
-以上这几个变量属于 $\LaTeX3$ 核心，所以没有指定模块名。
+以上这几个变量属于 `l3kernel` 的编程接口，所以没有指定模块名。
 
 $\LaTeX3$ 中的变量与相关函数组成了一个个模块。之后我们就将分模块逐一介绍 $\LaTeX3$ 的各种功能。
 
@@ -322,6 +332,10 @@ $\LaTeX3$ 中的变量与相关函数组成了一个个模块。之后我们就�
 ```
 
 因此在编写宏包或文档类时，`@` 符号可以被当成字母使用。
+
+## 注释
+
+<div id="footnotes"></div>
 
 ## 参考
 
