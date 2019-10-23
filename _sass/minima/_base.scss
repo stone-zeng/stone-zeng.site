@@ -69,12 +69,13 @@ code {
 // TeX, LaTeX, etc
 .tex-logo {
   .a {
-    font-variant: small-caps;
+    text-transform: uppercase;
+    font-size: 70%;
     font-weight: 500;
-    margin-left: -.3em;
-    margin-right: -.1em;
+    margin-left: -.45em;
+    margin-right: -.15em;
     position: relative;
-    bottom: .45ex;
+    bottom: .62ex;
   }
   .e {
     text-transform: uppercase;
