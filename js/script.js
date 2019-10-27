@@ -5,15 +5,16 @@ const nodeListToObject = (nodeList) =>
   Array.from(nodeList).reduce((obj, e) => (obj[e.id] = e, obj), {});
 
 (function () {
-  updatePunctLogo();
   updateAbstract();
-
-  // For posts only.
-  if (!(document.querySelector('.post-sidebar') === null)) {
+  if (document.querySelector('.post-sidebar') === null) {
+    updatePunctLogo();
+  } else {
+    // Posts.
     const headers = document.querySelectorAll('#content h2, #content h3, #content h4');
     addHashTags(headers);
     updateSidebar(headers);
     updateFootnotes();
+    updatePunctLogo();
     document.addEventListener('DOMContentLoaded', () => {
       updateMath();
       updateImage();
@@ -60,12 +61,19 @@ function updatePunctLogo() {
     '2e':       TWO_E,
   };
   const replacePunct = (str) =>
-    str .replace(/(——|……)/g,                         span('zh-punct', '$1'))
-        .replace(/([，、：；。！？])([（『「《〈])/g,    span('zh-punct-kern', '$1') + '$2')
-        .replace(/([）』」》〉])([，、：；。！？])/g,    span('zh-punct-kern', '$1') + '$2')
-        .replace(/([，、：；。！？）』」》〉])(<sup)/g,  span('zh-punct-kern', '$1') + '$2')
-        .replace(/([）』」》〉])([（『「《])/g,          span('zh-lrpunct-kern', '$1') + '$2')
-        .replace(/^([（『「《〈])/g,                     span('zh-punct-bound', '$1'))
+    str .replace(/(——|……)/g, span('zh-punct', '$1'))
+        .replace(/([）』」》〉】])([，、：；。！？（『「《〈【])/g,
+            span('zh-punct-kern', '$1') + '$2')
+        .replace(/([，、：；。！？])([（『「《〈【])/g,
+            span('zh-punct-kern', '$1') + '$2')
+        .replace(/([，、：；。！？）』」》〉】])(<sup)/g,
+            span('zh-punct-kern', '$1') + '$2')
+        .replace(/^([（『「《〈【])/g,
+            span('zh-punct-bound', '$1'))
+        .replace(/([，、：；。！？）』」》〉】])(<a href=".+">[（『「《〈【])/g,
+            span('zh-punct-kern', '$1') + '$2')
+        .replace(/(\^<\/a><\/span><a href=".+">)([（『「《〈【])/g,
+            '$1' + span('zh-punct-bound', '$2'))
         // No-break thin space
         // U+2060: Word joiner, U+2009: Thin space
         .replace(/\\,/g, '\u2060\u2009\u2060');
