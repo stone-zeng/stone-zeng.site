@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Exact diagonalization&colon; Bose&ndash;Hubbard model
-date: 2019-10-03
+date: 2019-10-30
 categories: Physics
 lang: en-US
 abstract: To calculate the ground state and the corresponding energy of a quantum system is a very important task in physics. As we all known, the ground state energy is just the smallest eigenvalue of the Hamiltonian of this system.
@@ -215,14 +215,8 @@ A basis vector is a `List` containing `siteNum` elements, whose sum is `particle
 
 ```wl
 getBasis[siteNum_, particleNum_] :=
-  ReverseSort @ flattenFirst[
+  ReverseSort @ Catenate[
     Permutations[PadRight[#, siteNum]] & /@ IntegerPartitions[particleNum, siteNum]]
-```
-
-`flattenFirst` is a helper-function defined as:
-
-```wl
-flattenFirst = (Flatten[#, 1] &)
 ```
 
 Here is a simple example (you can easily check it by hand):
@@ -291,13 +285,13 @@ The `kineticPart[]` (i.e. hopping term), however, is much more complicated and n
 
 ```wl
 {% raw %}kineticPart[basis_, positionMap_, basisNumRange_] :=
-  flattenFirst @ MapThread[kineticPartMapFunc] @ {
+  Catenate @ MapThread[kineticPartMapFunc] @ {
     Apply[{positionMap[#1], #2} &, DeleteCases[{_, 0.}] /@
       Transpose[{opADagAState[basis], opADagAValue[basis]}, {3, 1, 2}], {2}],
     basisNumRange}
 opADagAState[basis_] :=
   With[{len = Length @ First @ basis},
-    Outer[Plus, basis, #, 1] & @ flattenFirst[
+    Outer[Plus, basis, #, 1] & @ Catenate[
       NestList[RotateRight, PadRight[#, len], len - 1] & /@ {{1, -1}, {-1, 1}}]]
 opADagAValue[basis_] :=
   -Sqrt[(#1 + 1.) * #2] & @@@ (Join[#, Reverse[#, {2}]] & @ Partition[#, 2, 1, 1]) & /@
