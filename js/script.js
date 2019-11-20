@@ -193,9 +193,11 @@ function updateImage() {
 
 function updateHighlight() {
   document.querySelectorAll('pre:not(.highlight)').forEach((e) => {
-    e.outerHTML = `<div class="language-wl highlighter-rouge"><div class="highlight">` +
-      `<pre class="highlight"><code>${parseWolframLang(e.textContent)}</code></pre>` +
-      `</div></div>`;
+    if (e.firstElementChild.className === 'language-_wl') {
+      e.outerHTML = `<div class="language-wl highlighter-rouge"><div class="highlight">` +
+        `<pre class="highlight"><code>${parseWolframLang(e.textContent)}</code></pre>` +
+        `</div></div>`;
+    }
   });
 }
 
@@ -220,7 +222,7 @@ function parseWolframLang(s) {
   const getKeyword = (token) => result.push(`<span class="k">${token}</span>`);
   const getPattern = (token) => result.push(`<span class="np">${token}</span>`);
   const getSlot = (token) => result.push(`<span class="ns">${token}</span>`);
-  const getSymbol = (token) => result.push(`<span class="n">${token}</span>`);
+  const getSymbol = (token) => result.push(`<span class="nv">${token}</span>`);
   const getPunctuation = (token) => result.push(`<span class="p">${token}</span>`);
   const getOperator = (token) => result.push(`<span class="o">${token}</span>`);
 
