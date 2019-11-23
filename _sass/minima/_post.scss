@@ -51,13 +51,11 @@
   display: none;
 
   @include media-on-large {
+    font-weight: normal;
     display: block;
     float: right;
     width: $sidebar-width;
-    position: -webkit-sticky;
-    position:         sticky;
-    top: $spacing-unit;
-    font-weight: normal;
+    @include sticky-top(90px);
   }
 
   h3 {
@@ -100,8 +98,7 @@
 
   h2 {
     font-size: $h2-font-size;
-    margin-top: $spacing-unit;
-    margin-bottom: $spacing-unit / 2;
+    margin: $spacing-unit 0;
   }
 
   h3 {
@@ -114,9 +111,9 @@
     margin: $spacing-unit / 2 0;
   }
 
-  // p {
-  //   text-indent: 2em;
-  // }
+  table, pre, blockquote {
+    font-size: $small-font-size;
+  }
 
   table {
     max-width: 100%;
@@ -126,18 +123,15 @@
     border: 1px solid $grey-color-light;
     tr {
       &:nth-child(even) {
-        background-color: lighten($grey-color-light, 6%);
+        background-color: #fafafa;
       }
     }
     th, td {
-      padding: ($spacing-unit / 3) ($spacing-unit / 2);
+      padding: ($spacing-unit / 4) ($spacing-unit / 2);
+      border: 1px solid $grey-color-light;
     }
     th {
-      background-color: lighten($grey-color-light, 3%);
-      border: 1px solid darken($grey-color-light, 4%);
-      border-bottom-color: darken($grey-color-light, 12%);
-    }
-    td {
+      font-weight: bold;
       border: 1px solid $grey-color-light;
     }
   }
@@ -262,8 +256,8 @@
       border: 1px solid darken($grey-color-light, 4%);
       font-size: $small-font-size;
       font-feature-settings: normal;
-      background-color: lighten($grey-color-light, 6%);
       z-index: 1;
+      @include blur;
 
       ul, ol {
         margin-bottom: 2px;

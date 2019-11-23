@@ -162,14 +162,14 @@ strong, th, .post-sidebar .active {
   border-bottom: 1px solid $border-color;
   min-height: 54px;
   line-height: 54px;
-
-  // Positioning context for the mobile navigation icon
-  position: relative;
+  z-index: 1;
+  @include sticky-top(0);
+  @include blur;
 }
 
 .site-title {
   font-weight: 200;
-  font-size: $h2-font-size;
+  font-size: $h1-font-size;
   letter-spacing: -1px;
   text-decoration: none;
   margin-bottom: 0;

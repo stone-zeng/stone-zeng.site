@@ -13,16 +13,16 @@ $base-font-size:    16px !default;
 $large-font-size:   18px !default;
 $small-font-size:   14px !default;
 $tiny-font-size:    12px !default;
-$h1-font-size:      30px !default;
-$h2-font-size:      24px !default;
-$h3-font-size:      20px !default;
+$h1-font-size:      24px !default;
+$h2-font-size:      22px !default;
+$h3-font-size:      18px !default;
 $h4-font-size:      16px !default;
 $base-line-height:  1.6  !default;
 
 // Colors
 $text-color:          #5c5c5c !default;
-$bg-color:            #fcfcfc !default;
-$code-bg-color:       #f6f6f6 !default;
+$bg-color:            #fdfdfd !default;
+$code-bg-color:       #f4f4f4 !default;
 $link-color:          #000000 !default;
 $ul-color:            lighten($text-color, 40%) !default;
 $visited-color:       lighten($text-color, 20%) !default;
@@ -44,6 +44,18 @@ $on-laptop:         800px !default; // TODO: to be removed
 
 $on-medium:         $on-palm !default;
 $on-large:          $on-laptop !default;
+
+@mixin sticky-top ($top) {
+  position: -webkit-sticky;
+  position:         sticky;
+  top: $top;
+}
+
+@mixin blur {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter:         blur(10px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
 
 // Use media queries like this:
 // @include media-query($on-palm) {
