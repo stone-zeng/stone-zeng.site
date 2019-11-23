@@ -29,7 +29,7 @@ $\LaTeX3$ 教程这个系列的文章其实早已动笔（开始于 2017 年）�
 
 要完成高质量的排版，就需要对格式进行精确地控制。然而，很多时候格式控制却没有提供简单易用的接口，往往需要手动修改内部定义。比如要使脚注中的编号行内居中，就需要这么做：[^footnote]
 
-[^footnote]: 李清. [$\LaTeX$ 脚注要怎么在行内垂直居中呢？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
+[^footnote]: 李清. [$\LaTeX$ 脚注要怎么在行内垂直居中呢？- 知乎](https://www.zhihu.com/question/53030087/answer/136006617)
 
 ```tex
 {% raw %}\makeatletter
