@@ -211,9 +211,14 @@
   }
 
   pre {
-    padding: 8px 12px;
     overflow-x: auto;
+    padding: 8px 12px;
+    border-radius: 3px;
     background: $code-bg-color;
+
+    code {
+      padding: 0;
+    }
   }
 
   a {

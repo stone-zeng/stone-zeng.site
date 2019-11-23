@@ -37,6 +37,9 @@ em, i {
 code {
   font-family: $mono-font-family;
   font-variant: none;
+  padding: .1ex .2em;
+  border-radius: 3px;
+  background: $code-bg-color;
 }
 
 // CJK punctuations

@@ -157,7 +157,7 @@ function updateFnref(fnItems) {
   const makeFnref = (sup, href, num, tooltip) =>
     `<sup${sup} class="fnref">` +
       `<a href="#${href}">[${num}]</a>` +
-      `<div class="tooltip">${tooltip}</div>` +
+      `<span class="tooltip">${tooltip}</span>` +
     `</sup>`;
   document.querySelectorAll('sup[id^="fnref:"]').forEach((e) => {
     e.outerHTML = e.outerHTML.replace(
