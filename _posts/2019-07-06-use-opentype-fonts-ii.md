@@ -85,55 +85,51 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 
 著名字体设计师 [Adrian Frutiger](https://en.wikipedia.org/wiki/Adrian_Frutiger) 在设计 [Univers](https://en.wikipedia.org/wiki/Univers) 字体时，采用数字对不同字重进行标记：
 
-<div class="font-weight">
-  <table>
-    <tr>
-      <td>35</td>
-      <td>45</td>
-      <td>55</td>
-      <td>65</td>
-      <td>75</td>
-      <td>85</td>
-    </tr>
-    <tr>
-      <td style="font-weight: 100;">Thin</td>
-      <td style="font-weight: 300;">Light</td>
-      <td style="font-weight: 400;">Regular</td>
-      <td style="font-weight: 500;">Medium</td>
-      <td style="font-weight: 700;">Bold</td>
-      <td style="font-weight: 900;">Heavy</td>
-    </tr>
-  </table>
-</div>
+<table class="font-weight">
+  <tr>
+    <td>35</td>
+    <td>45</td>
+    <td>55</td>
+    <td>65</td>
+    <td>75</td>
+    <td>85</td>
+  </tr>
+  <tr>
+    <td style="font-weight: 100;">Thin</td>
+    <td style="font-weight: 300;">Light</td>
+    <td style="font-weight: 400;">Regular</td>
+    <td style="font-weight: 500;">Medium</td>
+    <td style="font-weight: 700;">Bold</td>
+    <td style="font-weight: 900;">Heavy</td>
+  </tr>
+</table>
 
 在 CSS 的设计中，这一精神被继承了下来。它采用数字 100--900 来标记字重，具体的对应关系如下表：
 
-<div class="font-weight">
-  <table>
-    <tr>
-      <td>100</td>
-      <td>200</td>
-      <td>300</td>
-      <td>400</td>
-      <td>500</td>
-      <td>600</td>
-      <td>700</td>
-      <td>800</td>
-      <td>900</td>
-    </tr>
-    <tr>
-      <td style="font-weight: 100;">Thin Hairline</td>
-      <td style="font-weight: 200;">ExtraLight UltraLight</td>
-      <td style="font-weight: 300;">Light</td>
-      <td style="font-weight: 400;">Regular Normal</td>
-      <td style="font-weight: 500;">Medium</td>
-      <td style="font-weight: 600;">SemiBold DemiBold</td>
-      <td style="font-weight: 700;">Bold</td>
-      <td style="font-weight: 800;">ExtraBold UltraBold</td>
-      <td style="font-weight: 900;">Black Heavy</td>
-    </tr>
-  </table>
-</div>
+<table class="font-weight">
+  <tr>
+    <td>100</td>
+    <td>200</td>
+    <td>300</td>
+    <td>400</td>
+    <td>500</td>
+    <td>600</td>
+    <td>700</td>
+    <td>800</td>
+    <td>900</td>
+  </tr>
+  <tr>
+    <td style="font-weight: 100;">Thin Hairline</td>
+    <td style="font-weight: 200;">ExtraLight UltraLight</td>
+    <td style="font-weight: 300;">Light</td>
+    <td style="font-weight: 400;">Regular Normal</td>
+    <td style="font-weight: 500;">Medium</td>
+    <td style="font-weight: 600;">SemiBold DemiBold</td>
+    <td style="font-weight: 700;">Bold</td>
+    <td style="font-weight: 800;">ExtraBold UltraBold</td>
+    <td style="font-weight: 900;">Black Heavy</td>
+  </tr>
+</table>
 
 在实际的字体设计中，不同字重的字体一般需要独立绘制，或通过多母版技术进行插值。换而言之，「加粗」并不是一个简单的几何变换。如果某个字体没有额外设计粗体，那么通过 Word 的加粗按钮得到的就是所谓「伪粗体」，它一般是通过加粗所有笔画来实现的。下图我们可以看到「伪粗」和「真粗」的区别：
 

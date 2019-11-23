@@ -8,6 +8,7 @@ Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 
 ## 致谢
 
+- [3type](https://3type.cn/)
 - [Font Awesome](https://fontawesome.com/)
 - [Inter font family](https://rsms.me/inter/)
 - [Iosevka](https://typeof.net/Iosevka/)

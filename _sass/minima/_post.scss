@@ -87,8 +87,12 @@
 }
 
 .post-content {
-  p, ul, ol, dl, pre, blockquote, figure, table {
+  p, ul, ol, dl, pre, blockquote, figure, .table-wrapper {
     margin-bottom: $spacing-unit / 2;
+  }
+
+  table, pre, blockquote {
+    font-size: $small-font-size;
   }
 
   h2, h3, h4 {
@@ -111,14 +115,13 @@
     margin: $spacing-unit / 2 0;
   }
 
-  table, pre, blockquote {
-    font-size: $small-font-size;
+  .table-wrapper {
+    overflow-x: auto;
   }
 
   table {
     max-width: 100%;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
+    margin: 0 auto;
     border-collapse: collapse;
     border: 1px solid $grey-color-light;
     tr {

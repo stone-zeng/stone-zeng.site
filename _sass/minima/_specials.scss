@@ -1,9 +1,7 @@
 // 2018-08-08-use-opentype-fonts.md
 .font-sample {
   font-size: 14px;
-  td {
-    text-align: center;
-  }
+  text-align: center;
   a {
     border-bottom: none;
   }
@@ -17,32 +15,21 @@
 }
 
 // 2019-02-09-circled-numbers.md
-.circled-number {
-  table {
-    width: 100%;
-  }
-  overflow-x: auto;
-  margin-bottom: $spacing-unit / 2;
+.circled-number, .circled-number-fonts {
+  width: 100%;
+  text-align: center;
 }
 .circled-number-glyph {
-  text-align: center;
   font-family: 'Noto Serif CJK SC', 'Source Han Serif SC', $mono-font-family;
   font-size: 24px;
   border: none;
 }
 .circled-number-encoding {
-  text-align: center;
   font-family: $mono-font-family;
   font-size: $small-font-size;
   line-height: 1ex;
 }
 .circled-number-fonts {
-  table {
-    width: 100%;
-  }
-  overflow-x: auto;
-  margin-bottom: $spacing-unit / 2;
-  text-align: center;
   white-space: nowrap;
 }
 .circled-number-fonts-name {
@@ -54,11 +41,7 @@
   font-feature-settings: 'cv08';
 }
 .font-weight {
-  td {
-    text-align: center;
-  }
-  overflow-x: auto;
-  margin-bottom: $spacing-unit / 2;
+  text-align: center;
   -webkit-hyphens: none;
       -ms-hyphens: none;
           hyphens: none;

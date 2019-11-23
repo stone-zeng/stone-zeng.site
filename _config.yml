@@ -11,15 +11,16 @@ github_username: stone-zeng
 incremental: true
 permalink: :year-:month-:day-:title/
 exclude:
-  - .gitignore
+  - _draft/
+  - .eslintrc.json
   - .gitattributes
+  - .gitignore
   - Gemfile
   - Gemfile.lock
   - LICENSE
+  - node_modules/
   - package.json
   - README.md
-  - _draft/
-  - node_modules/
   - src/
   - temp/
   - vendor/
