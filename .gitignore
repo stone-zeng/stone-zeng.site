@@ -9,6 +9,7 @@ package-lock.json
 *.xdv
 
 *.otf
+*.ttf
 *.pdf
 
 _draft/

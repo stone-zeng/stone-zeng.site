@@ -20,7 +20,7 @@ $h4-font-size:      16px !default;
 $base-line-height:  1.6  !default;
 
 // Colors
-$text-color:          #5c5c5c !default;
+$text-color:          #4c4c4c !default;
 $bg-color:            #fdfdfd !default;
 $code-bg-color:       #f4f4f4 !default;
 $link-color:          #000000 !default;
@@ -52,9 +52,9 @@ $on-large:          $on-laptop !default;
 }
 
 @mixin blur {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter:         blur(10px);
-  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter:         saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 // Use media queries like this:

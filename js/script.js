@@ -205,5 +205,5 @@ function updateMath() {
 }
 
 function updateImage() {
-  mediumZoom('img');
+  mediumZoom('img', {margin: 30});
 }

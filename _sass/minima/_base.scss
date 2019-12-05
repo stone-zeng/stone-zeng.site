@@ -66,6 +66,14 @@ code {
   margin: -10px 0;
 }
 
+// MediumZoom
+.medium-zoom-overlay {
+  z-index: 1;
+}
+.medium-zoom-image {
+  z-index: 2;
+}
+
 // TeX, LaTeX, etc
 .tex-logo {
   .a {
