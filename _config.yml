@@ -5,7 +5,7 @@ lang: en-US  # For correct hyphenation, we need set the language to en-US.
 baseurl: ""
 url: https://stone-zeng.github.io/
 google_analytics: UA-132846370-1
-copyright: © 2018–2019 Xiangdong Zeng
+copyright: © 2018–2020 Xiangdong Zeng
 github_username: stone-zeng
 
 incremental: true
