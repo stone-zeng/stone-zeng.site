@@ -821,7 +821,7 @@ Pattern has 21 elts (size 32)
 - Wikipedia. [Font](https://en.wikipedia.org/wiki/Font)
 - Clerk Ma. [对于不了解字体的人，在使用 $\LaTeX$ 排版时如何通过 `fontspec` 包选择字体？- 知乎](https://www.zhihu.com/question/20563044/answer/15494226)
 - 宏包文档，本地可使用 `texdoc <宏包名>` 打开：
-  - Will Robert­son. [`fontspec` 宏包](https://ctan.org/pkg/fontspec)
+  - Will Robertson. [`fontspec` 宏包](https://ctan.org/pkg/fontspec)
   - ctex.org. [`xeCJK` 宏包](https://ctan.org/pkg/xecjk)
   - ctex.org. [`CTeX` 宏集](https://ctan.org/pkg/ctex)
   - The $\LuaTeX$-ja project. [`LuaTeX-ja` 宏集](https://ctan.org/pkg/luatexja)

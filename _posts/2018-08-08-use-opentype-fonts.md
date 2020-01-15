@@ -370,6 +370,6 @@ $\LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架[^ctex
 - Wikipedia. [OpenType](https://en.wikipedia.org/wiki/OpenType)
 - Wikipedia. [Serif](https://en.wikipedia.org/wiki/Serif)
 - 宏包文档，本地可使用 `texdoc <宏包名>` 打开：
-  - Will Robert­son. [`fontspec` 宏包](https://ctan.org/pkg/fontspec)
+  - Will Robertson. [`fontspec` 宏包](https://ctan.org/pkg/fontspec)
   - ctex.org. [`xeCJK` 宏包](https://ctan.org/pkg/xecjk)
   - ctex.org. [`CTeX` 宏集](https://ctan.org/pkg/ctex)
