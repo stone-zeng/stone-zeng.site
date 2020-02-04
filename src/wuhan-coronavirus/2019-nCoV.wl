@@ -82,17 +82,17 @@ Export["2019-nCoV-death-recovered-log.svg", %];
 
 data = Accumulate @ Flatten @ {data2[[1, 1]], data2[[1, 6;;]]}
 nlm = NonlinearModelFit[data, #, {a, b, c, k}, x] & /@
-  {a * k^x + c, {a / (1 + b * k^x) + c, k > 0}}
+  {a * k^x + c, a / (1 + b * k^x) + c}
 #["AdjustedRSquared"] & /@ nlm
 Limit[#[x] & /@ nlm, x -> Infinity]
 plotFit[plotFunc_: Plot, listPlotFunc_: ListPlot] := Show[
   plotFunc[Evaluate[#[x] & /@ nlm], {x, 0, Length @ data + 10},
-      PlotRange        -> {6, Automatic},
-      PlotTheme        -> "Detailed",
-      PlotStyle        -> Flatten @ {Directive[#, Opacity @ 0.3] & /@ ColorData[99] /@ {1, 2}},
-      PlotLabels       -> {"Exp", "Logistic"},
-      LabelStyle       -> {FontFamily -> "Roboto"},
-      PlotLegends      -> None
+    PlotRange   -> {{-0.5, Length @ data + 10.5}, {6, Automatic}},
+    PlotTheme   -> "Detailed",
+    PlotStyle   -> Flatten @ {Directive[#, Opacity @ 0.3] & /@ ColorData[99] /@ {1, 2}},
+    PlotLabels  -> {"Exp", "Logistic"},
+    LabelStyle  -> {FontFamily -> "Roboto"},
+    PlotLegends -> None
   ],
   listPlotFunc[data,
     PlotTheme -> "Detailed",
