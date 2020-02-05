@@ -82,7 +82,7 @@ Export["2019-nCoV-death-recovered-log.svg", %];
 
 data = Accumulate @ Flatten @ {data2[[1, 1]], data2[[1, 6;;]]}
 nlm = NonlinearModelFit[data, #, {a, b, c, k}, x] & /@
-  {a * k^x + c, a / (1 + b * k^x) + c}
+  {a * k^x + c, {a / (1 + b * k^x) + c, 0 < k < 2, b > 0}}
 #["AdjustedRSquared"] & /@ nlm
 Limit[#[x] & /@ nlm, x -> Infinity]
 plotFit[plotFunc_: Plot, listPlotFunc_: ListPlot] := Show[
