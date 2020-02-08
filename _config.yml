@@ -39,3 +39,9 @@ plugins:
   - jekyll-feed
 sass:
     style: compressed
+
+gitalk:
+  clientID: e8c1f4f9a5fe1bf1dc7e
+  clientSecret: 7ad6cabb2a8301bef55b5f549e433b883783594f
+  repo: stone-zeng.github.io
+  owner: stone-zeng

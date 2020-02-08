@@ -10,6 +10,7 @@ Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 
 - [3type](https://3type.cn/)
 - [Font Awesome](https://fontawesome.com/)
+- [Gitalk](https://github.com/gitalk/gitalk)
 - [Inter font family](https://rsms.me/inter/)
 - [Iosevka](https://typeof.net/Iosevka/)
 - [Jekyll Minima Theme](https://jekyll.github.io/minima/)
