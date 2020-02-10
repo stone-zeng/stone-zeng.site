@@ -54,7 +54,8 @@ plotData[data_, initDate_, forecastDays_, scale_: None] := Module[
 
 Import["2019-nCoV-data.csv"] /. "" -> 0;
 Association @ Rest @ MapThread[#1 -> #2 &, {First @ %, Transpose @ Rest @ %}];
-data1 = Part[%, Keys @ TakeLargest[Total /@ %[[;;-3]], 11]];
+data1 = Append[Part[%, Keys @ TakeLargest[Total /@ %[[;;-3]], 11]],
+  "\:6e56\:5317\:4ee5\:5916" -> Total @ %[[2;;-4]]];
 data2 = KeyMap[# /. "\:5168\:56fd" -> "\:611f\:67d3" &] @ %%[[{-3, -2, -1}]];
 
 
