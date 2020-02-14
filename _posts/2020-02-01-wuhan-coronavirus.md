@@ -2,7 +2,7 @@
 layout: post
 title: 新型冠状病毒肺炎疫情统计
 date: 2020-02-01
-last_modified_at: 2020-02-13
+last_modified_at: 2020-02-14
 abstract: 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地，形势越发严峻。这里简要罗列一些数据，并且据此给出（未必非常靠谱）的预测。
 ---
 
@@ -15,18 +15,18 @@ abstract: 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地�
 
 说明：
 
-- 统计数据截至 **2020 年 2 月 13 日**
+- 统计数据截至 **2020 年 2 月 14 日**
 - 2 月 13 日起，湖北省将临床诊断病例数纳入确诊病例数进行公布[^hubei-02-13]
 
 [^hubei-02-13]: 湖北省卫生健康委员会. [2020年2月12日湖北省新冠肺炎疫情情况](http://wjw.hubei.gov.cn/fbjd/dtyw/202002/t20200213_2025581.shtml)
 
 ## 时间序列分析
 
-深色曲线为实际数据，浅色曲线为预测数据（使用 [ARIMA 模型](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)），阴影部分为 95% 置信区间。
+深色曲线为实际数据，浅色曲线为预测数据<!--（使用 [ARIMA 模型](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)）-->，阴影部分为 95% 置信区间。
 
 <figure>
-  <img src="/images/wuhan-coronavirus/2019-nCoV-new.svg" alt="2019-nCoV-new" style="width: 49%;">
-  <img src="/images/wuhan-coronavirus/2019-nCoV-new-log.svg" alt="2019-nCoV-new-log" style="width: 49%;">
+  <img src="/images/wuhan-coronavirus/2019-nCoV-new.svg" alt="2019-nCoV-new" style="width: 54%;">
+  <img src="/images/wuhan-coronavirus/2019-nCoV-new-log.svg" alt="2019-nCoV-new-log" style="width: 44.5%;">
   <figcaption>新增确诊病例统计（左：线性坐标，右：对数坐标，下同）</figcaption>
 </figure>
 
@@ -56,7 +56,7 @@ $$
 \hat{y} = \frac{a}{1 + b \cdot k^{\hat{x}}} + c
 $$
 
-对确诊病例进行拟合。为获得更加准确的拟合结果，对前期数据进行了一定调整，相当于从 2020 年 1 月 15 日开始统计。
+对全国及湖北省以外确诊病例分别进行拟合。为获得更加准确的拟合结果，对前期数据进行了一定调整，相当于从 2020 年 1 月 15 日开始统计。
 
 <figure>
   <img src="/images/wuhan-coronavirus/2019-nCoV-regression.svg" alt="2019-nCoV-regression" style="width: 49%;">
@@ -66,16 +66,69 @@ $$
 
 拟合结果及有关参数见以下表格：
 
-| 拟合结果                                                      | 极限值  | *R*²     | Adj-*R*² |
-|:-------------------------------------------------------------:|:-------:|:--------:|:--------:|
-| $\dfrac{-86646.0}{1 + 0.00787867 \times 1.20560^x} + 84737.4$ | 84737.4 | 0.993813 | 0.992823 |
+<table style="width: 100%; text-align: center;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>拟合结果</th>
+      <th>极限值</th>
+      <th><em>R</em>²</th>
+      <th>Adj-<em>R</em>²</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>全国</td>
+      <td>$\dfrac{-154144.}{1 + 0.00904571 \times 1.15793^x} + 150992.$</td>
+      <td>150992.</td>
+      <td>0.993955</td>
+      <td>0.993026</td>
+    </tr>
+    <tr>
+      <td>湖北以外</td>
+      <td>$\dfrac{-12714.5}{1 + 0.00705836 \times 1.29891^x} + 12372.8$</td>
+      <td>12372.8</td>
+      <td>0.999617</td>
+      <td>0.999558</td>
+    </tr>
+  </tbody>
+</table>
 
-| 参数 | 估计值     | 标准误差    | *t* 统计量 | *P* 值        |
-|:----:|:----------:|:-----------:|:----------:|:-------------:|
-| $a$  | -86646.0   | 16658.0     | -5.20147   | 2.21483×10⁻⁵  |
-| $b$  | 0.00787867 | 0.00302933  | 2.60080    | 0.0153972     |
-| $c$  | 84737.4    | 15856.3     | 5.34409    | 1.53403×10⁻⁵  |
-| $k$  | 1.20560    | 0.0326302   | 36.9474    | 2.44574×10⁻²³ |
+<table style="width: 100%; text-align: center;">
+  <thead>
+    <tr>
+      <th></th><th>参数</th><th>估计值</th><th>标准误差</th><th><em>t</em> 统计量</th><th><em>P</em> 值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="4">全国</td>
+      <td>$a$</td><td>-154144.</td><td>66488.8</td><td>-2.31835</td><td>0.0285589</td>
+    </tr>
+    <tr>
+      <td>$b$</td><td>0.00904571</td><td>0.00204531</td><td>4.42266</td><td>0.000154254</td>
+    </tr>
+    <tr>
+      <td>$c$</td><td>150992.</td><td>65231.</td><td>2.31472</td><td>0.0287865</td>
+    </tr>
+    <tr>
+      <td>$k$</td><td>1.15793</td><td>0.0301933</td><td>38.3504</td><td>2.04881×10⁻²⁴</td>
+    </tr>
+    <tr>
+      <td rowspan="4">湖北以外</td>
+      <td>$a$</td><td>-12714.5</td><td>174.36</td><td>-72.9209</td><td>1.33113×10⁻³¹</td>
+    </tr>
+    <tr>
+      <td>$b$</td><td>0.00705836</td><td>0.000884862</td><td>7.9768</td><td>1.86786×10⁻⁸</td>
+    </tr>
+    <tr>
+      <td>$c$</td><td>12372.8</td><td>133.277</td><td>92.8359</td><td>2.5581×10⁻³⁴</td>
+    </tr>
+    <tr>
+      <td>$k$</td><td>1.29891</td><td>0.00931991</td><td>139.369</td><td>6.75057×10⁻³⁹</td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- x⁰	x¹	x²	x³	x⁴	x⁵	x⁶	x⁷	x⁸	x⁹	x⁺	x⁻	x⁼	x⁽	x⁾	xⁿ -->
 
