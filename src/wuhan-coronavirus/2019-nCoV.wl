@@ -95,7 +95,7 @@ Export["2019-nCoV-death-recovered-log.svg", %];
 
 data = AssociationThread[{"\:5168\:56fd", "\:6e56\:5317\:4ee5\:5916"} ->
   PadLeft[Accumulate /@ {Flatten @ {data2[[1, 1]], data2[[1, 6;;]]}, data1[[-1]][[9;;]]}] ];
-nlm = NonlinearModelFit[#, {a / (1 + b * k^x) + c, 0 < k < 10, b > 0}, {a, b, c, k}, x] & /@ data;
+nlm = NonlinearModelFit[#, {a / (1 + b * k^x) + c, 1 < k < 1.3, b > 0}, {a, b, c, k}, x] & /@ data
 Outer[#1 @ #2 &, Values @ nlm, {"RSquared", "AdjustedRSquared", "ParameterTable"}] // TableForm
 Limit[#[x], x -> Infinity] & /@ nlm
 
