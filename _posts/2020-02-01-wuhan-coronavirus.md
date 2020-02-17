@@ -2,7 +2,7 @@
 layout: post
 title: 新型冠状病毒肺炎疫情统计
 date: 2020-02-01
-last_modified_at: 2020-02-16
+last_modified_at: 2020-02-17
 abstract: 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地，形势越发严峻。这里简要罗列一些数据，并且据此给出（未必非常靠谱）的预测。
 ---
 
@@ -15,18 +15,18 @@ abstract: 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地�
 
 说明：
 
-- 统计数据截至 **2020 年 2 月 16 日**
-- 2 月 13 日起，湖北省将临床诊断病例数纳入确诊病例数进行公布[^hubei-02-13]
+- 统计数据截至 **2020 年 2 月 17 日**
+- 2 月 13 日，湖北省将临床诊断病例数纳入确诊病例数进行公布[^hubei-02-13]
 
 [^hubei-02-13]: 湖北省卫生健康委员会. [2020年2月12日湖北省新冠肺炎疫情情况](http://wjw.hubei.gov.cn/fbjd/dtyw/202002/t20200213_2025581.shtml)
 
 ## 时间序列分析
 
-深色曲线为实际数据，浅色曲线为预测数据<!--（使用 [ARIMA 模型](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)）-->，阴影部分为 95% 置信区间。
+深色曲线为实际数据，浅色曲线为预测数据，阴影部分为 95% 置信区间。
 
 <figure>
-  <img src="/images/wuhan-coronavirus/2019-nCoV-new.svg" alt="2019-nCoV-new" style="width: 49%;">
-  <img src="/images/wuhan-coronavirus/2019-nCoV-new-log.svg" alt="2019-nCoV-new-log" style="width: 49%;">
+  <img src="/images/wuhan-coronavirus/2019-nCoV-new.svg" alt="2019-nCoV-new" style="width: 54%;">
+  <img src="/images/wuhan-coronavirus/2019-nCoV-new-log.svg" alt="2019-nCoV-new-log" style="width: 44.5%;">
   <figcaption>新增确诊病例统计（左：线性坐标，右：对数坐标，下同）</figcaption>
 </figure>
 
@@ -79,17 +79,17 @@ $$
   <tbody>
     <tr>
       <td>全国</td>
-      <td>$\dfrac{-118348.}{1 + 0.00900649 \times 1.17531^x} + 115743.$</td>
-      <td>115743.</td>
-      <td>0.996145</td>
-      <td>0.995594</td>
+      <td>$\dfrac{-106095.}{1 + 0.0082681 \times 1.18727^x} + 103858.$</td>
+      <td>103858.</td>
+      <td>0.996519</td>
+      <td>0.996039</td>
     </tr>
     <tr>
       <td>湖北以外</td>
-      <td>$\dfrac{-12972.1}{1 + 0.00784997 \times 1.28906^x} + 12594.5$</td>
-      <td>12594.5</td>
-      <td>0.999632</td>
-      <td>0.999579</td>
+      <td>$\dfrac{-13034.6}{1 + 0.0080748 \times 1.28656^x} + 12646.8$</td>
+      <td>12646.8</td>
+      <td>0.999655</td>
+      <td>0.999607</td>
     </tr>
   </tbody>
 </table>
@@ -103,29 +103,29 @@ $$
   <tbody>
     <tr>
       <td rowspan="4">全国</td>
-      <td>$a$</td><td>-118348.</td><td>19204.1</td><td>-6.16264</td><td>1.18278×10⁻⁶</td>
+      <td>$a$</td><td>-106095.</td><td>11492.8</td><td>-9.2314</td><td>3.92214×10⁻¹⁰</td>
     </tr>
     <tr>
-      <td>$b$</td><td>0.00900649</td><td>0.00243682</td><td>3.696</td><td>0.000943449</td>
+      <td>$b$</td><td>0.0082681</td><td>0.00237352</td><td>3.48348</td><td>0.00159206</td>
     </tr>
     <tr>
-      <td>$c$</td><td>115743.</td><td>18348.1</td><td>6.30815</td><td>8.01929×10⁻⁷</td>
+      <td>$c$</td><td>103858.</td><td>10754.9</td><td>9.65679</td><td>1.44883×10⁻¹⁰</td>
     </tr>
     <tr>
-      <td>$k$</td><td>1.17531</td><td>0.0215636</td><td>54.5044</td><td>5.74741×10⁻³⁰</td>
+      <td>$k$</td><td>1.18727</td><td>0.019725</td><td>60.1912</td><td>5.20862×10⁻³²</td>
     </tr>
     <tr>
       <td rowspan="4">湖北以外</td>
-      <td>$a$</td><td>-12972.1</td><td>156.38</td><td>-82.9525</td><td>4.82624×10⁻³⁵</td>
+      <td>$a$</td><td>-13034.6</td><td>144.415</td><td>-90.2576</td><td>4.37605×10⁻³⁷</td>
     </tr>
     <tr>
-      <td>$b$</td><td>0.00784997</td><td>0.000943366</td><td>8.32123</td><td>4.70701×10⁻⁹</td>
+      <td>$b$</td><td>0.0080748</td><td>0.000933342</td><td>8.65149</td><td>1.58419×10⁻⁹</td>
     </tr>
     <tr>
-      <td>$c$</td><td>12594.5</td><td>112.399</td><td>112.051</td><td>1.09132×10⁻³⁸</td>
+      <td>$c$</td><td>12646.8</td><td>100.457</td><td>125.893</td><td>2.88766×10⁻⁴¹</td>
     </tr>
     <tr>
-      <td>$k$</td><td>1.28906</td><td>0.00850767</td><td>151.517</td><td>2.36928×10⁻⁴²</td>
+      <td>$k$</td><td>1.28656</td><td>0.00802425</td><td>160.333</td><td>2.62547×10⁻⁴⁴</td>
     </tr>
   </tbody>
 </table>
