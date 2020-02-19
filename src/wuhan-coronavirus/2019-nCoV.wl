@@ -23,7 +23,7 @@ plotData[data_, initDate_, forecastDays_, scale_: None] := Module[
 
   num      = Length @ data;
   ts       = TimeSeries[#, {initDate}] & /@ Values[data];
-  tsm      = ParallelMap[TimeSeriesModelFit[#(*, {"ARIMA", {1, 2, 0}}*)] &, ts];
+  tsm      = ParallelMap[TimeSeriesModelFit[#, {"ARIMA", {1, 2, 0}}] &, ts];
   forecast = TimeSeriesForecast[#, {0, forecastDays}] & /@ tsm;
 
   q     = Quantile[NormalDistribution[], 1 - (1 - 0.95) / 2];
