@@ -5,7 +5,7 @@ layout: default
   {{ content }}
   {%- if site.posts.size > 0 -%}
     <ul class="post-list">
-      {%- for post in site.posts -%}
+      {%- for post in paginator.posts -%}
       <li>
         <h1>
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -22,4 +22,16 @@ layout: default
       {%- endfor -%}
     </ul>
   {%- endif -%}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <span class="previous">
+        <a href="{{ paginator.previous_page_path }}">&larr;&#x20DD; 上一页</a>
+      </span>
+    {% endif %}
+    {% if paginator.next_page %}
+      <span class="next">
+        <a href="{{ paginator.next_page_path }}" class="next">下一页 &rarr;&#x20DD;</a>
+      </span>
+    {% endif %}
+  </div>
 </div>

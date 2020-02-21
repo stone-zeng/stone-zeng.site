@@ -207,6 +207,16 @@ strong, th, .post-sidebar .active {
 .site-nav {
   float: right;
 
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+
+    li {
+      margin-left: 20px;
+    }
+  }
+
   .page-link {
     text-decoration: none;
     color: $text-color;

@@ -37,8 +37,11 @@ minima:
     rss: rss
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 sass:
     style: compressed
+paginate: 8
+paginate_path: "/page/:num"
 
 gitalk:
   clientID: e8c1f4f9a5fe1bf1dc7e
