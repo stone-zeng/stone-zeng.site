@@ -90,12 +90,14 @@ Export["2019-nCoV-death-recovered-log.svg", %];
 
 
 (* ::Section:: *)
-(*Regression analysis*)
+(*Regression analysis (1)*)
 
 
 data = AssociationThread[{"\:5168\:56fd", "\:6e56\:5317\:4ee5\:5916"} ->
   PadLeft[Accumulate /@ {Flatten @ {data2[[1, 1]], data2[[1, 6;;]]}, data1[[-1]][[9;;]]}] ];
-nlm = NonlinearModelFit[#, {a / (1 + b * k^x) + c, 1 < k < 2, b > 0}, {a, b, c, {k, 10}}, x] & /@ data
+nlm = NonlinearModelFit[#,
+  {a / (1 + b * k^x) + c, 1 < k < 2, b > 0},
+  {a, b, c, {k, 10}}, x] & /@ data
 Outer[#1 @ #2 &, Values @ nlm, {"RSquared", "AdjustedRSquared", "ParameterTable"}] // TableForm
 Limit[#[x], x -> Infinity] & /@ nlm
 
@@ -129,6 +131,83 @@ plotFit[plotFunc_: Plot, listPlotFunc_: ListPlot] := Module[
       PlotTheme   -> "Detailed",
       PlotLegends -> None,
       PlotStyle   -> Evaluate[ColorData[99][#] & /@ {1, 2}]
+    ],
+    AspectRatio -> 0.6,
+    ImageSize   -> 500
+  ]
+]
+
+
+plotFit[]
+(*Export["2019-nCoV-regression.svg", %];*)
+plotFit[LogPlot, ListLogPlot]
+(*Export["2019-nCoV-regression-log.svg", %];*)
+
+
+(* ::Section:: *)
+(*Regression analysis (2)*)
+
+
+PadLeft[Accumulate /@ {Flatten @ {data2[[1, 1]], data2[[1, 6;;]]}, data1[[-1]][[9;;]]}];
+Transpose @ {Range @ Length[#], #} & /@ %;
+data = {%[[1, ;;28]], %[[1, 29;;]], %[[2, 5;;]]};
+interData = {data[[1, -1]], data[[2, 1]]};
+nlm = MapThread[NonlinearModelFit[#1, #2, {a, b, c, {k, #3}}, x] &, {
+  data,
+  {
+    {a / (1 + b * k^x) + c, 1 < k < 1.6, b > 0},
+    a Exp[-k x + b] + c,
+    {a / (1 + b * k^x) + c, 1 < k < 1.6, b > 0}
+  },
+  {10, 1, 10}}]
+Outer[#1 @ #2 &, nlm, {"RSquared", "AdjustedRSquared", "ParameterTable"}] // TableForm
+Limit[#[x], x -> Infinity] & /@ nlm
+
+
+plotFit[plotFunc_: Plot, listPlotFunc_: ListPlot] := Module[
+  {dataLength, xGrids, ticks},
+
+  dataLength = Length @ Last @ data + 10;
+  xGrids     = Range[1, dataLength, 7];
+  ticks      = {
+    Automatic,
+    {
+      Function[{initDate, dateSpec}, {#, DateString[DatePlus[initDate, #], dateSpec]} & /@ xGrids]
+      @@ {DateObject[{2020, 1, 15}], {"MonthNameShort", " ", "Day"}},
+      None
+    }
+  };
+
+  Show[
+    listPlotFunc[data,
+      PlotRange   -> {{0, dataLength + 1}, Automatic},
+      PlotTheme   -> "Detailed",
+      FrameTicks  -> ticks,
+      GridLines   -> {xGrids, Automatic},
+      LabelStyle  -> {FontFamily -> "Roboto"},
+      PlotLegends -> None,
+      PlotLabels  -> {"\:5168\:56fd (I)", "\:5168\:56fd (II)", "\:6e56\:5317\:4ee5\:5916"},
+      PlotStyle   -> Evaluate[ColorData[99][#] & /@ {1, 1, 2}]
+    ],
+    listPlotFunc[interData,
+      Joined      -> True,
+      PlotTheme   -> "Detailed",
+      PlotStyle   -> Directive[ColorData[99][1], Opacity @ 0.3, Dashed]
+    ],
+    MapThread[
+      plotFunc[nlm[[#1]] @ x, #2,
+        PlotRange -> All,
+        PlotStyle -> Directive[ColorData[99][#3], Opacity @ 0.3]
+      ] &,
+      {
+        {1, 2, 3},
+        {
+          {x, 0, Length @ data[[1]]},
+          {x, Length @ data[[1]] + 1, dataLength},
+          {x, 0, dataLength}
+        },
+        {1, 1, 2}
+      }
     ],
     AspectRatio -> 0.6,
     ImageSize   -> 500
