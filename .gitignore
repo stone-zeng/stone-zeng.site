@@ -6,6 +6,7 @@ package-lock.json
 *.aux
 *.dvi
 *.log
+*.tuc
 *.xdv
 
 *.otf

@@ -1,0 +1,9 @@
+% lualatex-dev emoji-basic.tex && dvisvgm --pdf emoji-basic.pdf
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{fontspec}
+\newfontface\EmojiFont{Twemoji Mozilla}[Renderer=HarfBuzz]
+\begin{document}
+The cat eats apple:  {\EmojiFont 🐱🍎}. \par
+The dog drinks beer: {\EmojiFont 🐶🍺}. \par
+The monkey gets the moon: {\EmojiFont 🙈🌛}.
+\end{document}

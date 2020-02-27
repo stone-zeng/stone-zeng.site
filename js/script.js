@@ -50,6 +50,7 @@ function updatePunctLogo() {
     'XeTeX':    `X&#x2060;${span('xe-e xe-e-kern', 'e')}&#x2060;${TEX}`,
     'XeLaTeX':  `X&#x2060;${span('xe-e', 'e')}${LATEX}`,
     'LuaTeX':   `Lu${span('rkern', 'a')}&shy;${TEX}`,
+    'LuaHBTeX': `LuaHB&shy;${TEX}`,
     'LuaLaTeX': `Lua&shy;${LATEX}`,
     'pTeX':     `${span('rkern', 'p')}${TEX}`,
     'pLaTeX':   `p${LATEX}`,
@@ -59,6 +60,7 @@ function updatePunctLogo() {
     'BibTeX':   `B${span('bib-ib rkern', 'ib')}${TEX}`,
     'CTeX':     `C${TEX}`,
     'MacTeX':   `Ma${span('rkern', 'c')}&shy;${TEX}`,
+    'MiKTeX':   `MiK&shy;${TEX}`,
     '2e':       TWO_E,
   };
   const replacePunct = (str) =>
@@ -79,7 +81,7 @@ function updatePunctLogo() {
         // U+2060: Word joiner, U+2009: Thin space
         .replace(/\\,/g, '\u2060\u2009\u2060');
   const patternH1 =
-    /((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|ConTeXt|BibTeX|CTeX|MacTeX|2e)/g;
+    /((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|LuaHBTeX|ConTeXt|BibTeX|CTeX|MacTeX|MiKTeX|2e)/g;
   const pattern = new RegExp(`\\\$\\\\${patternH1.source}\\\$`, 'g');
   const replaceLogo = (str) =>
     str.replace(pattern, (_, name) => span('tex-logo', LOGO[name]));

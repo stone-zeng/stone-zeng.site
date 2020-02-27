@@ -1,0 +1,11 @@
+% lualatex-dev emoji-unicode.tex && dvisvgm --pdf emoji-unicode.pdf
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{fontspec}
+\newfontface\EmojiFont{Twemoji Mozilla}[Renderer=HarfBuzz]
+\begin{document}
+\EmojiFont
+^^^^^^01f235
+^^^^^^01f91f^^^^^^01f3fd
+^^^^^^01f469^^^^^^01f3ff^^^^200d^^^^^^01f91d^^^^200d^^^^^^01f468^^^^^^01f3fb
+^^^^^^01f1f2^^^^^^01f1f4
+\end{document}

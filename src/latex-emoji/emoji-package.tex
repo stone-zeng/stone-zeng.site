@@ -1,0 +1,12 @@
+% lualatex-dev emoji-package.tex && dvisvgm --pdf emoji-package.pdf
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{amsmath,emoji}
+\setemojifont{Twemoji Mozilla}
+\begin{document}
+\emoji{eyeglasses} \emoji{nerd-face} \emoji{+1}
+$
+  \displaystyle
+    \int_{\partial\text{\emoji{hourglass}}} \text{\emoji{frog}}
+  = \int_\text{\emoji{hourglass}} \mathrm{d}\text{\emoji{frog}}
+$
+\end{document}
