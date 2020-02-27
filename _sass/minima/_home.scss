@@ -44,10 +44,6 @@
   a {
     color: $text-color;
     text-decoration: none;
-
-    // &:hover, &:active, &:focus {
-    //   border-bottom: 1px solid $text-color;
-    // }
   }
 }
 
@@ -73,13 +69,12 @@
   list-style-type: none;
 
   li {
-    margin: 0 0 5px 46px;
-    text-indent: -46px;  // TODO
+    margin-bottom: 6px;
   }
 
   h1 {
     font-weight: normal;
-    font-size: $h3-font-size;
+    font-size: $base-font-size;
     display: inline;
   }
 
@@ -96,6 +91,6 @@
     font-size: $tiny-font-size;
     font-feature-settings: 'tnum';
     color: $visited-color;
-    margin-right: 6px;
+    margin-right: 10px;
   }
 }

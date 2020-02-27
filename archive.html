@@ -11,11 +11,11 @@ permalink: /archive/
         <ul class="archive-list">
           {%- for post in year.items -%}
           <li>
-            <span class="post-date">
-              {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-              {{ post.date | date: "%m-%d" }}
-            </span>
             <h1>
+              <span class="post-date">
+                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                {{ post.date | date: "%m-%d" }}
+              </span>
               <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </h1>
           </li>
