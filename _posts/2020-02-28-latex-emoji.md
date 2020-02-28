@@ -2,6 +2,7 @@
 layout: post
 title: 在 LaTeX 中使用 Emoji ✌️
 date: 2020-02-28
+last_modified_at: 2020-02-29
 categories: Fonts
 abstract: Emoji（絵文字）是聊天软件和社交平台的常客，也几乎成为了一种新的「世界语」。虽然 $\LaTeX$ 以排版严肃的学术类文章见长，但偶尔卖个萌也不为过。
 ---
@@ -59,7 +60,7 @@ The monkey gets the moon: {\EmojiFont 🙈🌛}.
 
 ```tex
 \documentclass{article}
-\usepackage{emoji}
+\usepackage{amsmath,emoji}
 \setemojifont{Twemoji Mozilla}  % 可选
 \begin{document}
 \emoji{eyeglasses} \emoji{nerd-face} \emoji{+1}

@@ -21,6 +21,7 @@ const nodeListToObject = (nodeList) =>
       updateMath();
       updateImage();
     });
+    fixHash();
   }
 })();
 
@@ -81,7 +82,7 @@ function updatePunctLogo() {
         // U+2060: Word joiner, U+2009: Thin space
         .replace(/\\,/g, '\u2060\u2009\u2060');
   const patternH1 =
-    /((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|\(La\)TeX|LuaHBTeX|ConTeXt|BibTeX|CTeX|MacTeX|MiKTeX|2e)/g;
+    /((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|(?:\(La\)|Bib|C|LuaHB|Mac|MiK)TeX|ConTeXt|2e)/g;
   const pattern = new RegExp(`\\\$\\\\${patternH1.source}\\\$`, 'g');
   const replaceLogo = (str) =>
     str.replace(pattern, (_, name) => span('tex-logo', LOGO[name]));
@@ -174,6 +175,12 @@ function updateFnlist(fnItems) {
     `<ol>${Object.values(fnItems).map((e) => e.HTML).join('')}</ol>`;
 }
 
+function updateTable() {
+  document.querySelectorAll('table').forEach((e) => {
+    e.outerHTML = `<div class="table-wrapper">${e.outerHTML}</div>`;
+  });
+}
+
 function updateHighlight() {
   document.querySelectorAll('pre:not(.highlight)').forEach((e) => {
     if (e.firstElementChild.className === 'language-_wl') {
@@ -181,12 +188,6 @@ function updateHighlight() {
         `<pre class="highlight"><code>${parseWolframLang(e.textContent)}</code></pre>` +
         `</div></div>`;
     }
-  });
-}
-
-function updateTable() {
-  document.querySelectorAll('table').forEach((e) => {
-    e.outerHTML = `<div class="table-wrapper">${e.outerHTML}</div>`;
   });
 }
 
@@ -208,4 +209,18 @@ function updateMath() {
 
 function updateImage() {
   mediumZoom('img', {margin: 30});
+}
+
+function fixHash() {
+  // https://stackoverflow.com/a/17535094/
+  const offsetAnchor = () => {
+    if (location.hash.length !== 0) {
+      window.scrollTo(window.scrollX, window.scrollY - 60);
+    }
+  };
+  document.querySelectorAll('a[href^="#"]').forEach((e) =>
+    e.addEventListener('click',
+        (event) => window.setTimeout(() => offsetAnchor(), 0))
+  );
+  window.setTimeout(offsetAnchor, 0);
 }
