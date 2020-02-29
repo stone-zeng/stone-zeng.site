@@ -193,18 +193,20 @@ function updateHighlight() {
 
 function updateMath() {
   // Kramdown will use MathJax by default.
-  document.querySelectorAll('script[type="math/tex; mode=display"]').forEach((e) => {
-    e.outerHTML = `$$\n${e.innerHTML.replace(/(\% <\!\[CDATA\[\n|\%\]\]>)/g, '')}\n$$`;
-  });
-  renderMathInElement(document.body, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false},
-    ]}
-  );
-  document.querySelectorAll('.katex-html').forEach((e) => {
-    if (e.textContent === '') e.remove();
-  });
+  if (typeof katex !== 'undefined') {
+    document.querySelectorAll('script[type="math/tex; mode=display"]').forEach((e) => {
+      e.outerHTML = `$$\n${e.innerHTML.replace(/(\% <\!\[CDATA\[\n|\%\]\]>)/g, '')}\n$$`;
+    });
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false},
+      ]}
+    );
+    document.querySelectorAll('.katex-html').forEach((e) => {
+      if (e.textContent === '') e.remove();
+    });
+  }
 }
 
 function updateImage() {

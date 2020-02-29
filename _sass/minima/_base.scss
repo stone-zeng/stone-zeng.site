@@ -79,6 +79,9 @@ code {
 //   color: red !important;
 //   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family !important;
 // }
+.gt-container .gt-meta {
+  z-index: auto;
+}
 
 // TeX, LaTeX, etc
 .tex-logo {
