@@ -43,11 +43,9 @@ Major in theoretical physics. Lover of typesetting and $\LaTeX$.
 
 ## 统计
 
-<span id="busuanzi_container_site_uv">
-  本站总访客数 <span id="busuanzi_value_site_uv"></span> 人次。
-</span>
-
-最后构建于 {{ site.time }}。
+- 文章数：{{ site.posts | size }}
+- <span id="busuanzi_container_site_uv">总访客数：<span id="busuanzi_value_site_uv"></span></span>
+- 最后构建：{{ site.time }}
 
 ## 许可证
 

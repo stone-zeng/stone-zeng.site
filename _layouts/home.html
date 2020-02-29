@@ -3,14 +3,14 @@ layout: default
 ---
 <div class="home">
   {{ content }}
-  {%- if site.posts.size > 0 -%}
+  {% if site.posts.size > 0 %}
     <ul class="post-list">
-      {%- for post in paginator.posts -%}
+      {% for post in paginator.posts %}
       <li>
         <h1>
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h1>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
         <span class="post-meta">
           {{ post.date | date: "%Y-%m-%d" }}
           {% if post.last_modified_at %}
@@ -19,9 +19,9 @@ layout: default
         </span>
         <p>{{ post.abstract }}</p>
       </li>
-      {%- endfor -%}
+      {% endfor %}
     </ul>
-  {%- endif -%}
+  {% endif %}
   <div class="pagination">
     {% if paginator.previous_page %}
       <span class="previous">

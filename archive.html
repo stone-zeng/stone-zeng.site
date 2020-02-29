@@ -4,23 +4,23 @@ title: 归档
 permalink: /archive/
 ---
 <div class="archive">
-  {%- if site.posts.size > 0 -%}
+  {% if site.posts.size > 0 %}
     {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
     {% for year in posts_by_year %}
       <h1>{{ year.name }} 年</h1>
         <ul class="archive-list">
-          {%- for post in year.items -%}
+          {% for post in year.items %}
           <li>
             <h1>
               <span class="post-date">
-                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
                 {{ post.date | date: "%m-%d" }}
               </span>
               <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </h1>
           </li>
-          {%- endfor -%}
+          {% endfor %}
         </ul>
     {% endfor %}
-  {%- endif -%}
+  {% endif %}
 </div>
