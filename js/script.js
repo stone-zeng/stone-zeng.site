@@ -11,6 +11,7 @@ const nodeListToObject = (nodeList) =>
   } else {
     // Posts.
     const headers = document.querySelectorAll('#content h2, #content h3, #content h4');
+    wordCount();
     addHashTags(headers);
     updateSidebar(headers);
     updateFootnotes();
@@ -92,6 +93,23 @@ function updatePunctLogo() {
     e.innerHTML = replacePunct(replaceLogo(e.innerHTML)));
   document.querySelectorAll('h1').forEach((e) =>
     e.innerHTML = replacePunct(replaceLogoH1(e.innerHTML)));
+}
+
+function wordCount() {
+  let count = 0;
+  document.querySelector('#post-content').innerText
+      // eslint-disable-next-line max-len
+      .split(/\s+|\[\d+\]|[，。．；：、！？–—…（）《》【】「」\,\.\;\:\!\?\-\\\/\(\)\[\]\{\}\<\>\@\#\$\%\^\&\*\+\=\_]/g)
+      .filter((e) => e !== '')
+      .forEach((e) => {
+        if (e.toLowerCase() !== e.toUpperCase() || e.replace(/\d/g, '') === '') {
+          count++;
+        } else {
+          count += e.length;
+        }
+      });
+  const countStr = (count / 1000).toFixed(1) + '&thinsp;k';
+  document.querySelector('#word-count-placeholder').innerHTML = countStr;
 }
 
 function addHashTags(headers) {

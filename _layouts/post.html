@@ -29,11 +29,11 @@ layout: default
           {% if page.author %}
             <li><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span></li>
           {% endif %}
-          <li>{{ word_count }}{% include wordcount.html %}</li>
+          <li>{{ word_count }}<span id="word-count-placeholder"></span></li>
           <li id="busuanzi_container_page_pv" style="display:none">{{ view_count }}<span id="busuanzi_value_page_pv"></span></li>
         </ul>
       </header>
-      <div class="post-content e-content" itemprop="articleBody" id="content">
+      <div class="post-content e-content" itemprop="articleBody" id="post-content">
         {{ content }}
       </div>
       <div id="gitalk-container"></div>
