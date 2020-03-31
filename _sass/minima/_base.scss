@@ -20,11 +20,7 @@ body {
   flex-direction: column;
 }
 
-// :lang(ja) {
-//   font-family: $base-ja-font-family;
-// }
-
-// Default value of `display` of `main` element is 'inline' in IE 11
+// Default value of `display` of `main` element is `inline` in IE 11
 main {
   display: block;
 }
