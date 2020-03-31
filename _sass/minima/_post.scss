@@ -35,7 +35,7 @@
     @include media-on-large {
       display: flex;
 
-      :first-child::before {
+      li:first-child::before {
         content: '';
         margin: 0;
       }
@@ -202,7 +202,11 @@
     border-left: 4px solid $grey-color-light;
     padding-left: $spacing-unit / 2;
 
-    > :last-child {
+    a {
+      color: $grey-color;
+    }
+
+    >:last-child {
       margin-bottom: 0;
     }
   }

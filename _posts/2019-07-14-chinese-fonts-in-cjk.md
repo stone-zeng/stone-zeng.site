@@ -7,7 +7,7 @@ categories: Fonts
 abstract: 嗯，此为一连载。背景是，我们希望 ctex-kit 最终提交到 $\TeX$ Live 或者 CTAN 的时候，可以带上所有中文字体的 TFM、MAP 和 ENC，来让用户差不多是零配置地使用 `CJK` 中文，因此我们需要产生这些文件。
 ---
 
-> 本文原作者为[王越](https://www.zhihu.com/people/w-y-w-y/)，2009 年 5 月发表在 $\CTeX$ 论坛上（[原始网址](http://bbs.ctex.org/viewthread.php?tid=50078)，已失效）。由于 $\CTeX$ 论坛目前已关闭，这里将其整理后重新发布。[^newsmth]
+> 本文原作者为王越，2009 年 5 月发表在 $\CTeX$ 论坛上（[原始网址](http://bbs.ctex.org/viewthread.php?tid=50078)，已失效）。由于 $\CTeX$ 论坛目前已关闭，这里将其整理后重新发布。[^newsmth]
 >
 > 本文实际上是 [`zhmetrics` 包](https://ctan.org/pkg/zhmetrics)的实现思路。该包由王越和吴凌云发布，并且一直被 $\CTeX$ 宏集所使用至今。在此基础上，刘海洋又开发了 [`zhmCJK` 包](https://ctan.org/pkg/zhmcjk)，允许动态设置 CJK 字体，并且提供了尽可能简单的用户界面。
 
