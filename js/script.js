@@ -228,7 +228,9 @@ function updateMath() {
 }
 
 function updateImage() {
-  mediumZoom('img', {margin: 30});
+  if (typeof mediumZoom !== 'undefined') {
+    mediumZoom('img', {margin: 30});
+  }
 }
 
 function fixHash() {

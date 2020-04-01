@@ -27,7 +27,7 @@ abstract: 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地�
 
 <figure>
   <img src="/images/wuhan-coronavirus/2019-nCoV-new.svg" alt="2019-nCoV-new" style="width: 54%;">
-  <img src="/images/wuhan-coronavirus/2019-nCoV-new-log.svg" alt="2019-nCoV-new-log" style="width: 44.5%;">
+  <img src="/images/wuhan-coronavirus/2019-nCoV-new-log.svg" alt="2019-nCoV-new-log" style="width: 44%;">
   <figcaption>新增确诊病例统计（左：线性坐标，右：对数坐标，下同）</figcaption>
 </figure>
 

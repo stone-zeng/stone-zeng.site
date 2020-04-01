@@ -13,15 +13,17 @@
     <script src="{{ '/js/script.js' | relative_url }}"></script>
     <script src="{{ '/js/source-han.js' | relative_url }}"></script>
     <script>
-      const gitalk = new Gitalk({
-        clientID:     '{{ site.gitalk.clientID }}',
-        clientSecret: '{{ site.gitalk.clientSecret }}',
-        repo:         '{{ site.gitalk.repo }}',
-        owner:        '{{ site.gitalk.owner }}',
-        admin:        ['{{ site.gitalk.owner }}'],
-        id:           location.pathname,
-      });
-      gitalk.render('gitalk-container');
+      if (typeof Gitalk !== 'undefined') {
+        const gitalk = new Gitalk({
+          clientID:     '{{ site.gitalk.clientID }}',
+          clientSecret: '{{ site.gitalk.clientSecret }}',
+          repo:         '{{ site.gitalk.repo }}',
+          owner:        '{{ site.gitalk.owner }}',
+          admin:        ['{{ site.gitalk.owner }}'],
+          id:           location.pathname,
+        });
+        gitalk.render('gitalk-container');
+      }
     </script>
   </body>
 </html>
