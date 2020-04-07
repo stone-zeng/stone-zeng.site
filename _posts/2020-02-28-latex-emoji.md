@@ -4,7 +4,7 @@ title: 在 LaTeX 中使用 Emoji ✌️
 date: 2020-02-28
 last_modified_at: 2020-02-29
 categories: Fonts
-abstract: Emoji（絵文字）是聊天软件和社交平台的常客，也几乎成为了一种新的「世界语」。虽然 $\LaTeX$ 以排版严肃的学术类文章见长，但偶尔卖个萌也不为过。
+abstract: Emoji（<span lang="ja">絵文字</span>）是聊天软件和社交平台的常客，也几乎成为了一种新的「世界语」。虽然 $\LaTeX$ 以排版严肃的学术类文章见长，但偶尔卖个萌也不为过。
 ---
 
 Emoji（<span lang="ja"><ruby>絵<rt>え</rt></ruby><ruby>文<rt>も</rt></ruby><ruby>字<rt>じ</rt></ruby></span>）是聊天软件和社交平台的常客，也几乎成为了一种新的「世界语」。虽然 $\LaTeX$ 以排版严肃的学术类文章见长，但偶尔卖个萌也不为过。
