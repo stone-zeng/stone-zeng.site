@@ -4,8 +4,13 @@
 const nodeListToObject = (nodeList) =>
   Array.from(nodeList).reduce((obj, e) => (obj[e.id] = e, obj), {});
 
+const TeXLogoPatternH1 =
+  /((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|(?:\(La\)|Bib|C|LuaHB|Mac|MiK)TeX|ConTeXt|2e)/g;
+const TeXLogoPattern = new RegExp(`\\\$\\\\+${TeXLogoPatternH1.source}\\\$`, 'g');
+
 (function () {
-  updateAbstract();
+  updateMeta();
+  updateDescription();
   if (document.querySelector('.post-sidebar') === null) {
     updatePunctLogo();
   } else {
@@ -26,7 +31,14 @@ const nodeListToObject = (nodeList) =>
   }
 })();
 
-function updateAbstract() {
+function updateMeta() {
+  document.querySelectorAll('meta[name="description"], meta[property="og:description"]').forEach(
+      (e) => e.content = e.content.replace(TeXLogoPattern, '$1'));
+  document.querySelectorAll('script[type="application/ld+json"]').forEach(
+      (e) => e.innerHTML = e.innerHTML.replace(TeXLogoPattern, '$1'));
+}
+
+function updateDescription() {
   document.querySelectorAll('.post-list li p').forEach((e) => {
     e.innerHTML = e.innerHTML.replace(/`(.+?)`/g, '<code class="highlighter-rouge">$1</code>');
   });
@@ -82,13 +94,10 @@ function updatePunctLogo() {
         // No-break thin space
         // U+2060: Word joiner, U+2009: Thin space
         .replace(/\\,/g, '\u2060\u2009\u2060');
-  const patternH1 =
-    /((?:e|pdf|Xe|Lua|p|up|Ap)*(?:La)*TeX[3e]*|(?:\(La\)|Bib|C|LuaHB|Mac|MiK)TeX|ConTeXt|2e)/g;
-  const pattern = new RegExp(`\\\$\\\\${patternH1.source}\\\$`, 'g');
   const replaceLogo = (str) =>
-    str.replace(pattern, (_, name) => span('tex-logo', LOGO[name]));
+    str.replace(TeXLogoPattern, (_, name) => span('tex-logo', LOGO[name]));
   const replaceLogoH1 = (str) =>
-    str.replace(patternH1, (_, name) => span('tex-logo', LOGO[name]));
+    str.replace(TeXLogoPatternH1, (_, name) => span('tex-logo', LOGO[name]));
   document.querySelectorAll('h2, h3, h4, p, li, figcaption, td, th').forEach((e) =>
     e.innerHTML = replacePunct(replaceLogo(e.innerHTML)));
   document.querySelectorAll('h1').forEach((e) =>

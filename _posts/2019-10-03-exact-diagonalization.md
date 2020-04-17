@@ -6,7 +6,7 @@ last_modified_at: 2019-10-30
 categories: Physics
 lang: en-US
 math: true
-abstract: To calculate the ground state and the corresponding energy of a quantum system is a very important task in physics. As we all known, the ground state energy is just the smallest eigenvalue of the Hamiltonian of this system.
+description: To calculate the ground state and the corresponding energy of a quantum system is a very important task in physics. As we all known, the ground state energy is just the smallest eigenvalue of the Hamiltonian of this system.
 ---
 
 ## Introduction
