@@ -806,7 +806,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
   <ol>
     <li id="fn:tl-source">原文章写于 2006 年，在这之后本文所引述的一些代码均有所修改，主要有：
       <ul>
-        <li>ttf2pk 基于 FreeType2 重构，因此文件路径更改为 <code class="highlighter-rouge">texk/ttf2pk2</code></li>
+        <li markdown="1">ttf2pk 基于 FreeType2 重构，因此文件路径更改为 `texk/ttf2pk2`</li>
         <li>2014 年 Knuth 对 $\TeX$、TFtoPL 等进行了一些修订</li>
       </ul>
       文中列出的代码片段，ttf2pk 相关部分来自<a href="https://github.com/TeX-Live/texlive-source/tree/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk">提交 5ead665c0c</a>（重构之前），而 web2c 部分来自<a href="https://github.com/TeX-Live/texlive-source/tree/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c">提交 e0e5ba1ea9</a>（Knuth 修订后，所列代码实际没有改动）。

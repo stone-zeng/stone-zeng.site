@@ -11,19 +11,19 @@ github_username: stone-zeng
 incremental: true
 permalink: :year-:month-:day-:title/
 exclude:
-  - _draft/
   - .eslintrc.json
   - .gitattributes
   - .gitignore
   - Gemfile
   - Gemfile.lock
   - LICENSE
+  - README.md
+  - _draft/
+  - .vscode/
   - node_modules/
   - package.json
-  - README.md
   - src/
   - temp/
-  - vendor/
 
 markdown: kramdown
 

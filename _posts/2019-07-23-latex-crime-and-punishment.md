@@ -162,27 +162,27 @@ PS：我觉得 latexmk 就很靠谱，不知道为什么 PDFTeXify 不够 robust
 
 于是搜文档，果然是 `NULL`。找了一圈真没发现文档，这个应该确实是个 bug。不妨考虑去买张彩票。下面是手动生成文档的方法，不想看可以跳过。
 
-<small>CTAN 页面中显示 `bibentry` 属于 `natbib` 的一部分，然而打开 `natbib` 的 `doc` 目录只有如下这些：</small>
+<div markdown="1" class="small">
 
-<ul>
-  <small><li><code class="highlighter-rouge">README.1st</code></li></small>
-  <small><li><code class="highlighter-rouge">README.v831b</code></li></small>
-  <small><li><code class="highlighter-rouge">natbib.ltx</code></li></small>
-  <small><li><code class="highlighter-rouge">natbib.pdf</code></li></small>
-  <small><li><code class="highlighter-rouge">natnotes.pdf</code></li></small>
-  <small><li><code class="highlighter-rouge">natnotes.tex</code></li></small>
-</ul>
+CTAN 页面中显示 `bibentry` 属于 `natbib` 的一部分，然而打开 `natbib` 的 `doc` 目录只有如下这些：
 
-<small>文档里面搜索也没有发现 `bibentry` 相关说明。所以看起来要么就真的没有文档（现在 CTAN 不接收不带文档的包），要么就是作者忘了。打开 `source` 目录：</small>
+- `README.1st`
+- `README.v831b`
+- `natbib.ltx`
+- `natbib.pdf`
+- `natnotes.pdf`
+- `natnotes.tex`
 
-<ul>
-  <small><li><code class="highlighter-rouge">bibentry.dtx</code></li></small>
-  <small><li><code class="highlighter-rouge">bibentry.ins</code></li></small>
-  <small><li><code class="highlighter-rouge">natbib.dtx</code></li></small>
-  <small><li><code class="highlighter-rouge">natbib.ins</code></li></small>
-</ul>
+文档里面搜索也没有发现 `bibentry` 相关说明。所以看起来要么就真的没有文档（现在 CTAN 不接收不带文档的包），要么就是作者忘了。打开 `source` 目录：
 
-<small>编译 `bibentry.dtx` 可以得到文档。</small>
+- `bibentry.dtx`
+- `bibentry.ins`
+- `natbib.dtx`
+- `natbib.ins`
+
+编译 `bibentry.dtx` 可以得到文档。
+
+</div>
 
 其实 Google 搜索一下也可以找到文档，不过这不重要。一种正确的写法是用 `\nobibliography` 代替 `\bibliography`（并且要放在 `\bibentry` 前面）：
 
@@ -694,8 +694,8 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
   <ol>
     <li id="fn:context">参考 TUG@BachoTeX 2017 会议上 Hans Hagen 所做的报告：
       <ul>
-        <li><a href="https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-variablefonts.pdf">Variable Fonts</a>（<code class="highlighter-rouge">texdoc variablefonts.pdf</code>）</li>
-        <li><a href="https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-emoji.pdf">Picture Fonts</a>（<code class="highlighter-rouge">texdoc emoji.pdf</code>）</li>
+        <li markdown="span">[Variable Fonts](https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-variablefonts.pdf)（`texdoc variablefonts.pdf`）</li>
+        <li markdown="span">[Picture Fonts](https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-emoji.pdf)（`texdoc emoji.pdf`）</li>
       </ul>
     </li>
   </ol>

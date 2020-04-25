@@ -303,4 +303,9 @@
   a.visible {
     visibility: visible;
   }
+
+  // Same as HTML <small> tag
+  .small {
+    font-size: smaller;
+  }
 }
