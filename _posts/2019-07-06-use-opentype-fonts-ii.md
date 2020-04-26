@@ -119,15 +119,15 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
     <td>900</td>
   </tr>
   <tr>
-    <td style="font-weight: 100;">Thin Hairline</td>
-    <td style="font-weight: 200;">ExtraLight UltraLight</td>
+    <td style="font-weight: 100;">Thin<br>Hairline</td>
+    <td style="font-weight: 200;">ExtraLight<br>UltraLight</td>
     <td style="font-weight: 300;">Light</td>
-    <td style="font-weight: 400;">Regular Normal</td>
+    <td style="font-weight: 400;">Regular<br>Normal</td>
     <td style="font-weight: 500;">Medium</td>
-    <td style="font-weight: 600;">SemiBold DemiBold</td>
+    <td style="font-weight: 600;">SemiBold<br>DemiBold</td>
     <td style="font-weight: 700;">Bold</td>
-    <td style="font-weight: 800;">ExtraBold UltraBold</td>
-    <td style="font-weight: 900;">Black Heavy</td>
+    <td style="font-weight: 800;">ExtraBold<br>UltraBold</td>
+    <td style="font-weight: 900;">Black<br>Heavy</td>
   </tr>
 </table>
 

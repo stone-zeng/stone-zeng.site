@@ -2,12 +2,6 @@
 .font-sample {
   font-size: 14px;
   text-align: center;
-  a {
-    border-bottom: none;
-  }
-  a:hover, table.font-sample a:active, table.font-sample a:focus {
-    border-bottom: none;
-  }
   img {
     height: 10em;
     max-width: 100%;
@@ -20,7 +14,7 @@
   text-align: center;
 }
 .circled-number-glyph {
-  font-family: 'Noto Serif CJK SC', 'Source Han Serif SC', $mono-font-family;
+  font-family: 'Noto Serif CJK SC', 'Source Han Serif SC', source-han-serif-cjk-sc, 'Noto Sans CJK SC', 'Source Han Sans SC', source-han-sans-cjk-sc, monospace;
   font-size: 24px;
   border: none;
 }
