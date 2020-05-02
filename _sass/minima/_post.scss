@@ -91,7 +91,7 @@
     margin-bottom: $spacing-unit / 2;
   }
 
-  table, pre, blockquote {
+  table, pre, figcaption {
     font-size: $small-font-size;
   }
 
@@ -155,9 +155,7 @@
     }
 
     figcaption {
-      font-size: $small-font-size;
       margin: 10px 0 0;
-
       @include media-on-large {
         margin: 10px 40px 0;
       }

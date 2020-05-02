@@ -1,0 +1,25 @@
+% lualatex math-version.tex && dvisvgm --pdf --libgs=/usr/local/lib/libgs.9.52.dylib math-version.pdf
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{amsmath,unicode-math}
+
+\setmainfont{XITS}
+\setmathfont{XITS Math}
+\setmathfont{XITS Math Bold}[version=bold]  % 需要额外声明
+
+\newcommand\grformula{
+  \[
+    S = \int \left( \frac{R}{2\kappa} + \symcal{L}_\text{M} \right)
+        \sqrt{-g} \, \symrm{d}^4 x
+    \Rightarrow R_{\mu\nu} - \frac12 g_{\mu\nu} R
+             = \frac{8\symrm{\pi}G}{c^4} T_{\mu\nu}
+  \]
+}
+
+\begin{document}
+\grformula
+\begingroup
+  \bfseries           % 文本字体加粗
+  \mathversion{bold}  % 数学字体加粗
+  \grformula
+\endgroup
+\end{document}

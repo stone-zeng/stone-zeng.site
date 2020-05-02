@@ -1,0 +1,12 @@
+% lualatex xits.tex && dvisvgm --pdf --libgs=/usr/local/lib/libgs.9.52.dylib xits.pdf
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{amsmath,unicode-math}
+\setmainfont{XITS}       % XITS 是 Times Roman 的开源复刻版本
+\setmathfont{XITS Math}  % XITS Math 是与之匹配的数学字体
+\begin{document}
+\[
+    \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\mathbf{r}, t) \right]
+    \Psi(\mathbf{r}, t)
+  = \mathrm{i} \hbar \frac{\partial}{\partial t} \Psi(\mathbf{r}, t)
+\]
+\end{document}

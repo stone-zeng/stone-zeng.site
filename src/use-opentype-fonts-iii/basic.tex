@@ -1,0 +1,10 @@
+% lualatex basic.tex && dvisvgm --pdf --libgs=/usr/local/lib/libgs.9.52.dylib basic.pdf
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{amsmath,unicode-math}
+\begin{document}
+\[
+    F(x; \, \mu, \, \sigma)
+  = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^x
+    \exp \left[ -\frac{(t-\mu)^2}{2\sigma^2} \right] \, \mathrm{d} t
+\]
+\end{document}

@@ -85,11 +85,11 @@ function updatePunctLogo() {
             span('zh-punct-kern', '$1') + '$2')
         .replace(/([，、：；。！？）』」》〉】])(<sup)/g,
             span('zh-punct-kern', '$1') + '$2')
-        .replace(/^([（『「《〈【])/g,
-            span('zh-punct-bound', '$1'))
         .replace(/([，、：；。！？）』」》〉】])(<a href=".+">[（『「《〈【])/g,
             span('zh-punct-kern', '$1') + '$2')
-        .replace(/(\^<\/a><\/span><a href=".+">)([（『「《〈【])/g,
+        .replace(/^([（『「《〈【])/g,
+            span('zh-punct-bound', '$1'))
+        .replace(/(\^<\/a><\/span><a href=".+">|<li>)([（『「《〈【])/g,
             '$1' + span('zh-punct-bound', '$2'))
         // No-break thin space
         // U+2060: Word joiner, U+2009: Thin space

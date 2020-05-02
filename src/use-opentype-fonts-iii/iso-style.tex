@@ -1,0 +1,27 @@
+% lualatex iso-style.tex && dvisvgm --pdf --libgs=/usr/local/lib/libgs.9.52.dylib iso-style.pdf
+\documentclass[varwidth, margin={0pt 6pt 6pt -4pt}]{standalone}
+\usepackage{amsmath,unicode-math}
+
+\unimathsetup{math-style=ISO, bold-style=ISO}  % 需放在设置字体之前
+\setmainfont{XITS}
+\setmathfont{XITS Math}
+
+% 定义新命令以简化书写
+\newcommand\dd{\symrm{d}}     % Differential d
+\newcommand\V[1]{\symbf{#1}}  % Vector
+
+\begin{document}
+\begin{align*}
+     \oiint_{\partial\Omega} \V{E} \cdot \dd \V{S}
+  &= \frac{1}{\epsilon_0} \iiint_\Omega \rho \, \dd V
+  &\quad&
+     \oint_{\partial\Sigma} \V{E} \cdot \dd \V{l}
+   = -\frac{\dd}{\dd t} \iint_\Sigma \V{B} \cdot \dd \V{S} \\
+     \oiint_{\partial\Omega} \V{B} \cdot \dd \V{S}
+  &= 0
+  &\quad&
+     \oint_{\partial\Sigma} \V{B} \cdot \dd \V{l}
+   = \mu_0 \iint_\Sigma \V{J} \cdot \V{S}
+   + \mu_0 \epsilon_0 \frac{\dd}{\dd t} \iint_\Sigma \V{E} \cdot \dd \V{S}
+\end{align*}
+\end{document}

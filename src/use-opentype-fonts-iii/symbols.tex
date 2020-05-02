@@ -1,0 +1,29 @@
+% lualatex symbols.tex && dvisvgm --pdf --libgs=/usr/local/lib/libgs.9.52.dylib symbols.pdf
+\documentclass[varwidth=6.4cm, margin={-4pt 8pt 20pt -4pt}]{standalone}
+\usepackage{amsmath,unicode-math}
+
+% Palatino 的一个复刻版本
+\setmathfont{Asana Math}
+
+\begin{document}
+
+% 摘自 https://www.zhihu.com/question/20592491/answer/15577847
+\begin{align*}
+  & \vdash \forall x [(Fx \vee Gx) \to \mathord{\sim} Hx] \\
+  & \vDash \neg \exists y \forall x [x \in y \leftrightarrow x \notin x]  \\
+  & \nvDash x \cap (y \cup z) \neq (x \cap y) \cup (x \cap z) \\
+  & \vdash \lBrack\alpha\rBrack = \aleph_0 \to \alpha \ncong \wp(\alpha) \\
+  & \vdash (P \rightfishtail Q) \rightfishtail
+    (\mdlgwhtsquare P \rightfishtail \mdlgwhtdiamond Q)
+\end{align*}
+
+% 以 Unicode 字符直接输入，显然要直观很多
+% \begin{align*}
+%   & ⊢ ∀x [(Fx ∨ Gx) → \mathord{∼} Hx] \\
+%   & ⊨ ¬∃y∀x[x∈y ↔ x∉x]  \\
+%   & ⊭ x ∩ (y ∪ z) ≠ (x ∩ y) ∪ (x ∩ z) \\
+%   & ⊢ ⟦α⟧ = ℵ₀ → α ≇ ℘(α) \\
+%   & ⊢ (P ⥽ Q) ⥽ (□P ⥽ ◇Q)
+% \end{align*}
+
+\end{document}

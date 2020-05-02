@@ -1,0 +1,28 @@
+% lualatex stylistic-set.tex && dvisvgm --pdf --libgs=/usr/local/lib/libgs.9.52.dylib stylistic-set.pdf
+\documentclass[varwidth, margin=4pt]{standalone}
+\usepackage{amsmath,unicode-math}
+
+% 见 https://github.com/wspr/unicode-math/issues/468
+\unimathsetup{math-style=ISO, mathrm=sym}
+\setmainfont{Fira Sans}
+\setmathfont{Fira Math}
+% ss01: Upright Integrals
+% ss02: Planck Constant with Bar
+\setmathfont{Fira Math}[StylisticSet={1,2}, version=ss]
+
+\newcommand\dd{\symrm{d}}
+\newcommand\pp{\symrm{\pi}}
+\newcommand\formula{
+  \[
+    P = \int_0^\infty \, \dd\nu \int_h \, \dd\Omega \, B_\nu \cos \theta
+      = \sigma T^4, \quad \sigma = \frac{\pp^2 k_\text{B}^4}{60 \hbar^3 c^2}
+  \]
+}
+
+\begin{document}
+\formula
+\begingroup
+  \mathversion{ss}
+  \formula
+\endgroup
+\end{document}

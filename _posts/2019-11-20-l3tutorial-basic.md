@@ -118,15 +118,15 @@ zhdummy/
 
 记号列表，顾名思义由一系列的**记号**（token，也称为字元）组成。而记号，要么是指一个附带有类别码的字符（character），要么是一个控制序列。比如，在标准情况下，`{\hskip 36 pt}` 就是下面的一组记号（下标表示类别码，`␣` 表示空格，注意 `\hskip` 后的空格是被忽略掉的）：
 
-<p style="text-align: center">
-  <code>{</code><sub>1</sub>
-  <code>\hskip</code><sub>控制序列</sub>
-  <code>3</code><sub>12</sub>
-  <code>6</code><sub>12</sub>
-  <code>␣</code><sub>10</sub>
-  <code>p</code><sub>11</sub>
-  <code>t</code><sub>11</sub>
-  <code>}</code><sub>2</sub>
+<p markdown="1" style="text-align: center">
+  `{`<sub>1</sub>
+  `\hskip`<sub>控制序列</sub>
+  `3`<sub>12</sub>
+  `6`<sub>12</sub>
+  `␣`<sub>10</sub>
+  `p`<sub>11</sub>
+  `t`<sub>11</sub>
+  `}`<sub>2</sub>
 </p>
 
 不过，就目前来说，我们可以先忽略这些技术细节。毕竟假文中几乎只含有汉字、标点和一些字母、数字，它们都是比较「正常」的东西，不需要特殊处理。
