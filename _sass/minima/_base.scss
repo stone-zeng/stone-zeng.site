@@ -12,8 +12,8 @@ body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   font-feature-settings: 'kern';
   font-kerning: normal;
-  color: $text-color;
-  background-color: $bg-color;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   display: flex;
   min-height: 100vh;
   min-width: 320px;
@@ -35,7 +35,7 @@ code {
   font-variant: none;
   padding: 0 .2em;
   border-radius: 3px;
-  background: $code-bg-color;
+  background: var(--code-bg-color);
 }
 
 // CJK punctuations
@@ -75,8 +75,14 @@ code {
 //   color: red !important;
 //   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family !important;
 // }
-.gt-container .gt-meta {
-  z-index: auto;
+.gt-container {
+  .gt-meta {
+    z-index: auto;
+  }
+
+  .gt-ico-github svg {
+    fill: var(--link-color);
+  }
 }
 
 // TeX, LaTeX, etc
@@ -171,13 +177,13 @@ strong, th, .post-sidebar .active {
 /* Site header */
 
 .site-header {
-  border-top: 5px solid $border-dark-color;
-  border-bottom: 1px solid $border-color;
+  border-top: 5px solid $gray-100;
+  border-bottom: 1px solid var(--border-color);
   min-height: 54px;
   line-height: 54px;
   z-index: 1;
+  background-color: var(--bg-color);
   @include sticky-top(0);
-  @include blur;
 }
 
 .site-title {
@@ -195,7 +201,7 @@ strong, th, .post-sidebar .active {
 
   &,
   &:visited {
-    color: $text-color;
+    color: var(--text-color);
   }
   &:hover {
     text-decoration: none;
@@ -218,7 +224,7 @@ strong, th, .post-sidebar .active {
 
   .page-link {
     text-decoration: none;
-    color: $text-color;
+    color: var(--text-color);
   }
 }
 
@@ -226,7 +232,7 @@ strong, th, .post-sidebar .active {
 /* Site footer */
 
 .site-footer {
-  border-top: 1px solid $grey-color-light;
+  border-top: 1px solid var(--border-color);
   padding: $spacing-unit 0;
 }
 
@@ -237,7 +243,7 @@ strong, th, .post-sidebar .active {
 
 .footer-col-wrapper {
   font-size: $tiny-font-size;
-  color: $grey-color;
+  color: var(--gray-color);
   // @extend %clearfix; // TODO
 }
 
@@ -262,10 +268,10 @@ strong, th, .post-sidebar .active {
     &:last-of-type { margin-right: 0 }
 
     a {
-      color: #828282; // TODO: different colors for different icons
+      color: var(--gray-color); // TODO: different colors for different icons
 
       &:hover, &:active, &:focus {
-        color: $link-color;
+        color: var(--link-color);
       }
     }
   }

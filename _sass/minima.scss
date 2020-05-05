@@ -1,39 +1,7 @@
-// Font declarations
-@import 'fonts/inter',
-        'fonts/iosevka';
+@import 'variables/colors',
+        'variables/typography';
 
-// Font families
-$base-font-family: 'Inter var', 'Source Han Sans SC', 'Noto Sans CJK SC', source-han-sans-cjk-sc, sans-serif !default;
-$mono-font-family: 'Iosevka Web', 'SF Mono', Menlo, Consolas, monospace, 'Source Han Sans SC', 'Noto Sans CJK SC', source-han-sans-cjk-sc !default;
-$punct-font-family: 'Source Han Sans SC', 'Noto Sans CJK SC', source-han-sans-cjk-sc, sans-serif !default;
-
-// Font related
-$base-font-weight:  400 !default;
-$bold-font-weight:  600 !default;
-$base-font-size:    16px !default;
-$large-font-size:   18px !default;
-$small-font-size:   14px !default;
-$tiny-font-size:    12px !default;
-$h1-font-size:      24px !default;
-$h2-font-size:      22px !default;
-$h3-font-size:      18px !default;
-$h4-font-size:      16px !default;
-$base-line-height:  1.6  !default;
-
-// Colors
-$text-color:          #4c4c4c !default;
-$bg-color:            #fdfdfd !default;
-$code-bg-color:       #f4f4f4 !default;
-$link-color:          #000000 !default;
-$ul-color:            lighten($text-color, 40%) !default;
-$visited-color:       lighten($text-color, 20%) !default;
-$border-color:        #e8e8e8 !default;
-$border-dark-color:   darken($border-color, 80%) !default;
-
-// TODO: to be removed
-$grey-color:        #828282 !default;
-$grey-color-light:  lighten($grey-color, 40%) !default;
-$grey-color-dark:   darken($grey-color, 25%) !default;
+$border: 1px solid var(--border-color) !default;
 
 // Width of the content area
 $spacing-unit:      30px  !default;
@@ -52,11 +20,11 @@ $on-large:          $on-laptop !default;
   top: $top;
 }
 
-@mixin blur {
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter:         saturate(180%) blur(20px);
-  background-color: rgba(255, 255, 255, 0.7);
-}
+// @mixin blur {
+//   -webkit-backdrop-filter: saturate(180%) blur(20px);
+//   backdrop-filter:         saturate(180%) blur(20px);
+//   background-color: var(--blur-color);
+// }
 
 // Use media queries like this:
 // @include media-query($on-palm) {

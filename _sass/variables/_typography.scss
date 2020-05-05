@@ -1,0 +1,21 @@
+// Font declarations
+@import 'fonts/inter',
+        'fonts/iosevka';
+
+// Font families
+$base-font-family: 'Inter var', 'Source Han Sans SC', 'Noto Sans CJK SC', source-han-sans-cjk-sc, sans-serif !default;
+$mono-font-family: 'Iosevka Web', 'SF Mono', Menlo, Consolas, monospace, 'Source Han Sans SC', 'Noto Sans CJK SC', source-han-sans-cjk-sc !default;
+$punct-font-family: 'Source Han Sans SC', 'Noto Sans CJK SC', source-han-sans-cjk-sc, sans-serif !default;
+
+// Font related
+$base-font-weight:  400 !default;
+$bold-font-weight:  600 !default;
+$base-font-size:    16px !default;
+$large-font-size:   18px !default;
+$small-font-size:   14px !default;
+$tiny-font-size:    12px !default;
+$h1-font-size:      24px !default;
+$h2-font-size:      22px !default;
+$h3-font-size:      18px !default;
+$h4-font-size:      16px !default;
+$base-line-height:  1.6  !default;

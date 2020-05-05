@@ -238,7 +238,7 @@ function updateMath() {
 
 function updateImage() {
   if (typeof mediumZoom !== 'undefined') {
-    mediumZoom('img', {margin: 30});
+    mediumZoom('img', {margin: 30, background: 'var(--bg-color)'});
   }
 }
 
