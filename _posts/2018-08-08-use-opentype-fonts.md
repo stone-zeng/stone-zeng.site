@@ -129,9 +129,7 @@ information.
 \end{document}
 ```
 
-<figure>
-  <img src="/images/use-opentype-fonts/fontspec-basic.svg" alt="fontspec-basic">
-</figure>
+![fontspec-basic](/images/use-opentype-fonts/fontspec-basic.svg){:.invert}
 
 这里选用的三个字体分别是 Times New Roman、Helvetica 和 Courier New 的开源复刻版本。注意这里我们还用 `\textit` 和 `\textsc` 命令使用了意大利体和小型大写字母，它们是由 `fontspec` 自动选取的。
 
@@ -172,9 +170,7 @@ information.
 \end{document}
 ```
 
-<figure>
-  <img src="/images/use-opentype-fonts/fontspec-ad-hoc.svg" alt="fontspec-ad-hoc">
-</figure>
+![fontspec-ad-hoc](/images/use-opentype-fonts/fontspec-ad-hoc.svg){:.invert}
 
 粗体和意大利体在这里也被正确调用了；但值得注意的是，示例中的前后引号 ``` `` ``` 和 `''` 并没有正确地转换为 `“` 和 `”`，其原因在于 `\newfontfamily` 等命令默认没有开启合字功能。
 
@@ -247,9 +243,7 @@ $\LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架[^ctex
 \end{document}
 ```
 
-<figure>
-  <img src="/images/use-opentype-fonts/ctex-basic.svg" alt="ctex-basic">
-</figure>
+![ctex-basic](/images/use-opentype-fonts/ctex-basic.svg){:.invert}
 
 关于这一示例，有几点说明：
 

@@ -1,4 +1,4 @@
-/* Post page */
+// Post page
 
 .post {
   @include media-on-large {
@@ -141,24 +141,23 @@
   }
 
   figure {
-    margin-inline-start: auto;
-    margin-inline-end: auto;
     text-align: center;
+  }
 
-    img {
+  figure, p {
+    & > img {
       width: 100%;
       max-width: 100%;
-      background-color: white;
       vertical-align: middle;
       outline: $border;
       outline-offset: -1px;
     }
+  }
 
-    figcaption {
-      margin: 10px 0 0;
-      @include media-on-large {
-        margin: 10px 40px 0;
-      }
+  figcaption {
+    margin: 10px 0 0;
+    @include media-on-large {
+      margin: 10px 40px 0;
     }
   }
 
@@ -276,7 +275,7 @@
     }
   }
 
-  .fnref>a, .backref>a {
+  .fnref > a, .backref > a {
     border-bottom: none;
     font-feature-settings: 'sups';
     margin: 0 .1em;
@@ -287,7 +286,7 @@
     }
   }
 
-  .backref>a {
+  .backref > a {
     margin: 0;
     font-weight: $bold-font-weight;
     &:after {

@@ -65,7 +65,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/basic.svg" alt="basic">
+  <img src="/images/use-opentype-fonts-iii/basic.svg" alt="basic" class="invert">
   <figcaption>正态分布的累积分布函数</figcaption>
 </figure>
 
@@ -99,7 +99,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/xits.svg" alt="xits">
+  <img src="/images/use-opentype-fonts-iii/xits.svg" alt="xits" class="invert">
   <figcaption>含时 Schrödinger 方程</figcaption>
 </figure>
 
@@ -397,7 +397,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/iso-style.svg" alt="iso-style">
+  <img src="/images/use-opentype-fonts-iii/iso-style.svg" alt="iso-style" class="invert">
   <figcaption>Maxwell 方程组</figcaption>
 </figure>
 
@@ -438,9 +438,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 \end{document}
 ```
 
-<figure>
-  <img src="/images/use-opentype-fonts-iii/symbols.svg" alt="symbols">
-</figure>
+![symbols](/images/use-opentype-fonts-iii/symbols.svg){:.invert}
 
 ## 数学字体
 
@@ -499,7 +497,7 @@ OpenType 数学字体在相当长的时间内只有少数几种，不过近年�
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/math-version.svg" alt="math-version">
+  <img src="/images/use-opentype-fonts-iii/math-version.svg" alt="math-version" class="invert">
   <figcaption>Einstein&ndash;Hilbert 作用量及 Einstein 场方程</figcaption>
 </figure>
 
@@ -536,7 +534,7 @@ OpenType 数学字体在相当长的时间内只有少数几种，不过近年�
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/stylistic-set.svg" alt="stylistic-set">
+  <img src="/images/use-opentype-fonts-iii/stylistic-set.svg" alt="stylistic-set" class="invert">
   <figcaption>Stefan&ndash;Boltzmann 定律</figcaption>
 </figure>
 

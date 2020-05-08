@@ -305,7 +305,7 @@ kineticPartMapFunc[stateValuePairs_, index_] :=
 The basic idea is to calculate all the non-vanishing matrix elements. I use some list tricks to find the components of $\hat{a}_i^\dagger\hat{a}_j$ in `opADagAState[]`, then obtain their indices from the association `positionMap`. In `opADagAValue[]`, the coefficients are calculated. Note that the zero elements will be removed in `kineticPart[]`, as they make no contributions to the Hamiltonian matrix.
 
 <figure>
-  <img src="/images/exact-diagonalization/hamiltonian-matrix-n=3.svg" alt="hamiltonian-matrix-n=3" style="width: 24.5%;"><img src="/images/exact-diagonalization/hamiltonian-matrix-n=4.svg" alt="hamiltonian-matrix-n=4" style="width: 24.5%;"><img src="/images/exact-diagonalization/hamiltonian-matrix-n=5.svg" alt="hamiltonian-matrix-n=5" style="width: 24.5%;"><img src="/images/exact-diagonalization/hamiltonian-matrix-n=6.svg" alt="hamiltonian-matrix-n=6" style="width: 24.5%;">
+  <img src="/images/exact-diagonalization/hamiltonian-matrix-n=3.svg" alt="hamiltonian-matrix-n=3" style="width: 25%;" class="invert"><img src="/images/exact-diagonalization/hamiltonian-matrix-n=4.svg" alt="hamiltonian-matrix-n=4" style="width: 25%;" class="invert"><img src="/images/exact-diagonalization/hamiltonian-matrix-n=5.svg" alt="hamiltonian-matrix-n=5" style="width: 25%;" class="invert"><img src="/images/exact-diagonalization/hamiltonian-matrix-n=6.svg" alt="hamiltonian-matrix-n=6" style="width: 25%;" class="invert">
   <figcaption markdown="span">The result of `getMatrix[]` with `siteNum = particleNum = 3, 4, 5, 6` and `couplingConst = 1`. Colors are not scaled equally in above 4 figures.</figcaption>
 </figure>
 
@@ -404,7 +404,7 @@ It can be calculated without too many tricks:
 The above numeric results are the following:
 
 <figure>
-  <img src="/images/exact-diagonalization/numeric-results.svg" alt="numeric-results">
+  <img src="/images/exact-diagonalization/numeric-results.svg" alt="numeric-results" class="invert">
   <figcaption>The SPDM is actually $\rho_{1,\,\lceil n/2\rceil}^{(1)}$. The $x$-axis is coupling constant $U/t$. Different curves are for different $M$ and $N$ (we take $M=N$ here for convenience).</figcaption>
 </figure>
 

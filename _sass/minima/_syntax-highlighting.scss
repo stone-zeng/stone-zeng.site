@@ -2,85 +2,81 @@
 // https://github.com/primer/github-syntax-light
 // https://github.com/primer/github-syntax-dark
 
-@media (prefers-color-scheme: light) {
-  .highlight {
-      .c  // Comment
-    , .c1 // Comment.Single
-    , .cm // Comment.Multiline
-    { color: $gray-50; }
-      .cp // Comment.Preproc
-    , .cs // Comment.Special
-    { color: $gray-50; font-weight: bold; }
+.highlight {
+    .c  // Comment
+  , .c1 // Comment.Single
+  , .cm // Comment.Multiline
+  { color: $gray-50; }
+    .cp // Comment.Preproc
+  , .cs // Comment.Special
+  { color: $gray-50; font-weight: bold; }
 
-      .k  // Keyword
-    , .kc // Keyword.Constant
-    , .kd // Keyword.Declaration
-    , .kp // Keyword.Pseudo
-    , .kr // Keyword.Reserved
-    , .kt // Keyword.Type
-    { color: $red-500; }
+    .k  // Keyword
+  , .kc // Keyword.Constant
+  , .kd // Keyword.Declaration
+  , .kp // Keyword.Pseudo
+  , .kr // Keyword.Reserved
+  , .kt // Keyword.Type
+  { color: $red-500; }
 
-      .s  // Literal.String
-    , .s1 // Literal.String.Single
-    , .s2 // Literal.String.Double
-    , .sb // Literal.String.Backtick
-    , .sc // Literal.String.Char
-    , .sd // Literal.String.Doc
-    , .se // Literal.String.Escape
-    , .sh // Literal.String.Heredoc
-    , .si // Literal.String.Interpol
-    , .sr // Literal.String.Regex
-    , .sx // Literal.String.Other
-    { color: $blue-800; }
+    .s  // Literal.String
+  , .s1 // Literal.String.Single
+  , .s2 // Literal.String.Double
+  , .sb // Literal.String.Backtick
+  , .sc // Literal.String.Char
+  , .sd // Literal.String.Doc
+  , .se // Literal.String.Escape
+  , .sh // Literal.String.Heredoc
+  , .si // Literal.String.Interpol
+  , .sr // Literal.String.Regex
+  , .sx // Literal.String.Other
+  { color: $blue-800; }
 
-    .ss // Literal.String.Symbol
-    { color: $green-600; }
+  .ss // Literal.String.Symbol
+  { color: $green-600; }
 
-      .m  // Literal.Number
-    , .mf // Literal.Number.Float
-    , .mh // Literal.Number.Hex
-    , .mi // Literal.Number.Integer
-    , .mo // Literal.Number.Oct
-    , .il // Literal.Number.Integer.Long
-    { color: $blue-600; }
+    .m  // Literal.Number
+  , .mf // Literal.Number.Float
+  , .mh // Literal.Number.Hex
+  , .mi // Literal.Number.Integer
+  , .mo // Literal.Number.Oct
+  , .il // Literal.Number.Integer.Long
+  { color: $blue-600; }
 
-      .bp // Name.Builtin.Pseudo
-    , .gh // Generic.Heading
-    , .nb // Name.Builtin
-    , .nd
-    { color: $blue-600; }
+    .bp // Name.Builtin.Pseudo
+  , .gh // Generic.Heading
+  , .nb // Name.Builtin
+  , .nd
+  { color: $blue-600; }
 
-    //   .n  // Name
-      .na // Name.Attribute
-    , .no // Name.Constant
-    , .nv // Name.Variable
-    , .vc // Name.Variable.Class
-    , .vg // Name.Variable.Global
-    , .vi // Name.Variable.Instance
-    { color: $orange-600; }
+  //   .n  // Name
+    .na // Name.Attribute
+  , .no // Name.Constant
+  , .nv // Name.Variable
+  , .vc // Name.Variable.Class
+  , .vg // Name.Variable.Global
+  , .vi // Name.Variable.Instance
+  { color: $orange-600; }
 
-      .gp // Generic.Prompt
-    , .nc // Name.Class
-    , .ne // Name.Exception
-    , .nf // Name.Function
-    , .ni // Name.Entity
-    , .nn // Name.Namespace
-    { color: $purple-500; }
+    .gp // Generic.Prompt
+  , .nc // Name.Class
+  , .ne // Name.Exception
+  , .nf // Name.Function
+  , .ni // Name.Entity
+  , .nn // Name.Namespace
+  { color: $purple-500; }
 
-    .nt // Name.Tag
-    { color: $green-600; } 
+  .nt // Name.Tag
+  { color: $green-600; } 
 
-      .o  // Operator
-    , .ow // Operator.Word
-    { font-weight: bold }
+    .o  // Operator
+  , .ow // Operator.Word
+  { font-weight: bold }
 
-    .err // Error
-    { color: $gray-10; background-color: $red-700; }
-  }
-}
+  .err // Error
+  { color: $gray-10; background-color: $red-700; }
 
-@media (prefers-color-scheme: dark) {
-  .highlight {
+  @include media-dark {
       .c  // Comment
     , .c1 // Comment.Single
     , .cm // Comment.Multiline
@@ -157,24 +153,15 @@
 }
 
 // Used in Wolfram Language
-
 .language-wl .highlight {
-  // Programming ligatures, centered star
-  font-feature-settings: 'calt', 'cv19';
+  font-feature-settings: 'calt', 'cv19'; // Programming ligatures, centered star
 
   .nb { color: inherit; font-weight: bold;}
-}
+  .np { color: $red-500; font-style: italic; } // Name.Pattern
+  .ns { color: $purple-500; font-style: italic; } // Name.Slot
 
-@media (prefers-color-scheme: light) {
-  .language-wl .highlight {
-    .np { color: $red-500; font-style: italic; } // Name.Pattern
-    .ns { color: $purple-500; font-style: italic; } // Name.Slot
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .language-wl .highlight {
-    .np { color: $red-400; font-style: italic; } // Name.Pattern
-    .ns { color: $purple-300; font-style: italic; } // Name.Slot
+  @include media-dark {
+    .np { color: $red-400; }
+    .ns { color: $purple-300; }
   }
 }

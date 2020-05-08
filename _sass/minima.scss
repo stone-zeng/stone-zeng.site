@@ -1,3 +1,9 @@
+@mixin media-dark {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
 @import 'variables/colors',
         'variables/typography';
 

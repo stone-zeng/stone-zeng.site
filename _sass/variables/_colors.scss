@@ -101,23 +101,19 @@ $gray-20:  #e0e0e0 !default;
 $gray-10:  #f4f4f4 !default;
 $white:    #ffffff !default;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color:         #fdfdfd;
-    --text-color:       #{$gray-80};
-    --link-color:       #{$black};
-    --ul-color:         #{$gray-40};
-    --border-color:     #{$gray-20};
-    --gray-color:       #{$gray-40};
-    --dark-gray-color:  #{$gray-60};
-    --light-gray-color: #{$gray-20};
-    --code-bg-color:    #f0f0f0;
-    --table-bg-color:   #fafafa;
-  }
-}
+:root {
+  --bg-color:         #fdfdfd;
+  --text-color:       #{$gray-80};
+  --link-color:       #{$black};
+  --ul-color:         #{$gray-40};
+  --border-color:     #{$gray-20};
+  --gray-color:       #{$gray-40};
+  --dark-gray-color:  #{$gray-60};
+  --light-gray-color: #{$gray-20};
+  --code-bg-color:    #f0f0f0;
+  --table-bg-color:   #fafafa;
 
-@media (prefers-color-scheme: dark) {
-  :root {
+  @include media-dark {
     --bg-color:         #{$gray-100};
     --text-color:       #{$gray-20};
     --link-color:       #{$gray-10};

@@ -93,9 +93,7 @@ LaTeX Warning: Empty bibliography on input line 13.
 LaTeX Warning: There were undefined references.
 ```
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/fullcite-1.png" alt="fullcite-1">
-</figure>
+![fullcite-1](/images/latex-crime-and-punishment/fullcite-1.png){:.invert}
 
 出了一堆 undefined citation 的警告，PDF 里面引用又全都显示不出来，so，满意了吧？不过**请把提示信息读完**：
 
@@ -120,9 +118,7 @@ pdflatex mytest
 
 现在 PDF 里面该有的就都应该有了：
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/fullcite-2.png" alt="fullcite-2">
-</figure>
+![fullcite-2](/images/latex-crime-and-punishment/fullcite-2.png){:.invert}
 
 **含有参考文献的时候 $\LaTeX$ 要编译多次**，这个应当属于常识。编译的消息窗口很有用的，要做什么它明明都说了，不看怪谁呢。
 
@@ -154,9 +150,7 @@ PS：我觉得 latexmk 就很靠谱，不知道为什么 PDFTeXify 不够 robust
 
 然后编译（图省事直接用 `latexmk -pdf mytest`）：
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/bibentry-1.png" alt="bibentry-1">
-</figure>
+![bibentry-1](/images/latex-crime-and-punishment/bibentry-1.png){:.invert}
 
 嗯，是只有 `itemize` 的几个点。
 
@@ -186,15 +180,11 @@ CTAN 页面中显示 `bibentry` 属于 `natbib` 的一部分，然而打开 `nat
 
 其实 Google 搜索一下也可以找到文档，不过这不重要。一种正确的写法是用 `\nobibliography` 代替 `\bibliography`（并且要放在 `\bibentry` 前面）：
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/bibentry-2.png" alt="bibentry-2">
-</figure>
+![bibentry-2](/images/latex-crime-and-punishment/bibentry-2.png){:.invert}
 
 另一种是作者提到的「额外写一句 `\nobibliography*`」：
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/bibentry-3.png" alt="bibentry-3">
-</figure>
+![bibentry-3](/images/latex-crime-and-punishment/bibentry-3.png){:.invert}
 
 注意这两种结果并不一样，前者是把原来的 `thebibliography`（即参考文献表）隐藏起来，然后用 `\bibentry` 给出其中的条目；后者则允许插入原来的 `thebibliography`。至于为什么要这么麻烦，<small>这个包的原理是重定义 `thebibliography` 里面的 `\bibitem`，然后存储到一些宏里面。而 `thebibliography` 存储在外部文件 `<jobname>.bbl`，那就只有预先把它读进来，而且还不能破坏和原来参考文献机制的兼容性，</small>简单、现代的方法就在上面（`biblatex`），但你自己选择弃疗了……
 
@@ -241,15 +231,11 @@ A
 
 作为「$\LaTeX$ 普通用户」，你当然可以不需要知道这些。但你会上网吧？请找一个**靠谱的搜索引擎**，然后把这个错误输进那个搜索框里面去（上下文就不用带了，这不是给人看）：
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/google-result.png" alt="google-result">
-</figure>
+![google-result](/images/latex-crime-and-punishment/google-result.png)
 
 点击第一条结果（没搜到这个结果？所以上面我要强调**靠谱**二字），就是 TeX.StackExchange 上的[这个问题](https://tex.stackexchange.com/q/112637/)：
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/stackexchange-problem.png" alt="stackexchange-problem">
-</figure>
+![stackexchange-problem](/images/latex-crime-and-punishment/stackexchange-problem.png)
 
 是不是一样的报错信息？（忽略上下文）
 
@@ -257,9 +243,7 @@ A
 
 是不是网址里面一样有个 `%`？
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/stackexchange-answers.png" alt="stackexchange-answers">
-</figure>
+![stackexchange-answers](/images/latex-crime-and-punishment/stackexchange-answers.png)
 
 回答只有那么几句话，核心就是用 `url` 或者 `hyperref` 包，或者手动把 `%` 替换成 `\%`，这个真的很困难吗？
 
@@ -301,9 +285,7 @@ A
 
 至于 wiki，
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/wiki-citation.png" alt="wiki-citation">
-</figure>
+![wiki-citation](/images/latex-crime-and-punishment/wiki-citation.png)
 
 已经写成这样了再（装作）看不懂我们也没有办法。
 
@@ -425,9 +407,7 @@ PS：这段话中英文夹杂、大小写错乱怎么看怎么别扭。国内的
 
 下面列了几个「可以满足要求」的方法，你选择哪个？（`\verb` 会默认使用等宽字体，其余默认正文字体）
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/verbatim.png" alt="verbatim">
-</figure>
+![verbatim](/images/latex-crime-and-punishment/verbatim.png){:.invert}
 
 PS：原文图里面 `\TeX` 后面漏了 `{}` 或者 `\<space>`，而且引号写反了……
 
@@ -582,17 +562,13 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 
 可以看到左边的引号后面多出了一个空格：
 
-<figure>
-  <img src="/images/latex-crime-and-punishment/debug-1.png" alt="debug-1">
-</figure>
+![debug-1](/images/latex-crime-and-punishment/debug-1.png){:.invert}
 
 然而，该用户因为知道「`zhspacing` 包是用来解决中英文之间的空格，包括代码块中中英文之间的空格」，所以想用 `zhspacing` 包来处理，结果却遇到了 Linux 下没有 SimSun 字体而产生的错误，这才过来报告 issue。
 
 该用户发现在 Windows 上配合 `zhspacing` 包可以实现想要的效果：
 
-<figure>
-  <img src="https://user-images.githubusercontent.com/12031874/34298120-1286a9d6-e757-11e7-9254-dc31153f637d.PNG" alt="zhspacing-win">
-</figure>
+![zhspacing-win](https://user-images.githubusercontent.com/12031874/34298120-1286a9d6-e757-11e7-9254-dc31153f637d.PNG){:.invert}
 
 观察仔细可以发现这里的引号其实是蝌蚪引号 U+2018 Right single quotation mark，而不是编程语言中一般用的 U+0027 Apostrophe。所以这其实并不是正确的解决方案。
 
@@ -655,9 +631,7 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 
    这时修补过的 `Highlighting` 就可以表现正常了（`Verbatim` 用来对照）：
 
-   <figure>
-     <img src="/images/latex-crime-and-punishment/debug-2.png" alt="debug-2">
-   </figure>
+   ![debug-2](/images/latex-crime-and-punishment/debug-2.png){:.invert}
 
 4. 查看[代码](https://github.com/CTeX-org/ctex-kit/blob/dce0e53ef106740d74e676164a9039de27b79596/xeCJK/xeCJK.dtx#L7491-L7495)可以看出，`xeCJK` 仅为 `\verbatim@font` 打了补丁，而这个是 `\verb` 或者 `verbatim` 环境内部所使用的字体样式。如果是其他抄录环境则需额外定义（`listings` 宏包由于使用自己的一套机制 `xeCJK` 对此单独做了修补）。
 
@@ -690,13 +664,8 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 
 ## 引用与注释
 
-<div id="footnotes">
-  <ol>
-    <li id="fn:context">参考 TUG@BachoTeX 2017 会议上 Hans Hagen 所做的报告：
-      <ul>
-        <li markdown="span">[Variable Fonts](https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-variablefonts.pdf)（`texdoc variablefonts.pdf`）</li>
-        <li markdown="span">[Picture Fonts](https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-emoji.pdf)（`texdoc emoji.pdf`）</li>
-      </ul>
-    </li>
-  </ol>
+<div id="footnotes" markdown="1">
+1. {:#fn:context} 参考 TUG@BachoTeX 2017 会议上 Hans Hagen 所做的报告：
+  - [Variable Fonts](https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-variablefonts.pdf)（`texdoc variablefonts.pdf`）
+  - [Picture Fonts](https://www.tug.org/texlive/devsrc/Master/texmf-dist/doc/context/presentations/bachotex/2017/bachotex-2017-emoji.pdf)（`texdoc emoji.pdf`）
 </div>

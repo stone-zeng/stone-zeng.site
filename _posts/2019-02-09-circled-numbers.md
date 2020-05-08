@@ -9,9 +9,7 @@ description: 众所周知，$\LaTeX$ 提供了 `\textcircled` 命令用以给字
 
 众所周知，$\LaTeX$ 提供了 `\textcircled` 命令用以给字符加圈，但效果却不怎么好：
 
-<figure>
-  <img src="/images/circled-numbers/textcircled.svg" alt="\textcircled">
-</figure>
+![\textcircled](/images/circled-numbers/textcircled.svg){:.invert}
 
 实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是几乎无法在 $\TeX$ 宏层面解决的。因此，要得到比较好的效果，最好能使用预先设计的字符形（glyph）。
 
@@ -21,9 +19,7 @@ description: 众所周知，$\LaTeX$ 提供了 `\textcircled` 命令用以给字
 
 使用 `\ding{<number>}` 可以很方便地使用带圈数字（共有四种），当然也有其他符号。具体数字可参见下图：
 
-<figure>
-  <img src="/images/circled-numbers/pifont.svg" alt="pifont">
-</figure>
+![pifont](/images/circled-numbers/pifont.svg){:.invert}
 
 在主流的 $\TeX$ 引擎下，`pifont` 宏包都可以使用。
 
@@ -253,9 +249,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 使用 $\XeLaTeX$ 或 $\LuaLaTeX$ 编译，效果如下：
 
-<figure>
-  <img src="/images/circled-numbers/textcircled-fontspec.svg" alt="textcircled-fontspec">
-</figure>
+![textcircled-fontspec](/images/circled-numbers/textcircled-fontspec.svg){:.invert}
 
 ## `xunicode-addon` 宏包
 
@@ -294,9 +288,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 \TESTiii
 ```
 
-<figure>
-  <img src="/images/circled-numbers/textcircled-xunicode-addon.svg" alt="textcircled-xunicode-addon">
-</figure>
+![textcircled-xunicode-addon](/images/circled-numbers/textcircled-xunicode-addon.svg){:.invert}
 
 当然，其他样式的带圈数字并没有提供快捷的输入方式。
 
@@ -376,9 +368,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 
 对于字体中没有的带圈数字，`\textcircled` 也能够自动生成（由圆圈和相应的数字拼合）。选择合适的字体之后，便可做一些比较暴力的尝试：
 
-<figure>
-  <img src="/images/circled-numbers/textcircled-matrix.png" alt="textcircled-matrix">
-</figure>
+![textcircled-matrix](/images/circled-numbers/textcircled-matrix.png){:.invert}
 
 即使是三位数，效果也尚能接受。
 
@@ -398,9 +388,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 \end{document}
 ```
 
-<figure>
-  <img src="/images/circled-numbers/textcircled-nalt.svg" alt="textcircled-nalt">
-</figure>
+![textcircled-nalt](/images/circled-numbers/textcircled-nalt.svg){:.invert}
 
 需要注意的是，`Annotation=X` 中的某个 `X` 具体对应何种样式，这是由字体设计者决定的。此外，在一些字体中，部分假名、汉字也有类似的标注形式，可以用相同方法使用：
 
@@ -419,9 +407,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 \end{document}
 ```
 
-<figure>
-  <img src="/images/circled-numbers/textcircled-nalt-kana.svg" alt="textcircled-nalt-kana">
-</figure>
+![textcircled-nalt-kana](/images/circled-numbers/textcircled-nalt-kana.svg){:.invert}
 
 这里我们用 `\addCJKfontfeature` 代替了 `\addfontfeature`。此处作为演示的字体是 macOS 自带的<span lang="ja">ヒラギノ明朝</span>，在 Windows/Linux 上可换用其他字体。
 
@@ -467,9 +453,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
   \end{document}{% endraw %}
   ```
 
-  <figure>
-    <img src="/images/circled-numbers/textcircled-cid-uptex.svg" alt="textcircled-cid-uptex">
-  </figure>
+  ![textcircled-cid-uptex](/images/circled-numbers/textcircled-cid-uptex.svg){:.invert}
 
   注意 $\upTeX$ 不直接生成 PDF，因此编译时可采取如下方式：
 

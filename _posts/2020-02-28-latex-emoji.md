@@ -50,9 +50,7 @@ The monkey gets the moon: {\EmojiFont 🙈🌛}.
 
 使用 `lualatex-dev` 编译，得到：
 
-<figure>
-  <img src="/images/latex-emoji/emoji-basic.svg" alt="emoji-basic">
-</figure>
+![emoji-basic](/images/latex-emoji/emoji-basic.svg)
 
 ## `emoji` 宏包
 
@@ -72,9 +70,7 @@ $
 \end{document}
 ```
 
-<figure>
-  <img src="/images/latex-emoji/emoji-package.svg" alt="emoji-package">
-</figure>
+![emoji-package](/images/latex-emoji/emoji-package.svg)
 
 `\emoji` 命令的参数来自 GitHub 的 emoji 短名，可以参考宏包文档或 [Complete list of github markdown emoji markup](https://gist.github.com/rxaviers/7360908)（可能不完整）。
 
@@ -153,9 +149,7 @@ Emoji 背后的技术比较复杂，值得额外谈谈。
 \end{document}
 ```
 
-<figure>
-  <img src="/images/latex-emoji/emoji-unicode.svg" alt="emoji-unicode">
-</figure>
+![emoji-unicode](/images/latex-emoji/emoji-unicode.svg)
 
 这也是 `emoji` 宏包内部使用的方法。
 
