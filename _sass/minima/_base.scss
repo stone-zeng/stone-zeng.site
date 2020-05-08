@@ -279,8 +279,34 @@ strong, th, .post-sidebar .active {
     a {
       color: var(--gray-color); // TODO: different colors for different icons
 
+      #stack-exchange-brands {
+        display: inline-block;
+      }
+      #stack-exchange-brands-colorful {
+        display: none;
+      }
+
       &:hover, &:active, &:focus {
         color: var(--link-color);
+
+        #stack-exchange-brands {
+          display: none;
+        }
+        #stack-exchange-brands-colorful {
+          display: inline-block;
+        }
+
+        #telegram-brands {
+          color: #0088CC;
+        }
+
+        #envelope-solid {
+          color: $yellow-600;
+        }
+
+        #rss-solid {
+          color: #f26522;
+        }
       }
     }
   }
