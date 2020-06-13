@@ -331,3 +331,31 @@ svg.icon {
   width: -webkit-calc(50% - (#{$spacing-unit} / 2));
   width:         calc(50% - (#{$spacing-unit} / 2));
 }
+
+// Selection
+
+::selection {
+  background-color: rgba($blue-300, 0.6);
+}
+
+.invert::selection {
+  @include media-dark {
+    background-color: rgba(invert($blue-300), 0.6);
+  }
+}
+
+// Scrollbar
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 4px;
+}
+
+* {
+  scrollbar-color: var(--border-color) rgba(0,0,0,0);
+}

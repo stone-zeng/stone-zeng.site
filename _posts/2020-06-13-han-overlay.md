@@ -2,10 +2,9 @@
 layout: post
 title: 把所有汉字叠写起来会怎么样呢？
 date: 2020-06-13
+last_modified_at: 2020-06-14
 description: 「把所有汉字叠写起来会怎么样呢？」这个问题源于知乎网友 @闭眼唱歌 脑洞大开的起名方式。虽然看起来非常无厘头，但对理解中文字体设计是有一些帮助的。
 ---
-
-> 本文基于对此话题的知乎回答补充而成：<https://www.zhihu.com/question/394175264/answer/1221223455>
 
 ## 背景介绍
 
@@ -59,11 +58,11 @@ description: 「把所有汉字叠写起来会怎么样呢？」这个问题源�
 
 ![fundamental](/images/han-overlay/fundamental.png){:.black}
 
-实际上，这一规律早在七十年代就被日本的字体研究者佐藤敬之辅发现了。他对宋体和楷体也做了一些叠加的实验，和我们的叠加图类似，宋体叠加后是一个方框，而楷体则是一个类似 🍙 的不规则形状。
+实际上，这一规律早在七十年代就被日本的字体研究者<span lang="ja">佐藤敬之輔</span>发现了。他对宋体和楷体也做了一些叠加的实验，和我们的叠加图类似，宋体叠加后是一个方框，而楷体则是一个类似 🍙 的不规则形状。
 
 <figure>
   <img src="/images/han-overlay/kanji-514.png" alt="kanji-514" class="invert" style="max-width: 360px;">
-  <figcaption>来源：佐藤敬之辅《汉字（下）》，第 13 页图 514</figcaption>
+  <figcaption>来源：<span lang="ja">佐藤敬之輔《文字のデザインシリーズ 6：漢字（下）》</span>，第 13 页图 514</figcaption>
 </figure>
 
 楷体脱胎于书法，带有强烈的手写感。这个像 Q 的小尾巴一样的突出部分，也正是源于传统书法美学中捺要舒展的要求。便于雕刻的仿宋有接近楷体的笔画特征和类似的笔画倾角，不过整体字面已经变得方正起来。再往后，宋体和黑体伴随着现代字体技术的成熟逐渐成为主流，笔形规整统一、字面较大的特征一直延续到了今天。
@@ -112,13 +111,9 @@ description: 「把所有汉字叠写起来会怎么样呢？」这个问题源�
 
 以上三个字体分别是 16×15 像素的 [GNU Unifont](http://unifoundry.com/unifont/index.html) 和 9×9、7×7 的[丁卯点阵体](https://3type.cn/fonts/dinkie_bitmap/)。由于点阵字体本身的限制，它们在整个字身框中都故意留出了一像素的缝隙，以防止密排时文字连在一起。可以看到，在 Unifont 中左上角和右上角仍留有一些空白；而在「小至极限」的丁卯点阵点里面，设计师就不得不充分利用除了预留空间外每一个能用的像素，因而最终叠加出了一个几乎实心的黑块。
 
-<div markdown="1" class="small">
-
-感谢杜希尧、李晨、厉致谦、刘育黎对本文的帮助。本文另发布在 [3type 公众号](https://mp.weixin.qq.com/s/3xxRY5g2PzCvc44cDZde9Q)。
-
-文中所用代码可在 [stone-zeng/toys](https://github.com/stone-zeng/toys/tree/master/wolfram/han-overlay/) 中找到。
-
-</div>
+<small>
+本文基于对此话题的[知乎回答](https://www.zhihu.com/question/394175264/answer/1221223455)补充而成，另发布在 [3type 公众号](https://mp.weixin.qq.com/s/3xxRY5g2PzCvc44cDZde9Q)。感谢杜希尧、李晨、厉致谦、刘育黎对本文的帮助。绘图所用代码可在 [stone-zeng/toys](https://github.com/stone-zeng/toys/tree/master/wolfram/han-overlay/) 中找到。
+</small>
 
 ## 参考文献
 
