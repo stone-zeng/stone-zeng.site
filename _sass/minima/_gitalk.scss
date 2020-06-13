@@ -826,8 +826,13 @@
   background: var(--gt-color-main);
 }
 .gt-container .gt-header-textarea {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   border: 1px solid var(--gt-color-input-border);
   background-color: var(--gt-color-input-bg);
+  color: var(--gt-color-comment-txt);
+  &::placeholder {
+    color: var(--gt-color-sub);
+  }
 }
 .gt-container .gt-header-textarea:hover {
   background-color: var(--gt-color-input-bg-hover);
