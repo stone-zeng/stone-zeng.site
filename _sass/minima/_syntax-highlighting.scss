@@ -156,7 +156,6 @@
 .language-wl .highlight {
   font-feature-settings: 'calt', 'cv19'; // Programming ligatures, centered star
 
-  .nb { color: inherit; font-weight: bold;}
   .np { color: $red-500; font-style: italic; } // Name.Pattern
   .ns { color: $purple-500; font-style: italic; } // Name.Slot
 
