@@ -67,7 +67,7 @@
   { color: $purple-500; }
 
   .nt // Name.Tag
-  { color: $green-600; } 
+  { color: $green-600; }
 
     .o  // Operator
   , .ow // Operator.Word
@@ -141,7 +141,7 @@
     { color: $purple-300; }
 
     .nt // Name.Tag
-    { color: $green-400; } 
+    { color: $green-400; }
 
       .o  // Operator
     , .ow // Operator.Word
@@ -156,11 +156,12 @@
 .language-wl .highlight {
   font-feature-settings: 'calt', 'cv19'; // Programming ligatures, centered star
 
-  .np { color: $red-500; font-style: italic; } // Name.Pattern
-  .ns { color: $purple-500; font-style: italic; } // Name.Slot
+  .np, .ns { font-style: italic; }
+  .np { color: $red-500; } // Name.Pattern
+  .ns { color: $green-600; } // Name.Slot
 
   @include media-dark {
     .np { color: $red-400; }
-    .ns { color: $purple-300; }
+    .ns { color: $green-400; }
   }
 }
