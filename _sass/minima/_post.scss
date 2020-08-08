@@ -240,6 +240,12 @@
     font-weight: 500;
   }
 
+  sub {
+    font-size: inherit;
+    vertical-align: baseline;
+    font-feature-settings: 'subs';
+  }
+
   sup.fnref {
     position: relative;
     display: inline-block;
