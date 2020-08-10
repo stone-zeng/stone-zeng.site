@@ -71,3 +71,9 @@
     color: $red-400;
   }
 }
+.frac {
+  font-feature-settings: 'frac';
+}
+.ordn {
+  font-feature-settings: 'sups';
+}
