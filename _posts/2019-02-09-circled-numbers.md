@@ -303,12 +303,12 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 总而言之，在 `ctex` 宏集的默认配置下：
 
 | Unicode 区块                     | $\XeLaTeX$ | $\LuaLaTeX$ |
-|:--------------------------------:|:----------:|:---------:|
-| Enclosed Alphanumerics           | 西文      | 西文       |
-| Dingbats                         | 西文      | 西文       |
-| Enclosed CJK Letters and Months  | 中文      | 中文       |
-| Enclosed Alphanumeric Supplement | 西文      | 西文       |
-| Enclosed Ideographic Supplement  | 中文      | 西文       |
+|:--------------------------------:|:----------:|:-----------:|
+| Enclosed Alphanumerics           | 西文       | 西文        |
+| Dingbats                         | 西文       | 西文        |
+| Enclosed CJK Letters and Months  | 中文       | 中文        |
+| Enclosed Alphanumeric Supplement | 西文       | 西文        |
+| Enclosed Ideographic Supplement  | 中文       | 西文        |
 
 在 $\XeLaTeX$ 下，可以做如下修改：
 
@@ -316,11 +316,11 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 {% raw %}% 使用中文字体
 \xeCJKDeclareCharClass{CJK}{%
   "24EA,        % ⓪
-  "2460->"2473, % ①–⑳
-  "3251->"32BF, % ㉑–㊿
+  "2460->"2473, % ①->⑳
+  "3251->"32BF, % ㉑->㊿
   "24FF,        % ⓿
-  "2776->"277F, % ❶–❿
-  "24EB->"24F4  % ⓫–⓴
+  "2776->"277F, % ❶->❿
+  "24EB->"24F4  % ⓫->⓴
 }
 \setCJKmainfont{Source Han Serif SC}
 
@@ -467,217 +467,41 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 
 上文我们多次提及，带圈数字的具体使用与字体密切相关。下面我们整理了 $\TeX$ Live 自带的、可使用带圈数字的字体，以及对应的数字范围：
 
-<table class="circled-number-fonts">
-  <thead>
-    <tr>
-      <th>字体</th>
-      <th>带圈</th>
-      <th>反白</th>
-      <th>无衬线</th>
-      <th>无衬线反白</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="circled-number-fonts-name">Baekmuk Batang/Dotum/Gulim/Headline</td>
-      <td>1&ndash;15</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">Carlito</td>
-      <td>0&ndash;20</td>
-      <td>0&ndash;20</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">DejaVuSans</td>
-      <td>1&ndash;10</td>
-      <td>1&ndash;10</td>
-      <td>1&ndash;10</td>
-      <td>1&ndash;10</td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">Fandol Song/Hei/Fang/Kai</td>
-      <td>1&ndash;10</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">FreeMono, FreeSans</td>
-      <td>1&ndash;10</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">FreeSerif</td>
-      <td>1&ndash;10</td>
-      <td>1&ndash;10</td>
-      <td>1&ndash;10</td>
-      <td>1&ndash;10</td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">Garamond Math</td>
-      <td>0&ndash;50</td>
-      <td>0&ndash;20</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">IPAGothic, IPAMincho</td>
-      <td>1&ndash;50</td>
-      <td>1&ndash;20</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">Junicode</td>
-      <td>0&ndash;20</td>
-      <td>0&ndash;20</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">Lato</td>
-      <td>0&ndash;20</td>
-      <td>0&ndash;20</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">Libertinus Serif/Sans/Math, Linux Libertine, Linux Biolinum</td>
-      <td>0&ndash;20</td>
-      <td>0&ndash;20</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">Libertinus Keyboard, Linux Biolinum Keyboard</td>
-      <td></td>
-      <td>1&ndash;10</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">STIX, STIX Math</td>
-      <td>0&ndash;9</td>
-      <td></td>
-      <td>1&ndash;10</td>
-      <td>1&ndash;10</td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">STIX Two Math</td>
-      <td>0&ndash;20</td>
-      <td>0&ndash;20</td>
-      <td>1&ndash;10</td>
-      <td>1&ndash;10</td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">UnBatang, UnDinaru, UnDotum, UnGraphic, UnGungseo, UnJamoBatang, UnJamoDotum, UnJamoNovel, UnJamoSora, UnPen, UnPenheulim, UnPilgi, UnPilgia, UnShinmun, UnVada, UnYetgul</td>
-      <td>0&ndash;20</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">XITS, XITS Math</td>
-      <td>0&ndash;9</td>
-      <td></td>
-      <td>1&ndash;10</td>
-      <td>1&ndash;10</td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">文鼎ＰＬ简报宋、文鼎ＰＬ简中楷</td>
-      <td>1&ndash;10</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+{:.circled-number-fonts}
+| 字体                                                            | 带圈   | 反白   | 无衬线 | 无衬线反白 |
+|:---------------------------------------------------------------:|:------:|:------:|:------:|:----------:|
+| Baekmuk Fonts 系列                                              | 1--15  |        |        |            |
+| Carlito                                                         | 0--20  | 0--20  |        |            |
+| DejaVuSans                                                      | 1--10  | 1--10  | 1--10  | 1--10      |
+| Fandol Song/Hei/Fang/Kai                                        | 1--10  |        |        |            |
+| FreeMono, FreeSans                                              | 1--10  |        |        |            |
+| FreeSerif                                                       | 1--10  | 1--10  | 1--10  | 1--10      |
+| Garamond Math                                                   | 0--50  | 0--20  |        |            |
+| IPAGothic, IPAMincho                                            | 1--50  | 1--20  |        |            |
+| Junicode                                                        | 0--20  | 0--20  |        |            |
+| Lato                                                            | 0--20  | 0--20  |        |            |
+| Libertinus Serif/Sans/Math<br>Linux Libertine<br>Linux Biolinum | 0--20  | 0--20  |        |            |
+| Libertinus Keyboard<br>Linux Biolinum Keyboard                  |        | 1--10  |        |            |
+| STIX, STIX Math                                                 | 0--9   |        | 1--10  | 1--10      |
+| STIX Two Math                                                   | 0--20  | 0--20  | 1--10  | 1--10      |
+| Un-Fonts 系列（UnBatang 等）                                    | 0--20  |        |        |            |
+| XITS, XITS Math                                                 | 0--9   |        | 1--10  | 1--10      |
+| 文鼎ＰＬ简报宋<br>文鼎ＰＬ简中楷                                | 1--10  |        |        |            |
 
 以下是其他一些常见中、日文字体，其中很多是操作系统自带的：
 
-<table class="circled-number-fonts">
-  <thead>
-    <tr>
-      <th>字体</th>
-      <th>带圈</th>
-      <th>反白</th>
-      <th>无衬线</th>
-      <th>无衬线反白</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="circled-number-fonts-name">思源宋体、思源黑体</td>
-      <td>0&ndash;50</td>
-      <td>0&ndash;20</td>
-      <td>0&ndash;10</td>
-      <td>0&ndash;10</td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">微软雅黑、微软正黑</td>
-      <td>1&ndash;10</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">苹方</td>
-      <td>0&ndash;50</td>
-      <td>0&ndash;20</td>
-      <td>0&ndash;10</td>
-      <td>1&ndash;10</td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">方正书宋、方正黑体、方正楷体、方正仿宋、等线</td>
-      <td>1&ndash;10</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">宋体、黑体、楷体、仿宋（中易）</td>
-      <td>1&ndash;10</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name">更纱黑体 (Sarasa Gothic)</td>
-      <td>0&ndash;50</td>
-      <td>0&ndash;20</td>
-      <td>0&ndash;10</td>
-      <td>0&ndash;10</td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name"><span lang="ja">小塚明朝</span> (Kozuka Mincho)、<span lang="ja">小塚ゴシック</span> (Kozuka Gothic)</td>
-      <td>0&ndash;100</td>
-      <td>0&ndash;100</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name"><span lang="ja">游明朝</span> (Yu Mincho)、<span lang="ja">游ゴシック</span> (Yu Gothic)</td>
-      <td>0&ndash;100</td>
-      <td>0&ndash;100</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="circled-number-fonts-name"><span lang="ja">メイリオ</span> (Meiryo)</td>
-      <td>0&ndash;50</td>
-      <td>1&ndash;20</td>
-      <td>0&ndash;10</td>
-      <td>1&ndash;10</td>
-    </tr>
-  </tbody>
-</table>
+{:.circled-number-fonts}
+| 字体                                                                                                   | 带圈   | 反白   | 无衬线 | 无衬线反白 |
+|:------------------------------------------------------------------------------------------------------:|:------:|:------:|:------:|:----------:|
+| 思源宋体、思源黑体                                                                                     | 0--50  | 0--20  | 0--10  | 0--10      |
+| 微软雅黑、微软正黑                                                                                     | 1--10  |        |        |            |
+| 苹方                                                                                                   | 0--50  | 0--20  | 0--10  | 1--10      |
+| 方正书宋、方正黑体、方正楷体、方正仿宋、等线                                                           | 1--10  |        |        |            |
+| 宋体、黑体、楷体、仿宋（中易）                                                                         | 1--10  |        |        |            |
+| 更纱黑体 (Sarasa Gothic)                                                                               | 0--50  | 0--20  | 0--10  | 0--10      |
+| <span lang="ja">小塚明朝</span> (Kozuka Mincho)<br><span lang="ja">小塚ゴシック</span> (Kozuka Gothic) | 0--100 | 0--100 |        |            |
+| <span lang="ja">游明朝</span> (Yu Mincho)<br><span lang="ja">游ゴシック</span> (Yu Gothic)             | 0--100 | 0--100 |        |            |
+| <span lang="ja">メイリオ</span> (Meiryo)                                                               | 0--50  | 1--20  | 0--10  | 1--10      |
 
 这里我们用了 Python 脚本 [`check-circled-number.py`](https://github.com/stone-zeng/latex-showcase/blob/master/textcircle-cid/check-circled-number.py) 来读取字体信息，它还依赖 [FontForge](https://fontforge.github.io/)。注意由于字体版本不同，不保证表中所列结果与实际情况完全一致。
 
