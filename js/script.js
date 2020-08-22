@@ -148,7 +148,7 @@ function updateSidebar(headers) {
 
 function updateFootnotes() {
   const oldFnList = document.querySelector('.footnotes');
-  if (!(oldFnList === null)) {
+  if (oldFnList !== null) {
     const newFnList = document.querySelector('#footnotes');
     const fnItems = getFnItems(oldFnList, newFnList);
     oldFnList.remove();
@@ -159,7 +159,7 @@ function updateFootnotes() {
 
 function getFnItems(oldFnList, newFnList) {
   const fn = nodeListToObject(oldFnList.querySelectorAll('li[id^="fn:"]'));
-  if (!(newFnList.innerHTML === '')) {
+  if (newFnList.innerHTML !== '') {
     const replaceFn = nodeListToObject(newFnList.querySelectorAll('li[id^="fn:"]'));
     Object.keys(replaceFn).forEach((i) => fn[i] = replaceFn[i]);
   }

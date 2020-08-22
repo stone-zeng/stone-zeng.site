@@ -13,7 +13,7 @@
     <script src="{{ '/js/script.js' | relative_url }}"></script>
     <script src="{{ '/js/source-han.js' | relative_url }}"></script>
     <script>
-      if (typeof Gitalk !== 'undefined') {
+      if (document.querySelector('#gitalk-container') !== null) {
         const gitalk = new Gitalk({
           clientID:     '{{ site.gitalk.clientID }}',
           clientSecret: '{{ site.gitalk.clientSecret }}',
