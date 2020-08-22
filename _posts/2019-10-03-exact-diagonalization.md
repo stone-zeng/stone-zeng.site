@@ -16,8 +16,6 @@ To calculate the **ground state** and the corresponding energy of a quantum syst
 $$
 \gdef\ee{\mathrm{e}}
 \gdef\ii{\mathrm{i}}
-\gdef\bra#1{\langle#1\vert}
-\gdef\ket#1{\vert#1\rangle}
 \gdef\ev#1{\langle#1\rangle}
 $$
 
@@ -410,7 +408,7 @@ The above numeric results are the following:
 
 We can find the condensate at around $U/t=8$ clearly. SPDM and condensate fraction suffer from a strong finite size effect, while the occupation variance is size-insensitive.
 
-In terms of performance, if we choose $M=N=12$, it takes about 240\,s to set up the matrix, 80\,s to find the ground state, 20\,s for SPDM and 90\,s for condensate fraction. It can be ignored (less than 1\,s) for other operations. The time consuming increases rapidly as the lattice become larger, so even for $N=20$ it will take too much time hence can't be done on a PC. The above test is on a MacBook Pro with a 2.3\,GHz Intel Core i5 processor.
+In terms of performance, if we choose $M=N=12$, it takes about 240\ s to set up the matrix, 80\ s to find the ground state, 20\ s for SPDM and 90\ s for condensate fraction. It can be ignored (less than 1\ s) for other operations. The time consuming increases rapidly as the lattice become larger, so even for $N=20$ it will take too much time hence can't be done on a PC. The above test is on a MacBook Pro with a 2.3\ GHz Intel Core i5 processor.
 
 ## Note
 

@@ -92,8 +92,9 @@ function updatePunctLogo() {
         .replace(/(\^<\/a><\/span><a href=".+">|<li>)([（『「《〈【])/g,
             '$1' + span('zh-punct-bound', '$2'))
         // No-break thin space
+        // `\<space>` -> `\u2060\u2009\u2060`
         // U+2060: Word joiner, U+2009: Thin space
-        .replace(/\\,/g, '\u2060\u2009\u2060');
+        .replace(/\\ /g, '\u2060\u2009\u2060');
   const replaceLogo = (str) =>
     str.replace(TeXLogoPattern, (_, name) => span('tex-logo', LOGO[name]));
   const replaceLogoH1 = (str) =>
@@ -226,7 +227,7 @@ function updateMath() {
     });
     renderMathInElement(document.body, {
       delimiters: [
-        {left: '$$', right: '$$', display: true},
+        {left: '\\[', right: '\\]', display: true},
         {left: '$', right: '$', display: false},
       ]}
     );
