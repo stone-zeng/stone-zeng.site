@@ -1,0 +1,9 @@
+\documentclass[margin={0 0 3pt 0}]{standalone}
+\usepackage{mathtools,tikz-category}
+\begin{document}
+\begin{tikzpicture}
+  \draw [->-=0.2, ->-=0.9] (0,2) node [above] {$x$} -- (0,0) node [below] {$y$}
+    (0 ,1) node [draw, fill=white, anchor=base] {$\scriptstyle f$}
+    (-2,1) node [anchor=base] {$f\colon x\to y$ \quad $\coloneqq$};
+\end{tikzpicture}
+\end{document}

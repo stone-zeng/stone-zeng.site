@@ -5,7 +5,10 @@ package-lock.json
 
 *.aux
 *.dvi
+*.fdb_latexmk
+*.fls
 *.log
+*.synctex.gz
 *.tuc
 *.xdv
 

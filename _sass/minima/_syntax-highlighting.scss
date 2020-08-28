@@ -152,6 +152,15 @@
   }
 }
 
+// Used in Haskell
+.language-haskell {
+  .kt { color: $purple-500; }
+
+  @include media-dark {
+    .kt { color: $purple-300; }
+  }
+}
+
 // Used in Wolfram Language
 .language-wl .highlight {
   font-feature-settings: 'calt', 'cv19'; // Programming ligatures, centered star

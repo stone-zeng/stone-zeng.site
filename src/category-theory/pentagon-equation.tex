@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz-cd}
+\begin{document}
+\begin{tikzcd}[row sep=tiny]
+  & \Bigl( (w\otimes x) \otimes y \Bigr) \otimes z
+    \arrow[ddl, "\alpha_{w\otimes x,y,z}"' pos=0.4, start anchor=south west, end anchor=north]
+    \arrow[dr, "\alpha_{w,z,y}\otimes\mathrm{id}_z" near start, end anchor=north] \\
+  & & \Bigl( w \otimes (x\otimes y) \Bigr) \otimes z
+    \arrow[dd, "\alpha_{w,x\otimes y,z}"] \\
+  (w\otimes x) \otimes (y\otimes z)
+    \arrow[ddr, "\alpha_{w,x,y}\otimes z"' pos=0.6, start anchor=south, end anchor=north west] \\
+  & & w \otimes \Bigl( (x\otimes y) \otimes z \Bigr)
+    \arrow[dl, "\mathrm{id}_w\otimes\alpha_{x,y,z}" near end, start anchor=south] \\
+  & w \otimes \Bigl( x \otimes (y\otimes z) \Bigr)
+\end{tikzcd}
+\end{document}

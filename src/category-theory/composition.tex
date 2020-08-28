@@ -1,0 +1,13 @@
+\documentclass[margin={3pt 0 0 0}]{standalone}
+\usepackage{tikz-category}
+\begin{document}
+\begin{tikzpicture}
+  \draw [->-=0.2, ->-=0.9] (0,2) node [above] {$x$} -- (0,0) node [below] {$z$};
+  \draw (0,1) node [draw, fill=white, anchor=base] {$\scriptstyle g\circ f$};
+  \draw (1,1) node [anchor=base] {=};
+  \draw [->-=0.53] (2,2) node [above] {$x$} -- (2,0) node [below] {$z$};
+  \draw (2,1.5) node [draw, fill=white, anchor=base, minimum size=0.45cm] {$\scriptstyle f$}
+        (2,0.5) node [draw, fill=white, anchor=base, minimum size=0.45cm] {$\scriptstyle g$}
+        (2.35,1) node {$y$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,12 @@
+% Common code used in drawing category related diagrams.
+\ProvidesPackage{tikz-category}
+
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.markings}
+
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{Stealth}}},
+  postaction={decorate}}}
+
+\endinput

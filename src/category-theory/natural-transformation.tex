@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\usepackage{tikz-cd}
+\begin{document}
+\begin{tikzcd}[row sep=large]
+  x \arrow[d, "f"] \\ y
+\end{tikzcd}
+\quad
+\begin{tikzcd}[row sep=large, column sep=large]
+  F(x) \arrow[r, "\tau_x"] \arrow[d, "F(f)"']
+    & G(x) \arrow[d, "G(f)"] \\
+  F(y) \arrow[r, "\tau_y"] & G(y)
+\end{tikzcd}
+\end{document}

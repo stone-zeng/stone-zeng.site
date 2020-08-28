@@ -1,0 +1,12 @@
+\documentclass{standalone}
+\usepackage{tikz-cd}
+\begin{document}
+\begin{tikzcd}
+  (x\otimes\mathbf{1})\otimes y
+    \arrow[rr, "\alpha_{x,\mathbf{1},y}"]
+    \arrow[dr, "\rho_x\otimes\mathrm{id}_y"']
+  & & x\otimes(\mathbf{1}\otimes y)
+    \arrow[dl, "\mathrm{id}_x\otimes\lambda_y"] \\
+  & x\otimes y
+\end{tikzcd}
+\end{document}

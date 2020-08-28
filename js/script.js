@@ -239,7 +239,7 @@ function updateMath() {
 
 function updateImage() {
   if (typeof mediumZoom !== 'undefined') {
-    mediumZoom('img', {margin: 30, background: 'var(--bg-color)'});
+    mediumZoom('img:not(.tikz-cd)', {margin: 30, background: 'var(--bg-color)'});
   }
 }
 

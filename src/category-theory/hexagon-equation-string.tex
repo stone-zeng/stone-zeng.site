@@ -1,0 +1,39 @@
+\documentclass[margin={0 4pt 0 0}]{standalone}
+\usepackage{tikz-category}
+\begin{document}
+\begin{tikzpicture}
+  \draw [->-=0.25] (0,2.4) node [above=4pt, anchor=base] {$x$}
+    .. controls (0,1.2) and (1,1.2) .. (1,0);
+  \filldraw [white] (0.5,1.2) circle (2pt);
+  \draw [->-=0.25] (1,2.4) node [above=4pt, anchor=base] {$y\otimes z$}
+    .. controls (1,1.2) and (0,1.2) .. (0,0);
+  \draw (1.65,1.25) node {=};
+  \draw [->-=0.5] (2.4,2.4) node [above=4pt, anchor=base] {$x$}
+    .. controls (2.4,1.8) and (3,  1.8) .. (3,1.2)
+    .. controls (3,  0.6) and (3.6,0.6) .. (3.6,0);
+  \filldraw [white] (2.7,1.8) circle (2pt)
+                    (3.3,0.6) circle (2pt);
+  \draw [->-=0.54] (3,2.4) node [above=4pt, anchor=base] {$y$}
+    .. controls (3,1.8) and (2.4,1.8) .. (2.4,1.2) -- (2.4,0);
+  \draw [->-=0.46] (3.6,2.4) node [above=4pt, anchor=base] {$z$}
+    -- (3.6,1.2) .. controls (3.6,0.6) and (3,0.6) .. (3,0);
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}
+  \draw [->-=0.25] (0,2.4) node [above=4pt, anchor=base] {$x\otimes y$}
+    .. controls (0,1.2) and (1,1.2) .. (1,0);
+  \filldraw [white] (0.5,1.2) circle (2pt);
+  \draw [->-=0.25] (1,2.4) node [above=4pt, anchor=base] {$z$}
+    .. controls (1,1.2) and (0,1.2) .. (0,0);
+  \draw (1.65,1.25) node {=};
+  \draw [->-=0.46] (2.4,2.4) node [above=4pt, anchor=base] {$x$}
+    -- (2.4,1.2) .. controls (2.4,0.6) and (3,0.6) .. (3,0);
+  \draw [->-=0.54] (3,2.4) node [above=4pt, anchor=base] {$y$}
+    .. controls (3,1.8) and (3.6,1.8) .. (3.6,1.2) -- (3.6,0);
+  \filldraw [white] (3.3,1.8) circle (2pt)
+                    (2.7,0.6) circle (2pt);
+  \draw [->-=0.5] (3.6,2.4) node [above=4pt, anchor=base] {$z$}
+    .. controls (3.6,1.8) and (3,  1.8) .. (3,1.2)
+    .. controls (3,  0.6) and (2.4,0.6) .. (2.4,0);
+\end{tikzpicture}
+\end{document}

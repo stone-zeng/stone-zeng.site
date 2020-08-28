@@ -1,0 +1,35 @@
+\documentclass{standalone}
+\usepackage{tikz-cd}
+\begin{document}
+\begin{tabular}{c}
+  \begin{tikzcd}[column sep=huge]
+      x \otimes (y \otimes z)
+        \arrow[r, "\alpha_{x,y,z}^{-1}"]
+        \arrow[d, "\sigma_{x,y\otimes z}"']
+    & (x \otimes y) \otimes z
+        \arrow[r, "\sigma_{x,y}\otimes\mathrm{id}_z"]
+    & (y \otimes x) \otimes z
+        \arrow[d, "\alpha_{y,x,z}"] \\
+      (y \otimes z) \otimes x
+    & y \otimes (z \otimes x)
+        \arrow[l, "\alpha_{y,z,x}^{-1}"]
+    & y \otimes (x \otimes z)
+        \arrow[l, "\mathrm{id}_y\otimes\sigma_{x,z}"]
+  \end{tikzcd}
+  \\ \\
+  \begin{tikzcd}[column sep=huge]
+      (x \otimes y) \otimes z
+        \arrow[r, "\alpha_{x,y,z}"]
+        \arrow[d, "\sigma_{x\otimes y,z}"']
+    & x \otimes (y \otimes z)
+        \arrow[r, "\mathrm{id}_x\otimes\sigma_{y,z}"]
+    & x \otimes (z \otimes y)
+        \arrow[d, "\alpha_{x,z,y}^{-1}"] \\
+      z \otimes (x \otimes y)
+    & (z \otimes x) \otimes y
+        \arrow[l, "\alpha_{z,x,y}"]
+    & (x \otimes z) \otimes y
+        \arrow[l, "\sigma_{x,z}\otimes\mathrm{id}_y"]
+  \end{tikzcd}
+\end{tabular}
+\end{document}

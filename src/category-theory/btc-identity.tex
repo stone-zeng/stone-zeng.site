@@ -1,0 +1,21 @@
+\documentclass[margin={2pt 0}]{standalone}
+\usepackage{tikz-category}
+\begin{document}
+\begin{tikzpicture}
+  \draw [->-=0.5] (0,2.4) node [above=4pt, anchor=base] {$x$} -- (0,1.6)
+    .. controls (0,0.8) and (1,0.8) .. (1,0) node [below=9pt, anchor=base] {$x'$}
+    (0,1.8) node [draw, fill=white, anchor=base] {$\scriptstyle f$};
+  \filldraw [white] (0.5,0.8) circle (2pt);
+  \draw [->-=0.5] (1,2.4) node [above=4pt, anchor=base] {$y$} -- (1,1.6)
+    .. controls (1,0.8) and (0,0.8) .. (0,0) node [below=9pt, anchor=base] {$y'$}
+    (1,1.8) node [draw, fill=white, anchor=base] {$\scriptstyle g$};
+  \draw (1.8,1.2) node {=};
+  \draw [->-=0.2] (2.6,2.4) node [above=4pt, anchor=base] {$x$}
+    .. controls (2.6,1.6) and (3.6,1.6) .. (3.6,0.8) -- (3.6,0) node [below=9pt, anchor=base] {$x'$}
+    (3.6,0.6) node [draw, fill=white, anchor=base] {$\scriptstyle f$};
+  \filldraw [white] (3.1,1.6) circle (2pt);
+  \draw [->-=0.2] (3.6,2.4) node [above=4pt, anchor=base] {$y$}
+    .. controls (3.6,1.6) and (2.6,1.6) .. (2.6,0.8) -- (2.6,0) node [below=9pt, anchor=base] {$y'$}
+    (2.6,0.6) node [draw, fill=white, anchor=base] {$\scriptstyle g$};
+\end{tikzpicture}
+\end{document}

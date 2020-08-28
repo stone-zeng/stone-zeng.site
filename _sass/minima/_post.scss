@@ -140,24 +140,30 @@
     }
   }
 
+  img {
+    width: 100%;
+    max-width: 100%;
+    outline: $border;
+    outline-offset: -1px;
+  }
+
+  p > img {
+    display: block;
+    margin: 0 auto;
+  }
+
   figure {
     text-align: center;
-  }
 
-  figure, p {
     & > img {
-      width: 100%;
-      max-width: 100%;
       vertical-align: middle;
-      outline: $border;
-      outline-offset: -1px;
     }
-  }
 
-  figcaption {
-    margin: 10px 0 0;
-    @include media-on-large {
-      margin: 10px 40px 0;
+    & > figcaption {
+      margin: 10px 0 0;
+      @include media-on-large {
+        margin: 10px 40px 0;
+      }
     }
   }
 
