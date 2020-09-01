@@ -1,0 +1,35 @@
+\documentclass{standalone}
+\usepackage{tikz-category}
+\begin{document}
+\begin{tikzpicture}
+  \draw [->-={1/7}, ->-={10/21}, ->-=0.9]
+    (0  ,2) node [above=4pt, anchor=base] {$x^\vee$} -- ++ (0,-1)
+    (0.8,2) node [above=4pt, anchor=base] {$x$}      -- ++ (0,-1)
+    (0.4,1) -- ++ (0,-1) node [below] {$\mathbf{1}$};
+  \draw (0.4,1) node [draw, minimum width=1.2cm, minimum height=0.5cm, fill=white, anchor=base] {$e_x$};
+  \draw (1.4,1.03) node {=};
+  \draw [->-=0.74] (2,1) -- ++ (0,1) node [above=4pt, anchor=base] {$x$};
+  \draw [->-=0.44] (2.8,2) node [above=4pt, anchor=base] {$x$} -- ++ (0,-1);
+  \draw (2.4,1) node [draw, minimum width=1.2cm, minimum height=0.5cm, fill=white, anchor=base] {$e_x$};
+  \draw (3.4,1.03) node {=};
+  \draw [->-=0.92] (4.7,2) node [above=4pt, anchor=base] {$x$}
+    -- (4.7,1) .. controls (4.7,0.9) and (4.7,0.4) .. (4.3,0.4)
+               .. controls (3.9,0.4) and (3.9,0.9) .. (3.9,1  ) -- (3.9,2);
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}
+  \draw [->-={1/7}, ->-=0.567, ->-=0.9]
+    (0.4,2) node [above=4pt, anchor=base] {$\mathbf{1}$} -- ++ (0,-1)
+    (0  ,1) -- ++ (0,-1) node [below=10pt, anchor=base] {$x$}
+    (0.8,1) -- ++ (0,-1) node [below=10pt, anchor=base] {$x^\vee$};
+  \draw (0.4,1) node [draw, minimum width=1.2cm, minimum height=0.5cm, fill=white, anchor=base] {$i_x$};
+  \draw (1.4,1.03) node {=};
+  \draw [->-=0.72] (2  ,1) -- ++ (0,-1) node [below=10pt, anchor=base] {$x$};
+  \draw [->-=0.46] (2.8,0) node [below=10pt, anchor=base] {$x$} -- ++ (0,1);
+  \draw (2.4,1) node [draw, minimum width=1.2cm, minimum height=0.5cm, fill=white, anchor=base] {$i_x$};
+  \draw (3.4,1.03) node {=};
+  \draw [->-=0.92] (4.7,0) node [below=10pt, anchor=base] {$x$}
+    -- (4.7,1) .. controls (4.7,1.1) and (4.7,1.6) .. (4.3,1.6)
+               .. controls (3.9,1.6) and (3.9,1.1) .. (3.9,1  ) -- (3.9,0);
+\end{tikzpicture}
+\end{document}

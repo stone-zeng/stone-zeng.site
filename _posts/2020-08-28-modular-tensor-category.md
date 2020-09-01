@@ -10,6 +10,7 @@ published: false
 
 $$
 \gdef\id{\mathrm{id}}
+\gdef\tr{\operatorname{tr}}
 \gdef\1{\Cat{1}}
 \gdef\cat#1{\mathcal{#1}}
 \gdef\Cat#1{\mathbf{#1}}
@@ -35,7 +36,7 @@ and the following axioms should hold:
 
   $$ f\circ \id_x = \id_y\circ f = f, \quad \forall f\colon x\to y$$
 
-In a pictorical representation (*string diagram*), the morphism in a category can be visualized as a "black box":
+In a pictorical representation, the morphism in a category can be visualized as a "black box":
 
 ![morphism](/images/category-theory/morphism.svg){:.invert}{:style="max-width: 210px;"}
 
@@ -46,6 +47,8 @@ For identity morphism $\id_x$, the box can be omitted:
 For the composition of two morphisms $f$ and $g$, we use two consecutive boxes:
 
 ![composition](/images/category-theory/composition.svg){:.invert}{:style="max-width: 180px;"}
+
+Note that in our convention, these diagrams should be read *from top to bottom*, as the arrows indicate. The direction will be significant when we meet the dual of objects (see below).
 
 There are some special cases of morphisms:
 
@@ -192,7 +195,7 @@ such that the following diagrams (hexagon equations) commute:
 
 ![hexagon-equation](/images/category-theory/hexagon-equation.svg){:.invert}{:.tikz-cd}{:style="max-width: 540px;"}
 
-In the string diagram, $\sigma$ and its inverse can be visualized as
+In the graphical notation, $\sigma$ and its inverse can be visualized as
 
 ![sigma](/images/category-theory/sigma.svg){:.invert}{:style="max-width: 480px;"}
 
@@ -204,13 +207,13 @@ The hexagon equations become apparent as well:
 
 ![hexagon-equation-string](/images/category-theory/hexagon-equation-string.svg){:.invert}{:style="max-width: 560px;"}
 
-Furthermore, we can give the following important identities via the string diagrams:
+Furthermore, we can find the following important identities via the graphical calculus:
 
 - $\sigma_{x^\prime,y^\prime}\circ(f\otimes g) = (g\otimes f)\circ\sigma_{x,y}, \quad \forall f\in\hom_{\cat{C}}(x,x^\prime), \, g\in\hom_{\cat{C}}(y,y^\prime)$
 
   ![btc-identity](/images/category-theory/btc-identity.svg){:.invert}{:style="max-width: 250px;"}
 
-- Yang--Baxter equation
+- $(\sigma_{y,z}\otimes\id_x) \circ (\id_y\otimes\sigma_{x,z}) \circ (\sigma_{x,y}\otimes\id_z) = (\id_z\otimes\sigma_{x,y}) \circ (\sigma_{x,z}\otimes\id_y) \circ (\id_x\otimes\sigma_{y,z})$, which is called the *Yang--Baxter equation*
 
   ![yang-baxter-equation](/images/category-theory/yang-baxter-equation.svg){:.invert}{:style="max-width: 270px;"}
 
@@ -218,50 +221,138 @@ A braided monoidal category is called **symmetric**, if $\sigma_{y,x}\circ\sigma
 
 ![symmetric-category](/images/category-theory/symmetric-category.svg){:.invert}{:style="max-width: 480px;"}
 
-## Rigid monoidal category
+## Ribbon category
 
-We first introduce the concept of **dual** in monoidal category. This is a generalization of the dual vector space: for a vector space $V$ over field $F$, its dual space $V^*$ is defined as the set of all linear maps: $\phi\colon V\to F$.
+### Dual
 
-The **right dual** of an object $x\in\cat{C}$ is an object $x^*$ with two morphisms:
+We first introduce the concept of **dual** in monoidal category. This is a generalization of the dual vector space: given a vector space $V$ over field $F$, its dual space $V^\vee$ is defined as the set of all linear maps $\phi\colon V\to F$.
 
-$$ e_x\colon x^*\otimes x\to\1, \quad i_x\colon\1\to x\otimes x^* $$
+The **right dual** of an object $x\in\cat{C}$ is an object $x^\vee$ with two morphisms:
+
+$$ e_x\colon x^\vee\otimes x\to\1, \quad i_x\colon\1\to x\otimes x^\vee $$
 
 such that the composition $(\id_x\otimes e_x)\circ(i_x\otimes\id_x)=\id_x$:
 
 $$
-x \xrightarrow{i_x\otimes\id_x} (x\otimes x^*)\otimes x = x\otimes(x^*\otimes x)
+x \xrightarrow{i_x\otimes\id_x} (x\otimes x^\vee)\otimes x = x\otimes(x^\vee\otimes x)
   \xrightarrow{\id_x\otimes e_x} x\otimes\1 = x
 $$
 
-and $(e_x\otimes\id_{x^\*})\circ(\id_{x^\*}\otimes i_x)=\id_{x^\*}$:
+and $(e_x\otimes\id_{x^\vee})\circ(\id_{x^\vee}\otimes i_x)=\id_{x^\vee}$:
 
 $$
-x^* \xrightarrow{\id_{x^*}\otimes i_x} x^*\otimes(x\otimes x^*) = (x^*\otimes x)\otimes x^*
-    \xrightarrow{e_x\otimes\id_{x^*}} \1\otimes x^* = x^*
+x^\vee \xrightarrow{\id_{x^\vee}\otimes i_x} x^\vee\otimes(x\otimes x^\vee) = (x^\vee\otimes x)\otimes x^\vee
+    \xrightarrow{e_x\otimes\id_{x^\vee}} \1\otimes x^\vee = x^\vee
 $$
 
-The above conditions are called **rigidity axioms**.
+The above conditions are called **rigidity axioms**. In some sense, $e_x$ and $i_x$ are called *annihilation* and *creation* morphisms, as they can annihilate/create objects to/from "vaccum", just as the $\hat{a}$ and $\hat{a}^\dagger$ operator in quantum mechanics.
 
 Similarly, we can define the **left dual** with the following morphisms:
 
-$$ e'_x \colon x\otimes {}^*\!x\to\1, \quad i_x\colon \1\to{}^*\!x\otimes x $$
+$$ e'_x \colon x\otimes {}^\vee\!x\to\1, \quad i'_x\colon \1\to{}^\vee\!x\otimes x $$
 
-and similar rigidity axioms.
+and similar rigidity axioms. By definition, if $x$ is the right dual of $y$, then $y$ is the left dual of $x$, and vice versa. For a monoidal category $\cat{C}$, if every object $x\in\cat{C}$ has left and right duals, then $\cat{C}$ is called **rigid** (or autonomous).
 
-<!-- TODO: pictorical representation -->
+In the graphical notation, the dual of an object is represented by simply reversing the arrow. In addition, the unit object $\1$, or "vaccum", can be neglected. So $e_x$ and $i_x$ correspond to the following diagrams:
 
-It can be easily shown that $\hom_{\cat{C}}(x,y)$ is isomorphic to $\hom_{\cat{C}}(y^\*,x^\*)$, therefore for every morphism $f\in\hom_{\cat{C}}(x,y)$, we can define the dual as its image $f^\*\in\hom_{\cat{C}}(y^\*,x^\*)$.
+![dual](/images/category-theory/dual.svg){:.invert}{:style="max-width: 680px;"}
 
-Now we can give the following definitions:
+Then the rigidity axioms (for right dual) become
 
-- A monoidal category $\cat{C}$ is called **rigid** if every object $x\in\cat{C}$ has left and right duals
-- A **ribbon category** (aka. tortile category or balanced rigid braided monoidal category) is a rigid braided monoidal category with a natural isomorphism
+![rigidity-axioms](/images/category-theory/rigidity-axioms.svg){:.invert}{:style="max-width: 400px;"}
 
-  $$ \delta_x \colon x \overset\sim\to x^{**}, \quad \forall x\in\cat{C} $$
+It can be easily shown that $\hom_{\cat{C}}(x,y)$ is isomorphic to $\hom_{\cat{C}}(y^\vee,x^\vee)$, therefore for every morphism $f\in\hom_{\cat{C}}(x,y)$, we can define the dual as its image $f^\vee\in\hom_{\cat{C}}(y^\vee,x^\vee)$:
 
-  such that
+$$ f^\vee \coloneqq (e_y\otimes\id_x) \circ (\id_{y^\vee}\otimes f\otimes\id_{x^\vee}) \circ (\id_{y^\vee}\otimes i_x) $$
 
-  $$ \delta_{x\otimes y} = \delta_x\otimes\delta_y, \quad \delta_\1 = \id_\1, \quad \delta_{x^*} = (\delta_x^*)^{-1} $$
+or in the graphical notation:
+
+![f-dual](/images/category-theory/f-dual.svg){:.invert}{:style="max-width: 360px;"}
+
+If combine the dual with monoidal and braiding structures, we can then immediately find some important identities:
+
+- $(x\otimes y)^\vee = y^\vee\otimes x^\vee$
+
+  ![dual-and-monoidal](/images/category-theory/dual-and-monoidal.svg){:.invert}{:style="max-width: 300px;"}
+
+- $(e_y\otimes\id_x)\circ\sigma_{x,y^\vee\otimes y} = \sigma_{x,\1}\circ(\id_x\otimes e_y)$
+
+  ![lemma-e-sigma](/images/category-theory/lemma-e-sigma.svg){:.invert}{:style="max-width: 270px;"}
+
+- $e_{x\otimes y} = (e_x\otimes e_y)\circ(\sigma_{y^\vee,x^\vee\otimes x}\otimes\id_{.})$
+- $i_{x\otimes y} = (\id_{.}\otimes\sigma_{x^\vee,y^\vee\otimes y})\circ(i_x\otimes i_y)$
+- $\sigma_{x,y}^\vee = \sigma_{x^\vee,y^\vee}$
+
+  ![dual-and-braiding](/images/category-theory/dual-and-braiding.svg){:.invert}
+
+where $\sigma$ can be replaced by $\sigma^{-1}$ in the last two equations.
+
+The first identity can be proved by using the definition of $e$:
+
+To understand the other three identities, we first need to prove the following lemma:
+
+<!--
+![e-and-braiding](/images/category-theory/e-and-braiding.svg){:.invert}{:style="max-width: 360px;"}
+![i-and-braiding](/images/category-theory/i-and-braiding.svg){:.invert}{:style="max-width: 360px;"}
+-->
+
+### Ribbon
+
+A **ribbon category** (aka. tortile category or balanced rigid braided monoidal category) is a rigid braided monoidal category with a natural isomorphism
+
+$$ \delta_x \colon x \overset\sim\to x^{\vee\vee}, \quad \forall x\in\cat{C} $$
+
+such that
+
+$$
+\delta_{x\otimes y} = \delta_x\otimes\delta_y, \quad
+\delta_\1 = \id_\1, \quad
+\delta_{x^\vee} = (\delta_x^\vee)^{-1}
+$$
+
+In a rigid braided monoidal category $\cat{C}$, we can construct the following natural isomorphism
+
+$$
+\psi_x \colon x^{\vee\vee} \overset\sim\to x, \quad
+\psi_x \coloneqq (\id_x\otimes e_{x^\vee}) \circ (\id_x\otimes\sigma_{x^{\vee\vee},x^\vee}^{-1}) \circ (i_x\otimes\id_{x^{\vee\vee}}), \quad
+\forall x\in\cat{C}
+$$
+
+which satisfies:
+
+$$
+\psi_{x\otimes y} = \sigma_{y,x} \circ \sigma_{x,y} \circ (\psi_x\otimes\psi_y), \quad
+\psi_\1 = \id_\1, \quad
+\psi_{x^\vee} = \delta_x^\vee \circ \psi_x^\vee \circ \delta_x^\vee \enspace \text{(if $\cat{C}$ is ribbon)}
+$$
+
+Then we can define the following natural isomorphism in a ribbon category $\cat{C}$:
+
+$$ \theta_x \colon x \overset\sim\to x, \quad \theta_x \coloneqq \psi_x \circ \delta_x, \quad \forall x\in\cat{C} $$
+
+which is called **twist** (or balancing isomorphism). It satisfies the **balancing axioms**:
+
+$$
+\theta_{x\otimes y} = \sigma_{y,x} \circ \sigma_{x,y} \circ (\theta_x\otimes\theta_y), \quad
+\theta_\1 = \id_\1, \quad
+\theta_{x^\vee} = \theta_x^\vee
+$$
+
+A family of twists can uniquely determine a family of $\psi$, hence we can define the ribbon category using $\theta$ equivalently.
+
+The graphical notation of $\theta$ can be deduced from the definition of $\psi$, once we identify $x$ and $x^\vee$ (i.e. simply ignore $\delta$):
+
+However, if we imagine the above stuff as a 1D line or string in $\R^3$, then we man think that $\theta=\id$, which is not true generally. Therefore, we may turn to using a 2D object, or a "ribbon", to correctly represent $\theta$:
+
+When we try to straighten it, we will get a ribbon with a "twist", and clearly it's not the same thing as a flat one. With such "ribbon" representation, the identity $\theta_{x\otimes y}=\sigma_{y,x}\circ\sigma_{x,y}\circ(\theta_x\otimes\theta_y)$ can be visualized as:
+
+For an endomorphism $f\in\hom_{\cat{C}}(x,x)$, where $\cat{C}$ is a ribbon category, we can define the **trace** $\tr f\in\hom_{\cat{C}}(\1,\1)\simeq k$ as the following composition:
+
+[]
+
+or graphically:
+
+In particular, if $f=\id_x$, then we can define the **dimension** of $x\in\cat{C}$ as $\dim x\coloneqq\tr\id_x$, or graphically:
 
 ## References
 
@@ -271,3 +362,4 @@ Now we can give the following definitions:
 - Bakalov B, Kirillov A. [*Lectures on Tensor Categories and Modular Frunctor*](https://www.math.stonybrook.edu/~kirillov/tensor/tensor.html)
 - Müger M. *Tensor categories: A selective guided tour*, [arXiv:0804.3587](https://arxiv.org/abs/0804.3587)
 - Turaev V G. *Quantum Invariants of Knots and 3-Manifolds*
+- 张智浩. [日常的数学和物理问题](https://zhuanlan.zhihu.com/c_123465504)

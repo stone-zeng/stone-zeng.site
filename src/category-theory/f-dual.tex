@@ -1,0 +1,22 @@
+\documentclass[margin={3pt 0 0 0}]{standalone}
+\usepackage{tikz-category}
+\begin{document}
+\begin{tikzpicture}[baseline=0]
+  \draw [->-=0.22, ->-=0.85] (0,2) node [above] {$y^\vee$} -- (0,0) node [below=10pt, anchor=base] {$x^\vee$}
+    (0,0.95) node [draw, fill=white, anchor=base] {$\scriptstyle f^\vee$}
+    (1,1) node {=};
+  \draw [->-=0.25, ->-=0.88] (2,0) node [below=10pt, anchor=base] {$x$} -- (2,2) node [above] {$y$}
+    (2,0.95) node [draw, fill=white, anchor=base] {$\scriptstyle f^\vee$}
+    (3,1) node {=};
+  \draw [->-=0.072, ->-=0.965]
+       (5.5,0.0) node [below=10pt, anchor=base] {$x$}
+    -- (5.5,1.4) .. controls (5.5,1.5) and (5.5,2.0)
+    .. (5.1,2.0) .. controls (4.7,2.0) and (4.7,1.5)
+    .. (4.7,1.4)
+    -- (4.7,0.6) .. controls (4.7,0.5) and (4.7,0.0)
+    .. (4.3,0.0) .. controls (3.9,0.0) and (3.9,0.5)
+    .. (3.9,0.6)
+    -- (3.9,2.0) node [above] {$y$}
+    (4.7,0.95) node [draw, fill=white, anchor=base] {$\scriptstyle f$};
+\end{tikzpicture}
+\end{document}

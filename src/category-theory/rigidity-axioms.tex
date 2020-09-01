@@ -1,0 +1,29 @@
+\documentclass[margin={3pt 0 0 0}]{standalone}
+\usepackage{tikz-category}
+\begin{document}
+\begin{tikzpicture}[baseline=0]
+  \draw [->-=0.87] (1.2,1.6) node [above] {$x$}
+    -- (1.2,0.5)
+    .. controls (1.2,0.4) and (1.2,0.0) .. (0.9,0.0)
+    .. controls (0.6,0.0) and (0.6,0.4) .. (0.6,0.5)
+    -- (0.6,1.1)
+    .. controls (0.6,1.2) and (0.6,1.6) .. (0.3,1.6)
+    .. controls (0.0,1.6) and (0.0,1.2) .. (0.0,1.1)
+    -- (0.0,0.0);
+  \draw (1.8,0.8) node {=};
+  \draw [->-=0.55] (2.4,1.6) node [above] {$x$} -- (2.4,0);
+\end{tikzpicture}
+\hspace{1.2cm}
+\begin{tikzpicture}[baseline=0]
+  \draw [->-=0.87] (1.2,0.0) node [below] {$x$}
+    -- (1.2,1.1)
+    .. controls (1.2,1.2) and (1.2,1.6) .. (0.9,1.6)
+    .. controls (0.6,1.6) and (0.6,1.2) .. (0.6,1.1)
+    -- (0.6,0.5)
+    .. controls (0.6,0.4) and (0.6,0.0) .. (0.3,0.0)
+    .. controls (0.0,0.0) and (0.0,0.4) .. (0.0,0.5)
+    -- (0.0,1.6);
+  \draw (1.8,0.8) node {=};
+  \draw [->-=0.57] (2.4,0) node [below] {$x$} -- (2.4,1.6);
+\end{tikzpicture}
+\end{document}

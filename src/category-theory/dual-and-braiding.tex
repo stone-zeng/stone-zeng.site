@@ -1,0 +1,147 @@
+\documentclass{standalone}
+\usepackage{tikz-category}
+\def\EQ{\kern3pt=\kern5pt}
+\begin{document}
+\begin{tikzpicture}[baseline=1.33cm]
+  \draw [->-=0.106, ->-=0.945]
+       (2.0,0.0) node [below] {$x$}
+    -- (2.0,2.0) .. controls (2.0,2.2) and (2.0,2.8)
+    .. (1.4,2.8) .. controls (0.8,2.8) and (0.8,2.2)
+    .. (0.8,2.0)
+    -- (0.8,0.8) .. controls (0.8,0.7) and (0.8,0.4)
+    .. (0.6,0.4) .. controls (0.4,0.4) and (0.4,0.7)
+    .. (0.4,0.8)
+    -- (0.4,2.8) node [above=4pt, anchor=base] {$y$};
+  \draw [->-=0.106, ->-=0.945]
+       (1.6,0.0) node [below] {$y$}
+    -- (1.6,2.0) .. controls (1.6,2.1) and (1.6,2.4)
+    .. (1.4,2.4) .. controls (1.2,2.4) and (1.2,2.1)
+    .. (1.2,2.0)
+    -- (1.2,0.8) .. controls (1.2,0.6) and (1.2,0.0)
+    .. (0.6,0.0) .. controls (0.0,0.0) and (0.0,0.6)
+    .. (0.0,0.8)
+    -- (0.0,2.8) node [above=4pt, anchor=base] {$x$};
+  \draw (1.0,1.4) node [draw, minimum height=0.6cm, fill=white, anchor=base] {$\sigma_{x,y}$};
+\end{tikzpicture}
+\EQ
+\begin{tikzpicture}[baseline=1.33cm]
+  \draw [->-=0.091, ->-=0.952]
+       (2.0,0.0) node [below] {$x$}
+    -- (2.0,2.0) .. controls (2.0,2.2) and (2.0,2.8)
+    .. (1.4,2.8) .. controls (0.8,2.8) and (0.8,2.2)
+    .. (0.8,2.0)
+    -- (0.8,1.8) .. controls (0.8,1.4) and (1.2,1.4)
+    .. (1.2,1.0)
+    -- (1.2,0.8) .. controls (1.2,0.6) and (1.2,0.0)
+    .. (0.6,0.0) .. controls (0.0,0.0) and (0.0,0.6)
+    .. (0.0,0.8)
+    -- (0.0,2.8) node [above=4pt, anchor=base] {$x$};
+  \filldraw [white] (1.0,1.4) circle (3pt);
+  \draw [->-=0.122, ->-=0.935]
+       (1.6,0.0) node [below] {$y$}
+    -- (1.6,2.0) .. controls (1.6,2.1) and (1.6,2.4)
+    .. (1.4,2.4) .. controls (1.2,2.4) and (1.2,2.1)
+    .. (1.2,2.0)
+    -- (1.2,1.8) .. controls (1.2,1.4) and (0.8,1.4)
+    .. (0.8,1.0)
+    -- (0.8,0.8) .. controls (0.8,0.7) and (0.8,0.4)
+    .. (0.6,0.4) .. controls (0.4,0.4) and (0.4,0.7)
+    .. (0.4,0.8)
+    -- (0.4,2.8) node [above=4pt, anchor=base] {$y$};
+\end{tikzpicture}
+\EQ
+\begin{tikzpicture}[baseline=1.33cm]
+  \draw [->-=0.103, ->-=0.946]
+       (2.0,0.0) node [below] {$x$}
+    -- (2.0,2.0) .. controls (2.0,2.2) and (2.0,2.8)
+    .. (1.4,2.8) .. controls (0.8,2.8) and (0.8,2.2)
+    .. (0.8,2.0) .. controls (0.8,1.7) and (1.2,1.7)
+    .. (1.2,1.4) .. controls (1.2,1.2) and (1.2,0.6)
+    .. (0.6,0.6) .. controls (0.0,0.6) and (0.0,1.2)
+    .. (0.0,1.4)
+    -- (0.0,2.8) node [above=4pt, anchor=base] {$x$};
+  \filldraw [white] (1.0,1.70) circle (3pt)
+                    (0.8,0.63) circle (2.5pt)
+                    (0.4,0.63) circle (2.5pt);
+  \draw [->-=0.11, ->-=0.942]
+       (1.6,0.0) node [below] {$y$}
+    -- (1.6,2.0) .. controls (1.6,2.1) and (1.6,2.4)
+    .. (1.4,2.4) .. controls (1.2,2.4) and (1.2,2.1)
+    .. (1.2,2.0) .. controls (1.2,1.7) and (0.8,1.7)
+    .. (0.8,1.4)
+    -- (0.8,0.4) .. controls (0.8,0.3) and (0.8,0.0)
+    .. (0.6,0.0) .. controls (0.4,0.0) and (0.4,0.3)
+    .. (0.4,0.4)
+    -- (0.4,2.8) node [above=4pt, anchor=base] {$y$};
+\end{tikzpicture}
+\EQ
+\begin{tikzpicture}[baseline=1.33cm]
+  \draw [->-=0.1, ->-=0.947]
+       (2.0,0.0) node [below] {$x$}
+    -- (2.0,2.0) .. controls (2.0,2.2) and (2.0,2.8)
+    .. (1.4,2.8) .. controls (0.8,2.8) and (0.8,2.2)
+    .. (0.8,2.0) .. controls (0.8,1.7) and (1.2,1.7)
+    .. (1.2,1.4) .. controls (1.2,1.1) and (0.8,1.1)
+    .. (0.8,0.8) .. controls (0.8,0.7) and (0.8,0.4)
+    .. (0.6,0.4) .. controls (0.4,0.4) and (0.4,0.7)
+    .. (0.4,0.8)
+    -- (0.4,1.0) .. controls (0.4,1.4) and (0.0,1.4)
+    .. (0.0,1.8)
+    -- (0.0,2.8) node [above=4pt, anchor=base] {$x$};
+  \filldraw [white] (1.0,1.7) circle (3pt)
+                    (1.0,1.1) circle (3pt)
+                    (0.2,1.4) circle (3pt);
+  \draw [->-=0.1, ->-=0.947]
+       (1.6,0.0) node [below] {$y$}
+    -- (1.6,2.0) .. controls (1.6,2.1) and (1.6,2.4)
+    .. (1.4,2.4) .. controls (1.2,2.4) and (1.2,2.1)
+    .. (1.2,2.0) .. controls (1.2,1.7) and (0.8,1.7)
+    .. (0.8,1.4) .. controls (0.8,1.1) and (1.2,1.1)
+    .. (1.2,0.8) .. controls (1.2,0.6) and (1.2,0.0)
+    .. (0.6,0.0) .. controls (0.0,0.0) and (0.0,0.6)
+    .. (0.0,0.8)
+    -- (0.0,1.0) .. controls (0.0,1.4) and (0.4,1.4)
+    .. (0.4,1.8)
+    -- (0.4,2.8) node [above=4pt, anchor=base] {$y$};
+\end{tikzpicture}
+\EQ
+\begin{tikzpicture}[baseline=1.33cm]
+  \draw [->-=0.1, ->-=0.947]
+       (2.0,0.0) node [below] {$x$}
+    -- (2.0,2.0) .. controls (2.0,2.2) and (2.0,2.8)
+    .. (1.4,2.8) .. controls (0.8,2.8) and (0.8,2.2)
+    .. (0.8,2.0)
+    -- (0.8,0.8) .. controls (0.8,0.7) and (0.8,0.4)
+    .. (0.6,0.4) .. controls (0.4,0.4) and (0.4,0.7)
+    .. (0.4,0.8)
+    -- (0.4,1.0) .. controls (0.4,1.4) and (0.0,1.4)
+    .. (0.0,1.8)
+    -- (0.0,2.8) node [above=4pt, anchor=base] {$x$};
+  \filldraw [white] (0.2,1.4) circle (3pt);
+  \draw [->-=0.1, ->-=0.947]
+       (1.6,0.0) node [below] {$y$}
+    -- (1.6,2.0) .. controls (1.6,2.1) and (1.6,2.4)
+    .. (1.4,2.4) .. controls (1.2,2.4) and (1.2,2.1)
+    .. (1.2,2.0)
+    -- (1.2,0.8) .. controls (1.2,0.6) and (1.2,0.0)
+    .. (0.6,0.0) .. controls (0.0,0.0) and (0.0,0.6)
+    .. (0.0,0.8)
+    -- (0.0,1.0) .. controls (0.0,1.4) and (0.4,1.4)
+    .. (0.4,1.8)
+    -- (0.4,2.8) node [above=4pt, anchor=base] {$y$};
+\end{tikzpicture}
+\EQ
+\begin{tikzpicture}[baseline=1.33cm]
+  \draw [->-=0.85]
+       (0.8,0.0)
+    -- (0.8,0.6) .. controls (0.8,1.4) and (0.0,1.4)
+    .. (0.0,2.2)
+    -- (0.0,2.8) node [above=4pt, anchor=base] {$x$};
+  \filldraw [white] (0.4,1.4) circle (3pt);
+  \draw [->-=0.85]
+       (0.0,0.0)
+    -- (0.0,0.6) .. controls (0.0,1.4) and (0.8,1.4)
+    .. (0.8,2.2)
+    -- (0.8,2.8) node [above=4pt, anchor=base] {$y$};
+\end{tikzpicture}
+\end{document}

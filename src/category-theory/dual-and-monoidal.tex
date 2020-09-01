@@ -1,0 +1,22 @@
+\documentclass[margin={0 4pt 0 0}]{standalone}
+\usepackage{tikz-category}
+\begin{document}
+\begin{tikzpicture}[baseline=0]
+  \draw [->-=0.87] (1.2,2.0) node [above=4pt, anchor=base] {$x\otimes y$}
+    -- (1.2,0.8)
+    .. controls (1.2,0.6) and (1.2,0.0) .. (0.6,0.0)
+    .. controls (0.0,0.0) and (0.0,0.6) .. (0.0,0.8)
+    -- (0.0,2.0) node [above=4pt, anchor=base] {$x\otimes y$};
+  \draw (1.9,1.05) node {=};
+  \draw [->-=0.546, ->-=0.93] (4.4,2.0) node [above=4pt, anchor=base] {$y$}
+    -- (4.4,1.0)
+    .. controls (4.4,0.8) and (4.4,0.0) .. (3.5,0.0)
+    .. controls (2.6,0.0) and (2.6,0.8) .. (2.6,1.0)
+    -- (2.6,2.0) node [above=4pt, anchor=base] {$y$}
+       (3.8,2.0) node [above=4pt, anchor=base] {$x$}
+    -- (3.8,1.0)
+    .. controls (3.8,0.9) and (3.8,0.6) .. (3.5,0.6)
+    .. controls (3.2,0.6) and (3.2,0.9) .. (3.2,1.0)
+    -- (3.2,2.0) node [above=4pt, anchor=base] {$x$};
+\end{tikzpicture}
+\end{document}

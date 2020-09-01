@@ -72,16 +72,16 @@
     font-size: $small-font-size
   };
 
-  .active {
-    font-weight: $bold-font-weight;
-  }
-
   a {
     color: var(--text-color);
     text-decoration: none;
 
     &:hover, &:active, &:focus {
       color: var(--link-color);
+    }
+
+    &.active {
+      font-weight: $bold-font-weight;
     }
   }
 }
