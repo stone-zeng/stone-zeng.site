@@ -49,6 +49,33 @@
 
 // About
 
+.about {
+  font-family: $mono-font-family;
+  text-align: center;
+  white-space: pre;
+  overflow-x: auto;
+
+  .about-mbin {
+    margin: 0 .3em;
+  }
+
+  .about-frac {
+    margin: 0 .3em 0 .1em;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .about-frac-top, .about-frac-bottom {
+    padding: 0 .1em;
+    display: block;
+  }
+
+  .about-frac-bottom {
+    border-top: 1.6px solid;
+  }
+}
+
 .cc-by-sa-logo {
   text-align: center;
   margin-top: $spacing-unit;

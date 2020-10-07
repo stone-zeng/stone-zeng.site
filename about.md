@@ -4,7 +4,9 @@ title: 关于
 permalink: /about/
 ---
 
-Major in theoretical physics. Lover of typesetting and $\LaTeX$.
+I'm Xiangdong Zeng working with
+
+<div class="about">|Physics⟩<span class="about-mbin">⊗</span>|LaTeX⟩<span class="about-mbin">⊗</span><div class="about-frac"><span class="about-frac-top">|Typography⟩<span class="about-mbin">+</span>|Type design⟩</span><span class="about-frac-bottom">√2</span></div></div>
 
 ## 致谢
 
