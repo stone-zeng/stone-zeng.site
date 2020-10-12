@@ -9,7 +9,7 @@
   }
 
   h1 {
-    font-size: $h2-font-size;
+    font-size: $h1-font-size;
     font-weight: normal;
   }
 
@@ -26,8 +26,7 @@
     font-size: $small-font-size;
     color: var(--gray-color);
     display: block;
-    margin: 0;
-    margin-bottom: 10px;
+    margin: 2pt 0 10pt 0;
   }
 }
 
