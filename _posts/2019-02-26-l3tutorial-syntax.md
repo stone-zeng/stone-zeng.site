@@ -38,7 +38,6 @@ description: 从这次的内容开始，我们就将正式进入 $\LaTeX3$ 的�
   - `xtemplate`
 - [`l3experimental`](https://ctan.org/pkg/l3experimental)：一些实验性的尝试，同样用来构建较高层次的语法接口，但不如 `l3packages` 稳定。目前主要有：
   - `l3benchmark`
-  - `l3cctab`
   - `l3color`
   - `l3draw`
   - `l3graphics`
@@ -48,22 +47,17 @@ description: 从这次的内容开始，我们就将正式进入 $\LaTeX3$ 的�
   - `xcoffins`
   - `xgalley`
 - [`l3backend`](https://ctan.org/pkg/l3backend)：提供与后端（底层驱动）相交互的代码，处理颜色、绘图、PDF 特性等功能，目前主要支持以下几种驱动：[^l3backend]
-  - dvipdfmx
-  - dvips
-  - dvisvgm
-  - xdvipdfmx
-  - PDF 模式（即 $\pdfTeX$ 和 $\LuaTeX$）
+  - `dvipdfmx`
+  - `dvips`
+  - `dvisvgm`
+  - `luatex`
+  - `pdftex`
+  - `xetex`
 - [`l3build`](https://ctan.org/pkg/l3build)：$\LaTeX3$ 的构建系统，用来进行单元测试、文档排版、自动化发布等。它利用一系列 Lua 脚本来实现跨平台的功能。
 
 [^l3backend]: 2019 年 7 月 `l3backend` 的代码从 `l3kernel` 中独立出来，以便采取不同的更新策略。
 
-这就是当前 $\LaTeX3$ 的主要组成。除此以外，在 $\LaTeX3$ 的 [GitHub 存储库](https://github.com/latex3/latex3)中，忽略文档、测试文件和辅助文件等，还有以下几个部分：
-
-- `l3trial`
-- `l3leftovers`
-- `xpackages`
-
-这是一些高度实验性的功能以及一些弃用的模块。对于普通用户和开发者来说，它们不应该直接使用。
+这就是当前 $\LaTeX3$ 的主要组成。除此以外，在 $\LaTeX3$ 的 [GitHub 存储库](https://github.com/latex3/latex3)中，还包含了一些高度实验性的功能以及弃用的模块。对于普通用户和开发者来说，它们不应该直接使用。
 
 ## 命名规范
 
@@ -94,7 +88,7 @@ $\LaTeX3$ 中的命令，无论是函数还是变量，仍然都是以反斜杠 
 
 还有两个特殊的参数指定：
 
-- `D`：表示不要使用（**D**o not use）。由 `D` 开头的命令是原语的封装，在 `l3kernel` 之外尽量不要直接使用（当然有时候不可避免）
+- `D`：表示不要使用（**D**o not use）。由 `D` 开头的命令是原语的直接拷贝，在 `l3kernel` 之外尽量不要直接使用（当然有时候不可避免）
 - `w`：奇异型（**w**eird）参数，表示不遵循标准参数指定的一些特例
 
 参数指定在 $\LaTeX3$ 中发挥着至关重要的作用。$\LaTeX3$ 的展开控制机制将会引入更多类型的参数指定，以后我们会详细介绍。
