@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\usepackage{tikz-category}
+\begin{document}
+\begin{tikzpicture}
+  \draw [->-=0.785]
+       (1.6,2.4) node [above] {$x$}
+    -- (1.6,1.9) .. controls (1.6,1.2) and (0.8,1.2)
+    .. (0.8,0.5) .. controls (0.8,0.4) and (0.8,0.0)
+    .. (1.2,0.0);
+  \filldraw [white] (1.2,1.2) circle (2pt);
+  \draw [->-=0.135, ->-=0.8]
+       (1.2,0.0) .. controls (1.6,0.0) and (1.6,0.4)
+    .. (1.6,0.5) .. controls (1.6,1.2) and (0.8,1.2)
+    .. (0.8,1.9) .. controls (0.8,2.0) and (0.8,2.4)
+    .. (0.4,2.4) .. controls (0.0,2.4) and (0.0,2.0)
+    .. (0.0,1.9)
+    -- (0.0,0.0) node [below] {$x$}
+       (2.4,1.2) node {=};
+  \draw []
+       (3.20,2.40) node [above] {$x$}
+    -- (3.20,1.80) .. controls (3.20,1.20) and (3.40,0.80)
+    .. (3.75,0.80) .. controls (3.95,0.80) and (4.10,0.95)
+    .. (4.10,1.20);
+  \filldraw [white] (3.29,1.20) circle (3pt);
+  \draw [->-=0.02]
+       (4.10,1.20) .. controls (4.10,1.45) and (3.95,1.60)
+    .. (3.75,1.60) .. controls (3.40,1.60) and (3.20,1.20)
+    .. (3.20,0.60)
+    -- (3.20,0.00) node [below] {$x$};
+\end{tikzpicture}
+\end{document}

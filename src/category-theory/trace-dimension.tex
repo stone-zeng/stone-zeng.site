@@ -1,0 +1,30 @@
+\documentclass[margin={3pt 0 0 3pt}]{standalone}
+\usepackage{amsmath,tikz-category}
+\begin{document}
+$\operatorname{tr}f=$\kern8pt%
+\begin{tikzpicture}[baseline=1.15cm]
+  \draw [->-=0.27]
+       (0.6,0.0)
+    .. controls (1.2,0.0) and (1.2,0.6) .. (1.2,0.8)
+    -- (1.2,1.8)
+    .. controls (1.2,1.8) and (1.2,2.4) .. (0.6,2.4)
+    .. controls (0.0,2.4) and (0.0,1.8) .. (0.0,1.8)
+    -- (0.0,0.8)
+    .. controls (0.0,0.6) and (0.0,0.0) .. cycle
+    (1.2,0.0) node {$x$}
+    (0.0,1.15) node [draw, fill=white, anchor=base] {$f$};
+\end{tikzpicture}
+\hspace{1cm}
+$\operatorname{dim}x=$\kern8pt
+\begin{tikzpicture}[baseline=1.15cm]
+  \draw [->-=0.27]
+       (0.6,0.0)
+    .. controls (1.2,0.0) and (1.2,0.6) .. (1.2,0.8)
+    -- (1.2,1.8)
+    .. controls (1.2,1.8) and (1.2,2.4) .. (0.6,2.4)
+    .. controls (0.0,2.4) and (0.0,1.8) .. (0.0,1.8)
+    -- (0.0,0.8)
+    .. controls (0.0,0.6) and (0.0,0.0) .. cycle
+    (1.2,0.0) node {$x$};
+\end{tikzpicture}
+\end{document}

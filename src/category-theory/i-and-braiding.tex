@@ -1,0 +1,35 @@
+\documentclass[margin={0 0 0 4pt}]{standalone}
+\usepackage{tikz-category}
+\begin{document}
+\begin{tikzpicture}
+  \draw [->-=0.52, ->-=0.92]
+       (1.8,0.0) node [below=8pt, anchor=base] {$x$}
+    -- (1.8,1.4) .. controls (1.8,1.6) and (1.8,2.4)
+    .. (0.9,2.4) .. controls (0.0,2.4) and (0.0,1.6)
+    .. (0.0,1.4)
+    -- (0.0,0.0) node [below=8pt, anchor=base] {$x$}
+       (1.2,0.0) node [below=8pt, anchor=base] {$y$}
+    -- (1.2,1.4) .. controls (1.2,1.5) and (1.2,1.8)
+    .. (0.9,1.8) .. controls (0.6,1.8) and (0.6,1.5)
+    .. (0.6,1.4)
+    -- (0.6,0.0) node [below=8pt, anchor=base] {$y$};
+  \draw [->-=0.87]
+       (2.4,1.2) node {=}
+       (4.8,0.0) node [below=8pt, anchor=base] {$x$}
+    -- (4.8,0.2) .. controls (4.8,1.0) and (3.6,1.2)
+    .. (3.6,2.0) .. controls (3.6,2.1) and (3.6,2.4)
+    .. (3.3,2.4) .. controls (3.0,2.4) and (3.0,2.1)
+    .. (3.0,2.0)
+    -- (3.0,0.0) node [below=8pt, anchor=base] {$x$};
+  \filldraw [white] (4.4,0.93) circle (2pt)
+                    (4.0,1.27) circle (2pt);
+  \draw [->-=0.865]
+       (4.2,0.0) node [below=8pt, anchor=base] {$y$}
+    -- (4.2,0.2) .. controls (4.2,1.0) and (4.8,1.2)
+    .. (4.8,2.0) .. controls (4.8,2.1) and (4.8,2.4)
+    .. (4.5,2.4) .. controls (4.2,2.4) and (4.2,2.1)
+    .. (4.2,2.0) .. controls (4.2,1.2) and (3.6,1.0)
+    .. (3.6,0.2)
+    -- (3.6,0.0) node [below=8pt, anchor=base] {$y$};
+\end{tikzpicture}
+\end{document}
