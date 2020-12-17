@@ -1,11 +1,10 @@
 ---
 layout: post
-title: Notes on modular tensor category
-date: 2020-08-28
+title: Notes on modular tensor category (1)
+date: 2020-12-17
 lang: en-US
 math: true
-description: TODO
-published: false
+description: Category theory formalizes many mathematical structures, especially the mapping between objects. A modular tensor category is a category with some extra structures, and is an excellent tool to describe some physical concepts, especially the topological orders.
 ---
 
 $$
@@ -17,6 +16,10 @@ $$
 \gdef\cat#1{\mathcal{#1}}
 \gdef\Cat#1{\textsf{\textbf{#1}}}
 $$
+
+Category theory formalizes many mathematical structures, especially the mapping between objects. A modular tensor category is a category with some extra structures, and is an excellent tool to describe some physical concepts, especially the topological orders.
+
+In part 1, we will begin with the basic ideas of category theory, as a foundation of the following things.
 
 ## Basic knowledge of categories
 
