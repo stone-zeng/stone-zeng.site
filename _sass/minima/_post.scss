@@ -19,6 +19,9 @@
     color: var(--link-color);
     font-size: $h1-font-size;
     font-weight: normal;
+    -webkit-hyphens: none;
+        -ms-hyphens: none;
+            hyphens: none;
   }
 
   .post-meta {
@@ -318,5 +321,31 @@
   // Same as HTML <small> tag
   .small {
     font-size: smaller;
+  }
+}
+
+.post-navigation {
+  margin: $spacing-unit 0;
+  overflow: hidden;
+
+  .nav-previous {
+    float: left;
+    width: 48%;
+  }
+
+  .nav-next {
+    float: right;
+    text-align: right;
+    width: 48%;
+  }
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+
+    &:hover, &:active, &:focus {
+      color: var(--link-color);
+      border-bottom: 1px solid var(--link-color);
+    }
   }
 }

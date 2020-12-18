@@ -23,14 +23,14 @@ layout: default
     </ul>
   {% endif %}
   <div class="pagination">
-    {% if paginator.previous_page %}
-      <span class="previous">
-        <a href="{{ paginator.previous_page_path }}">&larr;&#x20DD; 上一页</a>
-      </span>
-    {% endif %}
     {% if paginator.next_page %}
       <span class="next">
-        <a href="{{ paginator.next_page_path }}" class="next">下一页 &rarr;&#x20DD;</a>
+        &larr;&#x20DD; <a href="{{ paginator.next_page_path }}">较旧的文章</a>
+      </span>
+    {% endif %}
+    {% if paginator.previous_page %}
+      <span class="previous">
+        <a href="{{ paginator.previous_page_path }}">较新的文章</a> &rarr;&#x20DD;
       </span>
     {% endif %}
   </div>

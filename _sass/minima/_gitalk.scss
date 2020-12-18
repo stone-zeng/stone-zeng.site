@@ -826,7 +826,7 @@
   background: var(--gt-color-main);
 }
 .gt-container .gt-header-textarea {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: $mono-font-family;
   border: 1px solid var(--gt-color-input-border);
   background-color: var(--gt-color-input-bg);
   color: var(--gt-color-comment-txt);

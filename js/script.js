@@ -101,7 +101,7 @@ function updatePunctLogo() {
     str.replace(TeXLogoPatternH1, (_, name) => span('tex-logo', LOGO[name]));
   document.querySelectorAll('h2, h3, h4, p, li, figcaption, td, th').forEach((e) =>
     e.innerHTML = replacePunct(replaceLogo(e.innerHTML)));
-  document.querySelectorAll('h1').forEach((e) =>
+  document.querySelectorAll('h1, .post-navigation').forEach((e) =>
     e.innerHTML = replacePunct(replaceLogoH1(e.innerHTML)));
 }
 

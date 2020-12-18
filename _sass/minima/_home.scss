@@ -31,11 +31,11 @@
 }
 
 .pagination {
-  .previous {
+  .next {
     float: left;
   }
 
-  .next {
+  .previous {
     float: right;
     text-align: right;
   }
@@ -43,6 +43,11 @@
   a {
     color: var(--text-color);
     text-decoration: none;
+
+    &:hover, &:active, &:focus {
+      color: var(--link-color);
+      border-bottom: 1px solid var(--link-color);
+    }
   }
 }
 

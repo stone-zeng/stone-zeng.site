@@ -36,6 +36,18 @@ layout: default
       <div class="post-content e-content" itemprop="articleBody" id="post-content">
         {{ content }}
       </div>
+      <div class="post-navigation">
+        {% if page.previous %}
+          <span class="nav-previous">
+            &larr;&#x20DD; <a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+          </span>
+        {% endif %}
+        {% if page.next %}
+          <span class="nav-next">
+            <a href="{{ page.next.url }}">{{ page.next.title }}</a> &rarr;&#x20DD;
+          </span>
+        {% endif %}
+      </div>
       <div id="gitalk-container"></div>
     </article>
   </div>
