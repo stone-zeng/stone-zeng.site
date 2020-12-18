@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz-cd}
+\begin{document}
+\begin{tikzcd}
+  & y \arrow[dd, "g"] \\
+  x \arrow[ur, "f"] \arrow[dr, "h"'] & \\
+  & z
+\end{tikzcd}
+\quad
+\begin{tikzcd}[column sep=tiny]
+  & F(y) \arrow[dd, "F_g" near start] \arrow[rr, "\tau_y"] & & G(y) \arrow[dd, "G_g"] \\
+  F(x) \arrow[ur, "F_f"] \arrow[dr, "F_h"'] \arrow[rr, crossing over, "\tau_x"  near start]
+    & & G(x) \arrow[ur, "G_f"] \arrow[dr, "G_h"'] \\
+  & F(z) \arrow[rr, "\tau_z"'] & & G(z)
+\end{tikzcd}
+\end{document}

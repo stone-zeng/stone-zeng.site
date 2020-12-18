@@ -128,15 +128,16 @@
     margin: 0 auto;
     border-collapse: collapse;
     border: $border;
-    tr {
-      &:nth-child(even) {
-        background-color: var(--table-bg-color);
-      }
+
+    tr:nth-child(even) {
+      background-color: var(--table-bg-color);
     }
+
     th, td {
       padding: ($spacing-unit / 4) ($spacing-unit / 2);
       border: $border;
     }
+
     th {
       font-weight: bold;
       border: $border;
@@ -150,7 +151,7 @@
     outline-offset: -1px;
   }
 
-  p > img {
+  p>img {
     display: block;
     margin: 0 auto;
   }
@@ -158,11 +159,11 @@
   figure {
     text-align: center;
 
-    & > img {
+    img {
       vertical-align: middle;
     }
 
-    & > figcaption {
+    figcaption {
       margin: 10px 0 0;
       @include media-on-large {
         margin: 10px 40px 0;
@@ -175,8 +176,7 @@
   }
 
   li {
-    > ul,
-    > ol {
+    >p, >ul, >ol {
       margin-bottom: 2px;
     }
   }
@@ -184,10 +184,10 @@
   ol {
     list-style: none;
     counter-reset: li;
-    > li {
+    >li {
       counter-increment: li;
     }
-    > li::before {
+    >li::before {
       content: counter(li) '.';
       display: inline-block;
       width: 2em;
@@ -198,7 +198,7 @@
       font-variant-numeric: tabular-nums;
       letter-spacing: -.04em;
     }
-    li > p {
+    li>p {
       display: inline-table;
     }
   }
@@ -245,7 +245,7 @@
     }
   }
 
-  ruby > rt {
+  ruby>rt {
     font-weight: 500;
   }
 
@@ -290,7 +290,7 @@
     }
   }
 
-  .fnref > a, .backref > a {
+  .fnref>a, .backref>a {
     border-bottom: none;
     font-feature-settings: 'sups';
     margin: 0 .1em;
@@ -301,7 +301,7 @@
     }
   }
 
-  .backref > a {
+  .backref>a {
     margin: 0;
     font-weight: $bold-font-weight;
     &:after {
