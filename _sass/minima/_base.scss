@@ -241,6 +241,10 @@ strong, th, .post-sidebar .active {
   .page-link {
     text-decoration: none;
     color: var(--text-color);
+
+    &:hover, &:active, &:focus {
+      color: var(--link-color);
+    }
   }
 }
 

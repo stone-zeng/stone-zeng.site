@@ -6,10 +6,10 @@
     .c  // Comment
   , .c1 // Comment.Single
   , .cm // Comment.Multiline
-  { color: $gray-50; }
+  { color: $gray-40; }
     .cp // Comment.Preproc
   , .cs // Comment.Special
-  { color: $gray-50; font-weight: bold; }
+  { color: $gray-60; font-weight: bold; }
 
     .k  // Keyword
   , .kc // Keyword.Constant
@@ -80,10 +80,10 @@
       .c  // Comment
     , .c1 // Comment.Single
     , .cm // Comment.Multiline
-    { color: $gray-50; }
+    { color: $gray-60; }
       .cp // Comment.Preproc
     , .cs // Comment.Special
-    { color: $gray-50; font-weight: bold; }
+    { color: $gray-40; font-weight: bold; }
 
       .k  // Keyword
     , .kc // Keyword.Constant
@@ -163,7 +163,7 @@
 
 // Used in Wolfram Language
 .language-wl .highlight {
-  font-feature-settings: 'calt', 'cv19'; // Programming ligatures, centered star
+  font-feature-settings: 'WFLM';
 
   .np, .ns { font-style: italic; }
   .np { color: $red-500; } // Name.Pattern
