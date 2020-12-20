@@ -2,11 +2,13 @@
 layout: post
 title: Notes on modular tensor category (1)
 date: 2020-12-17
-last_modified_at: 2020-12-18
+last_modified_at: 2020-12-20
 lang: en-US
 math: true
 description: Category theory formalizes many mathematical structures, especially the mapping between “objects”. A modular tensor category is a category with some extra structures, and provides the mathematical foundation of some physical concepts, especially the topological orders.
 ---
+
+<!-- TODO: pivotal, spherical, left/right trace -->
 
 $$
 \gdef\id{\mathrm{id}}
@@ -201,7 +203,7 @@ The formal definition requires some other concepts:
 - A **bifunctor** $F\colon\cat{C}\times\cat{C}^\prime\to\cat{D}$ is a map such that
 
   - Object $(x,x^\prime)\in\cat{C}\times\cat{C}^\prime$ maps to object $F(x,x^\prime)\in\cat{D}$
-  - Morphism $(f,f^\prime)\in\Hom_{\cat{C}\times\cat{C}^\prime}((x,x^\prime),(y,y^\prime))$ maps to $F_{(f,f^\prime)}\in\Hom_\cat{D}(F(x,x^\prime),F(y,y^\prime))$
+  - Morphism $(f,f^\prime)\in\Hom_{\cat{C}\times\cat{C}^\prime}\bigl((x,x^\prime),(y,y^\prime)\bigr)$ maps to $F_{(f,f^\prime)}\in\Hom_\cat{D}\bigl(F(x,x^\prime),F(y,y^\prime)\bigr)$
   - The identity and composition are preserved just as in a normal functor
 
 Now we are able to define the **tensor category** $\cat{C}$ with
@@ -313,6 +315,28 @@ such that the following conditions are satisfied:
 
   still by using $\mu$.
 
+For a tensor category $\cat{C}$ (not necessarily braided), its **Drinfeld center** $\cat{Z}(\cat{C})$ is defined by another tensor category whose
+
+- Object is a pair $(x,\phi^{(x)})$, where $x\in\cat{C}$ is an object and $\phi^{(x)}$ is a natural isomorphism:
+
+  $$ \phi^{(x)}_y \colon x\otimes y \overset\sim\to y\otimes x $$
+
+  such that
+
+  $$ \phi^{(x)}_{y\otimes z} = (\id_y\otimes\phi^{(x)}_z) \circ (\phi^{(x)}_y\otimes\id_x), \quad \forall y,z\in\cat{C} $$
+
+- Morphism $f\colon(x,\phi^{(x)})\to(y,\phi^{(y)})$ is a morphism $f\colon x\to y$ in $\cat{C}$ such that
+
+  $$ (\id_z\otimes f)\circ\phi^{(x)}_z = \phi^{(y)}_z\circ(f\otimes\id_z), \quad \forall z\in\cat{C} $$
+
+- Tensor product is
+
+  $$ (x,\phi^{(x)})\otimes(y,\phi^{(y)}) = \left( x\otimes y, \, (\phi^{(x)}\otimes\id_y)\otimes(\id_x\otimes\phi^{(y)}) \right) $$
+
+The Drinfeld center $\cat{Z}(\cat{C})$ is naturally a *braided* tensor category, with braiding isomorphism given by
+
+$$ \sigma_{(x,\phi^{(x)}),\,(y,\phi^{(y)})} \colon (x,\phi^{(x)})\otimes(y,\phi^{(y)}) \to (y,\phi^{(y)})\otimes(x,\phi^{(x)}) $$
+
 ## Ribbon category
 
 ### Dual
@@ -343,7 +367,7 @@ Similarly, we can define the **left dual** with the following morphisms:
 
 $$ e'_x \colon x\otimes {}^\vee\!x\to\1, \quad i'_x\colon \1\to{}^\vee\!x\otimes x $$
 
-and similar rigidity axioms. By definition, if $x$ is the right dual of $y$, then $y$ is the left dual of $x$, and vice versa. For a tensor category $\cat{C}$, if every object $x\in\cat{C}$ has left and right duals, then $\cat{C}$ is called **rigid** (or autonomous).
+and similar rigidity axioms. By definition, if $x$ is the right dual of $y$, then $y$ is the left dual of $x$, and vice versa. For a tensor category $\cat{C}$, if every object $x\in\cat{C}$ has both left and right duals, then $\cat{C}$ is called **rigid** (or autonomous).
 
 In the graphical notation, the dual of an object is represented by simply reversing the arrow. In addition, the unit object $\1$, or "vaccum", can be neglected. So $e_x$ and $i_x$ correspond to the following diagrams:
 
@@ -458,12 +482,22 @@ In particular, when $f=\id_x$, we can define the **dimension** of $x\in\cat{C}$ 
 
 ## References
 
-- Mac Lane S. *Categories for the Working Mathematician*
-- Milewski B. [*Category Theory for Programmers*](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
-- Baez J C, Stay M. *Physics, Topology, Logic and Computation: A Rosetta Stone*, [arXiv:0903.0340](https://arxiv.org/abs/0903.0340)
-- Bakalov B, Kirillov A. [*Lectures on Tensor Categories and Modular Frunctor*](https://www.math.stonybrook.edu/~kirillov/tensor/tensor.html)
-- Müger M. *Tensor categories: A selective guided tour*, [arXiv:0804.3587](https://arxiv.org/abs/0804.3587)
-- Turaev V G. *Quantum Invariants of Knots and 3-Manifolds*
-- Lou J, Shen C, Chen C, Hung L Y. *A (Dummy's) Guide to Working with Gapped Boundaries via (Fermion) Condensation*, [arXiv:2007.10562](https://arxiv.org/abs/2007.10562)
-- A large number of pages on [*n*Lab](https://ncatlab.org/)
-- 张智浩. [日常的数学和物理问题](https://zhuanlan.zhihu.com/c_123465504)
+- Books:
+
+  - S Mac Lane. *Categories for the Working Mathematician*
+  - V G Turaev. *Quantum Invariants of Knots and 3-Manifolds*
+  - B Bakalov, A Kirillov. [*Lectures on Tensor Categories and Modular Frunctor*](https://www.math.stonybrook.edu/~kirillov/tensor/tensor.html)
+  - B Milewski. [*Category Theory for Programmers*](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
+
+- Papers:
+
+  - A Kitaev. *Anyons in an exactly solved model and beyond*, [arXiv:cond-mat/0506438](https://arxiv.org/abs/cond-mat/0506438)
+  - M Müger. *Tensor categories: A selective guided tour*, [arXiv:0804.3587](https://arxiv.org/abs/0804.3587)
+  - J C Baez, M Stay. *Physics, Topology, Logic and Computation: A Rosetta Stone*, [arXiv:0903.0340](https://arxiv.org/abs/0903.0340)
+  - J Lou, C Shen, C Chen, L Y Hung. *A (Dummy's) Guide to Working with Gapped Boundaries via (Fermion) Condensation*, [arXiv:2007.10562](https://arxiv.org/abs/2007.10562)
+
+- Some other notes:
+
+  - 张智浩. [日常的数学和物理问题](https://zhuanlan.zhihu.com/c_123465504)
+  - M Thuresson. [*Drinfeld centers*](https://uu.diva-portal.org/smash/get/diva2:1205005/FULLTEXT01.pdf)
+  - A large number of pages on [*n*Lab](https://ncatlab.org/)
