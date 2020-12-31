@@ -53,7 +53,7 @@ I'm Xiangdong Zeng working with
 
 若无特殊声明，本站所有文章均按照 [CC BY-SA 4.0 协议](https://creativecommons.org/licenses/by-sa/4.0/)发布。
 
-<div class="cc-by-sa-logo">
+<div class="cc-by-sa-logo" aria-label="Creative Commons Attribution-ShareAlike">
   <svg class="icon"><use xlink:href="/assets/icons.svg#creative-commons-brands" /></svg>
   <svg class="icon"><use xlink:href="/assets/icons.svg#creative-commons-by-brands" /></svg>
   <svg class="icon"><use xlink:href="/assets/icons.svg#creative-commons-sa-brands" /></svg>
