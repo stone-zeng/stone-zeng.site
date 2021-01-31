@@ -2,7 +2,7 @@
 layout: post
 title: Notes on modular tensor category (1)
 date: 2020-12-17
-last_modified_at: 2020-12-20
+last_modified_at: 2021-01-31
 lang: en-US
 math: true
 description: Category theory formalizes many mathematical structures, especially the mapping between “objects”. A modular tensor category is a category with some extra structures, and provides the mathematical foundation of some physical concepts, especially the topological orders.
@@ -407,7 +407,7 @@ If combine the dual with tensor and braiding structures, we can then immediately
 
   ![dual-and-braiding](/images/category-theory/dual-and-braiding.svg){:.invert}
 
-where $\sigma$ can be replaced by $\sigma^{-1}$ in the last two equations.
+where $\sigma$ can be replaced by $\sigma^{-1}$ in these equations.
 
 ### Ribbon
 
@@ -457,12 +457,12 @@ The graphical notation of $\theta$ can be deduced from the definition of $\psi$,
 
 ![twist](/images/category-theory/twist.svg){:.invert}{:style="max-width: 250px;"}
 
-However, if we imagine the above thing as a 1D line or string in $\R^3$, then we man think that $\theta=\id$, which is not true generally. Therefore, we may turn to using a 2D object, or a "ribbon", to correctly represent $\theta$:
+However, if imagining such thing as a 1-dimensional line or string in $\R^3$, then we may think that $\theta=\id$, which is not true in general. Therefore, we may turn to using a 2D object, or a "ribbon", to correctly represent $\theta$:
 
 TODO:
 <!-- ![twist-ribbon](/images/category-theory/twist-ribbon.svg){:.invert} -->
 
-When we try to straighten it, we will get a ribbon with a "twist", and clearly it's not the same as a flat one. With such "ribbon" representation, the identity $\theta_{x\otimes y}=\sigma_{y,x}\circ\sigma_{x,y}\circ(\theta_x\otimes\theta_y)$ can be visualized as:
+When trying to straighten it, we will get a ribbon with a "twist", and clearly it's not the same as a flat one. With such "ribbon" representation, the identity $\theta_{x\otimes y}=\sigma_{y,x}\circ\sigma_{x,y}\circ(\theta_x\otimes\theta_y)$ can be visualized as:
 
 TODO:
 <!-- ![twist-identity](/images/category-theory/twist-identity.svg){:.invert} -->
