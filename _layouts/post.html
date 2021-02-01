@@ -38,14 +38,10 @@ layout: default
       </div>
       <div class="post-navigation">
         {% if page.previous %}
-          <span class="nav-previous">
-            &larr;&#x20DD; <a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
-          </span>
+          <span class="nav-previous"><a href="{{ page.previous.url }}"><span class="nav-text">{{ page.previous.title }}</span></a></span>
         {% endif %}
         {% if page.next %}
-          <span class="nav-next">
-            <a href="{{ page.next.url }}">{{ page.next.title }}</a> &rarr;&#x20DD;
-          </span>
+          <span class="nav-next"><a href="{{ page.next.url }}"><span class="nav-text">{{ page.next.title }}</span></a></span>
         {% endif %}
       </div>
       <div id="gitalk-container"></div>

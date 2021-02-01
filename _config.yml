@@ -17,13 +17,14 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
+  - package.json
   - README.md
   - _draft/
   - .vscode/
   - node_modules/
-  - package.json
   - src/
   - temp/
+  - vendor/
 
 markdown: kramdown
 

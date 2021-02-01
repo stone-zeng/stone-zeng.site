@@ -1,2 +1,2 @@
 rm -rf _site/ .sass-cache/
-jekyll serve --future --livereload --incremental
+bundle exec jekyll serve --future --livereload --incremental
