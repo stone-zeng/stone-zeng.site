@@ -179,6 +179,9 @@
     >p, >ul, >ol {
       margin-bottom: 2px;
     }
+    >p>img {
+      margin: $spacing-unit / 2 auto;
+    }
   }
 
   ol {
@@ -324,6 +327,7 @@
   }
 }
 
+// See .pagination in _home.scss
 .post-navigation {
   margin: $spacing-unit 0;
   overflow: hidden;

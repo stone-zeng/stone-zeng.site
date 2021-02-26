@@ -32,10 +32,20 @@
 
 .pagination {
   .next {
+    a::before {
+      content: '\2190\20DD';
+      margin-right: 4px;
+    }
+
     float: left;
   }
 
   .previous {
+    a::after {
+      content: '\2192\20DD';
+      margin-left: 4px;
+    }
+
     float: right;
     text-align: right;
   }
@@ -46,6 +56,11 @@
 
     &:hover, &:active, &:focus {
       color: var(--link-color);
+    }
+  }
+
+  .nav-text {
+    &:hover, &:active, &:focus {
       border-bottom: 1px solid var(--link-color);
     }
   }
