@@ -18,4 +18,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.css">
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
   <link rel="icon" type="image/png" href="/favicon.png">
+  {% if page.lang == "en-US" %}
+    <style>.highlight .c, .highlight .c1, .highlight .cm { font-style: oblique; }</style>
+  {% endif %}
 </head>
