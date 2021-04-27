@@ -165,7 +165,7 @@
 .language-wl .highlight {
   font-feature-settings: 'WFLM';
 
-  .np, .ns { font-style: italic; }
+  .np, .ns { font-style: oblique; }
   .np { color: $red-500; } // Name.Pattern
   .ns { color: $green-600; } // Name.Slot
 
