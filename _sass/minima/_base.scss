@@ -8,6 +8,14 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
+:root {
+  color-scheme: light;
+
+  @include media-dark {
+    color-scheme: dark;
+  }
+}
+
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   font-feature-settings: 'kern';
@@ -346,20 +354,4 @@ svg.icon {
   @include media-dark {
     background-color: rgba(invert($blue-300), 0.6);
   }
-}
-
-// Scrollbar
-
-::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--border-color);
-  border-radius: 4px;
-}
-
-* {
-  scrollbar-color: var(--border-color) rgba(0,0,0,0);
 }
