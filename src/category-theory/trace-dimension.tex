@@ -1,30 +1,43 @@
 \documentclass[margin={3pt 0 0 3pt}]{standalone}
 \usepackage{amsmath,tikz-category}
+\def\PATHL#1{%
+  \begin{tikzpicture}[baseline=1.05cm]
+    \draw [->-=0.27]
+        (0.5,0.0)
+      .. controls (0.0,0.0) and (0.0,0.5) .. (0.0,0.8)
+      -- (0.0,1.4)
+      .. controls (0.0,1.7) and (0.0,2.2) .. (0.5,2.2)
+      .. controls (1.0,2.2) and (1.0,1.7) .. (1.0,1.4)
+      -- (1.0,0.8)
+      .. controls (1.0,0.5) and (1.0,0.0) .. cycle
+      (1.0,0.0) node {$x$}
+      #1;
+  \end{tikzpicture}
+}
+\def\PATHR#1{%
+  \begin{tikzpicture}[baseline=1.05cm]
+    \draw [->-=0.27]
+        (0.5,0.0)
+      .. controls (1.0,0.0) and (1.0,0.5) .. (1.0,0.8)
+      -- (1.0,1.4)
+      .. controls (1.0,1.7) and (1.0,2.2) .. (0.5,2.2)
+      .. controls (0.0,2.2) and (0.0,1.7) .. (0.0,1.4)
+      -- (0.0,0.8)
+      .. controls (0.0,0.5) and (0.0,0.0) .. cycle
+      (1.0,0.0) node {$x$}
+      #1;
+  \end{tikzpicture}
+}
 \begin{document}
-$\operatorname{tr}f=$\kern8pt%
-\begin{tikzpicture}[baseline=1.15cm]
-  \draw [->-=0.27]
-       (0.6,0.0)
-    .. controls (1.2,0.0) and (1.2,0.6) .. (1.2,0.8)
-    -- (1.2,1.8)
-    .. controls (1.2,1.8) and (1.2,2.4) .. (0.6,2.4)
-    .. controls (0.0,2.4) and (0.0,1.8) .. (0.0,1.8)
-    -- (0.0,0.8)
-    .. controls (0.0,0.6) and (0.0,0.0) .. cycle
-    (1.2,0.0) node {$x$}
-    (0.0,1.15) node [draw, fill=white, anchor=base] {$f$};
-\end{tikzpicture}
-\hspace{1cm}
-$\operatorname{dim}x=$\kern8pt
-\begin{tikzpicture}[baseline=1.15cm]
-  \draw [->-=0.27]
-       (0.6,0.0)
-    .. controls (1.2,0.0) and (1.2,0.6) .. (1.2,0.8)
-    -- (1.2,1.8)
-    .. controls (1.2,1.8) and (1.2,2.4) .. (0.6,2.4)
-    .. controls (0.0,2.4) and (0.0,1.8) .. (0.0,1.8)
-    -- (0.0,0.8)
-    .. controls (0.0,0.6) and (0.0,0.0) .. cycle
-    (1.2,0.0) node {$x$};
-\end{tikzpicture}
+$\operatorname{tr}_\text{L}f=$\kern4pt
+\PATHL{(1.0,1.05) node [draw, fill=white, anchor=base] {$f$}}
+\quad
+$\operatorname{tr}_\text{R}f=$\kern4pt
+\PATHR{(0.0,1.05) node [draw, fill=white, anchor=base] {$f$}}
+\qquad
+$\operatorname{dim}_\text{L}x=$\kern4pt
+\PATHL{}
+\quad
+$\operatorname{dim}_\text{R}x=$\kern4pt
+\PATHR{}
 \end{document}

@@ -221,6 +221,11 @@
     }
   }
 
+  hr {
+    margin: $spacing-unit 0 $spacing-unit 0;
+    border: $border;
+  }
+
   pre {
     overflow-x: auto;
     padding: 8px 12px;

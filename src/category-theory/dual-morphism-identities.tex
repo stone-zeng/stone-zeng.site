@@ -1,0 +1,26 @@
+\documentclass[margin={0 3pt 3pt 3pt}]{standalone}
+\usepackage{tikz-category}
+\def\MORPHE#1#2{%
+  \begin{tikzpicture}
+    \draw [->-=0.11, ->-=0.94]
+         (0.8,2.0) node [above=4pt, anchor=base] {$x$}
+      -- (0.8,1.0) .. controls (0.8,0.9) and (0.8,0.4)
+      .. (0.4,0.4) .. controls (0.0,0.4) and (0.0,0.9)
+      .. (0.0,1.0)
+      -- (0.0,2.0) node [above=4pt, anchor=base] {$y$}
+         (#1, 1.1) node [draw, fill=white, anchor=base] {$\scriptstyle#2$};
+  \end{tikzpicture}}
+\def\MORPHI#1#2{%
+  \begin{tikzpicture}
+    \draw [->-=0.1, ->-=0.95]
+         (0.8,0.0) node [below=8pt, anchor=base] {$x$}
+      -- (0.8,1.0) .. controls (0.8,1.1) and (0.8,1.6)
+      .. (0.4,1.6) .. controls (0.0,1.6) and (0.0,1.1)
+      .. (0.0,1.0)
+      -- (0.0,0.0) node [below=8pt, anchor=base] {$y$}
+         (#1, 0.75) node [draw, fill=white, anchor=base] {$\scriptstyle#2$};
+  \end{tikzpicture}}
+\begin{document}
+\MORPHE{0.8}{f\vphantom{f^\vee}} ~\raisebox{1cm}{=} ~\MORPHE{0.0}{f^\vee} \qquad
+\MORPHI{0.0}{f\vphantom{f^\vee}}  \raisebox{1cm}{=}  \MORPHI{0.8}{f^\vee}
+\end{document}

@@ -2,13 +2,11 @@
 layout: post
 title: Notes on modular tensor category (1)
 date: 2020-12-17
-last_modified_at: 2021-01-31
+last_modified_at: 2021-04-30
 lang: en-US
 math: true
-description: Category theory formalizes many mathematical structures, especially the mapping between “objects”. A modular tensor category is a category with some extra structures, and provides the mathematical foundation of some physical concepts, especially the topological orders.
+description: Category theory formalizes many mathematical structures, especially the mapping between “objects”. A modular tensor category is a category with some extra structures and can provide a mathematical foundation for some physical concepts, especially the topological orders.
 ---
-
-<!-- TODO: pivotal, spherical, left/right trace -->
 
 $$
 \gdef\id{\mathrm{id}}
@@ -19,11 +17,13 @@ $$
 \gdef\cat#1{\mathcal{#1}}
 \gdef\Cat#1{\textsf{\textbf{#1}}}
 \gdef\qtext#1{\enspace\text{#1}\enspace}
+\gdef\ldual#1{ {}^\vee\mkern{-2mu}#1}
 $$
+{:.katex-def}
 
-Category theory formalizes many mathematical structures, especially the mapping between "objects". A modular tensor category is a category with some extra structures, and provides the mathematical foundation of some physical concepts, especially the topological orders.
+Category theory formalizes many mathematical structures, especially the mapping between "objects". A modular tensor category is a category with some extra structures and can provide the mathematical foundation of some physical concepts, especially the topological orders.
 
-In the first part of this notes, we will introduce some basic ideas of category theory. For people with programming backgrounds (or just interested in it), we will use Haskell as an example. Then some more structures will be added into the "bare" category, such as tensor product, braiding and dual. These will be helpful when we deal with modular tensor category in the next part, although some physicists may complain that they are too formalized and make no sense.
+In the first part of this note, we will introduce some basic ideas of category theory. For people with programming backgrounds (or just interested in it), we will use Haskell as an example. Then some more structures will be added into the "bare" category, such as tensor product, braiding and dual. These will be helpful when we deal with modular tensor category in the next part, although some physicists may complain that they are too tedious.
 
 ## Basic knowledge of categories
 
@@ -45,7 +45,7 @@ and the following axioms should hold:
 
   $$ f\circ \id_x = \id_y\circ f = f, \quad \forall f\colon x\to y$$
 
-In a pictorical representation, the morphism in a category can be visualized as a "black box":
+In a pictorial representation, the morphism in a category can be visualized as a "black box":
 
 ![morphism](/images/category-theory/morphism.svg){:.invert}{:style="max-width: 210px;"}
 
@@ -57,14 +57,14 @@ For the composition of two morphisms $f$ and $g$, we use two consecutive boxes:
 
 ![composition](/images/category-theory/composition.svg){:.invert}{:style="max-width: 180px;"}
 
-Note that in our convention, these diagrams should be read *from top to bottom*, as the arrows indicate. The direction will be significant when we meet the dual of objects (see below).
+In our convention, these diagrams should be read *from top to bottom*, as the arrows indicate. The direction will be significant when we meet the dual of objects (see below).
 
 There are some special cases of morphisms. Let $f\colon x\to y$, then
 
 - $f$ is a **monomorphism** if for all morphisms $g_1, g_2\colon w\to x$, $f\circ g_1=f\circ g_2\implies g_1=g_2$ (left cancellable)
-- $f$ is a **epimorphism** if for all morphisms $h_1, h_2\colon y\to z$, $h_1\circ f=h_2\circ f\implies h_1=h_2$ (right cancellable)
+- $f$ is an **epimorphism** if for all morphisms $h_1, h_2\colon y\to z$, $h_1\circ f=h_2\circ f\implies h_1=h_2$ (right cancellable)
 - $f$ is an **isomorphism** if there exists $f^{-1}\colon y\to x$ such that $f^{-1}\circ f=\id_x$ and $f\circ f^{-1}=\id_y$. Here, $f^{-1}$ is called the **inverse** of $f$
-- If the domain and codomain of $f$ conincide, i.e. $f\in\Hom_\cat{C}(x,x)\coloneqq\End_{\cat{C}}(x)$, then $f$ is an **endomorphism**
+- If the domain and codomain of $f$ coincide, i.e. $f\in\Hom_\cat{C}(x,x)\coloneqq\End_{\cat{C}}(x)$, then $f$ is an **endomorphism**
 - If $f$ is both an endomorphism and an isomorphism, then it's called an **automorphism**
 
 <!--
@@ -100,7 +100,7 @@ where $F$ preserves
 
   $$ F_{g\circ f} = F_g\circ F_f \in \Hom_\cat{D}(F(x),F(z)), \quad \forall f\in\Hom_\cat{C}(x,y), \, g\in\Hom_\cat{C}(y,z) $$
 
-In Haskell, functor is defined as a **type class**:
+In Haskell, a functor is defined as a **type class**:
 
 ```haskell
 class Functor f where
@@ -114,7 +114,7 @@ fmap id      == id               -- Preserve identities
 fmap (f . g) == fmap f . fmap g  -- Preserve composition
 ```
 
-Let's see an example. First we have a function that convert an integer to string:
+Let's see an example. First, we have a function that converts an integer to a string:
 
 ```haskell
 show :: Int -> String
@@ -139,7 +139,7 @@ such that
 
 $$ \tau_y\circ F_f = G_f\circ\tau_x, \quad \forall f\in\Hom_\cat{C}(x,y) $$
 
-In a pictorical representation, that is to say the following diagram is *commutative*, i.e. the two paths from $F(x)$ to $G(y)$ are equivalent:
+In a pictorial representation, that is to say the following diagram is *commutative*, i.e. the two paths from $F(x)$ to $G(y)$ are equivalent:
 
 ![natural-transformation-components-1](/images/category-theory/natural-transformation-components-1.svg){:.invert}{:.tikz-cd}{:style="max-width: 250px;"}
 
@@ -189,7 +189,7 @@ Here `safeHead` is a polymorphic function, or natural transformation in category
 
 ## Tensor category
 
-Roughly speaking, a tensor category (or monoidal category) is a category with a "tensor product". A basic example is the vector space (or the category **Vec**), where tensor product is defined as the combination of two vector spaces, as well as the linear maps over them.
+Roughly speaking, a tensor category (or monoidal category) is a category with a "tensor product". A basic example is the vector space (or the category **Vec**), where the tensor product is defined as the combination of two vector spaces, as well as the linear maps over them.
 
 The formal definition requires some other concepts:
 
@@ -206,7 +206,7 @@ The formal definition requires some other concepts:
   - Morphism $(f,f^\prime)\in\Hom_{\cat{C}\times\cat{C}^\prime}\bigl((x,x^\prime),(y,y^\prime)\bigr)$ maps to $F_{(f,f^\prime)}\in\Hom_\cat{D}\bigl(F(x,x^\prime),F(y,y^\prime)\bigr)$
   - The identity and composition are preserved just as in a normal functor
 
-Now we are able to define the **tensor category** $\cat{C}$ with
+Now we can define the **tensor category** $\cat{C}$ with
 
 - **Tensor product**, which is a bifunctor $\otimes\colon\cat{C}\times\cat{C}\to\cat{C}$
 - A **unit object** $\1\in\cat{C}$
@@ -235,7 +235,7 @@ MacLane gives the following important result:
 > **Coherence theorem:**\\
 > *Every tensor category is (tensor) equivalent to a strict one.*
 
-The name *tensor category* is very intuitive, as we have just equipped the category with *tensor* product. The alternate name *monoidal category* is not so straight forward, but it indicates an important fact: a strict monoidal category is actually a *monoid* (i.e. a "group" without invertibility):
+The name *tensor category* is very intuitive, as we have just equipped the category with a *tensor* product. The alternate name *monoidal category* is not so straight forward, but it indicates a remarkable fact: a strict monoidal category is indeed a *monoid* (i.e. a "group" without invertibility):
 
 - Tensor product $\otimes$ corresponds to the multiplication in the monoid with the associativity axiom
 - Unit object $\1$ corresponds to the identity element in the monoid
@@ -278,7 +278,7 @@ A braided tensor category is called **symmetric**, if $\sigma_{y,x}\circ\sigma_{
 
 ![symmetric-category](/images/category-theory/symmetric-category.svg){:.invert}{:style="max-width: 480px;"}
 
-In braided tensor categories, a compatible functor requires some more constraints. Let $\cat{C}_1$ and $\cat{C}_2$ to be braided tensor categories, then a **tensor functor** from $\cat{C}_1$ to $\cat{C}_2$ is defined as a pair $(F,\mu)$ where
+In braided tensor categories, a compatible functor requires some more constraints. Let $\cat{C}_1$ and $\cat{C}_2$ be braided tensor categories, then a **tensor functor** from $\cat{C}_1$ to $\cat{C}_2$ is defined as a pair $(F,\mu)$ where
 
 - $F\colon\cat{C}_1\to\cat{C}_2$ is a functor
 - $\mu_{x,y}\colon F(x\otimes y)\overset\sim\to F(x)\otimes F(y)$ is a natural isomorphism in $\cat{C}_2$, with $x,y\in\cat{C}_1$
@@ -341,7 +341,7 @@ $$ \sigma_{(x,\phi^{(x)}),\,(y,\phi^{(y)})} \colon (x,\phi^{(x)})\otimes(y,\phi^
 
 ### Dual
 
-We first introduce the concept of **dual** in a tensor category. This is a generalization of the dual vector space: given a vector space $V$ over field $F$, its dual space $V^\vee$ is defined as the set of all linear maps $\phi\colon V\to F$.
+Let's introduce the concept of **dual** in a tensor category first. This is a generalization of the dual vector space: for a vector space $V$ over field $F$, its dual space $V^\vee$ is defined as the set of all linear maps $\phi\colon V\to F$.
 
 The **right dual** of an object $x\in\cat{C}$ is an object $x^\vee$ with two morphisms:
 
@@ -361,19 +361,19 @@ x^\vee \xrightarrow{\id_{x^\vee}\otimes i_x} x^\vee\otimes(x\otimes x^\vee) = (x
     \xrightarrow{e_x\otimes\id_{x^\vee}} \1\otimes x^\vee = x^\vee
 $$
 
-The above conditions are called **rigidity axioms**. In some sense, $e_x$ and $i_x$ are called *annihilation* and *creation* morphisms, as they can annihilate/create objects to/from "vaccum", just as the $\hat{a}$ and $\hat{a}^\dagger$ operators in quantum mechanics.
+The above conditions are called **rigidity axioms**. In some sense, $e_x$ and $i_x$ are called *annihilation* and *creation* morphisms, as they can annihilate/create objects to/from "vacuum", just as the $\hat{a}$ and $\hat{a}^\dagger$ operators in quantum mechanics.
 
 Similarly, we can define the **left dual** with the following morphisms:
 
-$$ e'_x \colon x\otimes {}^\vee\!x\to\1, \quad i'_x\colon \1\to{}^\vee\!x\otimes x $$
+$$ e'_x \colon x\otimes \ldual{x}\to\1, \quad i'_x\colon \1\to\ldual{x}\otimes x $$
 
-and similar rigidity axioms. By definition, if $x$ is the right dual of $y$, then $y$ is the left dual of $x$, and vice versa. For a tensor category $\cat{C}$, if every object $x\in\cat{C}$ has both left and right duals, then $\cat{C}$ is called **rigid** (or autonomous).
+and similar rigidity axioms. By definition, if $x$ is the right dual of $y$, then $y$ is the left dual of $x$, and vice versa. For a tensor category $\cat{C}$, if every object $x\in\cat{C}$ has left/right dual, then $\cat{C}$ is called **left/right rigid**. If both types of duals exist, then it's called **rigid** (or autonomous).
 
-In the graphical notation, the dual of an object is represented by simply reversing the arrow. In addition, the unit object $\1$, or "vaccum", can be neglected. So $e_x$ and $i_x$ correspond to the following diagrams:
+In the graphical notation, the dual of an object is represented by simply reversing the arrow. In addition, the unit object $\1$, or "vacuum", can be neglected. So $e_x$ and $i_x$ correspond to the following diagrams:
 
 ![dual](/images/category-theory/dual.svg){:.invert}{:style="max-width: 680px;"}
 
-Then the rigidity axioms (for right dual) become
+The rigidity axioms (for right dual) then become
 
 ![rigidity-axioms](/images/category-theory/rigidity-axioms.svg){:.invert}{:style="max-width: 400px;"}
 
@@ -385,7 +385,7 @@ or in the graphical notation:
 
 ![f-dual](/images/category-theory/f-dual.svg){:.invert}{:style="max-width: 360px;"}
 
-If combine the dual with tensor and braiding structures, we can then immediately find some important identities:
+If combining the dual with tensor and braiding structures, we can then find some important identities:
 
 - $(x\otimes y)^\vee = y^\vee\otimes x^\vee$
 
@@ -403,15 +403,19 @@ If combine the dual with tensor and braiding structures, we can then immediately
 
   ![i-and-braiding](/images/category-theory/i-and-braiding.svg){:.invert}{:style="max-width: 300px;"}
 
+- $e_y\circ(\id_{y^\vee}\otimes f) = e_x\circ(f^\vee\otimes\id_x), \quad (f\otimes\id_{x^\vee})\circ i_x = (\id_y\otimes f^\vee)\circ i_y$
+
+  ![dual-morphism-identities](/images/category-theory/dual-morphism-identities.svg){:.invert}{:style="max-width: 420px;"}
+
 - $\sigma_{x,y}^\vee = \sigma_{x^\vee,y^\vee}$
 
   ![dual-and-braiding](/images/category-theory/dual-and-braiding.svg){:.invert}
 
 where $\sigma$ can be replaced by $\sigma^{-1}$ in these equations.
 
-### Ribbon
+### Pivotal and spherical structure
 
-A **ribbon category** (aka. tortile category or balanced rigid braided tensor category) is a rigid braided tensor category with a natural isomorphism
+For a finite-dimensional vector space $V$, we know that its double dual $V^{\vee\vee}$ is isomorphic to $V$. Its categorical generalization (over a right rigid category $\cat{C}$) is the **pivotal structure**, which is given by the following natural isomorphism:
 
 $$ \delta_x \colon x \overset\sim\to x^{\vee\vee}, \quad \forall x\in\cat{C} $$
 
@@ -423,27 +427,50 @@ $$
 \delta_{x^\vee} = (\delta_x^\vee)^{-1}
 $$
 
-In a rigid braided tensor category $\cat{C}$, we can construct the following natural isomorphism
+The definition of right dual gives
+
+$$ e_x\colon x^\vee\otimes x^{\vee\vee}\to\1, \quad i_x\colon\1\to x^{\vee\vee}\otimes x^\vee $$
+
+and therefore $x^{\vee\vee}$ is the left dual of $x^\vee$. By renaming $x^\vee$ to $y$, we can see that $\ldual{y}=y^\vee$.
+
+In a pivotal category $\cat{C}$, a morphism $f\in\Hom_\cat{C}(x,y)$ will be identified with its double dual $f^{\vee\vee}\in\Hom_\cat{C}(x^{\vee\vee},y^{\vee\vee})\simeq\Hom_\cat{C}(x,y)$:
+
+![double-dual](/images/category-theory/double-dual.svg){:.invert}{:style="max-width: 200px;"}
+
+For an endomorphism $f\in\End_{\cat{C}}(x)$, where $\cat{C}$ is a pivotal category, we can define the left and right **(pivotal) traces** as
 
 $$
-\psi_x \colon x^{\vee\vee} \overset\sim\to x, \quad
-\psi_x \coloneqq (\id_x\otimes e_{x^\vee}) \circ (\id_x\otimes\sigma_{x^{\vee\vee},x^\vee}^{-1}) \circ (i_x\otimes\id_{x^{\vee\vee}}), \quad
-\forall x\in\cat{C}
+\begin{aligned}
+  \tr_{\text{L}} f &\colon \1 \xrightarrow{i_{x^\vee}} x^\vee\otimes x^{\vee\vee}
+                              \xrightarrow{\id_{x^\vee}\otimes\delta_x^{-1}} x^\vee\otimes x
+                              \xrightarrow{\id_{x^\vee}\otimes f} x^\vee\otimes x
+                              \xrightarrow{e_x} \1 \\
+  \tr_{\text{R}} f &\colon \1 \xrightarrow{i_x} x\otimes x^\vee
+                              \xrightarrow{f\otimes\id_{x^\vee}} x\otimes x^\vee
+                              \xrightarrow{\delta_x\otimes\id_{x^\vee}} x^{\vee\vee}\otimes x^\vee
+                              \xrightarrow{e_{x^\vee}} \1
+\end{aligned}
 $$
 
-which satisfies:
+In particular, when $f=\id_x$, we can define the left and right **dimension** of $x\in\cat{C}$ as
 
-$$
-\psi_{x\otimes y} = \sigma_{y,x} \circ \sigma_{x,y} \circ (\psi_x\otimes\psi_y), \quad
-\psi_\1 = \id_\1, \quad
-\psi_{x^\vee} = \delta_x^\vee \circ \psi_x^\vee \circ \delta_x^\vee \enspace \text{(if $\cat{C}$ is ribbon)}
-$$
+$$ \dim_{\text{L}}x\coloneqq\tr_{\text{L}}\id_x, \quad \dim_{\text{R}}x\coloneqq\tr_{\text{R}}\id_x $$
 
-Then we can define the following natural isomorphism in a ribbon category $\cat{C}$:
+Note that the left/right trace is not the same thing as the left/right dual (we only use left dual in the definition, for example), as $\cat{C}$ is already pivotal.
 
-$$ \theta_x \colon x \overset\sim\to x, \quad \theta_x \coloneqq \psi_x \circ \delta_x, \quad \forall x\in\cat{C} $$
+The graphical representation of trace and dimension are the following:
 
-which is called **twist** (or balancing isomorphism). It satisfies the **balancing axioms**:
+![trace-dimension](/images/category-theory/trace-dimension.svg){:.invert}
+
+If the left and right traces of every endomorphism $f\in\End_{\cat{C}}(x)$ coincide, then $\cat{C}$ is called **spherical**.
+
+### Ribbon
+
+A **ribbon category** (or tortile category) is a braided pivotal category equipped with a **twist** (or balancing isomorphism):
+
+$$ \theta_x \colon x \overset\sim\to x, \quad \forall x\in\cat{C} $$
+
+such that the **balancing axioms** are satisfied:
 
 $$
 \theta_{x\otimes y} = \sigma_{y,x} \circ \sigma_{x,y} \circ (\theta_x\otimes\theta_y), \quad
@@ -451,13 +478,23 @@ $$
 \theta_{x^\vee} = \theta_x^\vee
 $$
 
-A family of twists can uniquely determine a family of $\psi$, hence we can define the ribbon category using $\theta$ equivalently.
+We can explicitly construct $\theta$ via the following natural isomorphism:
+
+$$
+\psi_x \colon x^{\vee\vee} \overset\sim\to x, \quad
+\psi_x \coloneqq (\id_x\otimes e_{x^\vee}) \circ (\id_x\otimes\sigma_{x^{\vee\vee},x^\vee}^{-1}) \circ (i_x\otimes\id_{x^{\vee\vee}}), \quad
+\forall x\in\cat{C}
+$$
+
+then
+
+$$ \theta_x = \psi_x \circ \delta_x, \quad \forall x\in\cat{C} $$
 
 The graphical notation of $\theta$ can be deduced from the definition of $\psi$, once we identify $x$ and $x^{\vee\vee}$ (i.e. simply ignore $\delta$):
 
 ![twist](/images/category-theory/twist.svg){:.invert}{:style="max-width: 250px;"}
 
-However, if imagining such thing as a 1-dimensional line or string in $\R^3$, then we may think that $\theta=\id$, which is not true in general. Therefore, we may turn to using a 2D object, or a "ribbon", to correctly represent $\theta$:
+However, if imagining such thing as a 1-dimensional line or string in $\R^3$, then we may think that $\theta=\id$, which is not true in general. Therefore, we may turn to use a 2D object, or a "ribbon", to correctly represent $\theta$:
 
 TODO:
 <!-- ![twist-ribbon](/images/category-theory/twist-ribbon.svg){:.invert} -->
@@ -467,26 +504,33 @@ When trying to straighten it, we will get a ribbon with a "twist", and clearly i
 TODO:
 <!-- ![twist-identity](/images/category-theory/twist-identity.svg){:.invert} -->
 
-For an endomorphism $f\in\End_{\cat{C}}(x)$, where $\cat{C}$ is a ribbon category, we can define the **trace** $\tr f\in\End_{\cat{C}}(\1)$ as the following composition:
+Every ribbon category admits a spherical structure. It can be seen from the following procedure:
 
-$$
-\tr f \colon \1 \xrightarrow{i_x} x\otimes x^\vee
-                \xrightarrow{f\otimes\id_{x^\vee}} x\otimes x^\vee
-                \xrightarrow{\delta_x\otimes\id_{x^\vee}} x^{\vee\vee}\otimes x^\vee
-                \xrightarrow{e_{x^\vee}} \1
-$$
+TODO:
+<!-- ![ribbon-spherical](/images/category-theory/ribbon-spherical.svg){:.invert} -->
 
-In particular, when $f=\id_x$, we can define the **dimension** of $x\in\cat{C}$ as $\dim x\coloneqq\tr\id_x$. The graphical representation of trace and dimension are the following:
+## Summary
 
-![trace-dimension](/images/category-theory/trace-dimension.svg){:.invert}{:style="max-width: 400px;"}
+At the end of this part, we list of all the "ingredients" that can be added in a tensor category:
+
+| Ingredients         | Meanings                    |
+|:-------------------:|:---------------------------:|
+| Tensor (monoidal)   | With tensor product         |
+| Braided             | With braiding               |
+| Symmetric           | Tensor product is symmetric |
+| Rigid (autonomous)  | With left/right duals       |
+| Pivotal (sovereign) | Left/right duals coincide   |
+| Spherical           | Left/right traces coincide  |
+| Ribbon (tortile)    | With twist                  |
 
 ## References
 
 - Books:
 
-  - S Mac Lane. *Categories for the Working Mathematician*
+  - S MacLane. *Categories for the Working Mathematician*
   - V G Turaev. *Quantum Invariants of Knots and 3-Manifolds*
   - B Bakalov, A Kirillov. [*Lectures on Tensor Categories and Modular Frunctor*](https://www.math.stonybrook.edu/~kirillov/tensor/tensor.html)
+  - V Turaev, A Virelizier. *Monoidal Categories and Topological Field Theory*
   - B Milewski. [*Category Theory for Programmers*](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
 
 - Papers:
@@ -494,10 +538,14 @@ In particular, when $f=\id_x$, we can define the **dimension** of $x\in\cat{C}$ 
   - A Kitaev. *Anyons in an exactly solved model and beyond*, [arXiv:cond-mat/0506438](https://arxiv.org/abs/cond-mat/0506438)
   - M Müger. *Tensor categories: A selective guided tour*, [arXiv:0804.3587](https://arxiv.org/abs/0804.3587)
   - J C Baez, M Stay. *Physics, Topology, Logic and Computation: A Rosetta Stone*, [arXiv:0903.0340](https://arxiv.org/abs/0903.0340)
+  - P Bruillard, S H Ng, E C Rowell, Z Wang. *Rank-finiteness for modular categories*, [arXiv:1310.7050](https://arxiv.org/abs/1310.7050)
+  - A Henriques, D Penneys, J Tener. *Categorified trace for module tensor categories over braided tensor categories*, [arXiv:1509.02937](https://arxiv.org/abs/1509.02937)
   - J Lou, C Shen, C Chen, L Y Hung. *A (Dummy's) Guide to Working with Gapped Boundaries via (Fermion) Condensation*, [arXiv:2007.10562](https://arxiv.org/abs/2007.10562)
+  - D Aasen, P Fendley, R S K Mong. *Topological Defects on the Lattice: Dualities and Degeneracies*, [arXiv:2008.08598](https://arxiv.org/abs/2008.08598)
 
 - Some other notes:
 
   - 张智浩. [日常的数学和物理问题](https://zhuanlan.zhihu.com/c_123465504)
   - M Thuresson. [*Drinfeld centers*](https://uu.diva-portal.org/smash/get/diva2:1205005/FULLTEXT01.pdf)
   - A large number of pages on [*n*Lab](https://ncatlab.org/)
+  - TensorKit.jl. [*Optional introduction to category theory*](https://jutho.github.io/TensorKit.jl/stable/man/categories/)

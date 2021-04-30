@@ -1,0 +1,24 @@
+\documentclass[margin={3pt 0 0 0}]{standalone}
+\usepackage{amsmath,tikz-category}
+\begin{document}
+\begin{tikzpicture}[baseline=1.1cm]
+  \draw [->-=0.22, ->-=0.8] (0,2.2) node [above] {$x$} -- (0,0) node [below=10pt, anchor=base] {$y$}
+    (0,1.15) node [draw, fill=white, anchor=base] {$\scriptstyle f$};
+\end{tikzpicture}
+\quad$\simeq$\quad
+\begin{tikzpicture}[baseline=1.1cm]
+  \draw [->-=0.1, ->-=0.372, ->-=0.658, ->-=0.902]
+       (0.0,2.2) node [above] {$x$}
+    -- (0.0,1.1) .. controls (0.0,0.6) and (0.0,0.0)
+    .. (0.6,0.0) .. controls (1.2,0.0) and (1.2,0.7)
+    .. (1.2,1.1) .. controls (1.2,1.5) and (1.2,1.8)
+    .. (1.0,1.8) .. controls (0.8,1.8) and (0.8,1.6)
+    .. (0.8,1.1) .. controls (0.8,0.6) and (0.8,0.4)
+    .. (0.6,0.4) .. controls (0.4,0.4) and (0.4,0.7)
+    .. (0.4,1.1) .. controls (0.4,1.5) and (0.4,2.2)
+    .. (1.0,2.2) .. controls (1.6,2.2) and (1.6,1.7)
+    .. (1.6,1.1)
+    -- (1.6,0.0) node [below=10pt, anchor=base] {$y$}
+       (0.8,1.15) node [draw, fill=white, anchor=base] {$\scriptstyle f$};
+\end{tikzpicture}
+\end{document}
