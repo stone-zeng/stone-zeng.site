@@ -63,6 +63,16 @@ img {
   }
 }
 
+a {
+  color: var(--text-color);
+  text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    color: var(--link-color);
+    border-bottom: 1px solid var(--text-color);
+  }
+}
+
 // CJK punctuations
 .zh-punct {
   font-family: $punct-font-family;
@@ -211,13 +221,21 @@ strong, th, .post-sidebar .active {
   z-index: 1;
   background-color: var(--bg-color);
   @include sticky-top(0);
+
+  a {
+    &:visited {
+      color: var(--text-color);
+    }
+    &:hover {
+      border: none;
+    }
+  }
 }
 
 .site-title {
   font-weight: 200;
   font-size: $h1-font-size;
   letter-spacing: -1px;
-  text-decoration: none;
   margin-bottom: 0;
   float: left;
 
@@ -225,15 +243,6 @@ strong, th, .post-sidebar .active {
   // @include media-on-medium {
   //   padding-right: 45px;
   // }
-
-  &,
-  &:visited {
-    color: var(--text-color);
-  }
-  &:hover {
-    text-decoration: none;
-    text-underline-position: auto;
-  }
 }
 
 .site-nav {

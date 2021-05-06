@@ -75,17 +75,8 @@
     font-size: $small-font-size
   };
 
-  a {
-    color: var(--text-color);
-    text-decoration: none;
-
-    &:hover, &:active, &:focus {
-      color: var(--link-color);
-    }
-
-    &.active {
-      font-weight: $bold-font-weight;
-    }
+  a.active {
+    font-weight: $bold-font-weight;
   }
 }
 
@@ -238,10 +229,8 @@
   }
 
   a {
-    color: var(--text-color);
     margin: 0 .1em;
     border-bottom: 1px solid var(--ul-color);
-    text-decoration: none;
 
     &:visited {
       color: var(--gray-color);
@@ -300,12 +289,9 @@
 
   .fnref>a, .backref>a {
     border-bottom: none;
-    font-feature-settings: 'sups';
-    margin: 0 .1em;
 
     &:hover, &:active, &:focus {
       border-bottom: 1px solid var(--link-color);
-      color: var(--link-color);
     }
   }
 
@@ -339,7 +325,7 @@
 
   .nav-previous {
     a::before {
-      content: '\2190\20DD';
+      content: '\2190';
       margin-right: 4px;
     }
 
@@ -349,22 +335,13 @@
 
   .nav-next {
     a::after {
-      content: '\2192\20DD';
+      content: '\2192';
       margin-left: 4px;
     }
 
     float: right;
     text-align: right;
     width: 48%;
-  }
-
-  a {
-    color: var(--text-color);
-    text-decoration: none;
-
-    &:hover, &:active, &:focus {
-      color: var(--link-color);
-    }
   }
 
   .nav-text {

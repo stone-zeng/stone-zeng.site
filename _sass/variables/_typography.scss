@@ -1,10 +1,61 @@
 // Font declarations
-@import 'fonts/inter',
-        'fonts/iosevka';
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url(https://cdn.jsdelivr.net/gh/rsms/inter@latest/docs/font-files/Inter-roman.var.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url(https://cdn.jsdelivr.net/gh/rsms/inter@latest/docs/font-files/Inter-italic.var.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-display: swap;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  src: url(https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@master/fonts/webfonts/JetBrainsMono-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-display: swap;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: italic;
+  src: url(https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@master/fonts/webfonts/JetBrainsMono-Italic.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-display: swap;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  src: url(https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@master/fonts/webfonts/JetBrainsMono-Bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-display: swap;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: italic;
+  src: url(https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@master/fonts/webfonts/JetBrainsMono-BoldItalic.woff2) format('woff2');
+}
 
 // Font families
-$base-font-family: 'Inter var', source-han-sans-cjk-sc, sans-serif !default;
-$mono-font-family: 'Iosevka Web', 'SF Mono', Menlo, Consolas, monospace, source-han-sans-cjk-sc !default;
+$base-font-family: Inter, source-han-sans-cjk-sc, sans-serif !default;
+$mono-font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace, source-han-sans-cjk-sc !default;
 $punct-font-family: source-han-sans-cjk-sc, sans-serif !default;
 
 // Font related

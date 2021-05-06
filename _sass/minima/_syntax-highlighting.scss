@@ -163,9 +163,9 @@
 
 // Used in Wolfram Language
 .language-wl .highlight {
-  font-feature-settings: 'WFLM';
+  font-feature-settings: 'calt';
 
-  .np, .ns { font-style: oblique; }
+  .np, .ns { font-style: italic; }
   .np { color: $red-500; } // Name.Pattern
   .ns { color: $green-600; } // Name.Slot
 

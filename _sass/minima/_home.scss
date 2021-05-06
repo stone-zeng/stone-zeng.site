@@ -13,15 +13,6 @@
     font-weight: normal;
   }
 
-  a {
-    color: var(--link-color);
-    text-decoration: none;
-
-    &:hover, &:active, &:focus {
-      border-bottom: 1px solid var(--link-color);
-    }
-  }
-
   .post-meta {
     font-size: $small-font-size;
     color: var(--gray-color);
@@ -32,34 +23,17 @@
 
 .pagination {
   .next {
-    a::before {
-      content: '\2190\20DD';
-      margin-right: 4px;
-    }
-
     float: left;
   }
 
   .previous {
-    a::after {
-      content: '\2192\20DD';
-      margin-left: 4px;
-    }
-
     float: right;
     text-align: right;
   }
 
   a {
-    color: var(--text-color);
     text-decoration: none;
 
-    &:hover, &:active, &:focus {
-      color: var(--link-color);
-    }
-  }
-
-  .nav-text {
     &:hover, &:active, &:focus {
       border-bottom: 1px solid var(--link-color);
     }
@@ -122,15 +96,6 @@
     font-weight: normal;
     font-size: $base-font-size;
     display: inline;
-  }
-
-  a {
-    color: var(--text-color);
-    text-decoration: none;
-
-    &:hover, &:active, &:focus {
-      border-bottom: 1px solid var(--text-color);
-    }
   }
 
   .post-date {

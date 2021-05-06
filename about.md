@@ -17,6 +17,7 @@ I'm Xiangdong Zeng working with
 - [Iosevka](https://typeof.net/Iosevka/)
 - [Jekyll Minima Theme](https://jekyll.github.io/minima/)
 - [Jekyll Pure Liquid Table of Contents](https://github.com/allejo/jekyll-toc)
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 - [KaTeX](https://katex.org/)
 - [Medium Zoom](https://medium-zoom.francoischalifour.com/)
 - [Source Han Sans](https://fonts.adobe.com/fonts/source-han-sans-cjk-simplified-chinese)
