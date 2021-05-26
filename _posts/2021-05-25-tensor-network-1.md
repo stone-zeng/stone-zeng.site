@@ -2,6 +2,7 @@
 layout: post
 title: Introduction to tensor network (1)
 date: 2021-05-25
+last_modified_at: 2021-05-26
 lang: en-US
 math: true
 description: Tensor networks provide a general framework to describe many interesting and important concepts in condensed matter physics and quantum information theory, such as topological orders, entanglement, and even holographic duality.
@@ -34,14 +35,14 @@ $$
 \bm{V} \eqqcolon V_i
 $$
 
-Tensor with higher dimensions can be described similarly:
+Tensor with higher ranks can be described similarly:
 
 $$
 \bm{M} = \sum_{i,j=1}^D M_{ij} \bm{e}_i\otimes\bm{e}_j \eqqcolon M_{ij}, \quad
 \bm{T} = \sum_{i,j,k=1}^D T_{ijk} \bm{e}_i\otimes\bm{e}_j\otimes\bm{e}_k \eqqcolon T_{ijk}
 $$
 
-Here, $\otimes$ is the **tensor product**, while $\bm{e}_i\otimes\bm{e}_j$ and $\bm{e}_i\otimes\bm{e}_j\otimes \bm{e}_k$ are basis of the 2-/3-dimensional linear space, respectively.
+Here, $\otimes$ is the **tensor product**, while $\bm{e}_i\otimes\bm{e}_j$ and $\bm{e}_i\otimes\bm{e}_j\otimes \bm{e}_k$ are bases.
 
 ## Diagram notations
 
@@ -55,7 +56,7 @@ As vectors and matrices, we can define addition and scalar-multiplication for ge
 
 $$ C_{abc} = \sum_k A_{abk} B_{kc} \eqqcolon A_{abk} B_{kc} $$
 
-The result is a rank-3 tensor, as the repeated index $k$ is summed over (3 = 3 + 3 - 2). Note that we have omitted the summation symbol here, which is called the **Einstein notation**.
+The result is a rank-3 tensor, as the repeated index $k$ is summed over (3 = 3 + 2 - 2). Note that we have omitted the summation symbol here, which is called the **Einstein notation**.
 
 We can contract more than one indices as well:
 
@@ -128,7 +129,7 @@ Although there are functions for special cases such as `np.matmul` and `np.trace
 numpy.einsum(subscripts, *operands)
 ```
 
-where `subscripts` is a string specifying contraction order and `operands` are the arrays for the operation.
+where `subscripts` is a string specifying contraction order and `operands` are the arrays for the operation. Different from some other tensor packages such as [ITensor](https://itensor.org/), there is no index object and hence everytime we perform a contraction, the order should be explicitly given.
 
 Let's begin with some examples. The contraction $C_{abc} = A_{abk}B_{kc}$ can be written as
 
@@ -137,6 +138,14 @@ Let's begin with some examples. The contraction $C_{abc} = A_{abk}B_{kc}$ can be
 >>> A = np.random.randn(a, b, k)
 >>> B = np.random.randn(k, c)
 >>> C = np.einsum('abk, kc -> abc', A, B)
+>>> C.shape
+(2, 3, 4)
+```
+
+If the ordering of output indices is the same as input indices (without repeated ones), the output can be ignored:
+
+```py
+>>> C = np.einsum('abk, kc', A, B)
 >>> C.shape
 (2, 3, 4)
 ```
@@ -186,7 +195,7 @@ where $i$ is summed over but $j$ is not. Translate into Python, we have:
 (10, 20, 30, 5)
 ```
 
-For complex or large contractions, we can add `optimize='optimal'` to speed up:
+For complex or large contractions, we can add `optimize='optimal'` to speed them up:
 
 ```py
 # IPython
@@ -206,7 +215,7 @@ Out[3]: (8, 4, 8, 4, 4, 4, 4, 4)
 
 ### Reshape
 
-We often need to reshape the tensors so that they are suitable for some specific routines. For instance, we want to find the "eigenstate" $\bm{v}$ of $M_{abcd}$, such that
+We often need to reshape the tensors so that they are suitable for some specific routines. For instance, we want to find the "eigenstate" $\bm{v}$ of a four-leg tensor $\bm{M}$, such that
 
 $$ M_{abcd} v_{cd} = \lambda v_{ab} $$
 
@@ -218,7 +227,7 @@ Most eigensolvers only accept matrix, or tensor with two indices, as their input
 
 ![reshape](/images/tensor-network/reshape.svg){:.invert}{:style="max-width: 390px;"}
 
-In NumPy's language, we have
+In NumPy, we have
 
 ```py
 >>> M = np.array([[[[3, 3, 8], [3, 4, 1]], [[4, 1, 8], [7, 1, 3]], [[3, 4, 2], [4, 3, 6]]],
