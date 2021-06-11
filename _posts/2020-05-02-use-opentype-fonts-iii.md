@@ -2,6 +2,7 @@
 layout: post
 title: 在 LaTeX 中使用 OpenType 字体（三）
 date: 2020-05-02
+last_modified_at: 2021-06-11
 math: true
 categories: Fonts
 description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 $\TeX$ 设计的初衷，也是 $\LaTeX$ 最为人所称道的功能。
@@ -224,7 +225,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
       <td>&check;</td><td></td><td></td>
     </tr>
     <tr>
-      <td>正常</td>
+      <td>加粗</td>
       <td markdown="span">`\mbfscr...`</td>
       <td markdown="span">`\symbfscr`</td>
       <td>&check;</td><td></td><td></td>
@@ -238,7 +239,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
       <td>&check;</td><td></td><td></td>
     </tr>
     <tr>
-      <td>正常</td>
+      <td>加粗</td>
       <td markdown="span">`\mbffrak...`</td>
       <td markdown="span">`\symbffrak`</td>
       <td>&check;</td><td></td><td></td>

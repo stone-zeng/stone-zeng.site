@@ -33,13 +33,14 @@ I'm Xiangdong Zeng working with
 
 - [fduthesis](https://github.com/stone-zeng/fduthesis) - 复旦大学论文模板
 - [firamath](https://github.com/firamath/firamath) - Sans-serif font with Unicode math support
-- A collection of my [presentations](https://github.com/stone-zeng/presentations)
+- A collection of my [talks](https://github.com/stone-zeng/talks)
 
 ## 链接
 
 - [Bēhance](https://www.behance.net/pssysrq586b)
 - [Facebook](https://www.facebook.com/pssysrq)
 - [GitHub](https://github.com/stone-zeng)
+- [Instagram](https://www.instagram.com/pssysrq)
 - [Stack Exchange](https://stackexchange.com/users/11190499/stone-zeng)
 - [Twitter](https://twitter.com/xiangdong_zeng)
 - [知乎](https://www.zhihu.com/people/stone-zeng-32)
