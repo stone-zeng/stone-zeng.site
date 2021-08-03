@@ -1,21 +1,21 @@
 {% assign social = site.minima.social_links %}
 <ul class="social-media-list">
   {% if social.github %}
-    <li><a href="https://github.com/{{ social.github | cgi_escape | escape }}" title="{{ social.github | escape }}" aria-label="GitHub"><svg class="icon" id="github-brands"><title></title><use xlink:href="/assets/icons.svg#github-brands"/></svg></a></li>
+    <li><a href="https://github.com/{{ social.github | cgi_escape | escape }}" title="{{ social.github | escape }}" aria-label="GitHub"><svg class="icon" id="svg-github-brands"><title></title><use xlink:href="/assets/icons.svg#github-brands"/></svg></a></li>
   {% endif %}
   {% if social.stackexchange %}
-    <li><a href="https://tex.stackexchange.com/users/{{ social.stackexchange | escape }}" aria-label="Stack Exchange"><svg class="icon" id="stack-exchange-brands"><use xlink:href="/assets/icons.svg#stack-exchange-brands"/></svg><svg class="icon" id="stack-exchange-brands-colorful"><use xlink:href="/assets/icons.svg#stack-exchange-brands-colorful"/></svg></a></li>
+    <li><a href="https://stackexchange.com/users/{{ social.stackexchange | escape }}" aria-label="Stack Exchange"><svg class="icon" id="svg-stack-exchange-brands"><use xlink:href="/assets/icons.svg#stack-exchange-brands"/></svg><svg class="icon" id="svg-stack-exchange-brands-colorful"><use xlink:href="/assets/icons.svg#stack-exchange-brands-colorful"/></svg></a></li>
   {% endif %}
   {% if social.twitter %}
-    <li><a href="https://twitter.com/{{ social.twitter | cgi_escape | escape }}" title="{{ social.twitter | escape }}" aria-label="Twitter"><svg class="icon" id="twitter-brands"><use xlink:href="/assets/icons.svg#twitter-brands"/></svg></a></li>
+    <li><a href="https://twitter.com/{{ social.twitter | cgi_escape | escape }}" title="{{ social.twitter | escape }}" aria-label="Twitter"><svg class="icon" id="svg-twitter-brands"><use xlink:href="/assets/icons.svg#twitter-brands"/></svg></a></li>
   {% endif %}
   {% if social.telegram %}
-    <li><a href="https://t.me/{{ social.telegram | cgi_escape | escape }}" title="{{ social.telegram | escape }}" aria-label="Telegram"><svg class="icon" id="telegram-brands"><use xlink:href="/assets/icons.svg#telegram-brands"/></svg></a></li>
+    <li><a href="https://t.me/{{ social.telegram | cgi_escape | escape }}" title="{{ social.telegram | escape }}" aria-label="Telegram"><svg class="icon" id="svg-telegram-brands"><use xlink:href="/assets/icons.svg#telegram-brands"/></svg></a></li>
   {% endif %}
   {% if social.email %}
-    <li><a href="mailto:{{ social.email }}" title="{{ social.email | escape }}" aria-label="E-mail"><svg class="icon" id="envelope-solid"><use xlink:href="/assets/icons.svg#envelope-solid"/></svg></a></li>
+    <li><a href="mailto:{{ social.email }}" title="{{ social.email | escape }}" aria-label="E-mail"><svg class="icon" id="svg-envelope-solid"><use xlink:href="/assets/icons.svg#envelope-solid"/></svg></a></li>
   {% endif %}
   {% if social.rss %}
-    <li><a href="{{ 'feed.xml' | relative_url }}" title="{{ social.rss | escape }}" aria-label="RSS"><svg class="icon" id="rss-solid"><use xlink:href="/assets/icons.svg#rss-solid"/></svg></a></li>
+    <li><a href="{{ 'feed.xml' | relative_url }}" title="{{ social.rss | escape }}" aria-label="RSS"><svg class="icon" id="svg-rss-solid"><use xlink:href="/assets/icons.svg#rss-solid"/></svg></a></li>
   {% endif %}
 </ul>

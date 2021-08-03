@@ -78,6 +78,10 @@
   a.active {
     font-weight: $bold-font-weight;
   }
+
+  a:hover, a:active, a:focus {
+    border: none;
+  }
 }
 
 .post-content {

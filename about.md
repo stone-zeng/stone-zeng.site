@@ -38,9 +38,10 @@ I'm Xiangdong Zeng working with
 ## 链接
 
 - [Bēhance](https://www.behance.net/pssysrq586b)
+- [bilibili](https://space.bilibili.com/336677940)
 - [Facebook](https://www.facebook.com/pssysrq)
 - [GitHub](https://github.com/stone-zeng)
-- [Instagram](https://www.instagram.com/pssysrq)
+- [Instagram](https://www.instagram.com/xdzeng96)
 - [Stack Exchange](https://stackexchange.com/users/11190499/stone-zeng)
 - [Twitter](https://twitter.com/xiangdong_zeng)
 - [知乎](https://www.zhihu.com/people/stone-zeng-32)
