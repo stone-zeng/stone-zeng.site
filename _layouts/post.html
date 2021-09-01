@@ -13,10 +13,10 @@ layout: default
     {% assign word_count    = "本文字数：" %}
     {% assign view_count    = "阅读次数：" %}
   {% endif %}
-  <div class="post-sidebar" id="sidebar" style>
+  <aside class="post-sidebar" id="sidebar">
     <h3>{{ toc_title }}</h3>
     {% include toc.html html=content id="sidebar-ul" %}
-  </div>
+  </aside>
   <div id="content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-header">
