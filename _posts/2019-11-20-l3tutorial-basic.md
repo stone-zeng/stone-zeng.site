@@ -2,6 +2,7 @@
 layout: post
 title: LaTeX3 教程（三）——从一个例子说起
 date: 2019-11-20
+last_modified_at: 2021-09-04
 categories: LaTeX3
 description: 学习一门编程语言，如果只了解语法，必然十分枯燥而且并没有什么用。所以，我们准备从一个基本的例子讲起，尽可能地覆盖 $\LaTeX3$ 的重要知识。
 ---
@@ -347,6 +348,7 @@ l.7 \end{document}
         \tl_use:N \c_zhdummy_text_ii
         \tl_use:N \c_zhdummy_text_iii
         \tl_use:N \c_zhdummy_text_iv
+        \tl_use:N \c_zhdummy_text_v
       }
       {
         % `#1` ≠ `-NoValue-`，即带有可选参数
