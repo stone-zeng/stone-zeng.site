@@ -90,18 +90,14 @@
 
   li {
     margin-bottom: 6px;
-  }
-
-  h1 {
     font-weight: normal;
     font-size: $base-font-size;
-    display: inline;
   }
 
   .post-date {
     font-size: $tiny-font-size;
     font-feature-settings: 'tnum';
     color: var(--gray-color);
-    margin-right: 10px;
+    margin-right: 12px;
   }
 }

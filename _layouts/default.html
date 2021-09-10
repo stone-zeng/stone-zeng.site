@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
-  {% include head.html %}
+  {%- include head.html -%}
   <body>
-    {% include header.html %}
+    {%- include header.html -%}
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        {{ content }}
+        {{- content -}}
       </div>
     </main>
-    {% include footer.html %}
+    {%- include footer.html -%}
     <script src="{{ '/js/syntax-wl.js' | relative_url }}"></script>
     <script src="{{ '/js/script.js' | relative_url }}"></script>
     <script src="{{ '/js/source-han.js' | relative_url }}"></script>

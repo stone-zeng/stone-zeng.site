@@ -2,47 +2,58 @@
 layout: default
 ---
 <div class="container">
-  {% if page.lang == "en-US" %}
-    {% assign toc_title     = "In this article" %}
-    {% assign last_modified = "Last modified: " %}
-    {% assign word_count    = "Words count: " %}
-    {% assign view_count    = "Views: " %}
-  {% else %}
-    {% assign toc_title     = "文章目录" %}
-    {% assign last_modified = "最近更新：" %}
-    {% assign word_count    = "本文字数：" %}
-    {% assign view_count    = "阅读次数：" %}
-  {% endif %}
+  {%- if page.lang == "en-US" -%}
+    {%- assign toc_title     = "In this article" -%}
+    {%- assign last_modified = "Last modified: " -%}
+    {%- assign word_count    = "Words count: " -%}
+    {%- assign view_count    = "Views: " -%}
+  {%- else -%}
+    {%- assign toc_title     = "文章目录" -%}
+    {%- assign last_modified = "最近更新：" -%}
+    {%- assign word_count    = "本文字数：" -%}
+    {%- assign view_count    = "阅读次数：" -%}
+  {%- endif -%}
   <aside class="post-sidebar" id="sidebar">
     <h3>{{ toc_title }}</h3>
-    {% include toc.html html=content id="sidebar-ul" %}
+    {%- include toc.html html=content id="sidebar-ul" -%}
   </aside>
   <div id="content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-header">
         <h1 class="post-title p-name" itemprop="name headline">{{ page.title }}</h1>
         <ul class="post-meta">
-          <li><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}{{ page.date | date: "%Y-%m-%d" }}</time></li>
-          {% if page.last_modified_at %}
-            <li><time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}{{ last_modified }}{{ page.last_modified_at | date: "%Y-%m-%d" }}</time></li>
-          {% endif %}
-          {% if page.author %}
+          <li>
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+              {{- page.date | date: "%Y-%m-%d" -}}
+            </time>
+          </li>
+          {%- if page.last_modified_at -%}
+            <li>
+              {{- last_modified -}}
+              <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
+                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                {{- page.last_modified_at | date: "%Y-%m-%d" -}}
+              </time>
+            </li>
+          {%- endif -%}
+          {%- if page.author -%}
             <li><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span></li>
-          {% endif %}
+          {%- endif -%}
           <li>{{ word_count }}<span id="word-count-placeholder"></span></li>
           <li id="busuanzi_container_page_pv" style="display:none">{{ view_count }}<span id="busuanzi_value_page_pv"></span></li>
         </ul>
       </header>
       <div class="post-content e-content" itemprop="articleBody" id="post-content">
-        {{ content }}
+        {{- content -}}
       </div>
       <div class="post-navigation">
-        {% if page.previous %}
+        {%- if page.previous -%}
           <span class="nav-previous"><a href="{{ page.previous.url }}"><span class="nav-text">{{ page.previous.title }}</span></a></span>
-        {% endif %}
-        {% if page.next %}
+        {%- endif -%}
+        {%- if page.next -%}
           <span class="nav-next"><a href="{{ page.next.url }}"><span class="nav-text">{{ page.next.title }}</span></a></span>
-        {% endif %}
+        {%- endif -%}
       </div>
       <div id="gitalk-container"></div>
     </article>

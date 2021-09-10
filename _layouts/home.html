@@ -2,32 +2,32 @@
 layout: default
 ---
 <div class="home">
-  {{ content }}
-  {% if site.posts.size > 0 %}
+  {{- content -}}
+  {%- if site.posts.size > 0 -%}
     <ul class="post-list">
-      {% for post in paginator.posts %}
+      {%- for post in paginator.posts -%}
       <li>
         <h1>
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h1>
-        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <span class="post-meta">
-          {{ post.date | date: "%Y-%m-%d" }}
-          {% if post.last_modified_at %}
-            （最近更新：{{ post.last_modified_at | date: "%Y-%m-%d" }}）
-          {% endif %}
+          <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y-%m-%d" }}</time>
+          {%- if post.last_modified_at -%}
+            （最近更新：<time datetime="{{ post.last_modified_at | date_to_xmlschema }}" itemprop="datePublished">{{ post.last_modified_at | date: "%Y-%m-%d" }}</time>）
+          {%- endif -%}
         </span>
         <p>{{ post.description }}</p>
       </li>
-      {% endfor %}
+      {%- endfor -%}
     </ul>
-  {% endif %}
+  {%- endif -%}
   <div class="pagination">
-    {% if paginator.next_page %}
+    {%- if paginator.next_page -%}
       <span class="next"><a href="{{ paginator.next_page_path }}">&larr;&nbsp;较旧的文章</a></span>
-    {% endif %}
-    {% if paginator.previous_page %}
+    {%- endif -%}
+    {%- if paginator.previous_page -%}
       <span class="previous"><a href="{{ paginator.previous_page_path }}">较新的文章&nbsp;&rarr;</a></span>
-    {% endif %}
+    {%- endif -%}
   </div>
 </div>
