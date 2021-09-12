@@ -1,0 +1,69 @@
+{%- extends "base.html" -%}
+
+{%- block content -%}
+<div class="container">
+  {%- if page.lang == "en-US" -%}
+    {%- set toc_title     = "In this article" -%}
+    {%- set last_modified = "Last modified: " -%}
+    {%- set word_count    = "Words count: " -%}
+    {%- set view_count    = "Views: " -%}
+  {%- else -%}
+    {%- set toc_title     = "文章目录" -%}
+    {%- set last_modified = "最近更新：" -%}
+    {%- set word_count    = "本文字数：" -%}
+    {%- set view_count    = "阅读次数：" -%}
+  {%- endif -%}
+  <aside class="post-sidebar" id="sidebar">
+    <h3>{{ toc_title }}</h3>
+    <ul id="sidebar-ul">
+      {%- for h1 in page.toc -%}
+        <li>
+          <a href="#{{ h1.id }}">{{ h1.title }}</a>
+          {%- if h1.children -%}
+            <ul>
+              {%- for h2 in h1.children -%}
+                <li><a href="#{{ h2.id }}">{{ h2.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </aside>
+  <div id="content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">{{ page.title | safe }}</h1>
+        <ul class="post-meta">
+          <li>
+            <time datetime="{{ page.date }}">{{ page.date }}</time>
+          </li>
+          {%- if page.updated -%}
+            <li>
+              {{- last_modified -}}
+              <time datetime="{{ page.date }}">{{ page.date }}</time>
+            </li>
+          {%- endif -%}
+          {%- if page.author -%}
+            <li><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span></li>
+          {%- endif -%}
+          <li>{{ word_count }}<span id="word-count-placeholder"></span></li>
+          <li id="busuanzi_container_page_pv" style="display:none">{{ view_count }}<span id="busuanzi_value_page_pv"></span></li>
+        </ul>
+      </header>
+      <div class="post-content e-content" itemprop="articleBody" id="post-content">
+        {{- page.content | safe -}}
+      </div>
+      <div class="post-navigation">
+        {%- if page.previous -%}
+          <span class="nav-previous"><a href="{{ page.previous.url }}"><span class="nav-text">{{ page.previous.title }}</span></a></span>
+        {%- endif -%}
+        {%- if page.next -%}
+          <span class="nav-next"><a href="{{ page.next.url }}"><span class="nav-text">{{ page.next.title }}</span></a></span>
+        {%- endif -%}
+      </div>
+      <div id="gitalk-container"></div>
+    </article>
+  </div>
+</div>
+{%- endblock content -%}

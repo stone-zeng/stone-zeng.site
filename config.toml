@@ -1,0 +1,22 @@
+base_url = "https://stone-zeng.github.io"
+
+title = "stone-zeng.github.io"
+
+compile_sass = true
+build_search_index = false
+generate_feed = true
+
+[markdown]
+highlight_code = true
+smart_punctuation = true
+
+[slugify]
+anchors = "safe"
+
+[extra]
+
+[extra.social_links]
+email = "xdzeng96@gmail.com"
+github = "stone-zeng"
+twitter = "xiangdong_zeng"
+telegram = "xdzeng96"

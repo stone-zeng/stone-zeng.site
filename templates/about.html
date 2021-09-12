@@ -1,0 +1,9 @@
+{%- extends "base.html" -%}
+
+{%- block content -%}
+<div class="container">
+  <div class="post-content e-content" itemprop="articleBody" id="post-content">
+    {{- page.content | safe -}}
+  </div>
+</div>
+{%- endblock content -%}

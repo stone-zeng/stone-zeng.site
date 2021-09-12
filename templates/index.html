@@ -1,0 +1,22 @@
+{%- extends "base.html" -%}
+
+{%- block content -%}
+<div class="home">
+  {%- set section = get_section(path="_index.md") -%}
+  <ul class="post-list">
+    {% for post in section.pages %}
+      <li>
+        <h1><a class="post-link" href="{{ post.path }}">{{ post.title | safe }}</a></h1>
+        <span class="post-meta">
+          <time datetime="{{ post.date }}">{{ post.date }}</time>
+          {%- if post.updated -%}
+            （最近更新：<time datetime="{{ post.updated }}">{{ post.updated }}</time>）
+          {%- endif -%}
+        </span>
+        {# {{ post.description | markdown | safe }} #}
+        {{- post.summary | safe -}}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{%- endblock content -%}

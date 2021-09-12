@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{# <html lang="{{ site.lang }}"> #}
+<html>
+  {%- include "head.html" -%}
+  <body>
+    {%- include "header.html" -%}
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {%- block content -%}
+        {%- endblock -%}
+      </div>
+    </main>
+    {%- include "footer.html" -%}
+    {# <script src="{{ '/js/syntax-wl.js' | relative_url }}"></script> #}
+    <script src="/js/script.js"></script>
+    <script src="/js/source-han.js"></script>
+    {# <script>
+      if (document.querySelector('#gitalk-container') !== null) {
+        const gitalk = new Gitalk({
+          clientID:     '{{ site.gitalk.clientID }}',
+          clientSecret: '{{ site.gitalk.clientSecret }}',
+          repo:         '{{ site.gitalk.repo }}',
+          owner:        '{{ site.gitalk.owner }}',
+          admin:        ['{{ site.gitalk.owner }}'],
+          id:           location.pathname,
+        });
+        gitalk.render('gitalk-container');
+      }
+    </script> #}
+  </body>
+</html>
