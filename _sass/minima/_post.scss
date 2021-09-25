@@ -123,20 +123,20 @@
     margin: 0 auto;
     border-collapse: collapse;
     border: $border;
+  }
 
-    tr:nth-child(even) {
-      background-color: var(--table-bg-color);
-    }
+  tr:nth-child(even) {
+    background-color: var(--table-bg-color);
+  }
 
-    th, td {
-      padding: ($spacing-unit / 4) ($spacing-unit / 2);
-      border: $border;
-    }
+  th, td {
+    padding: ($spacing-unit / 4) ($spacing-unit / 2);
+    border: $border;
+  }
 
-    th {
-      font-weight: bold;
-      border: $border;
-    }
+  th {
+    font-weight: bold;
+    border: $border;
   }
 
   img {

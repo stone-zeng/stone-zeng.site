@@ -13,15 +13,20 @@
   width: 100%;
   text-align: center;
 }
-.circled-number-glyph {
-  font-family: source-han-serif-cjk-sc, source-han-sans-cjk-sc, monospace;
-  font-size: 24px;
-  border: none;
-}
-.circled-number-encoding {
-  font-family: $mono-font-family;
-  font-size: $small-font-size;
-  line-height: 1ex;
+.circled-number {
+  tr:nth-child(odd) {
+    font-family: source-han-serif-cjk-sc, source-han-sans-cjk-sc, monospace;
+    font-size: 24px;
+    border: none;
+  }
+  tr:nth-child(even) {
+    font-family: $mono-font-family;
+    font-size: $small-font-size;
+    line-height: 1ex;
+  }
+  td {
+    padding: $spacing-unit / 4;
+  }
 }
 
 // 2019-07-06-use-opentype-fonts-ii.md

@@ -29,183 +29,87 @@ description: 众所周知，$\LaTeX$ 提供了 `\textcircled` 命令用以给字
 
 [^font]: 在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于字体的安装情况以及浏览器的渲染方式。
 
-<table class="circled-number">
-  <tr class="circled-number-glyph">
-    <td>⓪</td><td>①</td><td>②</td><td>③</td><td>④</td><td>⑤</td><td>⑥</td><td>⑦</td><td>⑧</td><td>⑨</td><td>⑩</td>
-  </tr>
-  <tr class="circled-number-encoding">
-    <td>24EA</td><td>2460</td><td>2461</td><td>2462</td><td>2463</td><td>2464</td><td>2465</td><td>2466</td><td>2467</td><td>2468</td><td>2469</td>
-  </tr>
-  <tr class="circled-number-glyph">
-    <td></td><td>⑪</td><td>⑫</td><td>⑬</td><td>⑭</td><td>⑮</td><td>⑯</td><td>⑰</td><td>⑱</td><td>⑲</td><td>⑳</td>
-  </tr>
-  <tr class="circled-number-encoding">
-    <td></td><td>246A</td><td>246B</td><td>246C</td><td>246D</td><td>246E</td><td>246F</td><td>2470</td><td>2471</td><td>2472</td><td>2473</td>
-  </tr>
-  <tr class="circled-number-glyph">
-    <td></td><td>㉑</td><td>㉒</td><td>㉓</td><td>㉔</td><td>㉕</td><td>㉖</td><td>㉗</td><td>㉘</td><td>㉙</td><td>㉚</td>
-  </tr>
-  <tr class="circled-number-encoding">
-    <td></td><td>3251</td><td>3252</td><td>3253</td><td>3254</td><td>3255</td><td>3256</td><td>3257</td><td>3258</td><td>3259</td><td>325A</td>
-  </tr>
-  <tr class="circled-number-glyph">
-    <td></td><td>㉛</td><td>㉜</td><td>㉝</td><td>㉞</td><td>㉟</td><td>㊱</td><td>㊲</td><td>㊳</td><td>㊴</td><td>㊵</td>
-  </tr>
-  <tr class="circled-number-encoding">
-    <td></td><td>325B</td><td>325C</td><td>325D</td><td>325E</td><td>325F</td><td>32B1</td><td>32B2</td><td>32B3</td><td>32B4</td><td>32B5</td>
-  </tr>
-  <tr class="circled-number-glyph">
-    <td></td><td>㊶</td><td>㊷</td><td>㊸</td><td>㊹</td><td>㊺</td><td>㊻</td><td>㊼</td><td>㊽</td><td>㊾</td><td>㊿</td>
-  </tr>
-  <tr class="circled-number-encoding">
-    <td></td><td>32B6</td><td>32B7</td><td>32B8</td><td>32B9</td><td>32BA</td><td>32BB</td><td>32BC</td><td>32BD</td><td>32BE</td><td>32BF</td>
-  </tr>
-</table>
+{:.circled-number}
+|  ⓪  |  ①  |  ②  |  ③  |  ④  |  ⑤  |  ⑥  |  ⑦  |  ⑧  |  ⑨  |  ⑩  |
+| 24EA | 2460 | 2461 | 2462 | 2463 | 2464 | 2465 | 2466 | 2467 | 2468 | 2469 |
+|      |  ⑪  |  ⑫  |  ⑬  |  ⑭  |  ⑮  |  ⑯  |  ⑰  |  ⑱  |  ⑲  |  ⑳  |
+|      | 246A | 246B | 246C | 246D | 246E | 246F | 2470 | 2471 | 2472 | 2473 |
+|      |  ㉑  |  ㉒  |  ㉓  |  ㉔  |  ㉕  |  ㉖  |  ㉗  |  ㉘  |  ㉙  |  ㉚  |
+|      | 3251 | 3252 | 3253 | 3254 | 3255 | 3256 | 3257 | 3258 | 3259 | 325A |
+|      |  ㉛  |  ㉜  |  ㉝  |  ㉞  |  ㉟  |  ㊱  |  ㊲  |  ㊳  |  ㊴  |  ㊵  |
+|      | 325B | 325C | 325D | 325E | 325F | 32B1 | 32B2 | 32B3 | 32B4 | 32B5 |
+|      |  ㊶  |  ㊷  |  ㊸  |  ㊹  |  ㊺  |  ㊻  |  ㊼  |  ㊽  |  ㊾  |  ㊿  |
+|      | 32B6 | 32B7 | 32B8 | 32B9 | 32BA | 32BB | 32BC | 32BD | 32BE | 32BF |
 
 Zapf Dingbats 中的其他几种样式也分配有码位：
 
-<ul>
-  <li>
-    <p>反白（negative circled digits）</p>
-    <table class="circled-number">
-      <tr class="circled-number-glyph">
-        <td>⓿</td><td>❶</td><td>❷</td><td>❸</td><td>❹</td><td>❺</td><td>❻</td><td>❼</td><td>❽</td><td>❾</td><td>❿</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>24FF</td><td>2776</td><td>2777</td><td>2778</td><td>2779</td><td>277A</td><td>277B</td><td>277C</td><td>277D</td><td>277E</td><td>277F</td>
-      </tr>
-      <tr class="circled-number-glyph">
-        <td></td><td>⓫</td><td>⓬</td><td>⓭</td><td>⓮</td><td>⓯</td><td>⓰</td><td>⓱</td><td>⓲</td><td>⓳</td><td>⓴</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td></td><td>24EB</td><td>24EC</td><td>24ED</td><td>24EE</td><td>24EF</td><td>24F0</td><td>24F1</td><td>24F2</td><td>24F3</td><td>24F4</td>
-      </tr>
-    </table>
-  </li>
-  <li>
-    <p>无衬线（circled sans-serif digits）</p>
-    <table class="circled-number">
-      <tr class="circled-number-glyph">
-        <td>🄋</td><td>➀</td><td>➁</td><td>➂</td><td>➃</td><td>➄</td><td>➅</td><td>➆</td><td>➇</td><td>➈</td><td>➉</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>1F10B</td><td>2780</td><td>2781</td><td>2782</td><td>2783</td><td>2784</td><td>2785</td><td>2786</td><td>2787</td><td>2788</td><td>2789</td>
-      </tr>
-    </table>
-  </li>
-  <li>
-    <p>无衬线反白（negative circled sans-serif digits）</p>
-    <table class="circled-number">
-      <tr class="circled-number-glyph">
-        <td>🄌</td><td>➊</td><td>➋</td><td>➌</td><td>➍</td><td>➎</td><td>➏</td><td>➐</td><td>➑</td><td>➒</td><td>➓</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>1F10C</td><td>278A</td><td>278B</td><td>278C</td><td>278D</td><td>278E</td><td>278F</td><td>2790</td><td>2791</td><td>2792</td><td>2793</td>
-      </tr>
-    </table>
-  </li>
-</ul>
+- 反白（negative circled digits）
+
+  {:.circled-number}
+  |  ⓿  |  ❶  |  ❷  |  ❸  |  ❹  |  ❺  |  ❻  |  ❼  |  ❽  |  ❾  |  ❿  |
+  | 24FF | 2776 | 2777 | 2778 | 2779 | 277A | 277B | 277C | 277D | 277E | 277F |
+  |      |  ⓫  |  ⓬  |  ⓭  |  ⓮  |  ⓯  |  ⓰  |  ⓱  |  ⓲  |  ⓳  |  ⓴  |
+  |      | 24EB | 24EC | 24ED | 24EE | 24EF | 24F0 | 24F1 | 24F2 | 24F3 | 24F4 |
+
+- 无衬线（circled sans-serif digits）
+
+  {:.circled-number}
+  |   🄋  |  ➀  |  ➁  |  ➂  |  ➃  |  ➄  |  ➅  |  ➆  |  ➇  |  ➈  |  ➉  |
+  | 1F10B | 2780 | 2781 | 2782 | 2783 | 2784 | 2785 | 2786 | 2787 | 2788 | 2789 |
+
+- 无衬线反白（negative circled sans-serif digits）
+
+  {:.circled-number}
+  |   🄌  |  ➊  |  ➋  |  ➌  |  ➍  |  ➎  |  ➏  |  ➐  |  ➑  |  ➒  |  ➓  |
+  | 1F10C | 278A | 278B | 278C | 278D | 278E | 278F | 2790 | 2791 | 2792 | 2793 |
 
 此外，还额外增加了一些样式：
 
-<ul>
-  <li>
-    <p>双线（double circled digits）</p>
-    <table class="circled-number">
-      <tr class="circled-number-glyph">
-        <td>⓵</td><td>⓶</td><td>⓷</td><td>⓸</td><td>⓹</td><td>⓺</td><td>⓻</td><td>⓼</td><td>⓽</td><td>⓾</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>24F5</td><td>24F6</td><td>24F7</td><td>24F8</td><td>24F9</td><td>24FA</td><td>24FB</td><td>24FC</td><td>24FD</td><td>24FE</td>
-      </tr>
-    </table>
-  </li>
-  <li>
-    <p>加框（circled numbers on black square）</p>
-    <table class="circled-number">
-      <tr class="circled-number-glyph">
-        <td>㉈</td><td>㉉</td><td>㉊</td><td>㉋</td><td>㉌</td><td>㉍</td><td>㉎</td><td>㉏</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>3248</td><td>3249</td><td>324A</td><td>324B</td><td>324C</td><td>324D</td><td>324E</td><td>324F</td>
-      </tr>
-    </table>
-  </li>
-  <li>
-    <p>带圆括号（parenthesized digits）</p>
-    <table class="circled-number">
-      <tr class="circled-number-glyph">
-        <td>⑴</td><td>⑵</td><td>⑶</td><td>⑷</td><td>⑸</td><td>⑹</td><td>⑺</td><td>⑻</td><td>⑼</td><td>⑽</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>2474</td><td>2475</td><td>2476</td><td>2477</td><td>2478</td><td>2479</td><td>247A</td><td>247B</td><td>247C</td><td>247D</td>
-      </tr>
-      <tr class="circled-number-glyph">
-        <td>⑾</td><td>⑿</td><td>⒀</td><td>⒁</td><td>⒂</td><td>⒃</td><td>⒄</td><td>⒅</td><td>⒆</td><td>⒇</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>247E</td><td>247F</td><td>2480</td><td>2481</td><td>2482</td><td>2483</td><td>2484</td><td>2485</td><td>2486</td><td>2487</td>
-      </tr>
-    </table>
-  </li>
-  <li>
-    <p>带点（digits with full stop）</p>
-    <table class="circled-number">
-      <tr class="circled-number-glyph">
-        <td>🄀</td><td>⒈</td><td>⒉</td><td>⒊</td><td>⒋</td><td>⒌</td><td>⒍</td><td>⒎</td><td>⒏</td><td>⒐</td><td>⒑</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>1F100</td><td>2488</td><td>2489</td><td>248A</td><td>248B</td><td>248C</td><td>248D</td><td>248E</td><td>248F</td><td>2490</td><td>2491</td>
-      </tr>
-      <tr class="circled-number-glyph">
-        <td></td><td>⒒</td><td>⒓</td><td>⒔</td><td>⒕</td><td>⒖</td><td>⒗</td><td>⒘</td><td>⒙</td><td>⒚</td><td>⒛</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td></td><td>2492</td><td>2493</td><td>2494</td><td>2495</td><td>2496</td><td>2497</td><td>2498</td><td>2499</td><td>249A</td><td>249B</td>
-      </tr>
-    </table>
-  </li>
-  <li>
-    <p>带逗号（digits with comma）</p>
-    <table class="circled-number">
-      <tr class="circled-number-glyph">
-        <td>🄁</td><td>🄂</td><td>🄃</td><td>🄄</td><td>🄅</td><td>🄆</td><td>🄇</td><td>🄈</td><td>🄉</td><td>🄊</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>1F101</td><td>1F102</td><td>1F103</td><td>1F104</td><td>1F105</td><td>1F106</td><td>1F107</td><td>1F108</td><td>1F109</td><td>1F10A</td>
-      </tr>
-    </table>
-  </li>
-  <li>
-    <p>这些姑且也算上吧：</p>
-    <table class="circled-number">
-      <tr class="circled-number-glyph">
-        <td>㈠</td><td>㈡</td><td>㈢</td><td>㈣</td><td>㈤</td><td>㈥</td><td>㈦</td><td>㈧</td><td>㈨</td><td>㈩</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>3220</td><td>3221</td><td>3222</td><td>3223</td><td>3224</td><td>3225</td><td>3226</td><td>3227</td><td>3228</td><td>3229</td>
-      </tr>
-      <tr class="circled-number-glyph">
-        <td>㊀</td><td>㊁</td><td>㊂</td><td>㊃</td><td>㊄</td><td>㊅</td><td>㊆</td><td>㊇</td><td>㊈</td><td>㊉</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>3280</td><td>3281</td><td>3282</td><td>3283</td><td>3284</td><td>3285</td><td>3286</td><td>3287</td><td>3288</td><td>3289</td>
-      </tr>
-      <tr class="circled-number-glyph">
-        <td>🈩</td><td>🈔</td><td>🈪</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td>1F229</td><td>1F214</td><td>1F22A</td>
-      </tr>
-      <tr class="circled-number-glyph">
-        <td></td><td>🉂</td><td>🉁</td>
-      </tr>
-      <tr class="circled-number-encoding">
-        <td></td><td>1F242</td><td>1F241</td>
-      </tr>
-    </table>
-  </li>
-</ul>
+- 双线（double circled digits）
+
+  {:.circled-number}
+  |  ⓵  |  ⓶  |  ⓷  |  ⓸  |  ⓹  |  ⓺  |  ⓻  |  ⓼  |  ⓽  |  ⓾  |
+  | 24F5 | 24F6 | 24F7 | 24F8 | 24F9 | 24FA | 24FB | 24FC | 24FD | 24FE |
+
+- 加框（circled numbers on black square）
+
+  {:.circled-number}
+  |  ㉈  |  ㉉  |  ㉊  |  ㉋  |  ㉌  |  ㉍  |  ㉎  |  ㉏  |
+  | 3248 | 3249 | 324A | 324B | 324C | 324D | 324E | 324F |
+
+- 带圆括号（parenthesized digits）
+
+  {:.circled-number}
+  |  ⑴  |  ⑵  |  ⑶  |  ⑷  |  ⑸  |  ⑹  |  ⑺  |  ⑻  |  ⑼  |  ⑽  |
+  | 2474 | 2475 | 2476 | 2477 | 2478 | 2479 | 247A | 247B | 247C | 247D |
+  |  ⑾  |  ⑿  |  ⒀  |  ⒁  |  ⒂  |  ⒃  |  ⒄  |  ⒅  |  ⒆  |  ⒇  |
+  | 247E | 247F | 2480 | 2481 | 2482 | 2483 | 2484 | 2485 | 2486 | 2487 |
+
+- 带点（digits with full stop）
+
+  {:.circled-number}
+  |   🄀  |  ⒈  |  ⒉  |  ⒊  |  ⒋  |  ⒌  |  ⒍  |  ⒎  |  ⒏  |  ⒐  |  ⒑  |
+  | 1F100 | 2488 | 2489 | 248A | 248B | 248C | 248D | 248E | 248F | 2490 | 2491 |
+  |       |  ⒒  |  ⒓  |  ⒔  |  ⒕  |  ⒖  |  ⒗  |  ⒘  |  ⒙  |  ⒚  |  ⒛  |
+  |       | 2492 | 2493 | 2494 | 2495 | 2496 | 2497 | 2498 | 2499 | 249A | 249B |
+
+- 带逗号（digits with comma）
+
+  {:.circled-number}
+  |   🄁  |   🄂  |   🄃  |   🄄  |   🄅  |   🄆  |   🄇  |   🄈  |   🄉  |   🄊  |
+  | 1F101 | 1F102 | 1F103 | 1F104 | 1F105 | 1F106 | 1F107 | 1F108 | 1F109 | 1F10A |
+
+- 这些姑且也算上吧：
+
+  {:.circled-number}
+  |   ㈠  |   ㈡  |   ㈢  |  ㈣  |  ㈤  |  ㈥  |  ㈦  |  ㈧  |  ㈨  |  ㈩  |
+  |  3220 |  3221 |  3222 | 3223 | 3224 | 3225 | 3226 | 3227 | 3228 | 3229 |
+  |   ㊀  |   ㊁  |   ㊂  |  ㊃  |  ㊄  |  ㊅  |  ㊆  |  ㊇  |  ㊈  |  ㊉  |
+  |  3280 |  3281 |  3282 | 3283 | 3284 | 3285 | 3286 | 3287 | 3288 | 3289 |
+  |   🈩  |   🈔  |   🈪  |
+  | 1F229 | 1F214 | 1F22A |
+  |       |   🉂  |   🉁  |
+  |       | 1F242 | 1F241 |
 
 这些符号分散在以下几个 Unicode 区块（block）中：
 
