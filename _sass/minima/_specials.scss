@@ -68,14 +68,12 @@
   font-family: $mono-font-family;
   font-size: $small-font-size;
   text-align: center;
+  white-space: pre;
+  overflow-x: auto;
 }
 .problem-highlight {
   color: $red-500;
-}
-@include media-dark {
-  .problem-highlight {
-    color: $red-400;
-  }
+  @include media-dark { color: $red-400; }
 }
 .frac {
   font-feature-settings: 'frac';

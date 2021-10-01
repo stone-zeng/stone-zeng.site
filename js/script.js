@@ -229,8 +229,8 @@ function updateMath() {
       delimiters: [
         {left: '\\[', right: '\\]', display: true},
         {left: '$', right: '$', display: false},
-      ]}
-    );
+      ],
+    });
     document.querySelectorAll('.katex-html').forEach((e) => {
       if (e.textContent === '') e.remove();
     });
@@ -251,8 +251,7 @@ function fixHash() {
     }
   };
   document.querySelectorAll('a[href^="#"]').forEach((e) =>
-    e.addEventListener('click',
-        (event) => window.setTimeout(() => offsetAnchor(), 0))
+    e.addEventListener('click', (event) => window.setTimeout(() => offsetAnchor(), 0)),
   );
   window.setTimeout(offsetAnchor, 0);
 }
