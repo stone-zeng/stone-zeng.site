@@ -58,18 +58,22 @@
 }
 
 // euler
+.problem-example, .problem-example-left, .problem-input {
+  overflow-x: auto;
+}
 .problem-example {
   text-align: center;
+  white-space: pre-line;
 }
 .problem-example-left {
   padding-left: 30px;
+  white-space: pre-line;
 }
 .problem-input {
   font-family: $mono-font-family;
   font-size: $small-font-size;
   text-align: center;
   white-space: pre;
-  overflow-x: auto;
 }
 .problem-highlight {
   color: $red-500;
