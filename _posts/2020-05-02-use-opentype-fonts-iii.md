@@ -2,7 +2,7 @@
 layout: post
 title: 在 LaTeX 中使用 OpenType 字体（三）
 date: 2020-05-02
-last_modified_at: 2021-06-11
+last_modified_at: 2021-11-29
 math: true
 categories: Fonts
 description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 $\TeX$ 设计的初衷，也是 $\LaTeX$ 最为人所称道的功能。
@@ -21,7 +21,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 
 在过去，Microsoft Office 使用 [MathType](https://en.wikipedia.org/wiki/MathType) 的某个阉割版作为自己的公式编辑器。2006 年左右，微软为了自己 Office 2007 的恢宏大业，联合各方力量，设计出了一套新的数学公式排版方案：[^office-math]
 
-[^office-math]: Murray Sargent III. [High-Quality Editing and Display of Mathematical Text in Office 2007](https://blogs.msdn.microsoft.com/murrays/2006/09/13/high-quality-editing-and-display-of-mathematical-text-in-office-2007/)
+[^office-math]: Murray Sargent III. [High-Quality Editing and Display of Mathematical Text in Office 2007](https://docs.microsoft.com/archive/blogs/murrays/high-quality-editing-and-display-of-mathematical-text-in-office-2007/)
 
 - 字符集方面，依靠 Unicode 提供大量数学符号的支持，包括[^unicode-utr25]
   - 数学用字母、数字
@@ -38,7 +38,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
   <figcaption markdown="span">Word 2019 中的公式编辑器。特殊符号可通过反斜线 `\` 转义，其后输入空格则会触发自动替换</figcaption>
 </figure>
 
-花开两朵，各表一枝。$\\(La)TeX$ 这边虽然历经一二十年已经搞成了公式排版的事实标准，但缺乏新技术的支持（Unicode 和 OpenType 也不能算新了），很多时候仍然显得落伍。于是 Jonathan Kew 单枪匹马开发出了 $\XeTeX$，终于与时代接上了轨。再后来 Hans Hagen 等人又开发了 $\LuaTeX$，与 $\XeTeX$ 一样原生支持 Unicode 与 OpenType，同时还可借由内嵌 Lua 实现多种扩展功能。
+花开两朵，各表一枝。$\\(La)TeX$ 这边虽然历经一二十年已经搞成了公式排版的事实标准，但缺乏新技术的支持（Unicode 和 OpenType 也不能算新了），很多时候仍然显得落伍。于是 Jonathan Kew 单枪匹马开发出了 $\XeTeX$，终于与时代接了轨。再后来 Hans Hagen 等人又开发了 $\LuaTeX$，与 $\XeTeX$ 一样原生支持 Unicode 与 OpenType，同时还可借由内嵌 Lua 实现多种扩展功能。
 
 到目前为止，支持这一方案的软件大概有以下这些：
 
@@ -108,7 +108,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 
 ## 字符支持
 
-数学公式中所使用的字符，一方面是字母、数字以及它们的各种字体形式，另一方面则是加减乘除、大于小于、积分求和、圆三角方这些符号。标准 $\LaTeX$ 使用 Knuth 教授的 Computer Modern 字体排版数学公式。由于 $\TeX$ 自身的限制，这种传统的 Type1 字体最多只能包含 256 个字符形（glyph）。因此在 $\LaTeX$ 的 NFSS 方案中，需要不停切换编码和字体才实现比较好的排版效果，非常麻烦。而 `unicode-math` 宏包中使用 OpenType 数学字体，它把这些字符（以及相关的度量信息）封装在了一个单独的字体文件中，不再需要引入额外的宏包。
+数学公式中所使用的字符，一方面是字母、数字以及它们的各种字体形式，另一方面则是加减乘除、大于小于、积分求和、圆三角方这些符号。标准 $\LaTeX$ 使用 Knuth 教授开发的 Computer Modern 字体排版数学公式。由于 $\TeX$ 自身的限制，这种传统的 Type1 字体最多只能包含 256 个字符形（glyph）。因此在 $\LaTeX$ 的 NFSS 方案中，需要不停切换编码和字体才实现比较好的排版效果，非常麻烦。而 `unicode-math` 宏包中使用 OpenType 数学字体，它把这些字符（以及相关的度量信息）封装在了一个单独的字体文件中，不再需要引入额外的宏包。
 
 ### 字母表
 
@@ -443,17 +443,21 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 
 ## 数学字体
 
-OpenType 数学字体在相当长的时间内只有少数几种，不过近年来陆续有人投入其中，大大增加了可选择的余地。在 $\TeX$ Live 中，可以直接使用的就有下面这些：[^math-fonts]
+OpenType 数学字体在相当长的时间内只有少数几种，不过近年来陆续有人投入其中，大大增加了可选择的余地。在 $\TeX$ Live 中，可以直接使用的就有下面这些：[^math-fonts][^math-fonts-zhihu]
 
 [^math-fonts]: [Which OpenType Math fonts are available?](https://tex.stackexchange.com/q/425098)
+[^math-fonts-zhihu]: 坏名字. [有哪些适用于 Unicode Math 的字体推荐？- 知乎](https://www.zhihu.com/question/415431516/answer/1466968600)
 
 - Asana Math（`Asana-Math.otf`)
 - Erewhon Math (`Erewhon-Math.otf`)
 - Fira Math（`FiraMath-Regular.otf`)
 - Garamond Math（`Garamond-Math.otf`)
 - GFS Neohellenic Math（`GFSNeohellenicMath.otf`)
+- Kp Math (`KpMath-Light.otf`、`KpMath-Regular.otf`、`KpMath-Semibold.otf`、`KpMath-Bold.otf` 以及 `KpMath-Sans.otf`)
 - Libertinus Math（`LibertinusMath-Regular.otf`)
-- Latin Modern Math（`latinmodern-math.otf`）
+- Computer Modern 系列
+  - 默认字体：Latin Modern Math（`latinmodern-math.otf`）
+  - 复刻版本：New Computer Modern Math (`NewCMMath-Regular.otf`、`NewCMMath-Book.otf`)
 - STIX 系列
   - STIX（`STIXMath-Regular.otf`)
   - STIX2（`STIX2Math.otf`)
