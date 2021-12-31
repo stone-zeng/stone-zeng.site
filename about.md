@@ -6,7 +6,12 @@ permalink: /about/
 
 I'm Xiangdong Zeng working with
 
-<div class="about">|Physics⟩<span class="about-mbin">⊗</span>|LaTeX⟩<span class="about-mbin">⊗</span><div class="about-frac"><span class="about-frac-top">|Typography⟩<span class="about-mbin">+</span>|Type design⟩</span><span class="about-frac-bottom">√2</span></div></div>
+<div class="about">|Physics⟩<span class="about-mbin">⊗</span>|LaTeX⟩<span class="about-mbin">⊗</span><div class="about-frac"><span class="about-frac-top">|Font engineering<span class="about-mbin">+</span>|Type design⟩</span><span class="about-frac-bottom">√2</span></div></div>
+
+Currently, I'm
+
+- a PhD candidate at Department of Physics, Fudan University
+- an intern technician at [atelierAnchor](https://atelier-anchor.com/)
 
 ## 致谢
 
