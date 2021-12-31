@@ -5,7 +5,7 @@ lang: en-US  # For correct hyphenation, we need set the language to en-US.
 baseurl: ""
 url: https://stone-zeng.github.io/
 google_analytics: UA-132846370-1
-copyright: © 2018–2021 Xiangdong Zeng
+copyright: © 2018--2022 Xiangdong Zeng
 github_username: stone-zeng
 
 incremental: true
@@ -42,7 +42,7 @@ plugins:
 sass:
     style: compressed
 paginate: 8
-paginate_path: "/page/:num"
+paginate_path: /page/:num
 
 gitalk:
   clientID: f98ec5b83ae226312741
