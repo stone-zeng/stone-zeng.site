@@ -321,7 +321,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 
 [^cid]: 感谢 [@clerkma](https://github.com/clerkma) 的指导！见 CTeX-org/forum [#20](https://github.com/CTeX-org/forum/issues/20)。
 
-由于 CID 到具体字符的映照比较复杂，因而这里我们提供了一个宏包 [`textcircle-cid`](https://github.com/stone-zeng/latex-showcase/blob/master/textcircle-cid/textcircle-cid.sty)，用来通过 CID 调用带圈数字。`textcircle-cid` 宏包提供了下面一组命令：
+由于 CID 到具体字符的映照比较复杂，因而这里我们提供了一个宏包 [`textcircle-cid`](https://github.com/stone-zeng/latex-showcase/blob/main/textcircle-cid/textcircle-cid.sty)，用来通过 CID 调用带圈数字。`textcircle-cid` 宏包提供了下面一组命令：
 
 - `\CIDtextcircled`
 - `\CIDtextblackcircled`
@@ -407,7 +407,7 @@ $\LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 
 | <span lang="ja">游明朝</span> (Yu Mincho)<br><span lang="ja">游ゴシック</span> (Yu Gothic)             | 0--100 | 0--100 |        |            |
 | <span lang="ja">メイリオ</span> (Meiryo)                                                               | 0--50  | 1--20  | 0--10  | 1--10      |
 
-这里我们用了 Python 脚本 [`check-circled-number.py`](https://github.com/stone-zeng/latex-showcase/blob/master/textcircle-cid/check-circled-number.py) 来读取字体信息，它还依赖 [FontForge](https://fontforge.github.io/)。注意由于字体版本不同，不保证表中所列结果与实际情况完全一致。
+这里我们用了 Python 脚本 [`check-circled-number.py`](https://github.com/stone-zeng/latex-showcase/blob/main/textcircle-cid/check-circled-number.py) 来读取字体信息，它还依赖 [FontForge](https://fontforge.github.io/)。注意由于字体版本不同，不保证表中所列结果与实际情况完全一致。
 
 ## 注释
 

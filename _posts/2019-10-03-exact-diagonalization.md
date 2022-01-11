@@ -416,7 +416,7 @@ This article is based on arXiv:1102.4006[^arxiv-1102-4006]. Here we mainly focus
 
 [^arxiv-1102-4006]: J M Zhang and R X Dong. *Exact diagonalization: the Bose--Hubbard model as an example*, [arXiv:1102.4006](https://arxiv.org/abs/1102.4006)
 
-The complete Mathematica code can be found in [stone-zeng/toys](https://github.com/stone-zeng/toys/blob/master/exact-diagonalization/bose-hubbard.wl).
+The complete Mathematica code can be found in [stone-zeng/toys](https://github.com/stone-zeng/toys/blob/main/exact-diagonalization/bose-hubbard.wl).
 
 ## References
 

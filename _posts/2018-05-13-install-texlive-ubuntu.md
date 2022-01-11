@@ -52,7 +52,7 @@ sudo apt-get install perl-tk perl-doc
 
 等待片刻后会进入选项菜单，根据需要酌情选取。也可以事先写好配置文件 `texlive.profile`[^profile]。
 
-[^profile]: 见 [`texlive.profile`](https://github.com/latex3/latex3/blob/master/support/texlive.profile)。这一配置文件用于 $\LaTeX3$ 的代码测试。
+[^profile]: 见 [`texlive.profile`](https://github.com/latex3/latex3/blob/main/support/texlive.profile)。这一配置文件用于 $\LaTeX3$ 的代码测试。
 
 没有特殊需要的话，collection 可以不必全部安装，尤其是很多小语种。不过后果是之后可能会缺包。不愿意之后手动安装，并且空间足够、网速足够，也可以全部安装。注意 $\TeX$ Live 完全安装后大约要占 6 GB 空间，安装前请务必做好准备。中途断网很可能导致安装失败。
 
