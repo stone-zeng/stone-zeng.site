@@ -153,5 +153,5 @@ description: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界�
 
 ## 参考
 
-- 谭沛然. [参数化设计与字体战争：从 OpenType 1.8 说起](https://thetype.com/2016/09/10968)
+- 谭沛然. [参数化设计与字体战争：从 OpenType 1.8 说起](https://www.thetype.com/2016/09/10968)
 - @dpk. [TeX (LuaTeX, XeTeX, fontspec) support for OpenType variable fonts](https://tex.stackexchange.com/q/355104)

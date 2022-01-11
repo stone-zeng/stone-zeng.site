@@ -43,7 +43,7 @@ description: 在上一回中，我们介绍了字体的相关背景知识，并�
 
 一方面，人类的语言文字无比复杂，字体技术也必须有足够的规模才能够把它们支撑起来；另一方面，$\TeX$ 和 $\LaTeX$ 又太过古老，那个年代既没有 Unicode 也没有 OpenType，Word 也不知在哪里。此外，Word 作为字处理软件，隐藏了字体排印中的许多细节，相当于一部「能拍照的智能手机」；而 $\TeX$ 则是一部「全功能单反相机」[^eric-liu-camera]，它把繁琐的细节都交给了用户。Word 里面那几个按钮所做的工作远不止看上去那么简单，下面我们就来一一解释。
 
-[^eric-liu-camera]: 语出播客节目[《字谈字畅》](https://thetype.com/typechat/)
+[^eric-liu-camera]: 语出播客节目[《字谈字畅》](https://www.thetype.com/typechat/)
 
 ## 字体的坐标
 
@@ -215,7 +215,7 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
 
 具体来说：
 
-- 在 Windows 和 Linux 系统中，$\XeTeX$ 会使用 [fontconfig](https://www.fontconfig.org) 库调用字体，而在 macOS 中则会使用苹果自己的 [Core Text](https://developer.apple.com/documentation/coretext) 库
+- 在 Windows 和 Linux 系统中，$\XeTeX$ 会使用 [fontconfig](https://www.freedesktop.org/wiki/Software/fontconfig/) 库调用字体，而在 macOS 中则会使用苹果自己的 [Core Text](https://developer.apple.com/documentation/coretext) 库
 - $\LuaTeX$ 本身并不能调用字体，而是通过 `luaotfload` 包进行调用
 
 总而言之后果就是，在 macOS 上使用 $\XeTeX$ 调用系统字体时必须使用**字体名**，而调用 TEXMF 中的字体（即 $\TeX$ 发行版自带字体）时则必须使用**文件名**。

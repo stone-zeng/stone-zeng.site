@@ -249,7 +249,7 @@ $\LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架[^ctex
 
 1. 第 14 行的末尾有一个 `%`，其作用是避免汉字之间不必要的空格。
 2. 中文字体一般不会设计对应的斜体（包括意大利体），因此需要通过选项单独指定（见下文）。
-3. 大多数中文字体也不会设计粗体。这里选用的是[思源宋体](https://source.typekit.com/source-han-serif/cn)与[思源黑体](https://github.com/adobe-fonts/source-han-sans)，它们均提供了多个字重。
+3. 大多数中文字体也不会设计粗体。这里选用的是[思源宋体](https://github.com/adobe-fonts/source-han-serif)与[思源黑体](https://github.com/adobe-fonts/source-han-sans)，它们均提供了多个字重。
 
 ## 注释
 

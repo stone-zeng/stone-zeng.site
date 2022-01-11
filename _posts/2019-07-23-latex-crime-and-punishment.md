@@ -501,7 +501,7 @@ PS：原文图里面 `\TeX` 后面漏了 `{}` 或者 `\<space>`，而且引号�
 现在（2019 年 7 月），我们只推荐下面这些材料：
 
 - 一份（不太）简短的 $\LaTeXe$ 介绍（lshort） [[PDF]](https://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf) [[GitHub]](https://github.com/CTeX-org/lshort-zh-cn)
-- 一份简短的安装 $\LaTeX$ 的介绍 [[GitHub]](https://github.com/OsbertWang/install_latex)
+- 一份简短的安装 $\LaTeX$ 的介绍 [[GitHub]](https://github.com/OsbertWang/install-latex-guide-zh-cn)
 - 刘海洋的《$\LaTeX$ 入门》（跳过 $\CTeX$ 套装的部分）
 
 lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全部功能这里都包含了。找不到直接去《$\LaTeX$ 入门》的相关章节翻阅（当字典查）。其他网上的资料，wikibook 上的教程可以参考，知乎请认准那几位的回答，b 站鱼龙混杂谨慎使用，而 csdn、科学网博客、x 度文库请**绝对不要看**。

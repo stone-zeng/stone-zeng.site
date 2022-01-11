@@ -39,7 +39,7 @@ description: 学习一门编程语言，如果只了解语法，必然十分枯�
 
 我本人使用的是 [TeX Live 2019](https://www.tug.org/texlive/) + [Visual Studio Code](https://code.visualstudio.com)。
 
-此外，如果要开始一个正式的项目 / 工程，强烈建议建立一个 Git 仓库来管理。具体做法可参阅[廖雪峰的 Git 教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)。
+此外，如果要开始一个正式的项目 / 工程，强烈建议建立一个 Git 仓库来管理。具体做法可参阅[廖雪峰的 Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)。
 
 ### 目录结构
 
