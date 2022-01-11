@@ -11,7 +11,7 @@ description: 嗯，此为一连载。背景是，我们希望 ctex-kit 最终提
 >
 > 本文实际上是 [`zhmetrics` 包](https://ctan.org/pkg/zhmetrics)的实现思路。该包由王越和吴凌云发布，并且一直被 $\CTeX$ 宏集所使用至今。在此基础上，刘海洋又开发了 [`zhmCJK` 包](https://ctan.org/pkg/zhmcjk)，允许动态设置 CJK 字体，并且提供了尽可能简单的用户界面。
 
-[^newsmth]: 在水木社区 $\TeX$ 版还保留有[原文](http://www.newsmth.net/bbsanc.php?path=%2Fgroups%2Fcomp.faq%2FTeX%2Fchinese%2FM.1243072730.10)。
+[^newsmth]: 在水木社区 $\TeX$ 版还保留有[原文](https://www.newsmth.net/bbsanc.php?path=%2Fgroups%2Fcomp.faq%2FTeX%2Fchinese%2FM.1243072730.10)。
 
 嗯，此为一连载。背景是，我们希望 [ctex-kit](https://github.com/CTeX-org/ctex-kit) 最终提交到 $\TeX$ Live 或者 CTAN 的时候，可以带上所有中文字体的 TFM、MAP 和 ENC，来让用户差不多是零配置地使用 `CJK` 中文，因此我们需要产生这些文件。而产生过程中可能会用到中文字体进行转换，故可能有版权问题，而且可能产生的 TFM 文件存在不通用的情况（尤其是只覆盖一部分 GBK 区域的字体产生的文件），所以我们考虑如何不依赖中文字体来产生这些文件。这就需要我们对 $\TeX$ 的字体原理有一定的掌握，然后就能够从原理出发，直接写脚本产生不依赖字体的字体配置文件。本文的目的就是为了 ctex-kit 能够写出一个很好很强大的东东来，实现自动凭空产生中文字体的 TFM、ENC 以及 MAP 文件。
 

@@ -143,11 +143,11 @@ $\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold
 
 ### 倾斜
 
-另一种广泛使用的样式是倾斜。实际上倾斜有两种，一种是简单把字符斜过来（oblique 或 slant），另一种是模仿手写体风格的意大利体（italic）。字体设计师[<span lang="ja">大曲都市</span>](http://tosche.net/about)曾给出过一个形象的图示，用以说明它们的区别：[^italic]
+另一种广泛使用的样式是倾斜。实际上倾斜有两种，一种是简单把字符斜过来（oblique 或 slant），另一种是模仿手写体风格的意大利体（italic）。字体设计师[<span lang="ja">大曲都市</span>](https://tosche.net/profile)曾给出过一个形象的图示，用以说明它们的区别：[^italic]
 
-[^italic]: Toshi Omagari. [Italic subtleties](http://tosche.net/2014/02/italic-subtleties_en.html)
+[^italic]: Toshi Omagari. [Italic subtleties](https://tosche.net/blog/italic-subtleties)
 
-<!-- http://tosche.net/blog/wp-content/uploads/jacksons1.png -->
+<!-- https://tosche.net/media/pages/blog/italic-subtleties/4e4d6e7365-1604737638/jacksons1-1020x.png -->
 <figure>
   <img src="/images/use-opentype-fonts-ii/italic-jackson.png" alt="italic-jackson" style="max-width: 360px;">
 </figure>
@@ -402,8 +402,8 @@ laboris nisi ut aliquip ex ea commodo consequat.
 - 「例如标题，别人的标题更粗一些，像是黑体中等；而我的标题就细一些，像是黑体细体」[^ctex-xihei]
 - 「我这正文都是宋体，该强调也强调了，怎么？哎！……怎么宋体里面多了楷体？？？」[^ctex-emph]
 
-[^ctex-yahei]: 见 xueruini/thuthesis [#271](https://github.com/xueruini/thuthesis/issues/271)
-[^ctex-xihei]: 见 xueruini/thuthesis [#416](https://github.com/xueruini/thuthesis/issues/416)
+[^ctex-yahei]: 见 tuna/thuthesis [#271](https://github.com/tuna/thuthesis/issues/271)
+[^ctex-xihei]: 见 tuna/thuthesis [#416](https://github.com/tuna/thuthesis/issues/416)
 [^ctex-emph]: @朴素的贝叶斯. [$\LaTeX$ 的罪与罚](https://zhuanlan.zhihu.com/p/52006922)
 
 而 `fandol` 字库，虽然配齐了宋黑楷仿也有粗宋和粗黑，但毕竟天下没有免费的午餐，它缺字得厉害：
@@ -787,7 +787,7 @@ Pattern has 21 elts (size 32)
   ...
 ```
 
-分别是 [Skia](https://v-fonts.com/fonts/skia) 和[方正悠宋](http://www.foundertype.com/index.php/FontInfo/index.html?id=410)。
+分别是 [Skia](https://v-fonts.com/fonts/skia) 和[方正悠宋](https://www.foundertype.com/index.php/FontInfo/index.html?id=410)。
 
 ## 引用与注释
 

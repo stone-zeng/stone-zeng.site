@@ -259,7 +259,7 @@ A
 
 作者翻看了文档，这很好，值得表扬。随后他得出了结论：「`misc` 不支持 `url` 字段」，并且声泪俱下地把它批判了一番。
 
-然而如果找对了文档，并且真的看了，那么，请看 [`btxdoc.pdf`](http://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf) 的第 3.1 节 Entry Types，在第 8 页从上面数第 2 自然段：
+然而如果找对了文档，并且真的看了，那么，请看 [`btxdoc.pdf`](https://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf) 的第 3.1 节 Entry Types，在第 8 页从上面数第 2 自然段：
 
 > **ignored**&emsp;The field is ignored. BibTeX ignores any field that is not required or optional, so you can include any fields you want in a bib file entry…
 
@@ -341,7 +341,7 @@ $\LaTeX$ 的机制决定了某些接口只有唯一的写法。`\section` 就必
 PS：这段话中英文夹杂、大小写错乱怎么看怎么别扭。国内的博客大多是东抄西抄，这个宏包冲突的介绍不知道转了几遍：
 
 - <http://blog.sina.com.cn/s/blog_5e16f1770100ju9l.html>
-- <http://www.latexstudio.net/archives/7915.html>
+- <https://www.latexstudio.net/archives/7915.html>
 - <http://www.macfreek.nl/memory/LaTeX_package_conflicts>
 
 求求你们花几分钟找一下原始资料吧！
@@ -500,7 +500,7 @@ PS：原文图里面 `\TeX` 后面漏了 `{}` 或者 `\<space>`，而且引号�
 
 现在（2019 年 7 月），我们只推荐下面这些材料：
 
-- 一份（不太）简短的 $\LaTeXe$ 介绍（lshort） [[PDF]](http://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf) [[GitHub]](https://github.com/CTeX-org/lshort-zh-cn)
+- 一份（不太）简短的 $\LaTeXe$ 介绍（lshort） [[PDF]](https://mirrors.ctan.org/info/lshort/chinese/lshort-zh-cn.pdf) [[GitHub]](https://github.com/CTeX-org/lshort-zh-cn)
 - 一份简短的安装 $\LaTeX$ 的介绍 [[GitHub]](https://github.com/OsbertWang/install_latex)
 - 刘海洋的《$\LaTeX$ 入门》（跳过 $\CTeX$ 套装的部分）
 

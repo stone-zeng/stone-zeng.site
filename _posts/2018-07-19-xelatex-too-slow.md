@@ -41,7 +41,7 @@ fc-cache
 - 设置兼容性模式后再取消[^thuthesis]
 - 卸载并重新安装 $\TeX$ Live
 
-[^thuthesis]: 原因不明，见 xueruini/thuthesis [#278](https://github.com/xueruini/thuthesis/issues/278) 中的讨论。
+[^thuthesis]: 原因不明，见 tuna/thuthesis [#278](https://github.com/tuna/thuthesis/issues/278) 中的讨论。
 
 ## 注释
 

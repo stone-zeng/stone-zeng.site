@@ -113,7 +113,7 @@ $\LaTeX3$ 教程这个系列的文章其实早已动笔（开始于 2017 年）�
 - $\LaTeX3$ 团队成员 Will Robertson 维护的 `fontspec`、`unicode-math`，以及 Joseph Wright 维护的 `siunitx`
 - 本人所编写的 `fduthesis` 和 `zhlipsum`
 
-所有已注册的 $\LaTeX3$ 宏包（其实是模块名）及其有关信息可以在 [`l3prefixes`](https://github.com/latex3/latex3/blob/master/l3kernel/l3prefixes.csv) 中找到。
+所有已注册的 $\LaTeX3$ 宏包（其实是模块名）及其有关信息可以在 [`l3prefixes`](https://github.com/latex3/latex3/blob/main/l3kernel/doc/l3prefixes.csv) 中找到。
 
 ## 个人想法
 

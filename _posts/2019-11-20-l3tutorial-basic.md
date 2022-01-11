@@ -382,8 +382,8 @@ l.7 \end{document}
 
 ## 参考
 
-- [zhlipsum: 中文乱数假文(Lorem ipsum)](http://mirrors.ctan.org/macros/latex/contrib/zhlipsum/zhlipsum.pdf) - `texdoc zhlipsum.pdf`
-- [The $\LaTeX3$ Interfaces](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/interface3.pdf) - `texdoc interface3`
+- [zhlipsum: 中文乱数假文(Lorem ipsum)](https://mirrors.ctan.org/macros/latex/contrib/zhlipsum/zhlipsum.pdf) - `texdoc zhlipsum.pdf`
+- [The $\LaTeX3$ Interfaces](https://mirrors.ctan.org/macros/latex/contrib/l3kernel/interface3.pdf) - `texdoc interface3`
   - Part VI - The `l3tl` package: Token lists
   - Part XI - The `l3int` package: Integers
-- [The `xparse` package: Document command parser](http://mirrors.ctan.org/macros/latex/contrib/l3packages/xparse.pdf) - `texdoc xparse`
+- [The `xparse` package: Document command parser](https://mirrors.ctan.org/macros/latex/contrib/l3packages/xparse.pdf) - `texdoc xparse`

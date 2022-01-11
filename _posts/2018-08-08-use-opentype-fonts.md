@@ -232,7 +232,7 @@ $\LaTeX$ 中的中文排版，推荐采用 `CTeX` 宏集作为统一框架[^ctex
 \setCJKfamilyfont{boldsong}{Source Han Serif SC Heavy}
 
 \begin{document}
-% 来源：http://mirrors.ctan.org/language/chinese/ctex/ctex.pdf
+% 来源：https://mirrors.ctan.org/language/chinese/ctex/ctex.pdf
 \CTeX{} 宏集的源头有两个：一是{\CJKfamily{boldsong}王磊}编写的 \texttt{cjkbook} 文档类，二是%
 {\CJKfamily{boldsong}吴凌云}编写的 \texttt{GB.cap}。这些工作没有经过认真、系统的设计，也没有用户
 文档，不利于维护和改进。

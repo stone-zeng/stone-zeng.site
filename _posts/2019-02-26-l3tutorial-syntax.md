@@ -337,8 +337,8 @@ $\LaTeX3$ 中的变量与相关函数组成了一个个模块。之后我们就�
 
 ## 参考
 
-- [The `expl3` package and $\LaTeX3$ programming](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/expl3.pdf) - `texdoc expl3`
-- [The $\LaTeX3$ kernel: style guide for code authors](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/l3styleguide.pdf) - `texdoc l3styleguide`
-- [The $\LaTeX3$ Interfaces](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/interface3.pdf) - `texdoc interface3`
-- [The $\LaTeX3$ Sources](http://mirrors.ctan.org/macros/latex/contrib/l3kernel/source3.pdf) - `texdoc source3`
+- [The `expl3` package and $\LaTeX3$ programming](https://mirrors.ctan.org/macros/latex/contrib/l3kernel/expl3.pdf) - `texdoc expl3`
+- [The $\LaTeX3$ kernel: style guide for code authors](https://mirrors.ctan.org/macros/latex/contrib/l3kernel/l3styleguide.pdf) - `texdoc l3styleguide`
+- [The $\LaTeX3$ Interfaces](https://mirrors.ctan.org/macros/latex/contrib/l3kernel/interface3.pdf) - `texdoc interface3`
+- [The $\LaTeX3$ Sources](https://mirrors.ctan.org/macros/latex/contrib/l3kernel/source3.pdf) - `texdoc source3`
 - Joseph Wright. [Programming LaTeX3: The programming environment](https://www.texdev.net/2011/12/11/programming-latex3-the-programming-environment/)

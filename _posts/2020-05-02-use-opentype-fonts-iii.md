@@ -47,7 +47,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 - 字体编辑器：FontForge[^fontforge-math]
 
 [^can-i-use-mathml]: [Can I use... Support tables for HTML5, CSS3, etc - MathML](https://caniuse.com/#feat=mathml)
-[^fontforge-math]: [FontForge - MATH typesetting information](https://fontforge.github.io/en-US/documentation/reference/math/)
+[^fontforge-math]: [FontForge - MATH typesetting information](https://fontforge.org/docs/ui/dialogs/math.html)
 
 ## 基本用法
 
@@ -406,7 +406,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 
 传统上，如果某个符号没有包含在默认的 Computer Modern 字体中，用户就要化身「调包侠」，四处寻找可能的命令。著名的文档 [*The Comprehensive $\LaTeX$ Symbol List*](https://www.ctan.org/pkg/comprehensive) 就列出了几乎所有可以在 $\LaTeX$ 中使用的符号。
 
-而在 `unicode-math` 宏包中，则可以使用 Unicode 所定义的数学符号，这是标准 $\LaTeX$+`amsmath` 的超集，足够满足日常需求。符号列表以及对应的命令都可以在文档 [`unimath-symbols.pdf`](http://mirrors.ctan.org/macros/latex/contrib/unicode-math/unimath-symbols.pdf) 中找到。和之前演示的一样，直接以 Unicode 字符输入也是可以的：
+而在 `unicode-math` 宏包中，则可以使用 Unicode 所定义的数学符号，这是标准 $\LaTeX$+`amsmath` 的超集，足够满足日常需求。符号列表以及对应的命令都可以在文档 [`unimath-symbols.pdf`](https://mirrors.ctan.org/macros/unicodetex/latex/unicode-math/unimath-symbols.pdf) 中找到。和之前演示的一样，直接以 Unicode 字符输入也是可以的：
 
 ```tex
 \documentclass{article}

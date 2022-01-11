@@ -33,7 +33,7 @@ description: 「把所有汉字叠写起来会怎么样呢？」这个问题源�
 
 中文字库常用的 GB2312 字符集一共有 6763 个汉字，而 Unicode 13.0 里面的汉字已经积累到了 92856 个[^han-number]，全部拿来叠加比较麻烦且意义不大。经过实验，使用几千个汉字和几百个汉字来叠加效果差别并不大（只要控制好透明度什么的）。所以，下面的实验我们都是从 GB2312 中随机挑选一个子集来叠加，实际使用的字数我们标注在了括号里。
 
-[^han-number]: Dr. Ken Lunde. [2019 "State of the Unification" Report](https://blogs.adobe.com/CCJKType/2019/07/2019-sotu.html)
+[^han-number]: Dr. Ken Lunde. [2019 "State of the Unification" Report](https://ccjktype.fonts.adobe.com/2019/07/2019-sotu.html)
 
 首先从最基本的宋体和黑体开始。为了突出对比，我们各选择了两种风格的字体：筑紫明朝和华文黑体字面较小、结构紧凑；而报宋和微软雅黑字面较大、结构宽松。前者代表了比较传统的汉字审美，可以使文本更有精气神。后者则主要出于使用场景的考量，无论是为了报纸印刷设计的报宋，还是为了屏幕显示设计的雅黑，较为夸张的字面可以大幅提升易读性。
 
@@ -109,10 +109,10 @@ description: 「把所有汉字叠写起来会怎么样呢？」这个问题源�
 
 ![bitmap](/images/han-overlay/bitmap.png){:.invert}
 
-以上三个字体分别是 16×15 像素的 [GNU Unifont](http://unifoundry.com/unifont/index.html) 和 9×9、7×7 的[丁卯点阵体](https://3type.cn/fonts/dinkie_bitmap/)。由于点阵字体本身的限制，它们在整个字身框中都故意留出了一像素的缝隙，以防止密排时文字连在一起。可以看到，在 Unifont 中左上角和右上角仍留有一些空白；而在「小至极限」的丁卯点阵点里面，设计师就不得不充分利用除了预留空间外每一个能用的像素，因而最终叠加出了一个几乎实心的黑块。
+以上三个字体分别是 16×15 像素的 [GNU Unifont](https://unifoundry.com/unifont/index.html) 和 9×9、7×7 的[丁卯点阵体](https://3type.cn/fonts/dinkie_bitmap/)。由于点阵字体本身的限制，它们在整个字身框中都故意留出了一像素的缝隙，以防止密排时文字连在一起。可以看到，在 Unifont 中左上角和右上角仍留有一些空白；而在「小至极限」的丁卯点阵点里面，设计师就不得不充分利用除了预留空间外每一个能用的像素，因而最终叠加出了一个几乎实心的黑块。
 
 <small>
-本文基于对此话题的[知乎回答](https://www.zhihu.com/question/394175264/answer/1221223455)补充而成，另发布在 [3type 公众号](https://mp.weixin.qq.com/s/3xxRY5g2PzCvc44cDZde9Q)。感谢杜希尧、李晨、厉致谦、刘育黎对本文的帮助。绘图所用代码可在 [stone-zeng/toys](https://github.com/stone-zeng/toys/tree/master/wolfram/han-overlay/) 中找到。
+本文基于对此话题的[知乎回答](https://www.zhihu.com/question/394175264/answer/1221223455)补充而成，另发布在 [3type 公众号](https://mp.weixin.qq.com/s/3xxRY5g2PzCvc44cDZde9Q)。感谢杜希尧、李晨、厉致谦、刘育黎对本文的帮助。绘图所用代码可在 [stone-zeng/toys](https://github.com/stone-zeng/toys/tree/main/wolfram/hanzi-superimposing) 中找到。
 </small>
 
 ## 参考文献
