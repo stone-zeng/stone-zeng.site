@@ -1,7 +1,4 @@
 .DS_Store
-.jekyll-metadata
-Gemfile.lock
-package-lock.json
 
 *.aux
 *.dvi
@@ -16,11 +13,6 @@ package-lock.json
 *.ttf
 *.pdf
 
-_draft/
-_site/
-.bundle/
-.sass-cache/
+.vitepress/dist/
 .vscode/
 node_modules/
-temp/
-vendor/
