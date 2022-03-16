@@ -18,6 +18,8 @@ export default defineConfig({
   title: 'stone-zeng.github.io',
   srcDir: 'docs',
 
+  head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
+
   markdown: {
     config: (md) => {
       md.use(MarkdownItLaTeXLogo);
