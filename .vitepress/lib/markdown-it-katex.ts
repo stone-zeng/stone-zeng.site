@@ -6,8 +6,8 @@ import StateBlock from 'markdown-it/lib/rules_block/state_block';
 import StateInline from 'markdown-it/lib/rules_inline/state_inline';
 import Token from 'markdown-it/lib/token';
 
-const MATH_INLINE = 'mathInline';
-const MATH_BLOCK = 'mathBlock';
+const MATH_INLINE = 'math_inline';
+const MATH_BLOCK = 'math_block';
 
 interface IsValidDelim {
   canOpen: boolean;
@@ -16,24 +16,21 @@ interface IsValidDelim {
 
 // Test if potential opening or closing delimiter
 // Assumes that there is a "$" at state.src[pos]
-function isValidDelim(state: StateInline, pos: number): IsValidDelim {
-  const prevChar = pos > 0 ? state.src.charCodeAt(pos - 1) : -1;
-  const nextChar = pos + 1 <= state.posMax ? state.src.charCodeAt(pos + 1) : -1;
+const isValidDelim = (state: StateInline, pos: number): IsValidDelim => {
+  const prev = pos > 0 ? state.src[pos - 1] : '\0';
+  const next = pos + 1 <= state.posMax ? state.src[pos + 1] : '\0';
 
   // Check non-whitespace conditions for opening and closing, and
   // check that closing delimeter isn't followed by a number
-  if (
-    prevChar === 0x20 /* " " */ ||
-    prevChar === 0x09 /* \t */ ||
-    (nextChar >= 0x30 /* "0" */ && nextChar <= 0x39) /* "9" */
-  ) {
-    return { canOpen: true, canClose: false };
-  }
-  if (nextChar === 0x20 /* " " */ || nextChar === 0x09 /* \t */) {
-    return { canOpen: false, canClose: true };
-  }
+  if (prev === ' ' || prev === '\t' || isDigit(prev)) return { canOpen: true, canClose: false };
+  if (next === ' ' || next === '\t') return { canOpen: false, canClose: true };
   return { canOpen: true, canClose: true };
-}
+};
+
+const isDigit = (c: string) => {
+  const code = c.charCodeAt(0);
+  return code >= 0x30 && code <= 0x39;
+};
 
 function parseMathInline(state: StateInline, silent: boolean) {
   if (state.src[state.pos] !== '$') return false;
@@ -147,37 +144,35 @@ function parseMathBlock(state: StateBlock, start: number, end: number, silent: b
 
 const trimLine = (line: string) => (line && line.trim() ? line + '\n' : '');
 
-function plugin(md: MarkdownIt, options: katex.KatexOptions) {
-  options = options || {};
+function plugin(md: MarkdownIt) {
+  const throwOnError = true;
+  const macros = {};
 
   const inlineRenderer = (tokens: Token[], idx: number) => {
     const tex = tokens[idx].content;
-    options.displayMode = false;
-    try {
-      return katex.renderToString(tex, options);
-    } catch (error) {
-      if (options.throwOnError) console.log(error);
-      return tex;
-    }
+    return katex.renderToString(tex, {
+      displayMode: false,
+      throwOnError,
+      macros,
+    });
   };
 
   const blockRenderer = (tokens: Token[], idx: number) => {
     const tex = tokens[idx].content + '\n';
-    options.displayMode = true;
-    try {
-      return `<p>${katex.renderToString(tex, options)}</p>`;
-    } catch (error) {
-      if (options.throwOnError) console.log(error);
-      return tex;
-    }
+    const renderedString = katex.renderToString(tex, {
+      displayMode: true,
+      throwOnError,
+      macros,
+    });
+    return `<p>${renderedString}</p>`;
   };
 
   md.inline.ruler.after('escape', MATH_INLINE, parseMathInline);
   md.block.ruler.after('blockquote', MATH_BLOCK, parseMathBlock, {
     alt: ['paragraph', 'reference', 'blockquote', 'list'],
   });
-  md.renderer.rules.mathInline = inlineRenderer;
-  md.renderer.rules.mathBlock = blockRenderer;
+  md.renderer.rules[MATH_INLINE] = inlineRenderer;
+  md.renderer.rules[MATH_BLOCK] = blockRenderer;
 }
 
 export default plugin;

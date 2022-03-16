@@ -21,7 +21,7 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       md.use(MarkdownItLaTeXLogo);
-      md.use(MarkdownItKaTeX, { throwOnError: true });
+      md.use(MarkdownItKaTeX);
     },
   },
 
