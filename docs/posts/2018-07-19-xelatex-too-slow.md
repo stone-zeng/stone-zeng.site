@@ -1,14 +1,13 @@
 ---
-layout: post
 title: 解决 XeLaTeX 编译卡住不动的问题
 date: 2018-07-19
 categories: XeTeX
-description: Windows 平台使用 $\XeLaTeX$ 编译时，偶尔会出现卡住不动的情况。特点是会卡在读入字体文件的时候，比如 `size10.clo`、`eu1lmr.fd` 等，并且往往出现在新安装字体之后。
+excerpt: Windows 平台使用 $\>XeLaTeX$ 编译时，偶尔会出现卡住不动的情况。特点是会卡在读入字体文件的时候，比如 `size10.clo`、`eu1lmr.fd` 等，并且往往出现在新安装字体之后。
 ---
 
 ## 问题概述
 
-Windows 平台使用 $\XeLaTeX$ 编译时，偶尔会出现卡住不动的情况。特点是会卡在读入字体文件的时候，比如 `size10.clo`、`eu1lmr.fd` 等，并且往往出现在新安装字体之后。
+Windows 平台使用 $\>XeLaTeX$ 编译时，偶尔会出现卡住不动的情况。特点是会卡在读入字体文件的时候，比如 `size10.clo`、`eu1lmr.fd` 等，并且往往出现在新安装字体之后。
 
 正常情况下，`xetex` 在发现字体变动时，会自动调用 `fontconfig` 库刷新字体缓存，因此在后续编译过程中速度便可恢复正常。
 
@@ -20,7 +19,7 @@ Windows 平台使用 $\XeLaTeX$ 编译时，偶尔会出现卡住不动的情况
 
 正常的解决方法是手工刷新字体缓存。命令行中执行：
 
-```sh
+```bash
 fc-cache
 ```
 

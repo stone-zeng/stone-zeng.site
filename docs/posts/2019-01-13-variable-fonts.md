@@ -1,10 +1,9 @@
 ---
-layout: post
 title: 在 TeX 中使用 OpenType 可变字体
 date: 2019-01-13
 last_modified_at: 2019-07-15
 categories: Fonts
-description: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
+excerpt: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
 ---
 
 在 2016 年，随着 [OpenType 标准 1.8 版](https://docs.microsoft.com/typography/opentype/spec)的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
@@ -22,21 +21,21 @@ description: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界�
 - Adobe 软件套装[^wiki-vf]
   - Photoshop CC 2018+
   - Illustrator CC 2018+
-- [$\ConTeXt$](https://wiki.contextgarden.net) beta 版（2017-04 之后）[^hans-context]
+- [$\>ConTeXt$](https://wiki.contextgarden.net) beta 版（2017-04 之后）[^hans-context]
 
 [^can-i-use-vf]: [Can I use... Support tables for HTML5, CSS3, etc - Variable fonts](https://caniuse.com/#feat=variable-fonts)
 [^wiki-vf]: Wikipedia. [Variable fonts](https://en.wikipedia.org/wiki/Variable_fonts)
 [^hans-context]: Hans Hagen. [[NTG-context] beta](https://mailman.ntg.nl/pipermail/ntg-context/2017/088343.html)
 
-在 $\TeX$ 界，目前尝试可变字体的唯一选择便是使用这个 beta 版的 $\ConTeXt$。$\LaTeX$ 方面至今还没有实现。
+在 $\TeX$ 界，目前尝试可变字体的唯一选择便是使用这个 beta 版的 $\>ConTeXt$。$\LaTeX$ 方面至今还没有实现。
 
 ## 使用方法
 
 ### Bahnschrift
 
-我们参考邮件列表中的介绍[^hans-context]，以及 Hans Hagen 在 $\ConTeXt$ 2017 年会上的[报告](https://meeting.contextgarden.net/2017/talks/2017-09-12-hans-variable-fonts/variable-fonts.pdf)和随后在 *TUGboat* 上发表的[文章](https://tug.org/TUGboat/tb38-2/tb119hagen-variable.pdf)，便可以如愿使用 OpenType 可变字体。
+我们参考邮件列表中的介绍[^hans-context]，以及 Hans Hagen 在 $\>ConTeXt$ 2017 年会上的[报告](https://meeting.contextgarden.net/2017/talks/2017-09-12-hans-variable-fonts/variable-fonts.pdf)和随后在 *TUGboat* 上发表的[文章](https://tug.org/TUGboat/tb38-2/tb119hagen-variable.pdf)，便可以如愿使用 OpenType 可变字体。
 
-相比 $\LaTeX$，$\ConTeXt$ 的内核设计得比较庞大，通过 Lua 又可以玩各式花样，所以不再需要调用大堆宏包，而是可以直接用原生命令定义各种样式。
+相比 $\LaTeX$，$\>ConTeXt$ 的内核设计得比较庞大，通过 Lua 又可以玩各式花样，所以不再需要调用大堆宏包，而是可以直接用原生命令定义各种样式。
 
 首先要在导言区声明字体 feature 和相应的命令：
 
@@ -83,9 +82,9 @@ description: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界�
 \stoptext
 ```
 
-编译方式与 $\LaTeX$ 类似。在命令行执行 `context <file name>`，它会自动确定编译次数，直至生成最终的 PDF。第一次使用时，$\ConTeXt$ 可能会花费较长时间生成字体缓存（每个实例都要生成），需要耐心等待。之后再进行编译，相对而言速度还可以接受。
+编译方式与 $\LaTeX$ 类似。在命令行执行 `context <file name>`，它会自动确定编译次数，直至生成最终的 PDF。第一次使用时，$\>ConTeXt$ 可能会花费较长时间生成字体缓存（每个实例都要生成），需要耐心等待。之后再进行编译，相对而言速度还可以接受。
 
-![vf-bahnschrift](/images/variable-fonts/bahnschrift.png){:.invert}
+![vf-bahnschrift](../images/variable-fonts/bahnschrift.png){:.invert}
 
 ### Adobe VF Prototype
 
@@ -95,11 +94,11 @@ description: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界�
 \definefontfeature[w200c0][default][axis={weight:200,contrast:0}]
 ```
 
-![vf-adobe-vf-protype](/images/variable-fonts/adobe-vf-protype.png){:.invert}
+![vf-adobe-vf-protype](../images/variable-fonts/adobe-vf-protype.png){:.invert}
 
 可以看到 `fi` 连字发挥正常，但 `i`、`F`、`P` 等出现了一些畸变，暂时还不清楚其中的原因。
 
-利用 $\ConTeXt$ 内置 [MetaFun](https://wiki.contextgarden.net/MetaFun) 的特性，可以施加些许魔法，展示出字体的轮廓：
+利用 $\>ConTeXt$ 内置 [MetaFun](https://wiki.contextgarden.net/MetaFun) 的特性，可以施加些许魔法，展示出字体的轮廓：
 
 ```tex
 \starttext
@@ -143,7 +142,7 @@ description: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界�
 \stoptext
 ```
 
-![vf-adobe-vf-protype-mf](/images/variable-fonts/adobe-vf-protype-mf.png){:.invert}
+![vf-adobe-vf-protype-mf](../images/variable-fonts/adobe-vf-protype-mf.png){:.invert}
 
 图中可以看到大量笔画的重叠，这可以保证轮廓在连续变化时不会走样。与上文类似，仍然出现了不明原因的畸变。当然，字体本身是没有问题的。
 

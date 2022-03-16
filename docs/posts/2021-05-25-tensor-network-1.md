@@ -1,11 +1,10 @@
 ---
-layout: post
 title: Introduction to tensor network (1)
 date: 2021-05-25
 last_modified_at: 2021-05-26
 lang: en-US
 math: true
-description: Tensor networks provide a general framework to describe many interesting and important concepts in condensed matter physics and quantum information theory, such as topological orders, entanglement, and even holographic duality.
+excerpt: Tensor networks provide a general framework to describe many interesting and important concepts in condensed matter physics and quantum information theory, such as topological orders, entanglement, and even holographic duality.
 ---
 
 $$
@@ -48,7 +47,8 @@ Here, $\otimes$ is the **tensor product**, while $\bm{e}_i\otimes\bm{e}_j$ and $
 
 A convenient way to describe tensors is the diagram notation. Like ball-and-stick models of molecules, we use solid shapes ("balls") for tensors, bonds ("legs") for indices. A tensor with $n$ indices should have $n$ legs on the diagram.
 
-![tensors](/images/tensor-network/tensors.svg){:.invert}{:style="max-width: 480px;"}
+![tensors](../images/tensor-network/tensors.svg)
+<!-- ![tensors](/images/tensor-network/tensors.svg){:.invert}{:style="max-width: 480px;"} -->
 
 ## Tensor contraction
 
@@ -65,10 +65,12 @@ $$ C_{abc} = \sum_{ij} A_{abij} B_{ijc} \eqqcolon A_{abij} B_{ijc} $$
 If all the indices of a tensor are contracted, the result will become a scalar. For matrix, it just gives the **trace**:
 
 $$ \tr(\bm{M}) = \sum_i M_{ii} \eqqcolon M_{ii} $$
+<!-- $$ \operatorname{tr}(\bm{M}) = \sum_i M_{ii} \eqqcolon M_{ii} $$ -->
 
 With diagram notation, the above contractions can be visualized as
 
-![contraction](/images/tensor-network/contraction.svg){:.invert}{:style="max-width: 630px;"}
+<!-- ![contraction](/images/tensor-network/contraction.svg){:.invert}{:style="max-width: 630px;"} -->
+![contraction](../images/tensor-network/contraction.svg)
 
 ## Tensor programming
 
@@ -221,11 +223,13 @@ $$ M_{abcd} v_{cd} = \lambda v_{ab} $$
 
 In the diagram notation, it's shown as
 
-![eigenvalue-equation](/images/tensor-network/eigenvalue-equation.svg){:.invert}{:style="max-width: 280px;"}
+<!-- ![eigenvalue-equation](/images/tensor-network/eigenvalue-equation.svg){:.invert}{:style="max-width: 280px;"} -->
+![eigenvalue-equation](../images/tensor-network/eigenvalue-equation.svg)
 
 Most eigensolvers only accept matrix, or tensor with two indices, as their input parameter, but $\bm{M}$ has four indices. So we need to reshape it into a matrix: combine two legs on each side as a single one, just as the following diagram:
 
-![reshape](/images/tensor-network/reshape.svg){:.invert}{:style="max-width: 390px;"}
+<!-- ![reshape](/images/tensor-network/reshape.svg){:.invert}{:style="max-width: 390px;"} -->
+![reshape](../images/tensor-network/reshape.svg)
 
 In NumPy, we have
 

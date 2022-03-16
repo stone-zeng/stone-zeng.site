@@ -1,15 +1,14 @@
 ---
-layout: post
 title: CJK 宏包中，中文字体的奥秘
 author: 王越
 date: 2019-07-14
 categories: Fonts
-description: 嗯，此为一连载。背景是，我们希望 ctex-kit 最终提交到 $\TeX$ Live 或者 CTAN 的时候，可以带上所有中文字体的 TFM、MAP 和 ENC，来让用户差不多是零配置地使用 `CJK` 中文，因此我们需要产生这些文件。
+excerpt: 嗯，此为一连载。背景是，我们希望 ctex-kit 最终提交到 $\TeX$ Live 或者 CTAN 的时候，可以带上所有中文字体的 TFM、MAP 和 ENC，来让用户差不多是零配置地使用 `CJK` 中文，因此我们需要产生这些文件。
 ---
 
-> 本文原作者为王越，2009 年 5 月发表在 $\CTeX$ 论坛上（[原始网址](http://bbs.ctex.org/viewthread.php?tid=50078)，已失效）。由于 $\CTeX$ 论坛目前已关闭，这里将其整理后重新发布。[^newsmth]
+> 本文原作者为王越，2009 年 5 月发表在 $\>CTeX$ 论坛上（[原始网址](http://bbs.ctex.org/viewthread.php?tid=50078)，已失效）。由于 $\>CTeX$ 论坛目前已关闭，这里将其整理后重新发布。[^newsmth]
 >
-> 本文实际上是 [`zhmetrics` 包](https://ctan.org/pkg/zhmetrics)的实现思路。该包由王越和吴凌云发布，并且一直被 $\CTeX$ 宏集所使用至今。在此基础上，刘海洋又开发了 [`zhmCJK` 包](https://ctan.org/pkg/zhmcjk)，允许动态设置 CJK 字体，并且提供了尽可能简单的用户界面。
+> 本文实际上是 [`zhmetrics` 包](https://ctan.org/pkg/zhmetrics)的实现思路。该包由王越和吴凌云发布，并且一直被 $\>CTeX$ 宏集所使用至今。在此基础上，刘海洋又开发了 [`zhmCJK` 包](https://ctan.org/pkg/zhmcjk)，允许动态设置 CJK 字体，并且提供了尽可能简单的用户界面。
 
 [^newsmth]: 在水木社区 $\TeX$ 版还保留有[原文](https://www.newsmth.net/bbsanc.php?path=%2Fgroups%2Fcomp.faq%2FTeX%2Fchinese%2FM.1243072730.10)。
 
@@ -19,7 +18,7 @@ description: 嗯，此为一连载。背景是，我们希望 ctex-kit 最终提
 
 [^tl-version]: 目前，$\TeX$ Live 源代码同时通过 [SVN](https://www.tug.org/svn/texlive/trunk/) 和 [Git](https://github.com/TeX-Live/texlive-source) 两种方式进行版本管理。
 
-由于我对 $\TeX$ 的 [WEB](https://www.ctan.org/pkg/web) 源代码比较熟悉，对于 [ttf2pk](https://github.com/TeX-Live/texlive-source/tree/trunk/texk/ttf2pk2)、[DVIPDFMx](https://ctan.org/pkg/dvipdfmx)、以及 $\pdfTeX$ 的代码也略通一二，因此写这篇文章采用了比较宏观和触类旁通的笔法。文章中对于 $\TeX$ 的字体相关的诸多概念和数据结构进行了扼要的阐述，每讲到一知识点，我就尽量引用 `tex.web`、`tftopl.web`、`ttf2tfm.c` 等代码[^tl-source]来阐明背后的原理，此外还在多处引申开来讲述了一些 $\TeX$ 的算法原理。因此这篇文章不仅仅是给上述所说的开发者看的，任何对 $\TeX$ 的字体原理感兴趣的读者，都能从中获得你想了解的东西。
+由于我对 $\TeX$ 的 [WEB](https://www.ctan.org/pkg/web) 源代码比较熟悉，对于 [ttf2pk](https://github.com/TeX-Live/texlive-source/tree/trunk/texk/ttf2pk2)、[DVIPDFMx](https://ctan.org/pkg/dvipdfmx)、以及 $\>pdfTeX$ 的代码也略通一二，因此写这篇文章采用了比较宏观和触类旁通的笔法。文章中对于 $\TeX$ 的字体相关的诸多概念和数据结构进行了扼要的阐述，每讲到一知识点，我就尽量引用 `tex.web`、`tftopl.web`、`ttf2tfm.c` 等代码[^tl-source]来阐明背后的原理，此外还在多处引申开来讲述了一些 $\TeX$ 的算法原理。因此这篇文章不仅仅是给上述所说的开发者看的，任何对 $\TeX$ 的字体原理感兴趣的读者，都能从中获得你想了解的东西。
 
 [^tl-source]:
 
@@ -56,7 +55,7 @@ TFM 的可读性不好，即使是把二进制信息转换成数字，也难让�
 
 所以想要揭开 TFM 字体的神秘面纱，TFtoPL 就是第一步需要干的事情。TFtoPL 的使用方法很容易，从任何的 $\TeX$ 发行版中拷贝出来就可以使用，执行方法为：
 
-```sh
+```bash
 tftopl foobar.tfm foobar.pl
 ```
 
@@ -175,7 +174,7 @@ if (fnt->outname_postfix)
   strcat(fnt->fullname, fnt->outname_postfix);
 ```
 
-至于 `outname` 和 `codingscheme`，前者目前版本的 ttf2tfm 是直接由用户给定的，而后者是使用的用户制定的 SFD 文件的文件名。当然我这里给出的字体并非由当前版本产生，因此和源代码描述会有所一定区别，我们会在第五次连载给出一个当前版本 ttf2tfm 产生的 GBK 的 TFM 来进行说明。不过一般来说，中文开发者不需要严格遵守上面的规定，因为 DVIPDFMx 和 $\pdfTeX$ 并不在字体嵌入的时候检查这两项。
+至于 `outname` 和 `codingscheme`，前者目前版本的 ttf2tfm 是直接由用户给定的，而后者是使用的用户制定的 SFD 文件的文件名。当然我这里给出的字体并非由当前版本产生，因此和源代码描述会有所一定区别，我们会在第五次连载给出一个当前版本 ttf2tfm 产生的 GBK 的 TFM 来进行说明。不过一般来说，中文开发者不需要严格遵守上面的规定，因为 DVIPDFMx 和 $\>pdfTeX$ 并不在字体嵌入的时候检查这两项。
 
 最后遗留的是两行 `COMMENT`。这个不是 TFM 信息中留下的，而是 TFtoPL 程序中指定的。在 TFtoPL 程序输出 `DESIGNSIZE` 的时候，就默认会产生这两行 `COMMENT`。见 [`tftopl.web` 的代码](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tftopl.web#L872-L881)：
 
@@ -284,7 +283,7 @@ shrink(main_p):=xn_over_d(shrink(main_p),1000,space_factor)
 
 也就是默认情况下（非 french spacing），一般设定 `space_factor` 后，就会该标点符号后的长度 width 就会增加 `extra_space`（也就是 `param[7]`）的长度。而该空格长度的伸缩距离，是通过 `space_factor` 来计算的。不过对于中文排版没有用，因此开发者不必关注。
 
-讲完了上面这么多，可以轻松一下。所以我顺便说一个问题，也就是为什么普通的字体拿到 $\TeX$ 中，是不能被用来排公式的。很多 $\TeX$ 用户问这个问题，尤其是 $\XeTeX$ 出来后，可以用系统字体了，甚至还有一个 $\LaTeX$ 宏包专门指定数学字体（`unicode-math`），不过排出来的公式却效果非常糟糕。我就简单解释一下。普通的 $\TeX$ 字体，一般都有上面 7 个全局变量，而数学公式中，需要考虑的位置关系就多得多，比如排分数，分子分母之间会不会重合啊，分子分母和分数线之间会不会重合啊，等等等等，因此为了充分考虑这些关系，$\TeX$ 给出了全面的算法，而为了贯彻这个算法，更多的变量就被设计出来了。一个普通的数学字体会带有 22 个全局变量，他们的变量名可以从下面这段从 [`tftopl.web` 中截取的程序](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tftopl.web#L994-L1009)看出：
+讲完了上面这么多，可以轻松一下。所以我顺便说一个问题，也就是为什么普通的字体拿到 $\TeX$ 中，是不能被用来排公式的。很多 $\TeX$ 用户问这个问题，尤其是 $\>XeTeX$ 出来后，可以用系统字体了，甚至还有一个 $\LaTeX$ 宏包专门指定数学字体（`unicode-math`），不过排出来的公式却效果非常糟糕。我就简单解释一下。普通的 $\TeX$ 字体，一般都有上面 7 个全局变量，而数学公式中，需要考虑的位置关系就多得多，比如排分数，分子分母之间会不会重合啊，分子分母和分数线之间会不会重合啊，等等等等，因此为了充分考虑这些关系，$\TeX$ 给出了全面的算法，而为了贯彻这个算法，更多的变量就被设计出来了。一个普通的数学字体会带有 22 个全局变量，他们的变量名可以从下面这段从 [`tftopl.web` 中截取的程序](https://github.com/TeX-Live/texlive-source/blob/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c/tftopl.web#L994-L1009)看出：
 
 ```pascal
 @ @<Output the name...@>=
@@ -311,7 +310,7 @@ else out('PARAMETER D ',i:1)
 
 上面的我们已经完整地分析了 `unifs5c.tfm` 的头部的 `header[]` 数组和尾部的 `param` 数组，因此，`unifs5c.pl` 的开头如何编写，各位开发者应该是轻车熟路了。GBK 字体的 TFM 造法和 Unicode 字体基本相同，我就不多叙述。在这个连载中，我们看看 TFM 还能包括哪些数据，因此我们拿出一个不同版本 ttf2tfm 产生的 GBK 字体来做分析。
 
-选取 $\CTeX$ 发行版中的 `gbkhei44.tfm` 文件，这个 TFM 是采用当前版本的 ttf2tfm 产生的。我们使用 TFtoPL 转换成我们需要的 PL 格式，用编辑器打开，看到头部比我们想象得来得复杂（这也是我把它放到连载五中讲述的原因）：
+选取 $\>CTeX$ 发行版中的 `gbkhei44.tfm` 文件，这个 TFM 是采用当前版本的 ttf2tfm 产生的。我们使用 TFtoPL 转换成我们需要的 PL 格式，用编辑器打开，看到头部比我们想象得来得复杂（这也是我把它放到连载五中讲述的原因）：
 
 ```clojure
 (FAMILY GBKHEI44)
@@ -407,9 +406,9 @@ charinfo = makebcpl(header + 18, buffer, 255);
 Created by `c:\ctex-source\texmf\miktex\bin\ttf2tfm c:\winnt\fonts\simhei -q gbkhei@UGBK@'
 ```
 
-有趣的是，DVIPDFMx 和 $\pdfTeX$ 一样忽略这串 `header` 数组，因此开发者不必考虑如何添加一个漂亮的 `header`。有读者可能会问，为何先前展示的 Unicode 字体中并没有这行 `header` 呢？我只能回答，它们用的是不同版本的 ttf2tfm 产生的。至少当前版本的 ttf2tfm 都会产生这个 `header`。
+有趣的是，DVIPDFMx 和 $\>pdfTeX$ 一样忽略这串 `header` 数组，因此开发者不必考虑如何添加一个漂亮的 `header`。有读者可能会问，为何先前展示的 Unicode 字体中并没有这行 `header` 呢？我只能回答，它们用的是不同版本的 ttf2tfm 产生的。至少当前版本的 ttf2tfm 都会产生这个 `header`。
 
-最后一个大家不熟悉的变量就是 `FACE` 了。`FACE` 变量其实就是一个用来识别字体款式的一个特征标记，DVIPDFMx 和 $\pdfTeX$ 一样不追究这个标记。它实际上是 `header[17]` 的最后一个字节（也就是第四个字节），转换成标记后就变成三个字母，也就是大家看到的 `MRR` 这样的表示方法。其中，第一个字母表示 Medium，可选的还有 `B` 和 `L`，表示 Bold 和 Light。第二个 `R` 表示的是 Roman，可选的还有 Italic。第三个表示 Regular，可选的还有 Condensed 和 Extended。对于开发者来讲，这一行可以省略。
+最后一个大家不熟悉的变量就是 `FACE` 了。`FACE` 变量其实就是一个用来识别字体款式的一个特征标记，DVIPDFMx 和 $\>pdfTeX$ 一样不追究这个标记。它实际上是 `header[17]` 的最后一个字节（也就是第四个字节），转换成标记后就变成三个字母，也就是大家看到的 `MRR` 这样的表示方法。其中，第一个字母表示 Medium，可选的还有 `B` 和 `L`，表示 Bold 和 Light。第二个 `R` 表示的是 Roman，可选的还有 Italic。第三个表示 Regular，可选的还有 Condensed 和 Extended。对于开发者来讲，这一行可以省略。
 
 在我自己生成的一个 GBK 字体 `gbksimkai44.tfm` 中，有时候还会有一行
 
@@ -704,7 +703,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
 - #19 - 写了个 dos 脚本生成 gbksong 的 tfm (by zoho)
 
-  按照 yulewang 的指南，写了个 dos 脚本，生成了 `gbksong` 的 tfm 文件，替换 $\CTeX$ 2.7 中的 tfm 文件，然后编译一个简单例子：
+  按照 yulewang 的指南，写了个 dos 脚本，生成了 `gbksong` 的 tfm 文件，替换 $\>CTeX$ 2.7 中的 tfm 文件，然后编译一个简单例子：
 
   ```tex
   % !TEX encoding = System
@@ -749,7 +748,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
   好吧呀，那现在这个就蛮好了。只要再添几行 map 就完了。
 
-  另：donated，那个 $\pdfTeX$ 的 map 使用单行 TTC 字体，怎么写？如何支持斜体？
+  另：donated，那个 $\>pdfTeX$ 的 map 使用单行 TTC 字体，怎么写？如何支持斜体？
 
 - #34 (by aloft)
 
@@ -780,9 +779,9 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
 - #4 (by yulewang)
 
-  已发邮件建议 hth 修改 $\pdfTeX$。
+  已发邮件建议 hth 修改 $\>pdfTeX$。
 
-[^hth]: 即 [Hàn Thế Thành](https://de.wikipedia.org/wiki/H%C3%A0n_Th%E1%BA%BF_Th%C3%A0nh)，$\pdfTeX$ 作者。
+[^hth]: 即 [Hàn Thế Thành](https://de.wikipedia.org/wiki/H%C3%A0n_Th%E1%BA%BF_Th%C3%A0nh)，$\>pdfTeX$ 作者。
 
 ### Typo
 
@@ -792,7 +791,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
   >
   > 然后写下一个循环来产生 256 个这样的结构：
 
-  我有个疑问，我看了 $\CTeX$ 2.7 里面的 `gbksong` 目录，发现文件名是从 `gbksong00.tfm` 到 `gbksong94.tfm`，而且看来文件名的后两位不是十六进制而是十进制，因为没有看到任何一个 `a`--`f` 的字母。
+  我有个疑问，我看了 $\>CTeX$ 2.7 里面的 `gbksong` 目录，发现文件名是从 `gbksong00.tfm` 到 `gbksong94.tfm`，而且看来文件名的后两位不是十六进制而是十进制，因为没有看到任何一个 `a`--`f` 的字母。
 
   更新：发现你前面已经说了 GBK 编码确实是从 `00`--`94` 的十进制，看来是你后面不小心写错了。
 

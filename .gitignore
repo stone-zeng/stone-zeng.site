@@ -13,6 +13,7 @@
 *.ttf
 *.pdf
 
+.vitepress/.temp/
 .vitepress/dist/
 .vscode/
 node_modules/

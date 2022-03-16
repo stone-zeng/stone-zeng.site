@@ -1,10 +1,9 @@
 ---
-layout: post
 title: 新型冠状病毒肺炎疫情统计
 date: 2020-02-01
 last_modified_at: 2020-03-01
 math: true
-description: 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地，形势越发严峻。这里简要罗列一些数据，并且据此给出（未必非常靠谱）的预测。
+excerpt: 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地，形势越发严峻。这里简要罗列一些数据，并且据此给出（未必非常靠谱）的预测。
 ---
 
 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地，形势越发严峻。这里简要罗列一些数据，并且据此给出（未必非常靠谱）的预测。
@@ -26,26 +25,26 @@ description: 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各�
 深色曲线为实际数据，浅色曲线为预测数据，阴影部分为 95% 置信区间。
 
 <figure>
-  <img src="/images/wuhan-coronavirus/2019-nCoV-new.svg" alt="2019-nCoV-new" style="width: 54%;" class="invert">
-  <img src="/images/wuhan-coronavirus/2019-nCoV-new-log.svg" alt="2019-nCoV-new-log" style="width: 44%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-new.svg" alt="2019-nCoV-new" style="width: 54%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-new-log.svg" alt="2019-nCoV-new-log" style="width: 44%;" class="invert">
   <figcaption>新增确诊病例统计（左：线性坐标，右：对数坐标，下同）</figcaption>
 </figure>
 
 <figure>
-  <img src="/images/wuhan-coronavirus/2019-nCoV-total.svg" alt="2019-nCoV-total" style="width: 49%;" class="invert">
-  <img src="/images/wuhan-coronavirus/2019-nCoV-total-log.svg" alt="2019-nCoV-total-log" style="width: 49%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-total.svg" alt="2019-nCoV-total" style="width: 49%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-total-log.svg" alt="2019-nCoV-total-log" style="width: 49%;" class="invert">
   <figcaption>累计确诊病例统计</figcaption>
 </figure>
 
 <figure>
-  <img src="/images/wuhan-coronavirus/2019-nCoV-new-death-recovered.svg" alt="2019-nCoV-new-death-recovered" style="width: 49%;" class="invert">
-  <img src="/images/wuhan-coronavirus/2019-nCoV-new-death-recovered-log.svg" alt="2019-nCoV-new-death-recovered-log" style="width: 49%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-new-death-recovered.svg" alt="2019-nCoV-new-death-recovered" style="width: 49%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-new-death-recovered-log.svg" alt="2019-nCoV-new-death-recovered-log" style="width: 49%;" class="invert">
   <figcaption>新增感染、死亡、治愈病例统计</figcaption>
 </figure>
 
 <figure>
-  <img src="/images/wuhan-coronavirus/2019-nCoV-death-recovered.svg" alt="2019-nCoV-death-recovered" style="width: 49%;" class="invert">
-  <img src="/images/wuhan-coronavirus/2019-nCoV-death-recovered-log.svg" alt="2019-nCoV-death-recovered-log" style="width: 49%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-death-recovered.svg" alt="2019-nCoV-death-recovered" style="width: 49%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-death-recovered-log.svg" alt="2019-nCoV-death-recovered-log" style="width: 49%;" class="invert">
   <figcaption>累计感染、死亡、治愈病例统计</figcaption>
 </figure>
 
@@ -66,14 +65,14 @@ $$
 对全国及湖北省以外确诊病例分别进行拟合。为获得更加准确的拟合结果，对前期数据进行了一定调整，相当于从 2020 年 1 月 15 日开始统计。考虑到临床诊断病例的影响，对全国数据进行分段拟合。
 
 <figure>
-  <img src="/images/wuhan-coronavirus/2019-nCoV-regression.svg" alt="2019-nCoV-regression" style="width: 49%;" class="invert">
-  <img src="/images/wuhan-coronavirus/2019-nCoV-regression-log.svg" alt="2019-nCoV-regression-log" style="width: 49%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-regression.svg" alt="2019-nCoV-regression" style="width: 49%;" class="invert">
+  <img src="../images/wuhan-coronavirus/2019-nCoV-regression-log.svg" alt="2019-nCoV-regression-log" style="width: 49%;" class="invert">
   <figcaption>累计确诊病例拟合</figcaption>
 </figure>
 
 拟合结果及有关参数见以下表格：
 
-{:style="width: 100%;"}
+<!-- {:style="width: 100%;"} -->
 |           | 拟合结果                                                     | 最终值  | *R*²     | Adj-*R*² |
 |:---------:|:------------------------------------------------------------:|:-------:|:--------:|:--------:|
 | 全国 (I)  | $52464.4 - \dfrac{53000.9}{1 + 0.00307582 \times 1.30876^x}$ | -       | 0.999818 | 0.999787 |

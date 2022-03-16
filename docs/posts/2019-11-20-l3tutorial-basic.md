@@ -1,16 +1,15 @@
 ---
-layout: post
 title: LaTeX3 教程（三）——从一个例子说起
 date: 2019-11-20
 last_modified_at: 2021-09-04
 categories: LaTeX3
-description: 学习一门编程语言，如果只了解语法，必然十分枯燥而且并没有什么用。所以，我们准备从一个基本的例子讲起，尽可能地覆盖 $\LaTeX3$ 的重要知识。
+excerpt: 学习一门编程语言，如果只了解语法，必然十分枯燥而且并没有什么用。所以，我们准备从一个基本的例子讲起，尽可能地覆盖 $\LaTeX3$ 的重要知识。
 ---
 
 前文链接：
 
-- [$\LaTeX3$ 教程（一）——背景知识](../2019-02-24-l3tutorial-background)
-- [$\LaTeX3$ 教程（二）——语法概要](../2019-02-26-l3tutorial-syntax)
+- [$\LaTeX3$ 教程（一）——背景知识](./2019-02-24-l3tutorial-background)
+- [$\LaTeX3$ 教程（二）——语法概要](./2019-02-26-l3tutorial-syntax)
 
 ## 确定目标
 
@@ -64,7 +63,7 @@ zhdummy/
 \def\mypkgname{zhdummy}
 ```
 
-`\NeedsTeXFormat{LaTeX2e}` 表明宏包要求 $\LaTeXe$ 格式，而不接受 plain $\TeX$ 和 $\ConTeXt$ 格式。其后的语句之前都介绍过，此处不再赘述。
+`\NeedsTeXFormat{LaTeX2e}` 表明宏包要求 $\>LaTeXe$ 格式，而不接受 plain $\TeX$ 和 $\>ConTeXt$ 格式。其后的语句之前都介绍过，此处不再赘述。
 
 测试文件则可以这样写：
 
@@ -78,7 +77,7 @@ zhdummy/
 \end{document}
 ```
 
-使用 $\XeLaTeX$ 编译（以后没有特殊说明，我们将总是使用 $\XeLaTeX$）`test.tex`，结果应如下所示：
+使用 $\>XeLaTeX$ 编译（以后没有特殊说明，我们将总是使用 $\>XeLaTeX$）`test.tex`，结果应如下所示：
 
 > 你好，zhdummy！
 

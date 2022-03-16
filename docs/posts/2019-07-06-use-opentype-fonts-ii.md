@@ -1,17 +1,16 @@
 ---
-layout: post
 title: 在 LaTeX 中使用 OpenType 字体（二）
 date: 2019-07-06
 last_modified_at: 2019-07-09
 categories: Fonts
-description: 在上一回中，我们介绍了字体的相关背景知识，并且给出了通过 `fontspec` 宏包使用 OpenType 字体的基本方法。这一篇我们将继续深入，讨论字体的各种样式。
+excerpt: 在上一回中，我们介绍了字体的相关背景知识，并且给出了通过 `fontspec` 宏包使用 OpenType 字体的基本方法。这一篇我们将继续深入，讨论字体的各种样式。
 ---
 
-在[上一回](../2018-08-08-use-opentype-fonts)中，我们介绍了字体的相关背景知识，并且给出了通过 `fontspec` 宏包使用 OpenType 字体的基本方法。这一篇我们将继续深入，讨论字体的各种样式。
+在[上一回](./2018-08-08-use-opentype-fonts)中，我们介绍了字体的相关背景知识，并且给出了通过 `fontspec` 宏包使用 OpenType 字体的基本方法。这一篇我们将继续深入，讨论字体的各种样式。
 
 ## NFSS 简介
 
-[NFSS](https://www.latex-project.org/help/documentation/fntguide.pdf) (New Font Selection Scheme)，即「新字体选择方案」，是 $\LaTeXe$ 中的字体选择系统。按照 NFSS 的规定，$\LaTeX$ 中的所有字体都要包含以下 5 种属性：
+[NFSS](https://www.latex-project.org/help/documentation/fntguide.pdf) (New Font Selection Scheme)，即「新字体选择方案」，是 $\>LaTeXe$ 中的字体选择系统。按照 NFSS 的规定，$\LaTeX$ 中的所有字体都要包含以下 5 种属性：
 
 - 编码（encoding）：规定了字体中各个字符（character）出现的顺序，或者说，定义了一个从字符到字符形（glyph）的映照
 - 族（family）：是我们通常所说的字体的名字，往往会涵盖多种变体，如 Computer Modern、Times New Roman、Source Han Sans 等
@@ -31,19 +30,19 @@ description: 在上一回中，我们介绍了字体的相关背景知识，并�
 
 <div class="figure-slideshow">
   <figure>
-    <img src="/images/use-opentype-fonts-ii/word-font-settings.png" alt="word-font-settings" style="max-width: 400px;">
+    <img src="../images/use-opentype-fonts-ii/word-font-settings.png" alt="word-font-settings" style="max-width: 400px;">
     <figcaption>Word 中的字体面板</figcaption>
   </figure>
   <!-- TODO -->
   <!-- <figure>
-    <img src="/images/use-opentype-fonts-ii/indesign-font-settings.png" alt="indesign-font-settings">
+    <img src="../images/use-opentype-fonts-ii/indesign-font-settings.png" alt="indesign-font-settings">
     <figcaption>Adobe Indesign 中的字体面板</figcaption>
   </figure> -->
 </div>
 
 一方面，人类的语言文字无比复杂，字体技术也必须有足够的规模才能够把它们支撑起来；另一方面，$\TeX$ 和 $\LaTeX$ 又太过古老，那个年代既没有 Unicode 也没有 OpenType，Word 也不知在哪里。此外，Word 作为字处理软件，隐藏了字体排印中的许多细节，相当于一部「能拍照的智能手机」；而 $\TeX$ 则是一部「全功能单反相机」[^eric-liu-camera]，它把繁琐的细节都交给了用户。Word 里面那几个按钮所做的工作远不止看上去那么简单，下面我们就来一一解释。
 
-[^eric-liu-camera]: 语出播客节目[《字谈字畅》](https://www.thetype.com/typechat/)
+[^eric-liu-camera]: 语出播客节目 [《字谈字畅》](https://www.thetype.com/typechat/)
 
 ## 字体的坐标
 
@@ -133,13 +132,13 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 
 在实际的字体设计中，不同字重的字体一般需要独立绘制，或通过多母版技术进行插值。换而言之，「加粗」并不是一个简单的几何变换。如果某个字体没有额外设计粗体，那么通过 Word 的加粗按钮得到的就是所谓「伪粗体」，它一般是通过加粗所有笔画来实现的。下图我们可以看到「伪粗」和「真粗」的区别：
 
-![bold-vs-fake-bold](/images/use-opentype-fonts-ii/bold-vs-fake-bold.svg){:.invert}
+![bold-vs-fake-bold](../images/use-opentype-fonts-ii/bold-vs-fake-bold.svg){:.invert}
 
 左侧真正的粗体有鲜明的笔画对比，显得端庄、优雅；而右侧的伪粗体不仅损失了这样的特色，而且笔画粘连，黑度不均，难于辨认。
 
 $\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold」。它会连续输出三个相同的符号，但使其稍稍错位，以实现加粗的效果：
 
-![bold-vs-pmb](/images/use-opentype-fonts-ii/bold-vs-pmb.svg){:.invert}
+![bold-vs-pmb](../images/use-opentype-fonts-ii/bold-vs-pmb.svg){:.invert}
 
 ### 倾斜
 
@@ -149,19 +148,19 @@ $\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold
 
 <!-- https://tosche.net/media/pages/blog/italic-subtleties/4e4d6e7365-1604737638/jacksons1-1020x.png -->
 <figure>
-  <img src="/images/use-opentype-fonts-ii/italic-jackson.png" alt="italic-jackson" style="max-width: 360px;">
+  <img src="../images/use-opentype-fonts-ii/italic-jackson.png" alt="italic-jackson" style="max-width: 360px;">
 </figure>
 
 他同时也指出，非意大利体的倾斜有些时候也是必要的，但需要做额外的调整以达到视觉平衡。下图是 Helvetica 与 Neue Helvetica 的对比。Helvetica（第一行）使用的是单纯的的 oblique，而 Neue Helvetica（第二行）则进行了细致的修正。除去字重的调整，可以看出 O 的形状、c 的开口和 f 的头部都有优化之处：
 
 <figure>
-  <img src="/images/use-opentype-fonts-ii/helvetica-vs-neue-outline.png" alt="helvetica-vs-neue-outline" style="width: 49%;" class="invert">
-  <img src="/images/use-opentype-fonts-ii/helvetica-vs-neue.png" alt="helvetica-vs-neue" style="width: 49%;" class="invert">
+  <img src="../images/use-opentype-fonts-ii/helvetica-vs-neue-outline.png" alt="helvetica-vs-neue-outline" style="width: 49%;" class="invert">
+  <img src="../images/use-opentype-fonts-ii/helvetica-vs-neue.png" alt="helvetica-vs-neue" style="width: 49%;" class="invert">
 </figure>
 
 另一方面，意大利体也未必一定是倾斜的。$\TeX$ 的默认字体 Computer Modern 家族中就包含了一个未倾斜的意大利体；当然倾斜的意大利体和伪斜体也是有的（这里的 slant 没有经过额外的调整，所以是「伪」斜）：
 
-![cm-italic](/images/use-opentype-fonts-ii/cm-italic.svg){:.invert}
+![cm-italic](../images/use-opentype-fonts-ii/cm-italic.svg){:.invert}
 
 对于汉字来说，传统上并没有倾斜这一变体形式。从源流来说，意大利体这一手写风格与楷体更为接近[^han-italic]。表示强调意味的话，习惯上也会使用<span class="zh-emph">着重号</span>而非改变字体。
 
@@ -182,7 +181,7 @@ $\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold
 
 小型大写同样不是大写字母的简单缩小。一般来说，为了保持灰度的统一，小型大写字母会略增加字重，并且拉开字距：
 
-![small-caps](/images/use-opentype-fonts-ii/small-caps.svg){:.invert}
+![small-caps](../images/use-opentype-fonts-ii/small-caps.svg){:.invert}
 
 最后需要说明的是，小型大写字母是为了和小写字母更好地匹配。在中西文混排的时候，由于汉字字面一般较大，因此不太适合搭配使用小型大写字母。
 
@@ -194,13 +193,13 @@ $\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold
 
 Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号的设计：
 
-![lm-optical-size](/images/use-opentype-fonts-ii/lm-optical-size.svg){:.invert}
+![lm-optical-size](../images/use-opentype-fonts-ii/lm-optical-size.svg){:.invert}
 
 至此我们简要回顾了几种字体的坐标，下面我们就重新回到 $\TeX$ 的轨道上，介绍在 `fontspec` 中的使用方法。
 
 ## `fontspec` 提高篇
 
-上回的文章中我们介绍了 `fontspec` 宏包的[基本用法](../2018-08-08-use-opentype-fonts#基础篇i)，当然这只是冰山一角。`fontspec` 宏包提供了非常丰富的选项，用以实现上面的各种效果。
+上回的文章中我们介绍了 `fontspec` 宏包的[基本用法](./2018-08-08-use-opentype-fonts#基础篇i)，当然这只是冰山一角。`fontspec` 宏包提供了非常丰富的选项，用以实现上面的各种效果。
 
 ### 字体名调用 vs 文件名调用
 
@@ -215,10 +214,10 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
 
 具体来说：
 
-- 在 Windows 和 Linux 系统中，$\XeTeX$ 会使用 [fontconfig](https://www.freedesktop.org/wiki/Software/fontconfig/) 库调用字体，而在 macOS 中则会使用苹果自己的 [Core Text](https://developer.apple.com/documentation/coretext) 库
-- $\LuaTeX$ 本身并不能调用字体，而是通过 `luaotfload` 包进行调用
+- 在 Windows 和 Linux 系统中，$\>XeTeX$ 会使用 [fontconfig](https://www.freedesktop.org/wiki/Software/fontconfig/) 库调用字体，而在 macOS 中则会使用苹果自己的 [Core Text](https://developer.apple.com/documentation/coretext) 库
+- $\>LuaTeX$ 本身并不能调用字体，而是通过 `luaotfload` 包进行调用
 
-总而言之后果就是，在 macOS 上使用 $\XeTeX$ 调用系统字体时必须使用**字体名**，而调用 TEXMF 中的字体（即 $\TeX$ 发行版自带字体）时则必须使用**文件名**。
+总而言之后果就是，在 macOS 上使用 $\>XeTeX$ 调用系统字体时必须使用**字体名**，而调用 TEXMF 中的字体（即 $\TeX$ 发行版自带字体）时则必须使用**文件名**。
 
 使用字体名时，要注意这些问题：
 
@@ -280,7 +279,7 @@ sed do eiusmod tempor incididunt ut.
 
 这里我们只显式指定了 upright 和 bold，而 italic 仍然是由 `fontspec` 自动选择的：
 
-![fontspec-selection-a](/images/use-opentype-fonts-ii/fontspec-selection-a.svg){:.invert}
+![fontspec-selection-a](../images/use-opentype-fonts-ii/fontspec-selection-a.svg){:.invert}
 
 很多时候同一字体家族内字体的名称会很类似，此时可以用 `*` 代替重复的部分。另外，对于使用文件名调用的情况，扩展名可以通过 `Extension` 选项统一指定：
 
@@ -308,7 +307,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
   10 раз меньше, в предгорьях и горах.}}
 ```
 
-![fontspec-selection-b](/images/use-opentype-fonts-ii/fontspec-selection-b.svg){:.invert}
+![fontspec-selection-b](../images/use-opentype-fonts-ii/fontspec-selection-b.svg){:.invert}
 
 ### 更多变体
 
@@ -346,17 +345,17 @@ laboris nisi ut aliquip ex ea commodo consequat.
 \end{document}
 ```
 
-![fontspec-firasans](/images/use-opentype-fonts-ii/fontspec-firasans.svg){:.invert}
+![fontspec-firasans](../images/use-opentype-fonts-ii/fontspec-firasans.svg){:.invert}
 
 ### 小型大写的使用
 
 现代字体中往往会把小型大写作为一项 OpenType 特性，因而在 `fontspec` 中是自动开启的，直接使用 `\textsc` 或 `\scshape` 就可以调用。但需要注意的是，并不是所有字体（的每种子样式）都会配备小型大写字母，所以有时候会回退到其他字体：
 
-![fontspec-small-caps](/images/use-opentype-fonts-ii/fontspec-small-caps.svg){:.invert}
+![fontspec-small-caps](../images/use-opentype-fonts-ii/fontspec-small-caps.svg){:.invert}
 
 ## `CTeX` 宏集提高篇
 
-中西文混排可以借由 `CTeX` 宏集完成，[基本方法](../2018-08-08-use-opentype-fonts#基础篇ii中西文混排)在上篇文章中已经介绍过了。与 `fontspec` 类似，`CTeX` 宏集也提供了大量选项进行配置。
+中西文混排可以借由 `CTeX` 宏集完成，[基本方法](./2018-08-08-use-opentype-fonts#基础篇ii中西文混排)在上篇文章中已经介绍过了。与 `fontspec` 类似，`CTeX` 宏集也提供了大量选项进行配置。
 
 默认情况下，
 
@@ -423,7 +422,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 \end{document}
 ```
 
-![fandol](/images/use-opentype-fonts-ii/fandol.svg){:.invert}
+![fandol](../images/use-opentype-fonts-ii/fandol.svg){:.invert}
 
 实际上各高校学位论文几乎都是只给了 Word 模版，于是我们要做的就是模仿出一套 Word 风格：
 
@@ -465,7 +464,7 @@ macOS 中没有自带中易字体，但如果安装了 Office，则可以找到�
 \newCJKfontfamily[zhfs]\fangsong{Fangsong.ttf}[\CJKFontFamilyOptions]
 ```
 
-上面的配置中，我们使用了 `AutoFakeBold` 和 `AutoFakeSlant` 选项，分别表示自动开启伪粗体和伪斜体效果。注意伪粗体仅支持 $\XeTeX$ 引擎，而在 $\LuaTeX$ 下无法使用。另外，这里用 `\newCJKfontfamily` 单独定义了字体族和命令，并且使用 `BoldFont=*`、`ItalicFont=*` 等选项关闭加粗、倾斜效果（即把 bold、italic 重定向到 upright），用以满足某些模版的特定需求。
+上面的配置中，我们使用了 `AutoFakeBold` 和 `AutoFakeSlant` 选项，分别表示自动开启伪粗体和伪斜体效果。注意伪粗体仅支持 $\>XeTeX$ 引擎，而在 $\>LuaTeX$ 下无法使用。另外，这里用 `\newCJKfontfamily` 单独定义了字体族和命令，并且使用 `BoldFont=*`、`ItalicFont=*` 等选项关闭加粗、倾斜效果（即把 bold、italic 重定向到 upright），用以满足某些模版的特定需求。
 
 最后，我们给出一个完整的示例，它还包括了章节标题、页眉页脚、强调样式等的修改：
 
@@ -545,7 +544,7 @@ macOS 中没有自带中易字体，但如果安装了 Office，则可以找到�
 
 效果如下（这里修改了页边距和页面大小以方便显示）：
 
-![ctex-demo](/images/use-opentype-fonts-ii/ctex-demo.svg){:.invert}
+![ctex-demo](../images/use-opentype-fonts-ii/ctex-demo.svg){:.invert}
 
 ## 附录
 
@@ -712,13 +711,13 @@ macOS 中没有自带中易字体，但如果安装了 Office，则可以找到�
 
 最简单的用法是直接在命令行执行
 
-```sh
+```bash
 fc-list > font.txt
 ```
 
 输出一般会很长，而且为了回避编码问题，这里使用 `>` 将输出重定向到文件。默认的输出包含文件路径、字体的族名和子族名，大致如下（可以与上文对照）：
 
-```conf
+```
 /System/Library/Fonts/Avenir Next.ttc: Avenir Next,Avenir Next Demi Bold:style=Demi Bold Italic,Italic
 /System/Library/Fonts/Avenir Next.ttc: Avenir Next,Avenir Next Demi Bold:style=Demi Bold,Regular
 /System/Library/Fonts/Avenir Next.ttc: Avenir Next,Avenir Next Heavy:style=Heavy Italic,Italic
@@ -735,13 +734,13 @@ fc-list > font.txt
 
 `fc-list` 可以加上选项 `--format` 或 `-f` 以指定输出格式；还可以指定特定的匹配模式，如用 `:lang=zh` 仅选择支持中文的字体。举例如下：
 
-```sh
+```bash
 fc-list --format="%{family}\n" :lang=zh > 1.log
 ```
 
 部分输出为：
 
-```conf
+```ini
 .PingFang SC,.蘋方-簡,.苹方-简
 .PingFang HK,.蘋方-港,.苹方-港
 Sarasa Term SC
@@ -758,11 +757,11 @@ Lantinghei SC,蘭亭黑-簡,兰亭黑-简
 
 我们甚至可以来找出已安装的所有可变字体（`--verbose` 或 `-v` 选项用来显示更多信息）：
 
-```sh
+```bash
 fc-list --verbose :variable=True > 1.log
 ```
 
-```conf
+```ini
 Pattern has 20 elts (size 32)
   family: "Skia"(s)
   fullname: "Skia"(s)
@@ -802,4 +801,4 @@ Pattern has 21 elts (size 32)
   - Will Robertson. [`fontspec` 宏包](https://ctan.org/pkg/fontspec)
   - ctex.org. [`xeCJK` 宏包](https://ctan.org/pkg/xecjk)
   - ctex.org. [`CTeX` 宏集](https://ctan.org/pkg/ctex)
-  - The $\LuaTeX$-ja project. [`LuaTeX-ja` 宏集](https://ctan.org/pkg/luatexja)
+  - The $\>LuaTeX$-ja project. [`LuaTeX-ja` 宏集](https://ctan.org/pkg/luatexja)

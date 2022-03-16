@@ -1,19 +1,18 @@
 ---
-layout: post
 title: 在 LaTeX 中使用 OpenType 字体（三）
 date: 2020-05-02
 last_modified_at: 2021-11-29
 math: true
 categories: Fonts
-description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 $\TeX$ 设计的初衷，也是 $\LaTeX$ 最为人所称道的功能。
+excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 $\TeX$ 设计的初衷，也是 $\LaTeX$ 最为人所称道的功能。
 ---
 
 前文链接：
 
-- [在 $\LaTeX$ 中使用 OpenType 字体（一）](../2018-08-08-use-opentype-fonts)
-- [在 $\LaTeX$ 中使用 OpenType 字体（二）](../2019-07-06-use-opentype-fonts-ii)
+- [在 $\LaTeX$ 中使用 OpenType 字体（一）](./2018-08-08-use-opentype-fonts)
+- [在 $\LaTeX$ 中使用 OpenType 字体（二）](./2019-07-06-use-opentype-fonts-ii)
 
-以上两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 $\TeX$ 设计的初衷，也是 $\LaTeX$ 最为人所称道的功能[^leo-liu-latex]。现代 $\TeX$ 引擎（$\XeTeX$ 和 $\LuaTeX$）在传统 $\TeX$ 的基础上，还支持以 Unicode 和 OpenType 为基础的数学排版方案。在 $\LaTeX$ 中，可以通过 `unicode-math` 宏包使用这些功能。
+以上两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 $\TeX$ 设计的初衷，也是 $\LaTeX$ 最为人所称道的功能[^leo-liu-latex]。现代 $\TeX$ 引擎（$\>XeTeX$ 和 $\>LuaTeX$）在传统 $\TeX$ 的基础上，还支持以 Unicode 和 OpenType 为基础的数学排版方案。在 $\LaTeX$ 中，可以通过 `unicode-math` 宏包使用这些功能。
 
 [^leo-liu-latex]: 刘海洋. 《$\LaTeX$ 入门》
 
@@ -34,15 +33,15 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 [^unicode-utr25]: [UTR 25: Unicode Support for Mathematics](https://www.unicode.org/reports/tr25/)
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/word-equation-editor.gif" alt="word-equation-editor" style="max-width: 600px;">
+  <img src="../images/use-opentype-fonts-iii/word-equation-editor.gif" alt="word-equation-editor" style="max-width: 600px;">
   <figcaption markdown="span">Word 2019 中的公式编辑器。特殊符号可通过反斜线 `\` 转义，其后输入空格则会触发自动替换</figcaption>
 </figure>
 
-花开两朵，各表一枝。$\\(La)TeX$ 这边虽然历经一二十年已经搞成了公式排版的事实标准，但缺乏新技术的支持（Unicode 和 OpenType 也不能算新了），很多时候仍然显得落伍。于是 Jonathan Kew 单枪匹马开发出了 $\XeTeX$，终于与时代接了轨。再后来 Hans Hagen 等人又开发了 $\LuaTeX$，与 $\XeTeX$ 一样原生支持 Unicode 与 OpenType，同时还可借由内嵌 Lua 实现多种扩展功能。
+花开两朵，各表一枝。$\\(La)TeX$ 这边虽然历经一二十年已经搞成了公式排版的事实标准，但缺乏新技术的支持（Unicode 和 OpenType 也不能算新了），很多时候仍然显得落伍。于是 Jonathan Kew 单枪匹马开发出了 $\>XeTeX$，终于与时代接了轨。再后来 Hans Hagen 等人又开发了 $\>LuaTeX$，与 $\>XeTeX$ 一样原生支持 Unicode 与 OpenType，同时还可借由内嵌 Lua 实现多种扩展功能。
 
 到目前为止，支持这一方案的软件大概有以下这些：
 
-- MS Word、$\XeTeX$、$\LuaTeX$
+- MS Word、$\>XeTeX$、$\>LuaTeX$
 - 浏览器：Firefox、Safari、~~Chrome 24~~[^can-i-use-mathml]
 - 字体编辑器：FontForge[^fontforge-math]
 
@@ -51,7 +50,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 
 ## 基本用法
 
-载入 `unicode-math` 宏包后，用 $\XeLaTeX$ 或 $\LuaLaTeX$ 编译，即可使用基于 OpenType 的数学字体：
+载入 `unicode-math` 宏包后，用 $\>XeLaTeX$ 或 $\>LuaLaTeX$ 编译，即可使用基于 OpenType 的数学字体：
 
 ```tex
 \documentclass{article}
@@ -66,7 +65,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/basic.svg" alt="basic" class="invert">
+  <img src="../images/use-opentype-fonts-iii/basic.svg" alt="basic" class="invert">
   <figcaption>正态分布的累积分布函数</figcaption>
 </figure>
 
@@ -100,7 +99,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/xits.svg" alt="xits" class="invert">
+  <img src="../images/use-opentype-fonts-iii/xits.svg" alt="xits" class="invert">
   <figcaption>含时 Schrödinger 方程</figcaption>
 </figure>
 
@@ -398,7 +397,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/iso-style.svg" alt="iso-style" class="invert">
+  <img src="../images/use-opentype-fonts-iii/iso-style.svg" alt="iso-style" class="invert">
   <figcaption>Maxwell 方程组</figcaption>
 </figure>
 
@@ -439,7 +438,7 @@ description: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包
 \end{document}
 ```
 
-![symbols](/images/use-opentype-fonts-iii/symbols.svg){:.invert}
+![symbols](../images/use-opentype-fonts-iii/symbols.svg){:.invert}
 
 ## 数学字体
 
@@ -502,7 +501,7 @@ OpenType 数学字体在相当长的时间内只有少数几种，不过近年�
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/math-version.svg" alt="math-version" class="invert">
+  <img src="../images/use-opentype-fonts-iii/math-version.svg" alt="math-version" class="invert">
   <figcaption>Einstein&ndash;Hilbert 作用量及 Einstein 场方程</figcaption>
 </figure>
 
@@ -539,7 +538,7 @@ OpenType 数学字体在相当长的时间内只有少数几种，不过近年�
 ```
 
 <figure>
-  <img src="/images/use-opentype-fonts-iii/stylistic-set.svg" alt="stylistic-set" class="invert">
+  <img src="../images/use-opentype-fonts-iii/stylistic-set.svg" alt="stylistic-set" class="invert">
   <figcaption>Stefan&ndash;Boltzmann 定律</figcaption>
 </figure>
 

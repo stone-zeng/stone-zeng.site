@@ -1,17 +1,16 @@
 ---
-layout: post
 title: 在 Ubuntu 中安装 TeX Live 2018
 date: 2018-05-13
 last_modified_at: 2019-01-24
 categories: TeX Live
-description: Ubuntu 安装源已经打包了 $\TeX$ Live。对于大部分的用户，源里面的 $\TeX$ Live 安装简单，稳定性通常也足够，所以可以直接安装。为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）。
+excerpt: Ubuntu 安装源已经打包了 $\TeX$ Live。对于大部分的用户，源里面的 $\TeX$ Live 安装简单，稳定性通常也足够，所以可以直接安装。为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）。
 ---
 
 Ubuntu 安装源已经打包了 $\TeX$ Live。对于大部分的用户，源里面的 $\TeX$ Live 安装简单，稳定性通常也足够，所以可以直接安装[^li-a-ling]。为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）：
 
 [^li-a-ling]: 李阿玲. [还是不要装源里面的 $\TeX$ Live！](https://zhuanlan.zhihu.com/p/19699561) 这篇文章写于 2014 年，现在来看也未必完全合理。
 
-```sh
+```bash
 sudo apt-get install texlive-full
 ```
 
@@ -30,7 +29,7 @@ sudo apt-get install texlive-full
 
 命令行中的操作如下：
 
-```sh
+```bash
 wget https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -xzf install-tl-unx.tar.gz
 cd install-tl-2018*
@@ -40,13 +39,13 @@ cd install-tl-2018*
 
 命令行中执行
 
-```sh
+```bash
 sudo ./install-tl -repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/
 ```
 
 注意需要管理员权限。如有必要，可能还需安装 `perl-tl` 和 `perl-doc`：
 
-```sh
+```bash
 sudo apt-get install perl-tk perl-doc
 ```
 
@@ -62,13 +61,13 @@ sudo apt-get install perl-tk perl-doc
 
 开启 `-gui` 选项后可以在图形界面安装（当然前提是要有 GUI 支持）：
 
-```sh
+```bash
 sudo ./install-tl -gui -repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/
 ```
 
 如下图所示：
 
-![texlive-gui](/images/install-texlive-ubuntu/texlive-gui.png)
+![texlive-gui](../images/install-texlive-ubuntu/texlive-gui.png)
 
 注意此时终端不可以关闭。
 
@@ -82,7 +81,7 @@ TODO
 
 打开 `~/.bashrc`，在最后添加
 
-```sh
+```bash
 export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
 export MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH
 export INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:$INFOPATH
@@ -90,13 +89,13 @@ export INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:$INFOPATH
 
 还需保证开启 sudo 模式后路径仍然可用。命令行中执行
 
-```sh
+```bash
 sudo visudo
 ```
 
 找到如下一段代码
 
-```sh
+```bash
 Defaults        env_reset
 Defaults        mail_badpass
 Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
@@ -104,7 +103,7 @@ Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 
 将第三行更改为
 
-```sh
+```bash
 Defaults        secure_path="/usr/local/texlive/2018/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 ```
 
@@ -114,13 +113,13 @@ Defaults        secure_path="/usr/local/texlive/2018/bin/x86_64-linux:/usr/local
 
 要在整个系统中使用 $\TeX$ 字体，还需要将 $\TeX$ 自带的配置文件复制到系统目录下。命令行中执行
 
-```sh
+```bash
 sudo cp /usr/local/texlive/2018/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
 ```
 
 之后再执行
 
-```sh
+```bash
 sudo fc-cache -fv
 ```
 
@@ -136,7 +135,7 @@ TODO
 
 ### 基本命令
 
-```sh
+```bash
 tlmgr --version
 pdftex --version
 xetex --version
@@ -145,13 +144,13 @@ luatex --version
 
 ### 包管理器
 
-```sh
+```bash
 sudo tlmgr update --list
 ```
 
 这一步是检查更新，如果有就顺手更了吧：
 
-```sh
+```bash
 sudo tlmgr update --self --all
 ```
 
@@ -171,7 +170,7 @@ sudo tlmgr update --self --all
 
 用 `xelatex` 或 `lualatex` 编译：
 
-```sh
+```bash
 xelatex hello
 lualatex hello
 ```

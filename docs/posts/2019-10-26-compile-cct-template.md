@@ -1,9 +1,8 @@
 ---
-layout: post
 title: 编译 CCT 模板
 date: 2019-10-26
 categories: CCT
-description: 正如 Liam Huang 所言，「国内有不少期刊依旧在使用过时的 CCT 方式来支持中文」，《中国科学：信息科学》也不例外。我们的目的是把它移植到现代 $\TeX$ 发行版中，使之可以正常编译。
+excerpt: 正如 Liam Huang 所言，「国内有不少期刊依旧在使用过时的 CCT 方式来支持中文」，《中国科学：信息科学》也不例外。我们的目的是把它移植到现代 $\TeX$ 发行版中，使之可以正常编译。
 ---
 
 正如 Liam Huang 所言，「国内有不少期刊依旧在使用过时的 CCT 方式来支持中文」[^liam-cct]，《中国科学：信息科学》[^ssi]也不例外。我们的目的是把它移植到现代 $\TeX$ 发行版中，使之可以正常编译。
@@ -39,11 +38,11 @@ CCT 有关的东西显然不可能在 $\TeX$ Live 上面编译，更不用说非
 \LoadClass[fontset=fandol]{ctexart}
 ```
 
-这里就是简单调一下 $\CTeX$ 文档类，同时使用 Fandol 字体以避免兼容问题。这样碰巧还有一个好处，就是可以和原来的效果比较接近。
+这里就是简单调一下 $\>CTeX$ 文档类，同时使用 Fandol 字体以避免兼容问题。这样碰巧还有一个好处，就是可以和原来的效果比较接近。
 
-为避免麻烦，我们首先使用 $\pdfTeX$ 引擎尝试：
+为避免麻烦，我们首先使用 $\>pdfTeX$ 引擎尝试：
 
-```sh
+```bash
 latex sciscn.tex
 ```
 
@@ -62,7 +61,7 @@ Enter file name:
 
 提示找不到 `picins.sty`。简单搜索就能在 CTAN 上找到 [picins](https://www.ctan.org/pkg/picins) 这个包。适用于 $\LaTeX$ 2.09，还使用了禁止分发的许可证，总而言之主流发行版都没有带。那么就要自己解决一下：
 
-```sh
+```bash
 curl https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex209/contrib/picins/picins.sty -o picins.sty
 ```
 
@@ -89,15 +88,15 @@ l.311 }
 
 意思是把版本号设在「无穷远点」，使 $\LaTeX$ 不再调用。这时编译文档，便可以无错误地结束了。使用 latexmk 可以简化一些流程：
 
-```sh
+```bash
 latexmk sciscn.tex && dvipdfmx sciscn.dvi
 ```
 
 ## 使用其他引擎
 
-众所周知，$\pdfTeX$ + `CJK` 的方案处理中文早已是过时的了，因此接下面我们换用 $\XeTeX$ 和 $\LuaTeX$ 进行编译。首先需要把编码转换为 UTF-8：
+众所周知，$\>pdfTeX$ + `CJK` 的方案处理中文早已是过时的了，因此接下面我们换用 $\>XeTeX$ 和 $\>LuaTeX$ 进行编译。首先需要把编码转换为 UTF-8：
 
-```sh
+```bash
 iconv -f gbk -t utf8  sciscn.tex     > sciscn.tex.tmp     && mv -f sciscn.tex.tmp     sciscn.tex
 iconv -f gbk -t utf8  SCIS2019cn.cls > SCIS2019cn.cls.tmp && mv -f SCIS2019cn.cls.tmp SCIS2019cn.cls
 ```
@@ -126,7 +125,7 @@ l.591 ...command{\C}[1]{\ensuremath{\mathcal{#1}}}
 
 此时编译即可顺利通过：
 
-```sh
+```bash
 latexmk -xelatex sciscn
 # 或者 latexmk -lualatex sciscn
 ```
