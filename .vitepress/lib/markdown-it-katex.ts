@@ -17,12 +17,12 @@ interface IsValidDelim {
 // Test if potential opening or closing delimiter
 // Assumes that there is a "$" at state.src[pos]
 const isValidDelim = (state: StateInline, pos: number): IsValidDelim => {
-  const prev = pos > 0 ? state.src[pos - 1] : '\0';
-  const next = pos + 1 <= state.posMax ? state.src[pos + 1] : '\0';
+  const prev = pos > 0 ? state.src.charAt(pos - 1) : '\0';
+  const next = pos + 1 <= state.posMax ? state.src.charAt(pos + 1) : '\0';
 
   // Check non-whitespace conditions for opening and closing, and
   // check that closing delimeter isn't followed by a number
-  if (prev === ' ' || prev === '\t' || isDigit(prev)) return { canOpen: true, canClose: false };
+  if (prev === ' ' || prev === '\t' || isDigit(next)) return { canOpen: true, canClose: false };
   if (next === ' ' || next === '\t') return { canOpen: false, canClose: true };
   return { canOpen: true, canClose: true };
 };
