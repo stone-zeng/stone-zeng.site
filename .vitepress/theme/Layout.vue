@@ -1,13 +1,16 @@
 <template>
-  <ul>
-    <li v-for="post in posts">
-      <a :href="post.href">{{ post.title }}</a>
-      <p>{{ post }}</p>
-    </li>
-  </ul>
-  <Content />
+  <h1><a href="/">HomePage</a></h1>
+  <HomePage v-if="isHome" :posts="posts" />
+  <Content v-else />
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute, Content } from 'vitepress';
+
+import HomePage from './HomePage.vue';
 import { data as posts } from '../posts.data';
+
+const route = useRoute();
+const isHome = computed(() => route.path === '/' || route.path === '/index.html');
 </script>

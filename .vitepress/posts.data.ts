@@ -52,7 +52,7 @@ function getPost(fullPath: string, relativePath: string, asFeed = false): Post {
 }
 
 function getPosts(dir: string) {
-  const postDir = path.resolve(__dirname, '../src/' + dir);
+  const postDir = path.resolve(__dirname, '../docs/' + dir);
   return fs
     .readdirSync(postDir)
     .filter((file) => file.endsWith('.md'))
@@ -62,6 +62,6 @@ function getPosts(dir: string) {
 }
 
 module.exports = {
-  watch: '../src/**/*.md',
+  watch: '../docs/**/*.md',
   load: (asFeed = false) => getPosts('posts'),
 };
