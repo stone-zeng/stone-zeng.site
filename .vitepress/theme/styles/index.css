@@ -1,0 +1,22 @@
+@import '@unocss/reset/tailwind.css';
+@import './fonts.css';
+@import './katex.css';
+
+body {
+  @apply font-sans;
+}
+
+code,
+kbd,
+samp,
+pre {
+  @apply font-mono;
+}
+
+pre {
+  @apply overflow-x-auto;
+}
+
+a {
+  @apply underline;
+}

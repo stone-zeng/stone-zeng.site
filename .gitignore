@@ -11,6 +11,7 @@
 
 *.otf
 *.ttf
+*.woff2
 *.pdf
 
 .vitepress/.temp/

@@ -1,7 +1,13 @@
 <template>
-  <h1><a href="/">HomePage</a></h1>
-  <HomePage v-if="isHome" :posts="posts" />
-  <Content v-else />
+  <div m-4 sm:m-8>
+    <h1 text-2xl>
+      <a href="/">HomePage</a>
+    </h1>
+    <HomePage v-if="isHome" :posts="posts" />
+    <article v-else>
+      <Content max-w-none />
+    </article>
+  </div>
 </template>
 
 <script setup lang="ts">

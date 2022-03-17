@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import Unocss from 'unocss/vite';
 
 import MarkdownItKaTeX from './lib/markdown-it-katex';
 import MarkdownItLaTeXLogo from './lib/markdown-it-latex-logo';
@@ -33,5 +34,9 @@ export default defineConfig({
         isCustomElement: (tag) => katexMathTags.includes(tag),
       },
     },
+  },
+
+  vite: {
+    plugins: [Unocss()],
   },
 });
