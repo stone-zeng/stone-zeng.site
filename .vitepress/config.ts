@@ -1,6 +1,9 @@
 import { defineConfig } from 'vitepress';
 import Unocss from 'unocss/vite';
 
+import MarkdownItAttrs from 'markdown-it-attrs';
+import MarkdownItMultimdTable from 'markdown-it-multimd-table';
+
 import MarkdownItKaTeX from './lib/markdown-it-katex';
 import MarkdownItLaTeXLogo from './lib/markdown-it-latex-logo';
 
@@ -25,6 +28,8 @@ export default defineConfig({
     config: (md) => {
       md.use(MarkdownItLaTeXLogo);
       md.use(MarkdownItKaTeX);
+      md.use(MarkdownItAttrs);
+      md.use(MarkdownItMultimdTable, { headerless: true });
     },
   },
 
