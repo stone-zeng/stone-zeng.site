@@ -2,7 +2,7 @@
   <ul>
     <li v-for="post in posts" :key="post.title" class="my-6">
       <h2 class="text-xl mb-2">
-        <a :href="post.href">{{ post.title }}</a>
+        <a :href="post.href">{{ toTitle(post.title) }}</a>
       </h2>
       <div v-html="post.excerpt"></div>
     </li>
@@ -18,6 +18,8 @@ interface Post {
   categories: string[];
   excerpt: string;
 }
+
+const toTitle = (str: string) => str.replace('--', '\u{2013}');
 
 defineProps<{
   posts: Post[];

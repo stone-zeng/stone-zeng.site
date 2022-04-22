@@ -21,7 +21,7 @@ interface CacheEntry {
 
 const cache: Map<string, CacheEntry> = new Map();
 
-const md = createMarkdownRenderer(process.cwd(), {}, '');
+const md = createMarkdownRenderer(process.cwd(), { typographer: true }, '');
 
 function getPost(fullPath: string, relativePath: string, asFeed = false): Post {
   const timestamp = fs.statSync(fullPath).mtimeMs;

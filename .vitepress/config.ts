@@ -25,6 +25,7 @@ export default defineConfig({
   head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
 
   markdown: {
+    typographer: true,
     config: (md) => {
       md.use(MarkdownItLaTeXLogo);
       md.use(MarkdownItKaTeX);
