@@ -6,6 +6,6 @@ export default defineConfig({
     ['font-sans', { 'font-family': '"Inter", sans-serif' }],
     ['font-mono', { 'font-family': '"JetBrains Mono", monospace' }],
   ],
-  presets: [presetUno(), presetAttributify()],
+  presets: [presetUno({ dark: 'media' }), presetAttributify()],
   transformers: [transformerDirective()],
 });

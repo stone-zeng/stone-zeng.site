@@ -3,6 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { createMarkdownRenderer } from 'vitepress';
 
 interface Post {
   title: string;
@@ -19,6 +20,8 @@ interface CacheEntry {
 }
 
 const cache: Map<string, CacheEntry> = new Map();
+
+const md = createMarkdownRenderer(process.cwd(), {}, '');
 
 function getPost(fullPath: string, relativePath: string, asFeed = false): Post {
   const timestamp = fs.statSync(fullPath).mtimeMs;
@@ -39,7 +42,7 @@ function getPost(fullPath: string, relativePath: string, asFeed = false): Post {
     date: data.date,
     last_modified_at: data.last_modified_at,
     categories: data.categories,
-    excerpt: data.excerpt ? data.excerpt : excerpt,
+    excerpt: md.render(data.excerpt ? data.excerpt : excerpt),
   };
   // if (asFeed) {
   //   // only attach these when building the RSS feed to avoid bloating the

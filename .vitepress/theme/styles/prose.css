@@ -20,12 +20,17 @@
 
 /* Headings */
 
+.prose h2 + h3,
+.prose h3 + h4 {
+  @apply mt-0;
+}
+
 .prose h2 {
-  @apply text-xl my-6;
+  @apply text-xl mt-8 mb-4;
 }
 
 .prose h3 {
-  @apply text-lg my-4;
+  @apply text-lg mt-6 mb-4;
 }
 
 .prose h4 {
@@ -57,7 +62,8 @@
 /* Quotes */
 
 .prose blockquote {
-  @apply border-l-4 border-zinc-300 pl-[12px];
+  @apply text-zinc-500 border-l-4 border-light-800 pl-12px;
+  @apply dark:text-zinc-400 dark:border-dark-50;
 }
 
 .prose blockquote ul,
@@ -65,7 +71,12 @@
   @apply pl-4;
 }
 
-/* Code */
+/* Codes */
+
+.prose pre {
+  @apply px-4 py-3 rounded bg-light-500;
+  @apply dark:bg-dark-200;
+}
 
 /* Tables */
 
@@ -75,5 +86,6 @@
 
 .prose td,
 .prose th {
-  @apply border-1 border-zinc-300 px-4 py-2;
+  @apply border-1  border-light-800 px-4 py-2;
+  @apply dark:border-dark-50;
 }

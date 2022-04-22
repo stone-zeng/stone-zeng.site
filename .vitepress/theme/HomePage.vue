@@ -1,10 +1,10 @@
 <template>
   <ul>
-    <li v-for="post in posts" :key="post.title" class="my-4">
+    <li v-for="post in posts" :key="post.title" class="my-6">
       <h2 class="text-xl mb-2">
         <a :href="post.href">{{ post.title }}</a>
       </h2>
-      <p>{{ post.excerpt }}</p>
+      <div v-html="post.excerpt"></div>
     </li>
   </ul>
 </template>
