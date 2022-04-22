@@ -1,9 +1,10 @@
 @import '@unocss/reset/tailwind.css';
 @import './fonts.css';
 @import './katex.css';
+@import './prose.css';
 
 body {
-  @apply font-sans;
+  @apply font-sans leading-relaxed;
 }
 
 code,
@@ -11,10 +12,6 @@ kbd,
 samp,
 pre {
   @apply font-mono;
-}
-
-pre {
-  @apply overflow-x-auto;
 }
 
 a {

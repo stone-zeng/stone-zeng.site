@@ -32,7 +32,7 @@ const isDigit = (c: string) => {
   return code >= 0x30 && code <= 0x39;
 };
 
-function parseMathInline(state: StateInline, silent: boolean) {
+const parseMathInline = (state: StateInline, silent: boolean) => {
   if (state.src[state.pos] !== '$') return false;
 
   const isValidOpenDelim = isValidDelim(state, state.pos).canOpen;
@@ -89,9 +89,9 @@ function parseMathInline(state: StateInline, silent: boolean) {
 
   state.pos = match + 1;
   return true;
-}
+};
 
-function parseMathBlock(state: StateBlock, start: number, end: number, silent: boolean) {
+const parseMathBlock = (state: StateBlock, start: number, end: number, silent: boolean) => {
   let pos = state.bMarks[start] + state.tShift[start];
   let max = state.eMarks[start];
 
@@ -140,11 +140,11 @@ function parseMathBlock(state: StateBlock, start: number, end: number, silent: b
   token.map = [start, state.line];
   token.markup = '$$';
   return true;
-}
+};
 
 const trimLine = (line: string) => (line && line.trim() ? line + '\n' : '');
 
-function plugin(md: MarkdownIt) {
+const plugin = (md: MarkdownIt) => {
   const throwOnError = true;
   const macros = {};
 
@@ -173,6 +173,6 @@ function plugin(md: MarkdownIt) {
   });
   md.renderer.rules[MATH_INLINE] = inlineRenderer;
   md.renderer.rules[MATH_BLOCK] = blockRenderer;
-}
+};
 
 export default plugin;

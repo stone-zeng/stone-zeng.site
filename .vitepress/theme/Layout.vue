@@ -1,11 +1,11 @@
 <template>
-  <div m-4 sm:m-8>
-    <h1 text-2xl>
+  <div class="m-4" sm="m-8">
+    <h1 class="text-2xl">
       <a href="/">HomePage</a>
     </h1>
     <HomePage v-if="isHome" :posts="posts" />
-    <article v-else>
-      <Content max-w-none />
+    <article v-else class="prose">
+      <Content />
     </article>
   </div>
 </template>

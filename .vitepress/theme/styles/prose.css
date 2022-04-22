@@ -1,0 +1,79 @@
+.prose p,
+.prose ul,
+.prose ol,
+.prose pre,
+.prose blockquote,
+.prose figure {
+  @apply my-4;
+}
+
+.prose table,
+.prose pre,
+.prose figcaption {
+  @apply text-sm;
+}
+
+.prose table,
+.prose pre {
+  @apply overflow-x-auto;
+}
+
+/* Headings */
+
+.prose h2 {
+  @apply text-xl my-6;
+}
+
+.prose h3 {
+  @apply text-lg my-4;
+}
+
+.prose h4 {
+  @apply my-4;
+}
+
+/* Lists */
+
+.prose ul,
+.prose ol {
+  @apply pl-8;
+}
+
+.prose ul {
+  @apply list-disc;
+}
+
+.prose li p,
+.prose li ul,
+.prose li ol,
+.prose li pre {
+  @apply my-0;
+}
+
+.prose li > ul {
+  @apply list-circle;
+}
+
+/* Quotes */
+
+.prose blockquote {
+  @apply border-l-4 border-zinc-300 pl-[12px];
+}
+
+.prose blockquote ul,
+.prose blockquote ol {
+  @apply pl-4;
+}
+
+/* Code */
+
+/* Tables */
+
+.prose table {
+  @apply block whitespace-pre border-collapse;
+}
+
+.prose td,
+.prose th {
+  @apply border-1 border-zinc-300 px-4 py-2;
+}
