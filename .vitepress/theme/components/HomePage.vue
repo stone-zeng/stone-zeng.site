@@ -10,6 +10,8 @@
 </template>
 
 <script setup lang="ts">
+import { toTitle } from '../utils';
+
 interface Post {
   title: string;
   href: string;
@@ -18,8 +20,6 @@ interface Post {
   categories: string[];
   excerpt: string;
 }
-
-const toTitle = (str: string) => str.replace('--', '\u{2013}');
 
 defineProps<{
   posts: Post[];
