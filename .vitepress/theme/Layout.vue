@@ -1,20 +1,26 @@
 <template>
-  <div class="m-4" sm="m-8">
-    <h1 class="text-2xl">
-      <a href="/">HomePage</a>
-    </h1>
-    <HomePage v-if="isHome" :posts="posts" />
-    <article v-else class="prose">
-      <Content />
-    </article>
-  </div>
+  <header class="my-8">
+    <Wrapper>
+      <div class="text-2xl">
+        <a href="/">Home</a>
+      </div>
+    </Wrapper>
+  </header>
+  <main>
+    <Wrapper>
+      <HomePage v-if="isHome" :posts="posts" />
+      <PostPage v-else />
+    </Wrapper>
+  </main>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useRoute, Content } from 'vitepress';
+import { useRoute } from 'vitepress';
 
-import HomePage from './HomePage.vue';
+import HomePage from './components/HomePage.vue';
+import PostPage from './components/PostPage.vue';
+import Wrapper from './components/Wrapper.vue';
 import { data as posts } from '../posts.data';
 
 const route = useRoute();
