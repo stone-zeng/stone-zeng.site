@@ -1,5 +1,5 @@
 <template>
-  <ul class="list-disc pl-4">
+  <ul class="text-sm leading-normal list-disc pl-4">
     <li v-for="h2 in toc(headers)">
       <a :href="h2.href">{{ h2.title }}</a>
       <ul v-if="h2.children" class="list-circle pl-4">

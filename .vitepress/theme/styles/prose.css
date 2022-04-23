@@ -20,21 +20,36 @@
 
 /* Headings */
 
+.prose h1 {
+  @apply font-bold text-2xl;
+}
+
+.prose h2 {
+  @apply font-bold text-xl border-b-1 border-light-800 pb-2 mt-12 mb-4;
+  @apply dark:border-dark-50;
+}
+
+.prose h3 {
+  @apply font-bold text-lg mt-8 mb-4;
+}
+
+.prose h4 {
+  @apply font-bold my-4;
+}
+
 .prose h2 + h3,
 .prose h3 + h4 {
   @apply mt-0;
 }
 
-.prose h2 {
-  @apply text-xl mt-8 mb-4;
+.prose .header-anchor {
+  @apply invisible opacity-0 transition-opacity;
 }
 
-.prose h3 {
-  @apply text-lg mt-6 mb-4;
-}
-
-.prose h4 {
-  @apply my-4;
+.prose h2:hover > .header-anchor,
+.prose h3:hover > .header-anchor,
+.prose h4:hover > .header-anchor {
+  @apply visible opacity-100;
 }
 
 /* Lists */
@@ -62,8 +77,13 @@
 /* Quotes */
 
 .prose blockquote {
-  @apply text-zinc-500 border-l-4 border-light-800 pl-12px;
-  @apply dark:text-zinc-400 dark:border-dark-50;
+  @apply border-l-4 border-light-800 pl-12px;
+  @apply dark:border-dark-50;
+}
+
+.prose blockquote > :not([class^='language']) {
+  @apply text-neutral-400;
+  @apply dark:text-neutral-500;
 }
 
 .prose blockquote ul,
@@ -75,7 +95,7 @@
 
 .prose pre {
   @apply px-4 py-3 rounded bg-light-500;
-  @apply dark:bg-dark-200;
+  @apply dark:bg-dark-300;
 }
 
 /* Tables */

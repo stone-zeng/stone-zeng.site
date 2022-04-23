@@ -1,7 +1,7 @@
 <template>
   <div class="flex gap-8">
     <article class="prose min-w-0">
-      <h1 class="text-2xl">{{ page.title }}</h1>
+      <h1>{{ page.title }}</h1>
       <Content />
     </article>
     <aside class="hidden sticky top-8 min-w-40 h-fit" md="block">

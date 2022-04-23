@@ -2,6 +2,7 @@
 @import './fonts.css';
 @import './katex.css';
 @import './prose.css';
+@import './syntax-highlighting.css';
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,7 +22,7 @@ pre {
 
 :not(pre) > code {
   @apply text-0.9em px-1 py-px rounded bg-light-500;
-  @apply dark:bg-dark-200;
+  @apply dark:bg-dark-300;
 }
 
 a {
