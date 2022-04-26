@@ -24,10 +24,6 @@
 
 /* Headings */
 
-.prose h1 {
-  @apply font-bold text-2xl my-8;
-}
-
 .prose h2 {
   @apply font-bold text-xl border-b-1 border-light-800 pb-2 mb-4;
   @apply dark:border-dark-50;

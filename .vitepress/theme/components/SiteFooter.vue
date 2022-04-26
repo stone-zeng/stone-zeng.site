@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-xs my-12 text-neutral-500" dark="text-neutral-400">
+  <footer class="text-xs my-12 text-neutral-400" dark="text-neutral-500">
     <Wrapper>
       <div class="flex flex-col items-center gap-6">
         <ul class="flex gap-6">

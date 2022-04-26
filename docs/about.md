@@ -1,6 +1,5 @@
 ---
 title: 关于
-permalink: /about/
 ---
 
 I'm Xiangdong Zeng working with
@@ -52,11 +51,9 @@ Currently, I'm
 
 ## 统计
 
-::: v-pre
-- 文章数：{{ site.posts | size }}
+- 文章数：
 - <span id="busuanzi_container_site_uv">总访客数：<span id="busuanzi_value_site_uv"></span></span>
-- 最后构建：{{ site.time }}
-:::
+- 最后构建：{{ new Date().toISOString() }}
 
 ## 许可证
 
