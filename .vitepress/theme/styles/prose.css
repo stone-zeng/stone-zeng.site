@@ -1,3 +1,7 @@
+.prose {
+  @apply hyphens-auto;
+}
+
 .prose p,
 .prose ul,
 .prose ol,
@@ -21,16 +25,24 @@
 /* Headings */
 
 .prose h1 {
-  @apply font-bold text-2xl;
+  @apply font-bold text-2xl my-8;
 }
 
 .prose h2 {
-  @apply font-bold text-xl border-b-1 border-light-800 pb-2 mt-12 mb-4;
+  @apply font-bold text-xl border-b-1 border-light-800 pb-2 mb-4;
   @apply dark:border-dark-50;
 }
 
 .prose h3 {
-  @apply font-bold text-lg mt-8 mb-4;
+  @apply font-bold text-lg mb-4;
+}
+
+.prose h2:not(:first-of-type) {
+  @apply mt-12;
+}
+
+.prose h3:not(:first-of-type) {
+  @apply mt-8;
 }
 
 .prose h4 {
@@ -74,6 +86,15 @@
   @apply list-circle;
 }
 
+.prose li > ul > li > ul {
+  @apply list-square;
+}
+
+.prose li > p:last-child,
+.prose li > [class^='language']:last-child {
+  @apply mb-4;
+}
+
 /* Quotes */
 
 .prose blockquote {
@@ -82,8 +103,8 @@
 }
 
 .prose blockquote > :not([class^='language']) {
-  @apply text-neutral-400;
-  @apply dark:text-neutral-500;
+  @apply text-neutral-500;
+  @apply dark:text-neutral-400;
 }
 
 .prose blockquote ul,
@@ -98,14 +119,25 @@
   @apply dark:bg-dark-300;
 }
 
+/* Figures */
+
+.prose img {
+  @apply max-w-full border-1 border-light-800 mx-auto;
+  @apply dark:border-dark-50;
+}
+
+.prose figcaption {
+  @apply text-center mt-2;
+}
+
 /* Tables */
 
 .prose table {
-  @apply block whitespace-pre border-collapse;
+  @apply block whitespace-pre border-collapse max-w-fit mx-auto;
 }
 
 .prose td,
 .prose th {
-  @apply border-1  border-light-800 px-4 py-2;
+  @apply border-1 border-light-800 px-4 py-2;
   @apply dark:border-dark-50;
 }

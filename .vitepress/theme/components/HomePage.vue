@@ -4,7 +4,7 @@
       <h2 class="text-xl mb-2">
         <a :href="post.href">{{ toTitle(post.title) }}</a>
       </h2>
-      <div v-html="post.excerpt"></div>
+      <div v-html="post.excerpt" class="hyphens-auto"></div>
     </li>
   </ul>
 </template>

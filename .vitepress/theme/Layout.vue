@@ -1,17 +1,12 @@
 <template>
-  <header class="my-8">
-    <Wrapper>
-      <div class="text-2xl">
-        <a href="/">Home</a>
-      </div>
-    </Wrapper>
-  </header>
+  <SiteHeader />
   <main>
     <Wrapper>
       <HomePage v-if="isHome" :posts="posts" />
       <PostPage v-else />
     </Wrapper>
   </main>
+  <SiteFooter />
 </template>
 
 <script setup lang="ts">
@@ -20,6 +15,8 @@ import { useRoute } from 'vitepress';
 
 import HomePage from './components/HomePage.vue';
 import PostPage from './components/PostPage.vue';
+import SiteFooter from './components/SiteFooter.vue';
+import SiteHeader from './components/SiteHeader.vue';
 import Wrapper from './components/Wrapper.vue';
 import { data as posts } from '../posts.data';
 
