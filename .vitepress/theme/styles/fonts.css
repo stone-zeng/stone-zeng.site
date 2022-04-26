@@ -14,9 +14,9 @@
 
 @font-face {
   font-family: 'Inter Display';
-  font-weight: 100 900;
+  font-weight: 200;
   font-style: normal;
-  src: url(../fonts/InterDisplay-roman.var.woff2) format('woff2');
+  src: url(../fonts/InterDisplay-ExtraLight.subset.woff2) format('woff2');
 }
 
 @font-face {
