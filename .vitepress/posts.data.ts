@@ -10,7 +10,8 @@ interface Post {
   href: string;
   date: string;
   last_modified_at: string;
-  categories: string[];
+  tags: string[];
+  draft: boolean;
   excerpt: string;
 }
 
@@ -23,7 +24,7 @@ const cache: Map<string, CacheEntry> = new Map();
 
 const md = createMarkdownRenderer(process.cwd(), { typographer: true }, '');
 
-function getPost(fullPath: string, relativePath: string, asFeed = false): Post {
+const getPost = (fullPath: string, relativePath: string, asFeed = false) => {
   const timestamp = fs.statSync(fullPath).mtimeMs;
   const cached = cache.get(fullPath);
   if (cached && timestamp === cached.timestamp) {
@@ -41,7 +42,8 @@ function getPost(fullPath: string, relativePath: string, asFeed = false): Post {
     href: relativePath.replace(/\.md$/, '.html'),
     date: data.date,
     last_modified_at: data.last_modified_at,
-    categories: data.categories,
+    tags: data.tags,
+    draft: data.draft,
     excerpt: md.render(data.excerpt ? data.excerpt : excerpt),
   };
   // if (asFeed) {
@@ -52,17 +54,18 @@ function getPost(fullPath: string, relativePath: string, asFeed = false): Post {
 
   cache.set(fullPath, { timestamp, post });
   return post;
-}
+};
 
-function getPosts(dir: string) {
+const getPosts = (dir: string) => {
   const postDir = path.resolve(__dirname, '../docs/' + dir);
   return fs
     .readdirSync(postDir)
     .filter((file) => file.endsWith('.md'))
     .map((file) => getPost(path.join(postDir, file), path.join('/', dir, file)))
+    .filter((post) => !post.draft)
     .sort()
     .reverse();
-}
+};
 
 module.exports = {
   watch: '../docs/**/*.md',
