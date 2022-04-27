@@ -1,8 +1,9 @@
 ---
 title: LaTeX3 教程（一）——背景知识
 date: 2019-02-24
-last_modified_at: 2019-02-26
-categories: LaTeX3
+updated: 2019-02-26
+tags:
+  - LaTeX3
 excerpt: $\LaTeX3$ 教程这个系列的文章其实早已动笔（开始于 2017 年），但一直只挖坑而不填土。作为初学者，错误在所难免，恳请各位不吝赐教。
 ---
 

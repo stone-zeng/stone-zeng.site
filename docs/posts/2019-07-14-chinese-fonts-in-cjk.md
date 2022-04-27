@@ -2,7 +2,9 @@
 title: CJK 宏包中，中文字体的奥秘
 author: 王越
 date: 2019-07-14
-categories: Fonts
+tags:
+  - Fonts
+  - CJK
 excerpt: 嗯，此为一连载。背景是，我们希望 ctex-kit 最终提交到 $\TeX$ Live 或者 CTAN 的时候，可以带上所有中文字体的 TFM、MAP 和 ENC，来让用户差不多是零配置地使用 `CJK` 中文，因此我们需要产生这些文件。
 ---
 

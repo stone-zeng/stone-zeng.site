@@ -1,8 +1,11 @@
 ---
 title: 在 LaTeX 中使用 OpenType 字体（二）
 date: 2019-07-06
-last_modified_at: 2019-07-09
-categories: Fonts
+updated: 2019-07-09
+tags:
+  - LaTeX
+  - Fonts
+  - OpenType
 excerpt: 在上一回中，我们介绍了字体的相关背景知识，并且给出了通过 `fontspec` 宏包使用 OpenType 字体的基本方法。这一篇我们将继续深入，讨论字体的各种样式。
 ---
 

@@ -8,11 +8,11 @@ import { createMarkdownRenderer } from 'vitepress';
 interface Post {
   title: string;
   href: string;
-  date: string;
-  last_modified_at: string;
+  date: Date;
+  updated?: Date;
   tags: string[];
-  draft: boolean;
   excerpt: string;
+  _draft: boolean;
 }
 
 interface CacheEntry {
@@ -41,10 +41,10 @@ const getPost = (fullPath: string, relativePath: string, asFeed = false) => {
     title: data.title,
     href: relativePath.replace(/\.md$/, '.html'),
     date: data.date,
-    last_modified_at: data.last_modified_at,
-    tags: data.tags,
-    draft: data.draft,
+    updated: data.updated,
+    tags: data.tags || [],
     excerpt: md.render(data.excerpt ? data.excerpt : excerpt),
+    _draft: data.draft,
   };
   // if (asFeed) {
   //   // only attach these when building the RSS feed to avoid bloating the
@@ -62,7 +62,7 @@ const getPosts = (dir: string) => {
     .readdirSync(postDir)
     .filter((file) => file.endsWith('.md'))
     .map((file) => getPost(path.join(postDir, file), path.join('/', dir, file)))
-    .filter((post) => !post.draft)
+    .filter((post) => !post._draft)
     .sort()
     .reverse();
 };

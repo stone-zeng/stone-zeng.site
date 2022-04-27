@@ -1,8 +1,10 @@
 ---
 title: 带圈数字
 date: 2019-02-09
-last_modified_at: 2020-08-11
-categories: Symbols
+updated: 2020-08-11
+tags:
+  - LaTeX
+  - Symbols
 excerpt: 众所周知，$\LaTeX$ 提供了 `\textcircled` 命令用以给字符加圈，但效果却不怎么好。实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是几乎无法在 $\TeX$ 宏层面解决的。
 ---
 

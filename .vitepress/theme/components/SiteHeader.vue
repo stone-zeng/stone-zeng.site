@@ -10,7 +10,7 @@
         </a>
         <nav>
           <ul class="flex gap-4">
-            <li><a href="/about" class="text-inherit hover:no-underline">About</a></li>
+            <li><a href="/" class="text-inherit hover:no-underline">About</a></li>
           </ul>
         </nav>
       </div>

@@ -1,8 +1,9 @@
 ---
 title: 回「LaTeX 的罪与罚」
 date: 2019-07-23
-last_modified_at: 2019-07-24
-categories: Comments
+updated: 2019-07-24
+tags:
+  - LaTeX
 excerpt: 作为 $\LaTeX$ 开发者，看到这种嘲讽自然是非常 angry 的。本来并不想趟这个混水，然而眼见着赞数一天天涨上去，还居然进了精华区，实在忍不住只好注册了贵乎来说几句。你们啊，要……还是要提高自己的知识水平！我也给你们着急啊，真的。
 ---
 

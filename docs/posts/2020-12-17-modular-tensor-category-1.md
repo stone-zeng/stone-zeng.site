@@ -1,7 +1,9 @@
 ---
 title: Notes on modular tensor category (1)
 date: 2020-12-17
-last_modified_at: 2021-04-30
+updated: 2021-04-30
+tags:
+  - Category theory
 lang: en-US
 math: true
 excerpt: Category theory formalizes many mathematical structures, especially the mapping between “objects”. A modular tensor category is a category with some extra structures and can provide a mathematical foundation for some physical concepts, especially the topological orders.
@@ -216,11 +218,8 @@ Now we can define the **tensor category** $\cat{C}$ with
 - **Tensor product**, which is a bifunctor $\otimes\colon\cat{C}\times\cat{C}\to\cat{C}$
 - A **unit object** $\1\in\cat{C}$
 - **Associator** $\alpha$, which is a natural isomorphism:
-
   $$ \alpha_{x,y,z} \colon (x\otimes y)\otimes z \overset\sim\to x\otimes(y\otimes z), \quad \forall x,y,z \in \cat{C} $$
-
 - **Left unitor** $\lambda$ and **right unitor** $\rho$, which are natural isomorphisms with
-
   $$ \lambda_x \colon \1\otimes x \overset\sim\to x, \quad \rho_x \colon x\otimes\1 \overset\sim\to x, \quad \forall x \in \cat{C} $$
 
 such that the following two diagrams commute:

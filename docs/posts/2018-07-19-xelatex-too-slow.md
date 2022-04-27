@@ -1,7 +1,9 @@
 ---
 title: 解决 XeLaTeX 编译卡住不动的问题
 date: 2018-07-19
-categories: XeTeX
+tags:
+  - LaTeX
+  - Fonts
 excerpt: Windows 平台使用 $\>XeLaTeX$ 编译时，偶尔会出现卡住不动的情况。特点是会卡在读入字体文件的时候，比如 `size10.clo`、`eu1lmr.fd` 等，并且往往出现在新安装字体之后。
 ---
 

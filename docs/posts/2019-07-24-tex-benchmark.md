@@ -1,8 +1,9 @@
 ---
 title: TeX 性能评测
 date: 2019-07-24
-last_modified_at: 2019-08-29
-categories: Engines
+updated: 2019-08-29
+tags:
+  - TeX
 excerpt: 众所周知 $\>XeTeX$ 和 $\>LuaTeX$ 比起 $\>pdfTeX$ 性能比较成问题，这也成了不少人抱着 `CJK` 不放手的原因。口说无凭，我们来做些评测看一看各种引擎的性能到底如何。
 ---
 

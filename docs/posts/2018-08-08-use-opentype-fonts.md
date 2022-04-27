@@ -1,8 +1,11 @@
 ---
 title: 在 LaTeX 中使用 OpenType 字体
 date: 2018-08-08
-last_modified_at: 2020-04-27
-categories: Fonts
+updated: 2020-04-27
+tags:
+  - LaTeX
+  - Fonts
+  - OpenType
 excerpt: 现代 $\TeX$ 引擎（包括 $\>XeTeX$、$\>LuaTeX$ 和 $\>ApTeX$）已经全面支持使用 OpenType 字体，因而可以很方便地实现类似 Microsoft Word、Adobe InDesign 等软件的效果。
 ---
 

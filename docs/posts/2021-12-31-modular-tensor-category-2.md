@@ -1,7 +1,8 @@
 ---
 title: Notes on modular tensor category (2)
 date: 2021-12-31
-categories: Physics
+tags:
+  - Category theory
 lang: en-US
 math: true
 excerpt: TODO

@@ -1,7 +1,7 @@
 ---
 title: Introduction to tensor network (1)
 date: 2021-05-25
-last_modified_at: 2021-05-26
+updated: 2021-05-26
 lang: en-US
 math: true
 excerpt: Tensor networks provide a general framework to describe many interesting and important concepts in condensed matter physics and quantum information theory, such as topological orders, entanglement, and even holographic duality.
