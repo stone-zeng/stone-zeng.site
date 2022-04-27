@@ -4,7 +4,7 @@
     dark="bg-dark-800 border-dark-50"
   >
     <Wrapper>
-      <div class="flex items-center justify-between py-2">
+      <div class="flex items-center justify-between py-3">
         <a href="/" class="font-display font-extralight text-2xl text-inherit hover:no-underline">
           stone-zeng.github.io
         </a>
