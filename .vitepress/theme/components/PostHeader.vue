@@ -60,7 +60,7 @@ onMounted(() => {
     { title: 'Update date', icon: 'calendar-edit', data: updateDate },
     { title: 'Author', icon: 'account', data: page.value.frontmatter.author },
     { title: 'Word count', icon: 'keyboard', data: words },
-    { title: 'Tags', icon: 'tag-multiple', data: ['AA', 'BB', 'CC'] }
+    { title: 'Tags', icon: 'tag-multiple', data: null }
   );
 });
 </script>
