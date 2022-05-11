@@ -1,14 +1,16 @@
 <template>
-  <ul class="text-sm leading-normal hyphens-auto list-disc pl-4">
-    <li v-for="h2 in toc(headers)">
-      <a :href="h2.href">{{ h2.title }}</a>
-      <ul v-if="h2.children" class="list-circle pl-4">
-        <li v-for="h3 in h2.children">
-          <a :href="h3.href">{{ h3.title }}</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <div class="prose">
+    <ul class="text-sm leading-normal !pl-4">
+      <li v-for="h2 in toc(headers)">
+        <a :href="h2.href">{{ h2.title }}</a>
+        <ul v-if="h2.children.length !== 0" class="!pl-4 !my-0">
+          <li v-for="h3 in h2.children">
+            <a :href="h3.href">{{ h3.title }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script setup lang="ts">

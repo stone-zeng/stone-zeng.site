@@ -11,8 +11,12 @@
       </span>
       <PostDate :date="new Date(date)" />
     </div>
-    <div v-html="excerpt" class="hyphens-auto"></div>
-    <a :href="href">Read more &rarr;</a>
+    <div class="prose">
+      <div v-html="excerpt" class="mb-2 !children:my-0" sm="mb-4"></div>
+      <div>
+        <a :href="href">Read more &rarr;</a>
+      </div>
+    </div>
   </article>
 </template>
 

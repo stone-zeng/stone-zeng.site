@@ -71,19 +71,27 @@
   @apply list-disc;
 }
 
-.prose li p,
-.prose li ul,
-.prose li ol,
-.prose li pre {
-  @apply my-0;
+.prose ol {
+  @apply list-decimal;
 }
 
 .prose li > ul {
   @apply list-circle;
 }
 
+.prose li > ol {
+  @apply list-alpha;
+}
+
 .prose li > ul > li > ul {
   @apply list-square;
+}
+
+.prose li p,
+.prose li ul,
+.prose li ol,
+.prose li pre {
+  @apply my-2;
 }
 
 .prose li > p:last-child,
@@ -110,9 +118,30 @@
 
 /* Codes */
 
+.prose pre,
+.prose code,
+.prose kbd {
+  @apply font-mono;
+}
+
 .prose pre {
   @apply px-4 py-3 rounded bg-light-500;
   @apply dark:bg-dark-300;
+}
+
+.prose :not(pre) > code,
+.prose kbd {
+  @apply px-1 rounded bg-light-500;
+  @apply dark:bg-dark-300;
+}
+
+.prose :not(pre) > code {
+  @apply text-sm py-px;
+}
+
+.prose kbd {
+  @apply text-xs border-1.5 border-light-800 pt-1.5px pb-0;
+  @apply dark:border-dark-50;
 }
 
 /* Figures */
@@ -136,4 +165,20 @@
 .prose th {
   @apply border-1 border-light-800 px-4 py-2;
   @apply dark:border-dark-50;
+}
+
+/* Links */
+
+.prose a {
+  @apply text-blue-500;
+}
+
+.prose a:hover {
+  @apply underline;
+}
+
+/* TODO: */
+
+.invert {
+  filter: none;
 }
