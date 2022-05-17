@@ -5,7 +5,7 @@ import MarkdownItAttrs from 'markdown-it-attrs';
 import MarkdownItMultimdTable from 'markdown-it-multimd-table';
 
 import MarkdownItKaTeX from './lib/markdown-it-katex';
-import MarkdownItLaTeXLogo from './lib/markdown-it-latex-logo';
+import MarkdownItTeXLogo from './lib/markdown-it-tex-logo';
 
 const katexMathTags = [
   ['math', 'annotation', 'semantics'],
@@ -27,7 +27,7 @@ export default defineConfig({
   markdown: {
     typographer: true,
     config: (md) => {
-      md.use(MarkdownItLaTeXLogo);
+      md.use(MarkdownItTeXLogo);
       md.use(MarkdownItKaTeX);
       md.use(MarkdownItAttrs);
       md.use(MarkdownItMultimdTable, { headerless: true });

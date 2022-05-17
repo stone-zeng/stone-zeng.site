@@ -1,0 +1,68 @@
+.tex-logo {
+  @apply text-red;
+}
+
+.tex-logo-a {
+  text-transform: uppercase;
+  font-size: 70%;
+  font-weight: 500;
+  margin-left: -0.45em;
+  margin-right: -0.15em;
+  position: relative;
+  bottom: 0.62ex;
+}
+
+.tex-logo-e {
+  text-transform: uppercase;
+  margin-left: -0.18em;
+  margin-right: -0.05em;
+  position: relative;
+  bottom: -0.5ex;
+}
+
+.tex-logo-epsilon {
+  font-style: italic;
+}
+
+.tex-logo-two-e-epsilon {
+  font-style: italic;
+  position: relative;
+  bottom: -0.3ex;
+}
+
+.tex-logo-xe-e {
+  display: inline-block;
+  text-transform: uppercase;
+  transform: rotateY(180deg);
+  margin-left: -0.05em;
+  margin-right: -0.05em;
+  position: relative;
+  bottom: -0.5ex;
+}
+
+.tex-logo-bib-ib {
+  font-variant: small-caps;
+  font-weight: 500;
+}
+
+.tex-logo-rkern {
+  margin-right: -0.05em;
+}
+
+.tex-logo-xe-e-kern {
+  margin-right: -0.18em;
+}
+
+.tex-logo-rparen-kern {
+  margin-left: 0.05em;
+  margin-right: -0.05em;
+}
+
+strong .tex-logo-a,
+strong .tex-logo-bib-ib {
+  font-weight: 900;
+}
+
+em .tex-logo-xe-e {
+  transform: rotateY(180deg) skew(18deg);
+}

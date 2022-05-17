@@ -2,6 +2,7 @@
 @import './fonts.css';
 @import './katex.css';
 @import './prose.css';
+@import './tex-logo.css';
 @import './syntax-highlighting.css';
 
 @media (prefers-color-scheme: dark) {
