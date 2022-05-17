@@ -5,14 +5,14 @@ updated: 2020-08-11
 tags:
   - LaTeX
   - Symbols
-excerpt: 众所周知，$\LaTeX$ 提供了 `\textcircled` 命令用以给字符加圈，但效果却不怎么好。实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是几乎无法在 $\TeX$ 宏层面解决的。
+excerpt: 众所周知，\LaTeX 提供了 `\textcircled` 命令用以给字符加圈，但效果却不怎么好。实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是几乎无法在 \TeX 宏层面解决的。
 ---
 
-众所周知，$\LaTeX$ 提供了 `\textcircled` 命令用以给字符加圈，但效果却不怎么好：
+众所周知，\LaTeX 提供了 `\textcircled` 命令用以给字符加圈，但效果却不怎么好：
 
 ![\textcircled](../images/circled-numbers/textcircled.svg){:.invert}
 
-实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是几乎无法在 $\TeX$ 宏层面解决的。因此，要得到比较好的效果，最好能使用预先设计的字符形（glyph）。
+实际上，加圈并不是一个平凡的变换，它会涉及到圈内字符形状的微调，而这是几乎无法在 \TeX 宏层面解决的。因此，要得到比较好的效果，最好能使用预先设计的字符形（glyph）。
 
 ## 传统方案
 
@@ -22,15 +22,16 @@ excerpt: 众所周知，$\LaTeX$ 提供了 `\textcircled` 命令用以给字符�
 
 ![pifont](../images/circled-numbers/pifont.svg){:.invert}
 
-在主流的 $\TeX$ 引擎下，`pifont` 宏包都可以使用。
+在主流的 \TeX 引擎下，`pifont` 宏包都可以使用。
 
 ## Unicode
 
-数字 0--50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 $\TeX$ 引擎（$\>XeTeX$ 和 $\>LuaTeX$，若无特殊说明以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：[^font]
+数字 0--50 的带圈版本都分配了对应的 Unicode 码位，因而在现代 \TeX 引擎（\XeTeX 和 \LuaTeX，若无特殊说明以下仅讨论这两者）中，配合合适的字体，理论上可以直接输入这些符号。具体见下表：[^font]
 
 [^font]: 在本页面的 CSS 中，带圈数字将优先使用思源宋体（Source Han Serif）显示，但具体结果仍然取决于字体的安装情况以及浏览器的渲染方式。
 
 {:.circled-number}
+|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |  ⓪  |  ①  |  ②  |  ③  |  ④  |  ⑤  |  ⑥  |  ⑦  |  ⑧  |  ⑨  |  ⑩  |
 | 24EA | 2460 | 2461 | 2462 | 2463 | 2464 | 2465 | 2466 | 2467 | 2468 | 2469 |
 |      |  ⑪  |  ⑫  |  ⑬  |  ⑭  |  ⑮  |  ⑯  |  ⑰  |  ⑱  |  ⑲  |  ⑳  |
@@ -47,6 +48,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 - 反白（negative circled digits）
 
   {:.circled-number}
+  |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
   |  ⓿  |  ❶  |  ❷  |  ❸  |  ❹  |  ❺  |  ❻  |  ❼  |  ❽  |  ❾  |  ❿  |
   | 24FF | 2776 | 2777 | 2778 | 2779 | 277A | 277B | 277C | 277D | 277E | 277F |
   |      |  ⓫  |  ⓬  |  ⓭  |  ⓮  |  ⓯  |  ⓰  |  ⓱  |  ⓲  |  ⓳  |  ⓴  |
@@ -55,12 +57,14 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 - 无衬线（circled sans-serif digits）
 
   {:.circled-number}
+  |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
   |   🄋  |  ➀  |  ➁  |  ➂  |  ➃  |  ➄  |  ➅  |  ➆  |  ➇  |  ➈  |  ➉  |
   | 1F10B | 2780 | 2781 | 2782 | 2783 | 2784 | 2785 | 2786 | 2787 | 2788 | 2789 |
 
 - 无衬线反白（negative circled sans-serif digits）
 
   {:.circled-number}
+  |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
   |   🄌  |  ➊  |  ➋  |  ➌  |  ➍  |  ➎  |  ➏  |  ➐  |  ➑  |  ➒  |  ➓  |
   | 1F10C | 278A | 278B | 278C | 278D | 278E | 278F | 2790 | 2791 | 2792 | 2793 |
 
@@ -69,18 +73,21 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 - 双线（double circled digits）
 
   {:.circled-number}
+  |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
   |  ⓵  |  ⓶  |  ⓷  |  ⓸  |  ⓹  |  ⓺  |  ⓻  |  ⓼  |  ⓽  |  ⓾  |
   | 24F5 | 24F6 | 24F7 | 24F8 | 24F9 | 24FA | 24FB | 24FC | 24FD | 24FE |
 
 - 加框（circled numbers on black square）
 
   {:.circled-number}
+  |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
   |  ㉈  |  ㉉  |  ㉊  |  ㉋  |  ㉌  |  ㉍  |  ㉎  |  ㉏  |
   | 3248 | 3249 | 324A | 324B | 324C | 324D | 324E | 324F |
 
 - 带圆括号（parenthesized digits）
 
   {:.circled-number}
+  |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
   |  ⑴  |  ⑵  |  ⑶  |  ⑷  |  ⑸  |  ⑹  |  ⑺  |  ⑻  |  ⑼  |  ⑽  |
   | 2474 | 2475 | 2476 | 2477 | 2478 | 2479 | 247A | 247B | 247C | 247D |
   |  ⑾  |  ⑿  |  ⒀  |  ⒁  |  ⒂  |  ⒃  |  ⒄  |  ⒅  |  ⒆  |  ⒇  |
@@ -89,6 +96,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 - 带点（digits with full stop）
 
   {:.circled-number}
+  |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
   |   🄀  |  ⒈  |  ⒉  |  ⒊  |  ⒋  |  ⒌  |  ⒍  |  ⒎  |  ⒏  |  ⒐  |  ⒑  |
   | 1F100 | 2488 | 2489 | 248A | 248B | 248C | 248D | 248E | 248F | 2490 | 2491 |
   |       |  ⒒  |  ⒓  |  ⒔  |  ⒕  |  ⒖  |  ⒗  |  ⒘  |  ⒙  |  ⒚  |  ⒛  |
@@ -97,12 +105,14 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 - 带逗号（digits with comma）
 
   {:.circled-number}
+  |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
   |   🄁  |   🄂  |   🄃  |   🄄  |   🄅  |   🄆  |   🄇  |   🄈  |   🄉  |   🄊  |
   | 1F101 | 1F102 | 1F103 | 1F104 | 1F105 | 1F106 | 1F107 | 1F108 | 1F109 | 1F10A |
 
 - 这些姑且也算上吧：
 
   {:.circled-number}
+  |:-----:|:-----:|:-----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
   |   ㈠  |   ㈡  |   ㈢  |  ㈣  |  ㈤  |  ㈥  |  ㈦  |  ㈧  |  ㈨  |  ㈩  |
   |  3220 |  3221 |  3222 | 3223 | 3224 | 3225 | 3226 | 3227 | 3228 | 3229 |
   |   ㊀  |   ㊁  |   ㊂  |  ㊃  |  ㊄  |  ㊅  |  ㊆  |  ㊇  |  ㊈  |  ㊉  |
@@ -136,7 +146,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
   - 带方框 `一`、`二`、`三`
   - 带六角括号 `二`、`三`
 
-直接输入，或者利用码位，都能在 $\LaTeX$ 中使用以上这些带圈数字（注意不同方法对大小写的要求有差异）：
+直接输入，或者利用码位，都能在 \LaTeX 中使用以上这些带圈数字（注意不同方法对大小写的要求有差异）：
 
 ```tex
 \documentclass{article}
@@ -152,7 +162,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 \end{document}
 ```
 
-使用 $\>XeLaTeX$ 或 $\>LuaLaTeX$ 编译，效果如下：
+使用 \XeLaTeX 或 \LuaLaTeX 编译，效果如下：
 
 ![textcircled-fontspec](../images/circled-numbers/textcircled-fontspec.svg){:.invert}
 
@@ -173,7 +183,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 \end{document}
 ```
 
-利用 $\LaTeX3$ 语法也可以迅速写出如下循环而不伤身体：
+利用 \LaTeX3 语法也可以迅速写出如下循环而不伤身体：
 
 ```tex
 \ExplSyntaxOn
@@ -203,19 +213,19 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 对于中文文档，我们通常需要为中西文（「西文」主要指 Latin script）分别设置字体。上面已经提到过，带圈数字分散在了几个 Unicode 区块中。`xeCJK` 将其中的 Enclosed CJK Letters and Months 和 Enclosed Ideographic Supplement 设置为了 CJK 字符类，使用中文字体；其余则为 Default 字符类，使用西文字体。
 
-$\>LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 ALchar 和 JAchar 的划分，大致相当于西文和日文（AL=**AL**phabetic，JA=**JA**panese）；同时又预定义了一些字符范围。默认设置中，上文所列的所有带圈数字均会使用日文字体。其后，`ctex` 宏集为了适应中文排版的需求又做了一些修改。结果是，Enclosed Alphanumerics 被设置为了 ALchar，即使用西文字体。
+\LuaTeX 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了 ALchar 和 JAchar 的划分，大致相当于西文和日文（AL=**AL**phabetic，JA=**JA**panese）；同时又预定义了一些字符范围。默认设置中，上文所列的所有带圈数字均会使用日文字体。其后，`ctex` 宏集为了适应中文排版的需求又做了一些修改。结果是，Enclosed Alphanumerics 被设置为了 ALchar，即使用西文字体。
 
 总而言之，在 `ctex` 宏集的默认配置下：
 
-| Unicode 区块                     | $\>XeLaTeX$ | $\>LuaLaTeX$ |
-|:--------------------------------:|:----------:|:-----------:|
-| Enclosed Alphanumerics           | 西文       | 西文        |
-| Dingbats                         | 西文       | 西文        |
-| Enclosed CJK Letters and Months  | 中文       | 中文        |
-| Enclosed Alphanumeric Supplement | 西文       | 西文        |
-| Enclosed Ideographic Supplement  | 中文       | 西文        |
+| Unicode 区块                     | \XeLaTeX | \LuaLaTeX |
+|:--------------------------------:|:--------:|:---------:|
+| Enclosed Alphanumerics           | 西文     | 西文      |
+| Dingbats                         | 西文     | 西文      |
+| Enclosed CJK Letters and Months  | 中文     | 中文      |
+| Enclosed Alphanumeric Supplement | 西文     | 西文      |
+| Enclosed Ideographic Supplement  | 中文     | 西文      |
 
-在 $\>XeLaTeX$ 下，可以做如下修改：
+在 \XeLaTeX 下，可以做如下修改：
 
 ```tex
 {% raw %}% 使用中文字体
@@ -236,7 +246,7 @@ $\>LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了
 % \setmainfont{Garamond-Math.otf}{% endraw %}
 ```
 
-在 $\>LuaLaTeX$ 下，也完全类似：
+在 \LuaLaTeX 下，也完全类似：
 
 ```tex
 {% raw %}% 使用中文字体
@@ -331,11 +341,11 @@ $\>LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了
 - `\CIDtextrboxed`
 - `\CIDtextblackrboxed`
 
-支持的数字范围是 0--100 和 00--09。$\>XeTeX$、$\>LuaTeX$ 和 $\>upTeX$ 这三种 Unicode 引擎均可使用，但需要配合其他宏包及命令以实现正确的字体调用：
+支持的数字范围是 0--100 和 00--09。\XeTeX、\LuaTeX 和 \upTeX 这三种 Unicode 引擎均可使用，但需要配合其他宏包及命令以实现正确的字体调用：
 
-- $\>XeLaTeX$ 下需要通过 `\setmainfont` 等命令设置字体
-- $\>LuaLaTeX$ 下需要通过 `\setmainjfont` 等命令设置（日文）字体
-- $\>upLaTeX$ 下需要调用 `pxchfon` 宏包，并且使用 `\setminchofont` 等命令设置字体，具体可以参考以下示例：
+- \XeLaTeX 下需要通过 `\setmainfont` 等命令设置字体
+- \LuaLaTeX 下需要通过 `\setmainjfont` 等命令设置（日文）字体
+- \upLaTeX 下需要调用 `pxchfon` 宏包，并且使用 `\setminchofont` 等命令设置字体，具体可以参考以下示例：
 
   ```tex
   {% raw %}% test-uptex.tex
@@ -360,7 +370,7 @@ $\>LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了
 
   ![textcircled-cid-uptex](/images/circled-numbers/textcircled-cid-uptex.svg){:.invert}
 
-  注意 $\>upTeX$ 不直接生成 PDF，因此编译时可采取如下方式：
+  注意 \upTeX 不直接生成 PDF，因此编译时可采取如下方式：
 
   ```bash
   uplatex test-uptex && dvipdfmx test-uptex
@@ -370,7 +380,7 @@ $\>LuaTeX$ 下的情况类似，但稍显复杂。首先是 `luatexja` 作出了
 
 ## 字体的选择
 
-上文我们多次提及，带圈数字的具体使用与字体密切相关。下面我们整理了 $\TeX$ Live 自带的、可使用带圈数字的字体，以及对应的数字范围：
+上文我们多次提及，带圈数字的具体使用与字体密切相关。下面我们整理了 \TeX Live 自带的、可使用带圈数字的字体，以及对应的数字范围：
 
 {:.circled-number-fonts}
 | 字体                                                            | 带圈   | 反白   | 无衬线 | 无衬线反白 |

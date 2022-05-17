@@ -13,7 +13,7 @@ excerpt: 在上一回中，我们介绍了字体的相关背景知识，并且�
 
 ## NFSS 简介
 
-[NFSS](https://www.latex-project.org/help/documentation/fntguide.pdf) (New Font Selection Scheme)，即「新字体选择方案」，是 $\>LaTeXe$ 中的字体选择系统。按照 NFSS 的规定，$\LaTeX$ 中的所有字体都要包含以下 5 种属性：
+[NFSS](https://www.latex-project.org/help/documentation/fntguide.pdf) (New Font Selection Scheme)，即「新字体选择方案」，是 \LaTeXe 中的字体选择系统。按照 NFSS 的规定，\LaTeX 中的所有字体都要包含以下 5 种属性：
 
 - 编码（encoding）：规定了字体中各个字符（character）出现的顺序，或者说，定义了一个从字符到字符形（glyph）的映照
 - 族（family）：是我们通常所说的字体的名字，往往会涵盖多种变体，如 Computer Modern、Times New Roman、Source Han Sans 等
@@ -29,7 +29,7 @@ excerpt: 在上一回中，我们介绍了字体的相关背景知识，并且�
 
 ## 与 Word 的比较
 
-对于刚接触 $\LaTeX$ 的朋友来说，字体问题一定是一个大坑。在 Word 里面，选择字体只需在下拉菜单中选一下，加粗选「**B**」，倾斜选「<em><span class="slab-I">I</span></em>」，字号也可以很轻易地改为任意想要的数字。为什么 $\LaTeX$ 就要制造这么多困难呢？
+对于刚接触 \LaTeX 的朋友来说，字体问题一定是一个大坑。在 Word 里面，选择字体只需在下拉菜单中选一下，加粗选「**B**」，倾斜选「<em><span class="slab-I">I</span></em>」，字号也可以很轻易地改为任意想要的数字。为什么 \LaTeX 就要制造这么多困难呢？
 
 <div class="figure-slideshow">
   <figure>
@@ -43,13 +43,13 @@ excerpt: 在上一回中，我们介绍了字体的相关背景知识，并且�
   </figure> -->
 </div>
 
-一方面，人类的语言文字无比复杂，字体技术也必须有足够的规模才能够把它们支撑起来；另一方面，$\TeX$ 和 $\LaTeX$ 又太过古老，那个年代既没有 Unicode 也没有 OpenType，Word 也不知在哪里。此外，Word 作为字处理软件，隐藏了字体排印中的许多细节，相当于一部「能拍照的智能手机」；而 $\TeX$ 则是一部「全功能单反相机」[^eric-liu-camera]，它把繁琐的细节都交给了用户。Word 里面那几个按钮所做的工作远不止看上去那么简单，下面我们就来一一解释。
+一方面，人类的语言文字无比复杂，字体技术也必须有足够的规模才能够把它们支撑起来；另一方面，\TeX 和 \LaTeX 又太过古老，那个年代既没有 Unicode 也没有 OpenType，Word 也不知在哪里。此外，Word 作为字处理软件，隐藏了字体排印中的许多细节，相当于一部「能拍照的智能手机」；而 \TeX 则是一部「全功能单反相机」[^eric-liu-camera]，它把繁琐的细节都交给了用户。Word 里面那几个按钮所做的工作远不止看上去那么简单，下面我们就来一一解释。
 
 [^eric-liu-camera]: 语出播客节目 [《字谈字畅》](https://www.thetype.com/typechat/)
 
 ## 字体的坐标
 
-上文提到，NFSS 规定了 5 种坐标。对于编码，现代的 OpenType 字体几乎都使用 Unicode 编码，而使用 `fontspec` 之后，$\LaTeX$ 会自动将字体编码设为 `TU`，这两者是对应的，也就无需用户再进行手工干预。因此，字体选择的自由度就只剩下了 4 个。
+上文提到，NFSS 规定了 5 种坐标。对于编码，现代的 OpenType 字体几乎都使用 Unicode 编码，而使用 `fontspec` 之后，\LaTeX 会自动将字体编码设为 `TU`，这两者是对应的，也就无需用户再进行手工干预。因此，字体选择的自由度就只剩下了 4 个。
 
 ### 字体的名称与字体族
 
@@ -139,7 +139,7 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 
 左侧真正的粗体有鲜明的笔画对比，显得端庄、优雅；而右侧的伪粗体不仅损失了这样的特色，而且笔画粘连，黑度不均，难于辨认。
 
-$\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold」。它会连续输出三个相同的符号，但使其稍稍错位，以实现加粗的效果：
+\LaTeX 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold」。它会连续输出三个相同的符号，但使其稍稍错位，以实现加粗的效果：
 
 ![bold-vs-pmb](../images/use-opentype-fonts-ii/bold-vs-pmb.svg){:.invert}
 
@@ -161,7 +161,7 @@ $\LaTeX$ 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold
   <img src="../images/use-opentype-fonts-ii/helvetica-vs-neue.png" alt="helvetica-vs-neue" style="width: 49%;" class="invert">
 </figure>
 
-另一方面，意大利体也未必一定是倾斜的。$\TeX$ 的默认字体 Computer Modern 家族中就包含了一个未倾斜的意大利体；当然倾斜的意大利体和伪斜体也是有的（这里的 slant 没有经过额外的调整，所以是「伪」斜）：
+另一方面，意大利体也未必一定是倾斜的。\TeX 的默认字体 Computer Modern 家族中就包含了一个未倾斜的意大利体；当然倾斜的意大利体和伪斜体也是有的（这里的 slant 没有经过额外的调整，所以是「伪」斜）：
 
 ![cm-italic](../images/use-opentype-fonts-ii/cm-italic.svg){:.invert}
 
@@ -198,7 +198,7 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
 
 ![lm-optical-size](../images/use-opentype-fonts-ii/lm-optical-size.svg){:.invert}
 
-至此我们简要回顾了几种字体的坐标，下面我们就重新回到 $\TeX$ 的轨道上，介绍在 `fontspec` 中的使用方法。
+至此我们简要回顾了几种字体的坐标，下面我们就重新回到 \TeX 的轨道上，介绍在 `fontspec` 中的使用方法。
 
 ## `fontspec` 提高篇
 
@@ -213,21 +213,21 @@ Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号�
 \setmainfont{EBGaramond-Regular.otf}  % 字体文件名
 ```
 
-由于各平台、各引擎的限制，实际情况远比这两行代码复杂得多。事实上，这里很可能是整个 $\LaTeX$ 使用过程中最为混乱的地方（之一）。
+由于各平台、各引擎的限制，实际情况远比这两行代码复杂得多。事实上，这里很可能是整个 \LaTeX 使用过程中最为混乱的地方（之一）。
 
 具体来说：
 
-- 在 Windows 和 Linux 系统中，$\>XeTeX$ 会使用 [fontconfig](https://www.freedesktop.org/wiki/Software/fontconfig/) 库调用字体，而在 macOS 中则会使用苹果自己的 [Core Text](https://developer.apple.com/documentation/coretext) 库
-- $\>LuaTeX$ 本身并不能调用字体，而是通过 `luaotfload` 包进行调用
+- 在 Windows 和 Linux 系统中，\XeTeX 会使用 [fontconfig](https://www.freedesktop.org/wiki/Software/fontconfig/) 库调用字体，而在 macOS 中则会使用苹果自己的 [Core Text](https://developer.apple.com/documentation/coretext) 库
+- \LuaTeX 本身并不能调用字体，而是通过 `luaotfload` 包进行调用
 
-总而言之后果就是，在 macOS 上使用 $\>XeTeX$ 调用系统字体时必须使用**字体名**，而调用 TEXMF 中的字体（即 $\TeX$ 发行版自带字体）时则必须使用**文件名**。
+总而言之后果就是，在 macOS 上使用 \XeTeX 调用系统字体时必须使用**字体名**，而调用 TEXMF 中的字体（即 \TeX 发行版自带字体）时则必须使用**文件名**。
 
 使用字体名时，要注意这些问题：
 
-- 字体名可以是我们上面提到的字体族名（family name）或字体全名（full name）；建议使用族名，以便 $\TeX$ 引擎可以正确识别各种变体
+- 字体名可以是我们上面提到的字体族名（family name）或字体全名（full name）；建议使用族名，以便 \TeX 引擎可以正确识别各种变体
 - Windows 和 Linux 系统中可以通过 fontconfig 附带的 `fc-list` 程序查看字体名，具体可以参考[附录](#fc-list-使用简介)
 - macOS 上可以使用系统自带的[字体册](https://support.apple.com/zh-cn/guide/font-book/welcome/mac)（Font Book）软件查看字体信息
-- $\TeX$ 引擎会自动匹配相应的变体，但有时也免不了需要手动配置，具体方法见下文
+- \TeX 引擎会自动匹配相应的变体，但有时也免不了需要手动配置，具体方法见下文
 
 使用文件名时，则要注意：
 
@@ -406,7 +406,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 [^ctex-yahei]: 见 tuna/thuthesis [#271](https://github.com/tuna/thuthesis/issues/271)
 [^ctex-xihei]: 见 tuna/thuthesis [#416](https://github.com/tuna/thuthesis/issues/416)
-[^ctex-emph]: @朴素的贝叶斯. [$\LaTeX$ 的罪与罚](https://zhuanlan.zhihu.com/p/52006922)
+[^ctex-emph]: @朴素的贝叶斯. [\LaTeX 的罪与罚](https://zhuanlan.zhihu.com/p/52006922)
 
 而 `fandol` 字库，虽然配齐了宋黑楷仿也有粗宋和粗黑，但毕竟天下没有免费的午餐，它缺字得厉害：
 
@@ -467,7 +467,7 @@ macOS 中没有自带中易字体，但如果安装了 Office，则可以找到�
 \newCJKfontfamily[zhfs]\fangsong{Fangsong.ttf}[\CJKFontFamilyOptions]
 ```
 
-上面的配置中，我们使用了 `AutoFakeBold` 和 `AutoFakeSlant` 选项，分别表示自动开启伪粗体和伪斜体效果。注意伪粗体仅支持 $\>XeTeX$ 引擎，而在 $\>LuaTeX$ 下无法使用。另外，这里用 `\newCJKfontfamily` 单独定义了字体族和命令，并且使用 `BoldFont=*`、`ItalicFont=*` 等选项关闭加粗、倾斜效果（即把 bold、italic 重定向到 upright），用以满足某些模版的特定需求。
+上面的配置中，我们使用了 `AutoFakeBold` 和 `AutoFakeSlant` 选项，分别表示自动开启伪粗体和伪斜体效果。注意伪粗体仅支持 \XeTeX 引擎，而在 \LuaTeX 下无法使用。另外，这里用 `\newCJKfontfamily` 单独定义了字体族和命令，并且使用 `BoldFont=*`、`ItalicFont=*` 等选项关闭加粗、倾斜效果（即把 bold、italic 重定向到 upright），用以满足某些模版的特定需求。
 
 最后，我们给出一个完整的示例，它还包括了章节标题、页眉页脚、强调样式等的修改：
 
@@ -799,9 +799,9 @@ Pattern has 21 elts (size 32)
 
 - [OpenType® specification](https://docs.microsoft.com/typography/opentype/spec/) - OpenType 官方技术说明
 - Wikipedia. [Font](https://en.wikipedia.org/wiki/Font)
-- Clerk Ma. [对于不了解字体的人，在使用 $\LaTeX$ 排版时如何通过 `fontspec` 包选择字体？- 知乎](https://www.zhihu.com/question/20563044/answer/15494226)
+- Clerk Ma. [对于不了解字体的人，在使用 \LaTeX 排版时如何通过 `fontspec` 包选择字体？- 知乎](https://www.zhihu.com/question/20563044/answer/15494226)
 - 宏包文档，本地可使用 `texdoc <宏包名>` 打开：
   - Will Robertson. [`fontspec` 宏包](https://ctan.org/pkg/fontspec)
   - ctex.org. [`xeCJK` 宏包](https://ctan.org/pkg/xecjk)
   - ctex.org. [`CTeX` 宏集](https://ctan.org/pkg/ctex)
-  - The $\>LuaTeX$-ja project. [`LuaTeX-ja` 宏集](https://ctan.org/pkg/luatexja)
+  - The \LuaTeX-ja project. [`LuaTeX-ja` 宏集](https://ctan.org/pkg/luatexja)

@@ -8,17 +8,17 @@ tags:
   - Fonts
   - OpenType
   - Symbols
-excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 $\TeX$ 设计的初衷，也是 $\LaTeX$ 最为人所称道的功能。
+excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 \TeX 设计的初衷，也是 \LaTeX 最为人所称道的功能。
 ---
 
 前文链接：
 
-- [在 $\LaTeX$ 中使用 OpenType 字体（一）](./2018-08-08-use-opentype-fonts)
-- [在 $\LaTeX$ 中使用 OpenType 字体（二）](./2019-07-06-use-opentype-fonts-ii)
+- [在 \LaTeX 中使用 OpenType 字体（一）](./2018-08-08-use-opentype-fonts)
+- [在 \LaTeX 中使用 OpenType 字体（二）](./2019-07-06-use-opentype-fonts-ii)
 
-以上两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 $\TeX$ 设计的初衷，也是 $\LaTeX$ 最为人所称道的功能[^leo-liu-latex]。现代 $\TeX$ 引擎（$\>XeTeX$ 和 $\>LuaTeX$）在传统 $\TeX$ 的基础上，还支持以 Unicode 和 OpenType 为基础的数学排版方案。在 $\LaTeX$ 中，可以通过 `unicode-math` 宏包使用这些功能。
+以上两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置字体、选择样式的基本方式。但是，在这近万字的篇幅中，我们始终都回避了数学字体的问题。排版数学公式是 \TeX 设计的初衷，也是 \LaTeX 最为人所称道的功能[^leo-liu-latex]。现代 \TeX 引擎（\XeTeX 和 \LuaTeX）在传统 \TeX 的基础上，还支持以 Unicode 和 OpenType 为基础的数学排版方案。在 \LaTeX 中，可以通过 `unicode-math` 宏包使用这些功能。
 
-[^leo-liu-latex]: 刘海洋. 《$\LaTeX$ 入门》
+[^leo-liu-latex]: 刘海洋. 《\LaTeX 入门》
 
 ## 背景
 
@@ -37,15 +37,15 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
 [^unicode-utr25]: [UTR 25: Unicode Support for Mathematics](https://www.unicode.org/reports/tr25/)
 
 <figure>
-  <img src="../images/use-opentype-fonts-iii/word-equation-editor.gif" alt="word-equation-editor" style="max-width: 600px;">
+  <!-- <img src="../images/use-opentype-fonts-iii/word-equation-editor.gif" alt="word-equation-editor" style="max-width: 600px;"> -->
   <figcaption markdown="span">Word 2019 中的公式编辑器。特殊符号可通过反斜线 `\` 转义，其后输入空格则会触发自动替换</figcaption>
 </figure>
 
-花开两朵，各表一枝。$\\(La)TeX$ 这边虽然历经一二十年已经搞成了公式排版的事实标准，但缺乏新技术的支持（Unicode 和 OpenType 也不能算新了），很多时候仍然显得落伍。于是 Jonathan Kew 单枪匹马开发出了 $\>XeTeX$，终于与时代接了轨。再后来 Hans Hagen 等人又开发了 $\>LuaTeX$，与 $\>XeTeX$ 一样原生支持 Unicode 与 OpenType，同时还可借由内嵌 Lua 实现多种扩展功能。
+花开两朵，各表一枝。\(La)TeX 这边虽然历经一二十年已经搞成了公式排版的事实标准，但缺乏新技术的支持（Unicode 和 OpenType 也不能算新了），很多时候仍然显得落伍。于是 Jonathan Kew 单枪匹马开发出了 \XeTeX，终于与时代接了轨。再后来 Hans Hagen 等人又开发了 \LuaTeX，与 \XeTeX 一样原生支持 Unicode 与 OpenType，同时还可借由内嵌 Lua 实现多种扩展功能。
 
 到目前为止，支持这一方案的软件大概有以下这些：
 
-- MS Word、$\>XeTeX$、$\>LuaTeX$
+- MS Word、\XeTeX、\LuaTeX
 - 浏览器：Firefox、Safari、~~Chrome 24~~[^can-i-use-mathml]
 - 字体编辑器：FontForge[^fontforge-math]
 
@@ -54,7 +54,7 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
 
 ## 基本用法
 
-载入 `unicode-math` 宏包后，用 $\>XeLaTeX$ 或 $\>LuaLaTeX$ 编译，即可使用基于 OpenType 的数学字体：
+载入 `unicode-math` 宏包后，用 \XeLaTeX 或 \LuaLaTeX 编译，即可使用基于 OpenType 的数学字体：
 
 ```tex
 \documentclass{article}
@@ -73,7 +73,7 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
   <figcaption>正态分布的累积分布函数</figcaption>
 </figure>
 
-基本用法和通常的 $\LaTeX$ 并无二致。不过我们很快就可以看到 `unicode-math` 的独特之处，比如上面的公式还可以写成这样：
+基本用法和通常的 \LaTeX 并无二致。不过我们很快就可以看到 `unicode-math` 的独特之处，比如上面的公式还可以写成这样：
 
 ```tex
 % 需要 UTF-8 编码
@@ -111,7 +111,7 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
 
 ## 字符支持
 
-数学公式中所使用的字符，一方面是字母、数字以及它们的各种字体形式，另一方面则是加减乘除、大于小于、积分求和、圆三角方这些符号。标准 $\LaTeX$ 使用 Knuth 教授开发的 Computer Modern 字体排版数学公式。由于 $\TeX$ 自身的限制，这种传统的 Type1 字体最多只能包含 256 个字符形（glyph）。因此在 $\LaTeX$ 的 NFSS 方案中，需要不停切换编码和字体才实现比较好的排版效果，非常麻烦。而 `unicode-math` 宏包中使用 OpenType 数学字体，它把这些字符（以及相关的度量信息）封装在了一个单独的字体文件中，不再需要引入额外的宏包。
+数学公式中所使用的字符，一方面是字母、数字以及它们的各种字体形式，另一方面则是加减乘除、大于小于、积分求和、圆三角方这些符号。标准 \LaTeX 使用 Knuth 教授开发的 Computer Modern 字体排版数学公式。由于 \TeX 自身的限制，这种传统的 Type1 字体最多只能包含 256 个字符形（glyph）。因此在 \LaTeX 的 NFSS 方案中，需要不停切换编码和字体才实现比较好的排版效果，非常麻烦。而 `unicode-math` 宏包中使用 OpenType 数学字体，它把这些字符（以及相关的度量信息）封装在了一个单独的字体文件中，不再需要引入额外的宏包。
 
 ### 字母表
 
@@ -123,7 +123,7 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
 
 除此之外，数学公式还会需要大量语义变体，也就是上文提到过的不同样式的字母，包括：
 
-<table style="width: 100%; text-align: center;">
+<table style="text-align: center;">
   <thead>
     <tr>
       <th colspan="3">字体</th>
@@ -257,7 +257,7 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
 - `\mup...` 不适用于拉丁字母和数字
 - 双线体也叫黑板粗体（**B**lack**b**oard **b**old）
 
-标准 $\LaTeX$ 及 `amsmath` 扩展也提供了 `\mathbf`、`\mathcal`、`\mathbb` 等命令用来输入不同样式的字母，不过在使用 `unicode-math` 包之后，建议只使用 `\sym...` 这样的命令，以避免不必要的麻烦[^math-vs-sym]。此外需注意与 `\textbf` 等文本字体命令不同，无论是 `\math...` 还是 `\sym...` 都不能嵌套。
+标准 \LaTeX 及 `amsmath` 扩展也提供了 `\mathbf`、`\mathcal`、`\mathbb` 等命令用来输入不同样式的字母，不过在使用 `unicode-math` 包之后，建议只使用 `\sym...` 这样的命令，以避免不必要的麻烦[^math-vs-sym]。此外需注意与 `\textbf` 等文本字体命令不同，无论是 `\math...` 还是 `\sym...` 都不能嵌套。
 
 [^math-vs-sym]: `\math...` 命令在 `unicode-math` 包中仍可使用，但默认会使用文本字体（的粗体形式），而不是数学字体。
 
@@ -267,9 +267,9 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
 > - 有定义的已知函数（例如 $\sin$，$\exp$，$\ln$，$\Gamma$ 等）用正体字母表示。其值不变的数学常数（例如 $\mathrm{e}=2.718\,281\,8\cdots$，$\mathrm{π}=3.141\,592\,6\cdots$，$\mathrm{i}^2=−1$ 等）用正体字母表示。已定义的算子（例如 $\operatorname{div}$，$\mathrm{\delta}x$ 中的 $\mathrm{\delta}$ 及 $\mathrm{d}f/\mathrm{d}x$ 中的 $\mathrm{d}$）也用正体字母表示[^up-greek]。
 > - 数字表中数（例如 $351\,204$，$1.32$，$7/8$）的表示用正体。
 
-[^up-greek]: 受网页技术限制，这里的 $\mathrm{\delta}$ 和 $\mathrm{\pi}$ 实际上并不是正体。在标准 $\LaTeX$ 中，虽然也可以通过 `upgreek` 等包使用直立的小写希腊字母，但与默认的 Computer Modern 字体并不匹配。
+[^up-greek]: 受网页技术限制，这里的 $\mathrm{\delta}$ 和 $\mathrm{\pi}$ 实际上并不是正体。在标准 \LaTeX 中，虽然也可以通过 `upgreek` 等包使用直立的小写希腊字母，但与默认的 Computer Modern 字体并不匹配。
 
-另外，很多时候我们需要用粗体字母表示矩阵和向量。国标使用了粗斜体（虽然并没有明确指出），例如矩阵 $\bm{A}$、向量 $\bm{a}$ 等（标准 $\LaTeX$ 中使用 `\boldsymbol` 或 `bm` 包提供的 `\bm` 命令）；也有人习惯不倾斜，比如矩阵 $\mathbf{B}$、向量 $\mathbf{b}$ 等（使用 `\mathbf` 命令）。
+另外，很多时候我们需要用粗体字母表示矩阵和向量。国标使用了粗斜体（虽然并没有明确指出），例如矩阵 $\bm{A}$、向量 $\bm{a}$ 等（标准 \LaTeX 中使用 `\boldsymbol` 或 `bm` 包提供的 `\bm` 命令）；也有人习惯不倾斜，比如矩阵 $\mathbf{B}$、向量 $\mathbf{b}$ 等（使用 `\mathbf` 命令）。
 
 考虑到多样化的需求，`unicode-math` 包提供了一些选项（可以在 `\usepackage` 时加上或用 `\unimathsetup` 命令设置），允许用户修改默认的字体样式：
 
@@ -279,7 +279,7 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
 
 允许的取值和效果见下表（* 表示默认值）：
 
-<table style="width: 100%; text-align: center;">
+<table style="text-align: center;">
   <thead>
     <tr>
       <th rowspan="2" colspan="2">选项</th>
@@ -407,9 +407,9 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
 
 ### 其他符号
 
-传统上，如果某个符号没有包含在默认的 Computer Modern 字体中，用户就要化身「调包侠」，四处寻找可能的命令。著名的文档 [*The Comprehensive $\LaTeX$ Symbol List*](https://www.ctan.org/pkg/comprehensive) 就列出了几乎所有可以在 $\LaTeX$ 中使用的符号。
+传统上，如果某个符号没有包含在默认的 Computer Modern 字体中，用户就要化身「调包侠」，四处寻找可能的命令。著名的文档 [*The Comprehensive \LaTeX Symbol List*](https://www.ctan.org/pkg/comprehensive) 就列出了几乎所有可以在 \LaTeX 中使用的符号。
 
-而在 `unicode-math` 宏包中，则可以使用 Unicode 所定义的数学符号，这是标准 $\LaTeX$+`amsmath` 的超集，足够满足日常需求。符号列表以及对应的命令都可以在文档 [`unimath-symbols.pdf`](https://mirrors.ctan.org/macros/unicodetex/latex/unicode-math/unimath-symbols.pdf) 中找到。和之前演示的一样，直接以 Unicode 字符输入也是可以的：
+而在 `unicode-math` 宏包中，则可以使用 Unicode 所定义的数学符号，这是标准 \LaTeX+`amsmath` 的超集，足够满足日常需求。符号列表以及对应的命令都可以在文档 [`unimath-symbols.pdf`](https://mirrors.ctan.org/macros/unicodetex/latex/unicode-math/unimath-symbols.pdf) 中找到。和之前演示的一样，直接以 Unicode 字符输入也是可以的：
 
 ```tex
 \documentclass{article}
@@ -446,7 +446,7 @@ excerpt: 之前两篇文章介绍了 $\LaTeX$ 中使用 `fontspec` 等宏包设�
 
 ## 数学字体
 
-OpenType 数学字体在相当长的时间内只有少数几种，不过近年来陆续有人投入其中，大大增加了可选择的余地。在 $\TeX$ Live 中，可以直接使用的就有下面这些：[^math-fonts][^math-fonts-zhihu]
+OpenType 数学字体在相当长的时间内只有少数几种，不过近年来陆续有人投入其中，大大增加了可选择的余地。在 \TeX Live 中，可以直接使用的就有下面这些：[^math-fonts][^math-fonts-zhihu]
 
 [^math-fonts]: [Which OpenType Math fonts are available?](https://tex.stackexchange.com/q/425098)
 [^math-fonts-zhihu]: 坏名字. [有哪些适用于 Unicode Math 的字体推荐？- 知乎](https://www.zhihu.com/question/415431516/answer/1466968600)
