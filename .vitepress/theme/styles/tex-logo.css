@@ -1,7 +1,3 @@
-.tex-logo {
-  @apply text-red;
-}
-
 .tex-logo-a {
   text-transform: uppercase;
   font-size: 70%;

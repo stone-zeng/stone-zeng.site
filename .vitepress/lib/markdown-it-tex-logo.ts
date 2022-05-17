@@ -2,7 +2,7 @@ import MarkdownIt from 'markdown-it';
 import StateInline from 'markdown-it/lib/rules_inline/state_inline';
 import Token from 'markdown-it/lib/token';
 
-const span = (className, e) => `<span class="tex-logo-${className}">${e}</span>`;
+const span = (className: string, el: string) => `<span class="tex-logo-${className}">${el}</span>`;
 
 const TEX = `T${span('e', 'e')}X`;
 const LA = `L${span('a', 'a')}`;
@@ -42,23 +42,23 @@ const TEX_LOGO_PATTERN = new RegExp(
     .replace(/([\(\)])/g, '\\$1')})\\b`
 );
 
-const parseTexLogo = (state: StateInline, silent: boolean) => {
-  if (state.src[state.pos] !== '\\' || state.pos + 1 >= state.posMax) return false;
+const parseTeXLogo = (state: StateInline, silent: boolean) => {
+  if (silent || state.src[state.pos] !== '\\' || state.pos + 1 >= state.posMax) return false;
 
+  // Skip `\`
   state.pos += 1;
-  const match = state.src.slice(state.pos).match(TEX_LOGO_PATTERN);
 
+  // Check if it's a TeX logo
+  const match = state.src.slice(state.pos).match(TEX_LOGO_PATTERN);
   if (!match) return false;
 
-  const content = match[0];
   let token = state.push('tex_logo_open', 'span', 1);
   token.attrPush(['class', 'tex-logo']);
-
   token = state.push('tex_logo_text', '', 0);
-  token.content = content;
-
+  token.content = match[0];
   token = state.push('tex_logo_close', 'span', -1);
-  state.pos += content.length;
+
+  state.pos += match[0].length;
 
   return true;
 };
@@ -69,7 +69,7 @@ const texLogoRenderer = (tokens: Token[], idx: number) => {
 };
 
 const plugin = (md: MarkdownIt) => {
-  md.inline.ruler.before('escape', 'tex_logo', parseTexLogo);
+  md.inline.ruler.before('escape', 'tex_logo', parseTeXLogo);
   md.renderer.rules['tex_logo_text'] = texLogoRenderer;
 };
 

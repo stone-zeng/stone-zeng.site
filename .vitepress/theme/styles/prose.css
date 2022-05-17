@@ -136,7 +136,7 @@
 }
 
 .prose :not(pre) > code {
-  @apply text-sm py-px;
+  @apply text-0.875em py-px;
 }
 
 .prose kbd {
