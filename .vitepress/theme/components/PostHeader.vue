@@ -1,5 +1,17 @@
 <template>
-  <h1 class="font-bold text-2xl mt-8 mb-4">{{ toTitle(page.title) }}</h1>
+  <h1 class="group items-end font-bold text-2xl mt-8 mb-4">
+    {{ toTitle(page.title) }}
+    <a
+      :href="srcUrl"
+      class="invisible text-blue-500 opacity-0 transition-opacity"
+      group-hover="visible opacity-100"
+      target="_blank"
+    >
+      <span class="inline-block w-5 -mb-0.5">
+        <MaterialIcon name="file-document-edit" />
+      </span>
+    </a>
+  </h1>
   <div class="text-sm text-neutral-400 mb-8" dark="text-neutral-500">
     <ul class="flex flex-col gap-1" md="flex-row flex-wrap gap-x-4">
       <template v-for="item in meta">
@@ -18,7 +30,7 @@
 
 <script setup lang="ts">
 import { useData } from 'vitepress';
-import { onMounted, reactive } from 'vue';
+import { computed, onMounted, reactive } from 'vue';
 
 import { isArray, isDate, toTitle } from '../utils';
 import MaterialIcon from './MaterialIcon.vue';
@@ -26,6 +38,11 @@ import PostDate from './PostDate.vue';
 import PostTags from './PostTags.vue';
 
 const { page } = useData();
+
+const srcUrl = computed(
+  () =>
+    `https://github.com/stone-zeng/stone-zeng.github.io/blob/vitepress/docs/${page.value.relativePath}`
+);
 
 const meta = reactive([]);
 
@@ -52,7 +69,8 @@ onMounted(() => {
     ? new Date(page.value.frontmatter.updated)
     : null;
   //TODO: avoid DOM access
-  const words = wordCount(document.getElementById('content').innerText);
+  const content = document.getElementById('content');
+  const words = content ? wordCount(content.innerText) : null;
   meta.push(
     { title: 'Post date', icon: 'calendar-month', data: date },
     { title: 'Update date', icon: 'calendar-edit', data: updateDate },
