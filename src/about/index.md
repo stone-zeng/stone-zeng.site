@@ -31,7 +31,7 @@ Currently, I'm
 - [KaTeX](https://katex.org/)
 - [Medium Zoom](https://medium-zoom.francoischalifour.com/)
 - [Source Han Sans](https://fonts.adobe.com/fonts/source-han-sans-cjk-simplified-chinese)
-- [The Type (Type is Beautiful)](https://thetype.com/)
+- [The Type (Type is Beautiful)](https://www.thetype.com/)
 - [不蒜子 - 极简网页计数器](https://busuanzi.ibruce.info)
 - [始终 - Liam Huang's blog](https://liam.page/)
 
