@@ -128,8 +128,8 @@ $$
 We can evaluate the eigensystem directly by Mathematica:
 
 ```wl
-{% raw %}H = {{U, -Sqrt[2] t, 0}, {-Sqrt[2] t, 0, -Sqrt[2] t}, {0, -Sqrt[2] t, U}};
-FullSimplify @ Eigensystem @ H{% endraw %}
+H = {{U, -Sqrt[2] t, 0}, {-Sqrt[2] t, 0, -Sqrt[2] t}, {0, -Sqrt[2] t, U}};
+FullSimplify @ Eigensystem @ H
 ```
 
 The result is
@@ -285,7 +285,7 @@ interactionPart[basis_, couplingConst_, basisNumRange_] :=
 The `kineticPart[]` (i.e. hopping term), however, is much more complicated and need some explanation:
 
 ```wl
-{% raw %}kineticPart[basis_, positionMap_, basisNumRange_] :=
+kineticPart[basis_, positionMap_, basisNumRange_] :=
   Catenate @ MapThread[kineticPartMapFunc] @ {
     Apply[{positionMap[#1], #2} &, DeleteCases[{_, 0.}] /@
       Transpose[{opADagAState[basis], opADagAValue[basis]}, {3, 1, 2}], {2}],
@@ -298,7 +298,7 @@ opADagAValue[basis_] :=
   -Sqrt[(#1 + 1.) * #2] & @@@ (Join[#, Reverse[#, {2}]] & @ Partition[#, 2, 1, 1]) & /@
     basis
 kineticPartMapFunc[stateValuePairs_, index_] :=
-  ({index, #1} -> #2) & @@@ stateValuePairs{% endraw %}
+  ({index, #1} -> #2) & @@@ stateValuePairs
 ```
 
 The basic idea is to calculate all the non-vanishing matrix elements. I use some list tricks to find the components of $\hat{a}_i^\dagger\hat{a}_j$ in `opADagAState[]`, then obtain their indices from the association `positionMap`. In `opADagAValue[]`, the coefficients are calculated. Note that the zero elements will be removed in `kineticPart[]`, as they make no contributions to the Hamiltonian matrix.
@@ -342,7 +342,7 @@ Here, we first calculate the result of $\hat{a}_i\ket{\psi_0}$, then merge and s
 We only need to consider the off-diagonal elements, since $\rho\_{ii}^{(1)}$ are automatically zero.
 
 ```wl
-{% raw %}getSPDM[groundState_, basis_, {i_, i_}] := 0.
+getSPDM[groundState_, basis_, {i_, i_}] := 0.
 getSPDM[groundState_, basis_, {i_, j_}] :=
   Total @ Merge[AssociationThread /@ {
       basis -> groundState,
@@ -352,7 +352,7 @@ getSPDM[groundState_, basis_, {i_, j_}] :=
         -> (Sqrt[(#[[i]] + 1.) * #[[j]]] & /@ basis) * groundState
     }, getSPDMMergeFunc]
 getSPDMMergeFunc[{a_}] := 0.
-getSPDMMergeFunc[{a_, b_}] := a * b{% endraw %}
+getSPDMMergeFunc[{a_, b_}] := a * b
 ```
 
 ### Condensate fraction
@@ -372,12 +372,12 @@ $$
 as well as the periodic boundary condition. So we just need to evaluate about $\lceil(N+1)/2\rceil$ elements:
 
 ```wl
-{% raw %}getCondensateFraction[groundState_, basis_, siteNum_, particleNum_] :=
+getCondensateFraction[groundState_, basis_, siteNum_, particleNum_] :=
   With[{eval = Table[getSPDM[groundState, basis, {1, i}],
       {i, 2, Ceiling[(siteNum + 1) / 2]}]},
     First[Eigenvalues[#, 1]] / particleNum & @
       NestList[RotateRight,
-        Join[{1.}, eval, Reverse[eval][[2 - Mod[siteNum, 2] ;;]]], siteNum - 1]]{% endraw %}
+        Join[{1.}, eval, Reverse[eval][[2 - Mod[siteNum, 2] ;;]]], siteNum - 1]]
 ```
 
 As its name indicated, the condensate fraction is a signal of phase transition. If $f_{\mathrm{c}} \sim 1$, we say that the system is in a condensate state. This condensate is also associated with the **off-diagonal long range order**, which can be shown with the off-diagonal elements in $\rho_{ij}^{(1)}$.
@@ -393,9 +393,9 @@ $$
 It can be calculated without too many tricks:
 
 ```wl
-{% raw %}getOccupationVariance[groundState_, basis_, i_: 1] := With[{
+getOccupationVariance[groundState_, basis_, i_: 1] := With[{
     groundStateSq = groundState * groundState, basisAtI = basis[[All, i]]},
-  Sqrt[groundStateSq . (basisAtI * basisAtI) - (groundStateSq . basisAtI)^2]]{% endraw %}
+  Sqrt[groundStateSq . (basisAtI * basisAtI) - (groundStateSq . basisAtI)^2]]
 ```
 
 ### Plots
