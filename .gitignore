@@ -14,7 +14,7 @@
 *.woff2
 *.pdf
 
-.vitepress/.temp/
+.vitepress/cache/
 .vitepress/dist/
 .vscode/
 node_modules/

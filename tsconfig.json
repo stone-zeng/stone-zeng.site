@@ -1,21 +1,33 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./",
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "skipLibCheck": true,
-    "target": "esnext",
-    "types": [
-      "vitepress/client",
-      "node"
-    ],
-  },
   "include": [
-    ".vitepress/*.ts",
-    ".vitepress/theme/**/*",
+    ".vitepress/**/*.ts",
+    ".vitepress/**/*.d.ts",
+    ".vitepress/**/*.vue"
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "paths": {
+      "@/*": [
+        "./.vitepress/*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true
+  },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
   ]
 }

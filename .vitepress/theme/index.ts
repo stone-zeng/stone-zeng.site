@@ -1,6 +1,4 @@
-import 'uno.css';
-import './styles/index.css';
+import Layout from '@/theme/Layout.vue'
+import '@/theme/styles/index.css'
 
-import Layout from './Layout.vue';
-
-export default { Layout };
+export default { Layout }

@@ -1,184 +1,180 @@
-.prose {
-  @apply hyphens-auto;
-}
+@layer components {
+  .prose {
+    hyphens: auto;
+  }
 
-.prose p,
-.prose ul,
-.prose ol,
-.prose pre,
-.prose blockquote,
-.prose figure {
-  @apply my-4;
-}
+  .prose p,
+  .prose ul,
+  .prose ol,
+  .prose pre,
+  .prose blockquote,
+  .prose figure {
+    @apply my-4;
+  }
 
-.prose table,
-.prose pre,
-.prose figcaption {
-  @apply text-sm;
-}
+  .prose table,
+  .prose pre,
+  .prose figcaption {
+    @apply text-sm;
+  }
 
-.prose table,
-.prose pre {
-  @apply overflow-x-auto;
-}
+  .prose table,
+  .prose pre {
+    @apply overflow-x-auto;
+  }
 
-/* Headings */
+  /* Headings */
 
-.prose h2 {
-  @apply font-bold text-xl border-b-1 border-light-800 pb-2 mb-4;
-  @apply dark:border-dark-50;
-}
+  .prose h2 {
+    @apply mb-4 border-b border-light-800 pb-2 text-xl font-bold dark:border-dark-50;
+  }
 
-.prose h3 {
-  @apply font-bold text-lg mb-4;
-}
+  .prose h3 {
+    @apply mb-4 text-lg font-bold;
+  }
 
-.prose h2:not(:first-of-type) {
-  @apply mt-12;
-}
+  .prose h2:not(:first-of-type) {
+    @apply mt-12;
+  }
 
-.prose h3:not(:first-of-type) {
-  @apply mt-8;
-}
+  .prose h3:not(:first-of-type) {
+    @apply mt-8;
+  }
 
-.prose h4 {
-  @apply font-bold my-4;
-}
+  .prose h4 {
+    @apply my-4 font-bold;
+  }
 
-.prose h2 + h3,
-.prose h3 + h4 {
-  @apply mt-0;
-}
+  .prose h2 + h3,
+  .prose h3 + h4 {
+    @apply mt-0;
+  }
 
-.prose .header-anchor {
-  @apply invisible opacity-0 transition-opacity;
-}
+  .prose .header-anchor {
+    @apply invisible opacity-0 transition-opacity;
+  }
 
-.prose h2:hover > .header-anchor,
-.prose h3:hover > .header-anchor,
-.prose h4:hover > .header-anchor {
-  @apply visible opacity-100;
-}
+  .prose h2:hover > .header-anchor,
+  .prose h3:hover > .header-anchor,
+  .prose h4:hover > .header-anchor {
+    @apply visible opacity-100;
+  }
 
-/* Lists */
+  /* Lists */
 
-.prose ul,
-.prose ol {
-  @apply pl-8;
-}
+  .prose ul,
+  .prose ol {
+    @apply pl-8;
+  }
 
-.prose ul {
-  @apply list-disc;
-}
+  .prose ul {
+    @apply list-disc;
+  }
 
-.prose ol {
-  @apply list-decimal;
-}
+  .prose ol {
+    @apply list-decimal;
+  }
 
-.prose li > ul {
-  @apply list-circle;
-}
+  .prose li > ul {
+    list-style: circle;
+  }
 
-.prose li > ol {
-  @apply list-alpha;
-}
+  .prose li > ol {
+    list-style: lower-alpha;
+  }
 
-.prose li > ul > li > ul {
-  @apply list-square;
-}
+  .prose li > ul > li > ul {
+    list-style: square;
+  }
 
-.prose li p,
-.prose li ul,
-.prose li ol,
-.prose li pre {
-  @apply my-2;
-}
+  .prose li p,
+  .prose li ul,
+  .prose li ol,
+  .prose li pre {
+    @apply my-2;
+  }
 
-.prose li > p:last-child,
-.prose li > [class^='language']:last-child {
-  @apply mb-4;
-}
+  .prose li > p:last-child,
+  .prose li > [class^='language']:last-child {
+    @apply mb-4;
+  }
 
-/* Quotes */
+  /* Quotes */
 
-.prose blockquote {
-  @apply border-l-4 border-light-800 pl-12px;
-  @apply dark:border-dark-50;
-}
+  .prose blockquote {
+    @apply border-l-4 border-light-800 pl-3 dark:border-dark-50;
+  }
 
-.prose blockquote > :not([class^='language']) {
-  @apply text-neutral-500;
-  @apply dark:text-neutral-400;
-}
+  .prose blockquote > :not([class^='language']) {
+    @apply text-neutral-500 dark:text-neutral-400;
+  }
 
-.prose blockquote ul,
-.prose blockquote ol {
-  @apply pl-4;
-}
+  .prose blockquote ul,
+  .prose blockquote ol {
+    @apply pl-4;
+  }
 
-/* Codes */
+  /* Codes */
 
-.prose pre,
-.prose code,
-.prose kbd {
-  @apply font-mono;
-}
+  .prose pre,
+  .prose code,
+  .prose kbd {
+    @apply font-mono;
+  }
 
-.prose pre {
-  @apply px-4 py-3 rounded bg-light-500;
-  @apply dark:bg-dark-300;
-}
+  .prose pre {
+    @apply rounded bg-light-500 px-4 py-3 dark:bg-dark-300;
+  }
 
-.prose :not(pre) > code,
-.prose kbd {
-  @apply px-1 rounded bg-light-500;
-  @apply dark:bg-dark-300;
-}
+  .prose :not(pre) > code,
+  .prose kbd {
+    @apply rounded bg-light-500 px-1 dark:bg-dark-300;
+  }
 
-.prose :not(pre) > code {
-  @apply text-0.875em py-px;
-}
+  .prose :not(pre) > code {
+    /* @apply text-0.875em py-px; */
+    @apply py-px text-sm;
+  }
 
-.prose kbd {
-  @apply text-xs border-1.5 border-light-800 pt-1.5px pb-0;
-  @apply dark:border-dark-50;
-}
+  .prose kbd {
+    /* @apply border-1.5 pt-1.5px border-light-800 pb-0 text-xs; */
+    @apply border-[1.5px] border-light-800 pt-[1.5px] pb-0 text-xs dark:border-dark-50;
+  }
 
-/* Figures */
+  /* Figures */
 
-.prose img {
-  @apply max-w-full border-1 border-light-800 mx-auto;
-  @apply dark:border-dark-50;
-}
+  .prose img {
+    @apply mx-auto max-w-full border border-light-800 dark:border-dark-50;
+  }
 
-.prose figcaption {
-  @apply text-center mt-2;
-}
+  .prose figcaption {
+    @apply mt-2 text-center;
+  }
 
-/* Tables */
+  /* Tables */
 
-.prose table {
-  @apply block whitespace-pre border-collapse max-w-fit mx-auto;
-}
+  .prose table {
+    @apply mx-auto block max-w-fit border-collapse whitespace-pre;
+  }
 
-.prose td,
-.prose th {
-  @apply border-1 border-light-800 px-4 py-2;
-  @apply dark:border-dark-50;
-}
+  .prose td,
+  .prose th {
+    @apply border border-light-800 px-4 py-2 dark:border-dark-50;
+  }
 
-/* Links */
+  /* Links */
 
-.prose a {
-  @apply text-blue-500;
-}
+  .prose a {
+    @apply text-blue-500;
+  }
 
-.prose a:hover {
-  @apply underline;
-}
+  .prose a:hover {
+    @apply underline;
+  }
 
-/* TODO: */
+  /* TODO: */
 
-.invert {
-  filter: none;
+  .invert {
+    filter: none;
+  }
 }

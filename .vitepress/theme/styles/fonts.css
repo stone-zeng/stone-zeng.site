@@ -1,34 +1,36 @@
-@font-face {
-  font-family: 'Inter';
-  font-weight: 100 900;
-  font-style: normal;
-  src: url(../fonts/Inter-roman.var.woff2) format('woff2');
-}
+@layer base {
+  @font-face {
+    font-family: 'Inter';
+    font-weight: 100 900;
+    font-style: normal;
+    src: url(@/theme/fonts/Inter-roman.var.woff2) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Inter';
-  font-weight: 100 900;
-  font-style: italic;
-  src: url(../fonts/Inter-italic.var.woff2) format('woff2');
-}
+  @font-face {
+    font-family: 'Inter';
+    font-weight: 100 900;
+    font-style: italic;
+    src: url(@/theme/fonts/Inter-italic.var.woff2) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Inter Display';
-  font-weight: 200;
-  font-style: normal;
-  src: url(../fonts/InterDisplay-ExtraLight.subset.woff2) format('woff2');
-}
+  @font-face {
+    font-family: 'Inter Display';
+    font-weight: 200;
+    font-style: normal;
+    src: url(@/theme/fonts/InterDisplay-ExtraLight.subset.woff2) format('woff2');
+  }
 
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-weight: 100 800;
-  font-style: normal;
-  src: url(../fonts/JetBrainsMono.woff2) format('woff2');
-}
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: 100 800;
+    font-style: normal;
+    src: url(@/theme/fonts/JetBrainsMono.woff2) format('woff2');
+  }
 
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-weight: 100 800;
-  font-style: italic;
-  src: url(../fonts/JetBrainsMono-Italic.woff2) format('woff2');
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: 100 800;
+    font-style: italic;
+    src: url(@/theme/fonts/JetBrainsMono-Italic.woff2) format('woff2');
+  }
 }

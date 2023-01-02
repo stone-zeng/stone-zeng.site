@@ -1,26 +1,55 @@
-<template>
-  <div class="flex flex-col gap-8 my-8" sm="gap-10">
-    <HomeEntry v-for="post in pages[page - 1]" v-bind="post" />
-  </div>
-  <div class="flex gap-4 justify-center">
-    <template v-for="i in pages.length">
-      <span v-if="i === page">{{ i }}</span>
-      <a v-else @click="page = i" class="text-blue-500 cursor-pointer" hover="underline">{{ i }}</a>
-    </template>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, onMounted, provide, ref } from 'vue'
+import { useData } from 'vitepress'
+import { arrayChunk } from '@/theme/utils'
+import { data as posts } from '@/posts.data'
+import HomeEntry from '@/theme/components/HomeEntry.vue'
+import Paginator from '@/theme/components/Paginator.vue'
+import type { Theme } from '@/theme/types'
 
-import { arrayChunk } from '../utils';
-import HomeEntry from './HomeEntry.vue';
+const { theme } = useData<Theme.Config>()
 
-const pageSize = 8;
-const pages = computed(() => arrayChunk(props.posts, pageSize));
-const page = ref(1);
+const pages = computed(() => arrayChunk(posts, theme.value.paginate))
+const page = ref(1)
+const updatePage = (i: number) => {
+  page.value = i
+}
 
-const props = defineProps<{
-  posts: any[];
-}>();
+provide('page', {
+  page,
+  updatePage,
+})
+
+const updatePageParam = () => {
+  const url = new URL(window.location.href)
+  const pageParam = url.searchParams.get('page')
+  if (pageParam) {
+    const pageParamNum = parseInt(pageParam)
+    if (pageParamNum >= 1 && pageParamNum <= pages.value.length) {
+      updatePage(pageParamNum)
+    } else {
+      window.history.replaceState({}, '', `?page=${page.value}`)
+    }
+  } else {
+    updatePage(1)
+  }
+}
+
+onMounted(() => {
+  updatePageParam()
+  window.addEventListener('popstate', updatePageParam)
+})
 </script>
+
+<template>
+  <div class="my-8 flex flex-col gap-8 sm:gap-10">
+    <HomeEntry
+      v-for="post in pages[page - 1]"
+      :title="post.title"
+      :href="post.href"
+      :date="post.date"
+      :excerpt="post.excerpt"
+    />
+  </div>
+  <Paginator :page-num="pages.length" />
+</template>

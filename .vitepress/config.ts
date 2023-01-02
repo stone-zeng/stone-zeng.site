@@ -1,48 +1,67 @@
-import { defineConfig } from 'vitepress';
-import Unocss from 'unocss/vite';
+import { fileURLToPath, URL } from 'url'
+import { defineConfigWithTheme } from 'vitepress'
+import type { Theme } from '@/theme/types'
 
-import MarkdownItAttrs from 'markdown-it-attrs';
-import MarkdownItMultimdTable from 'markdown-it-multimd-table';
-
-import MarkdownItKaTeX from './lib/markdown-it-katex';
-import MarkdownItTeXLogo from './lib/markdown-it-tex-logo';
-
-const katexMathTags = [
-  ['math', 'annotation', 'semantics'],
-  ['mtext', 'mn', 'mo', 'mi', 'mspace'],
-  ['mover', 'munder', 'munderover', 'msup', 'msub', 'msubsup'],
-  ['mfrac', 'mroot', 'msqrt'],
-  ['mtable', 'mtr', 'mtd', 'mlabeledtr'],
-  ['mrow', 'menclose'],
-  ['mstyle', 'mpadded', 'mphantom', 'mglyph'],
-].flat();
-
-export default defineConfig({
+export default defineConfigWithTheme<Theme.Config>({
   lang: 'en-US',
   title: 'stone-zeng.github.io',
   srcDir: 'docs',
+  cleanUrls: 'without-subfolders',
 
-  head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
+  //   head: [['link', { rel: 'icon', type: 'image/png', link: '/favicon.png' }]],
 
-  markdown: {
-    typographer: true,
-    config: (md) => {
-      md.use(MarkdownItTeXLogo);
-      md.use(MarkdownItKaTeX);
-      md.use(MarkdownItAttrs);
-      md.use(MarkdownItMultimdTable, { headerless: true });
+  themeConfig: {
+    paginate: 10,
+    editLink: {
+      pattern: 'https://github.com/stone-zeng/stone-zeng.github.io/blob/vitepress/docs/:path',
+      text: 'Page source',
     },
-  },
-
-  vue: {
-    template: {
-      compilerOptions: {
-        isCustomElement: (tag) => katexMathTags.includes(tag),
-      },
+    nav: [
+      { text: 'Archive', link: '/archive' },
+      { text: 'About', link: '/about' },
+    ],
+    footer: {
+      socialLinks: [
+        {
+          name: 'GitHub',
+          link: 'https://github.com/stone-zeng',
+          color: { light: '#222222', dark: '#dee2e6' },
+          icon: 'github',
+        },
+        {
+          name: 'Twitter',
+          link: 'https://twitter.com/xiangdong_zeng',
+          color: '#1da1f2',
+          icon: 'twitter',
+        },
+        {
+          name: 'Telegram',
+          link: 'https://t.me/xdzeng96',
+          color: '#0088cc',
+          icon: 'telegram',
+        },
+        {
+          name: 'E-mail',
+          link: 'mailto:xdzeng96@gmail.com',
+          color: '#fbbf24',
+          icon: 'email',
+        },
+        {
+          name: 'RSS',
+          link: '/feed.xml',
+          color: '#f26522',
+          icon: 'rss',
+        },
+      ],
+      copyright: `© 2018\u{2013}${new Date().getFullYear()} Xiangdong Zeng`,
     },
   },
 
   vite: {
-    plugins: [Unocss()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./', import.meta.url)),
+      },
+    },
   },
-});
+})
