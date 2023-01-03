@@ -49,7 +49,9 @@ const { page } = useData()
 
 <template>
   <PostTitle />
-  <!--
+</template>
+
+<!--
   <div class="mb-8 text-sm text-neutral-400" dark="text-neutral-500">
     <ul class="flex flex-col gap-1" md="flex-row flex-wrap gap-x-4">
       <template v-for="item in meta">
@@ -65,4 +67,3 @@ const { page } = useData()
     </ul>
   </div>
   -->
-</template>
