@@ -1,5 +1,11 @@
+<script setup lang="ts">
+defineProps<{
+  is?: string
+}>()
+</script>
+
 <template>
-  <div class="mx-auto min-w-[320px] max-w-[960px] px-4 sm:px-8">
+  <component :is="is || 'div'" class="mx-auto min-w-[320px] max-w-[960px] px-4 sm:px-8">
     <slot></slot>
-  </div>
+  </component>
 </template>

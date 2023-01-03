@@ -13,17 +13,15 @@ const layout = computed(() => (frontmatter.value.layout as string) || 'doc')
 
 <template>
   <SiteHeader />
-  <main>
-    <Wrapper>
-      <Content v-if="layout === 'home'" />
-      <div v-else class="flex justify-between gap-8">
-        <article class="min-w-0">
-          <PostHeader />
-          <Content id="content" class="prose" />
-        </article>
-        <PostAside v-if="layout === 'doc'" />
-      </div>
-    </Wrapper>
-  </main>
+  <Wrapper is="main">
+    <Content v-if="layout === 'home'" />
+    <div v-else class="flex justify-between gap-8">
+      <article class="min-w-0">
+        <PostHeader />
+        <Content id="content" class="prose" />
+      </article>
+      <PostAside v-if="layout === 'doc'" />
+    </div>
+  </Wrapper>
   <SiteFooter />
 </template>
