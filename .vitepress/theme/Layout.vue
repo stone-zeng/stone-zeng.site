@@ -1,14 +1,31 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { Content, useData } from 'vitepress'
+import katex from 'katex'
 import PostAside from '@/theme/components/PostAside.vue'
 import PostHeader from '@/theme/components/PostHeader.vue'
 import SiteFooter from '@/theme/components/SiteFooter.vue'
 import SiteHeader from '@/theme/components/SiteHeader.vue'
 import Wrapper from '@/theme/components/Wrapper.vue'
 
-const { frontmatter } = useData()
+const { page, frontmatter } = useData()
 const layout = computed(() => (frontmatter.value.layout as string) || 'doc')
+
+const renderMath = () => {
+  const macros = {}
+  document.querySelectorAll('[data-math]').forEach((el) => {
+    const renderToString = (displayMode: boolean) =>
+      katex.renderToString(el.textContent || '', {
+        throwOnError: true,
+        displayMode,
+        macros,
+      })
+    el.outerHTML = el.tagName === 'DIV' ? `<p>${renderToString(true)}</p>` : renderToString(false)
+  })
+}
+
+onMounted(renderMath)
+watch(page, renderMath, { flush: 'post' })
 </script>
 
 <template>

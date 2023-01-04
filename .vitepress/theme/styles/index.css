@@ -4,6 +4,7 @@
 
 @import '@/theme/styles/fonts.css';
 @import '@/theme/styles/prose.css';
+@import '@/theme/styles/katex.css';
 
 @layer base {
   @media (prefers-color-scheme: dark) {

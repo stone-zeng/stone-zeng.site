@@ -1,7 +1,9 @@
 import { fileURLToPath, URL } from 'url'
 import { defineConfigWithTheme } from 'vitepress'
 import { getHighlighter } from 'shiki'
-import type { Theme } from '@/theme/types'
+import MarkdownItMultimdTable from 'markdown-it-multimd-table'
+import MarkdownItKaTeX from './lib/markdown-it-katex'
+import type { Theme } from './theme/types'
 
 // See https://github.com/vuejs/vitepress/issues/1067
 const highlighter = async () => {
@@ -45,6 +47,10 @@ export default async () =>
     markdown: {
       typographer: true,
       highlight: await highlighter(),
+      config: (md) => {
+        md.use(MarkdownItKaTeX)
+        md.use(MarkdownItMultimdTable, { headerless: true })
+      },
     },
 
     themeConfig: {
