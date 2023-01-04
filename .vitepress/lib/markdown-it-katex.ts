@@ -141,14 +141,17 @@ const parseMathBlock = (state: StateBlock, start: number, end: number, silent: b
 }
 
 const trimLine = (line: string) => (line && line.trim() ? line + '\n' : '')
+const replaceAngle = (s: string) => s.replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 const plugin = (md: MarkdownIt) => {
   md.inline.ruler.after('escape', MATH_INLINE, parseMathInline)
   md.block.ruler.after('blockquote', MATH_BLOCK, parseMathBlock, {
     alt: ['paragraph', 'reference', 'blockquote', 'list'],
   })
-  md.renderer.rules[MATH_INLINE] = (tokens, idx) => `<span data-math>${tokens[idx].content}</span>`
-  md.renderer.rules[MATH_BLOCK] = (tokens, idx) => `<div data-math>${tokens[idx].content}</div>`
+  md.renderer.rules[MATH_INLINE] = (tokens, idx) =>
+    `<span data-math>${replaceAngle(tokens[idx].content)}</span>`
+  md.renderer.rules[MATH_BLOCK] = (tokens, idx) =>
+    `<div data-math>${replaceAngle(tokens[idx].content)}</div>`
 }
 
 export default plugin
