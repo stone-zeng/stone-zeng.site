@@ -25,14 +25,14 @@ excerpt: 正如 Liam Huang 所言，「国内有不少期刊依旧在使用过�
 
 打开那个 `SCIS2019cn.cls` 文件，可以看到这样的代码：
 
-```tex
+```latex
 \let\CCTCJKfonts=1
 \LoadClass[twoside,CJK]{cctart}
 ```
 
 CCT 有关的东西显然不可能在 \TeX Live 上面编译，更不用说非 Windows 的环境。那么我们就伪造一个 `cctart` 文档类：
 
-```tex
+```latex
 % 保存在 cctart.cls 文件中
 \ProvidesClass{cctart}
 \PassOptionsToClass{\CurrentOption}{ctexart}
@@ -83,7 +83,7 @@ l.311 }
 
 [^breakurl]: [breakurl doesn't work with xelatex](https://tex.stackexchange.com/q/218196)
 
-```tex
+```latex
 \@namedef{ver@breakurl.sty}{9999/99/99}
 ```
 
@@ -119,7 +119,7 @@ l.591 ...command{\C}[1]{\ensuremath{\mathcal{#1}}}
 
 这是由于 `hyperref` 已经定义了 `\C` 命令，用于处理某些西里尔字母。一般来说没有必要用，可以直接取消定义：
 
-```tex
+```latex
 \csname ctex_at_end_package:nn\endcsname
   {hyperref}{\let\C\undefined}
 ```
@@ -137,7 +137,7 @@ CCT 在历史上也是发挥过重要作用的，然而现在来看基本已经�
 
 最后给出完整的（修改版）`cctart.cls` 以供参考：
 
-```tex
+```latex
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cctart}
 \PassOptionsToClass{\CurrentOption}{ctexart}

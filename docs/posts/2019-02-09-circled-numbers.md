@@ -148,7 +148,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 直接输入，或者利用码位，都能在 \LaTeX 中使用以上这些带圈数字（注意不同方法对大小写的要求有差异）：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{fontspec}
 \setmainfont{Source Han Serif SC}
@@ -170,7 +170,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 在实际使用中，无论是依靠码位，还是借由输入法直接录入这些特殊字符，都不是很方便。在 `xunicode-addon` 宏包（从属于 `xeCJK`）中，`\textcircled` 等一系列命令被重新定义，从而能够显示 Unicode 所分配的带圈数字（和字母等）。举例如下：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{fontspec,xunicode-addon}
 \setmainfont{Source Han Serif SC}
@@ -185,7 +185,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 利用 \LaTeX3 语法也可以迅速写出如下循环而不伤身体：
 
-```tex
+```latex-expl3
 \ExplSyntaxOn
 \cs_set:Npn \TESTi
   {
@@ -227,8 +227,8 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 在 \XeLaTeX 下，可以做如下修改：
 
-```tex
-{% raw %}% 使用中文字体
+```latex
+% 使用中文字体
 \xeCJKDeclareCharClass{CJK}{%
   "24EA,        % ⓪
   "2460->"2473, % ①->⑳
@@ -243,13 +243,13 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 % \xeCJKDeclareCharClass{Default}{%
 %   "24EA, "2460->"2473, "3251->"32BF,
 %   "24FF, "2776->"277F, "24EB->"24F4}
-% \setmainfont{Garamond-Math.otf}{% endraw %}
+% \setmainfont{Garamond-Math.otf}
 ```
 
 在 \LuaLaTeX 下，也完全类似：
 
-```tex
-{% raw %}% 使用中文字体
+```latex
+% 使用中文字体
 \ltjdefcharrange{6}{%
   "24EA, "2460-"2473, "3251-"32BF,
   "24FF, "2776-"277F, "24EB-"24F4}
@@ -259,7 +259,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 % \ltjdefcharrange{3}{%
 %   "24EA, "2460-"2473, "3251-"32BF,
 %   "24FF, "2776-"277F, "24EB-"24F4}
-% \setmainfont{Garamond-Math.otf}{% endraw %}
+% \setmainfont{Garamond-Math.otf}
 ```
 
 这里的 `6` 和 `3` 原先分别对应日文字符和西文标点、符号。还需注意范围的写法与 `xeCJK` 中不同。
@@ -268,7 +268,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 [^textcircled-ctex]: 感谢 [@qinglee](https://github.com/qinglee) 的指导！见 CTeX-org/ctex-kit [#399](https://github.com/CTeX-org/ctex-kit/issues/399)。
 
-```tex
+```latex
 % XeLaTeX 下需要把全体带圈数字都设置成 Default 类
 % LuaLaTeX 下无须额外设置
 \xeCJKDeclareCharClass{Default}{"24EA, "2460->"2473, "3251->"32BF}
@@ -291,7 +291,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 在 OpenType 中，有一项名为 [`nalt`](https://docs.microsoft.com/typography/opentype/spec/features_ko#nalt)（Alternate Annotation Forms）的 GSUB 特性，它的作用是把特定的字符形替换成符号标注形式（notational forms）。不少日文字体都包含这一特性，我们可以利用 `fontspec` 宏包提供的相关选项调用。举例如下：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{fontspec}
 \setmainfont{ipaexm.ttf}  % IPAex 明朝，TeX Live 自带
@@ -307,7 +307,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 需要注意的是，`Annotation=X` 中的某个 `X` 具体对应何种样式，这是由字体设计者决定的。此外，在一些字体中，部分假名、汉字也有类似的标注形式，可以用相同方法使用：
 
-```tex
+```latex
 \documentclass{ctexart}
 \setCJKmainfont{Hiragino Mincho Pro W3}
 
@@ -347,8 +347,8 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 - \LuaLaTeX 下需要通过 `\setmainjfont` 等命令设置（日文）字体
 - \upLaTeX 下需要调用 `pxchfon` 宏包，并且使用 `\setminchofont` 等命令设置字体，具体可以参考以下示例：
 
-  ```tex
-  {% raw %}% test-uptex.tex
+  ```latex
+  % test-uptex.tex
   \documentclass{ujarticle}
   \usepackage{pxchfon,textcircle-cid}
   \setminchofont{KozMinPr6N-Regular.otf}
@@ -365,7 +365,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
   \begin{document}
   \textmc{\TEST} \par
   \textgt{\TEST}
-  \end{document}{% endraw %}
+  \end{document}
   ```
 
   ![textcircled-cid-uptex](/images/circled-numbers/textcircled-cid-uptex.svg){:.invert}

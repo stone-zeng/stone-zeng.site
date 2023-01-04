@@ -38,7 +38,7 @@ Emoji 其实是文字的一种，换句话说它们是对应有 Unicode 码位�
 
 [^twemoji]: 本文为了生成 SVG 图片，需要使用 `COLR`/`CPAL` 格式的 emoij 字体，比如这里所用的 Twemoji Mozilla。
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{fontspec}
 \newfontface\EmojiFont{Twemoji Mozilla}[Renderer=HarfBuzz]
@@ -57,7 +57,7 @@ The monkey gets the moon: {\EmojiFont 🙈🌛}.
 
 使用 [`emoji`](https://ctan.org/pkg/emoji) 宏包可以更方便地在 \LaTeX 中使用 emoji。这一宏包可以根据系统自动选择字体，并且提供了别名用来输入：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{amsmath,emoji}
 \setemojifont{Twemoji Mozilla}  % 可选
@@ -137,7 +137,7 @@ Emoji 背后的技术比较复杂，值得额外谈谈。
 
 在 \LaTeX 中也可以通过直接输入码位的方式来插入 emoji：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{fontspec}
 \newfontface\EmojiFont{Twemoji Mozilla}[Renderer=HarfBuzz]

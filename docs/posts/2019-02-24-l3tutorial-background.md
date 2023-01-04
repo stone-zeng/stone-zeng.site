@@ -31,8 +31,8 @@ excerpt: \LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 
 
 [^footnote]: 李清. [\LaTeX 脚注要怎么在行内垂直居中呢？- 知乎](https://www.zhihu.com/question/53030087/answer/136006617)
 
-```tex
-{% raw %}\makeatletter
+```latex
+\makeatletter
 \renewcommand\@makefntext[1]{%
   \hspace*{-2em}%
   \parindent 0em%
@@ -40,7 +40,7 @@ excerpt: \LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 
   \hb@xt@ 1.8em{\hss
     \@thefnmark. }%
   #1}
-\makeatother{% endraw %}
+\makeatother
 ```
 
 一个简单的例子尚且如此，稍微复杂一些的就需要使用各种补丁、钩子，以及种种肮脏技巧，显得十分不优雅。
@@ -55,14 +55,14 @@ excerpt: \LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 
 
 [^expandafter]: 2015 年 `CTeX` 宏集进行了较为彻底的重构，这里给出的代码实际上已经不再使用，但仍然保留在[代码库](https://github.com/CTeX-org/ctex-kit/blob/ctex-1.02d/def/ctex-common.def#L44-L50)中。参考：刘海洋. [多个 \expandafter 的展开过程是怎样的？- 知乎](https://www.zhihu.com/question/26916597/answer/34565213)
 
-```tex
-{% raw %}\def\CTEX@replacecommand#1#2#3{%
+```latex
+\def\CTEX@replacecommand#1#2#3{%
   \expandafter\expandafter\expandafter\let\expandafter
     \csname #1#3\expandafter\endcsname
     \csname #2#3\endcsname
   \expandafter\expandafter\expandafter\def\expandafter
     \csname #2#3\expandafter\endcsname
-    {\csname #1#3\endcsname}}{% endraw %}
+    {\csname #1#3\endcsname}}
 ```
 
 而且，很多时候 \LaTeXe 中的编程是 \TeX、带注释的 \LaTeX、不带注释的 \LaTeX 的混合，还会从奇奇怪怪的宏包里面弄来奇奇怪怪的东西。命名也常常随意且风骚，最后的结果就是可读性与可维护性很差，搞不好还会遇到各种冲突。

@@ -55,7 +55,7 @@ zhdummy/
 
 下面我们开始编写宏包：
 
-```tex
+```latex
 % zhdummy.sty
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{expl3}
@@ -68,7 +68,7 @@ zhdummy/
 
 测试文件则可以这样写：
 
-```tex
+```latex
 % test.tex
 \documentclass{ctexart}
 \usepackage{zhdummy}
@@ -84,7 +84,7 @@ zhdummy/
 
 此外，在日志文件 `test.log` 中，应当能找到以下信息：
 
-```tex
+```
 (./zhdummy.sty
 Package: zhdummy 2019/11/20 v0.1 Chinese dummy text (demo)
 )
@@ -109,7 +109,7 @@ zhdummy/
 
 我们的宏包现在其实只有一行是有实际作用的：
 
-```tex
+```latex
 \def\mypkgname{zhdummy}
 ```
 
@@ -134,7 +134,7 @@ zhdummy/
 
 利用记号列表，我们可以把之前的宏定义改写为如下形式：
 
-```tex
+```latex-expl3
 \tl_const:Nn \c_zhdummy_text_i { 天地玄黄，宇宙洪荒。 }
 ```
 
@@ -148,7 +148,7 @@ zhdummy/
 
 类似地，我们可以加入更多的假文：
 
-```tex
+```latex-expl3
 \tl_const:Nn \c_zhdummy_text_i     { 天地玄黄，宇宙洪荒。 }
 \tl_const:Nn \c_zhdummy_text_ii    { 日月盈昃，辰宿列张。 }
 \tl_const:Nn \c_zhdummy_text_iii   { 寒来暑往，秋收冬藏。 }
@@ -171,7 +171,7 @@ zhdummy/
 
 使用时，可以直接使用，也可以采用 `\tl_use:N` 命令：
 
-```tex
+```latex-expl3
 % test.tex
 \documentclass{ctexart}
 \usepackage{zhdummy}
@@ -188,7 +188,7 @@ zhdummy/
 
 这样的定义方式显然过于冗长和低效。然而，更严重的问题还在于，这样定义的 `tl` 变量只能用在 \LaTeX3 环境中，直接使用会导致错误：
 
-```tex
+```latex-expl3
 % test.tex
 \documentclass{ctexart}
 \usepackage{zhdummy}
@@ -234,7 +234,7 @@ l.7 \end{document}
 
 我们把 `\zhdummy` 作为用户层命令。规定它的用法如下：
 
-```tex
+```latex
 \zhdummy
 \zhdummy[<序号>]
 ```
@@ -255,7 +255,7 @@ l.7 \end{document}
 
 我们可以做一些实验（`~` 在 \LaTeX3 中表示空格）：
 
-```tex
+```latex-expl3
 \int_to_roman:n { 1 } ~
 \int_to_roman:n { 5 } ~
 \int_to_roman:n { 4999 } ~
@@ -276,7 +276,7 @@ l.7 \end{document}
 
 现在介绍一种新的参数指定 `c`，它表示将参数处理为一个控制序列的名称。例如，以下几种写法是等价的：
 
-```tex
+```latex-expl3
 \tl_use:N \c_zhdummy_text_i
 \tl_use:c { c_zhdummy_text_i }
 \tl_use:c { c _ zhdummy _ text _ i }  % 注意空格是忽略掉的
@@ -290,7 +290,7 @@ l.7 \end{document}
 
 `xparse` 宏包提供了 `\NewDocumentCommand` 函数，其语法如下：
 
-```
+```latex
 \NewDocumentCommand <func> {<arg-spec>} {<code>}
 ```
 
@@ -323,7 +323,7 @@ l.7 \end{document}
 
 上面我们提到，输入为空时，`o` 型参数会返回一个特殊的 `-NoValue-` 标记。这一标记不是简单的 token list，它必须通过 `\IfNoValue(TF)` 函数进行判断：
 
-```tex
+```latex
 \IfNoValueTF {<arg>} {<true code>} {<false code>}
 \IfNoValueT  {<arg>} {<true code>}
 \IfNoValueF  {<arg>} {<false code>}
@@ -335,7 +335,7 @@ l.7 \end{document}
 
 最后，我们把以上分析综合起来，可以写出如下的代码：
 
-```tex
+```latex-expl3
 % 定义命令 `\zhdummy`，允许带一个可选参数
 \NewDocumentCommand \zhdummy { o }
   {
@@ -360,7 +360,7 @@ l.7 \end{document}
 
 此时，在 `test.tex` 中即可按照比较常规的方式来使用假文了：
 
-```tex
+```latex
 % test.tex
 \documentclass{ctexart}
 \usepackage{zhdummy}

@@ -707,7 +707,7 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
   按照 yulewang 的指南，写了个 dos 脚本，生成了 `gbksong` 的 tfm 文件，替换 \CTeX 2.7 中的 tfm 文件，然后编译一个简单例子：
 
-  ```tex
+  ```latex
   % !TEX encoding = System
 
   \documentclass{article}

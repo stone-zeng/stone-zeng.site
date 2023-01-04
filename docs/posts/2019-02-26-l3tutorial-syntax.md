@@ -102,7 +102,7 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 
   这一函数的行为类似于 `\def`：[^cs-new]
 
-  ```tex
+  ```latex-expl3
   % LaTeX2ε
   \def\myfunc#1{Hello #1}
   % LaTeX3
@@ -115,7 +115,7 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 
 - `\int_if_even:nTF`：它属于 `int` 模块，用于处理整数。这一函数的作用是判断一个数字（由 `n` 参数接受）是不是偶数，若是，则执行 `T` 分支，否则执行 `F` 分支。
 
-  ```tex
+  ```latex-expl3
   \int_if_even:nTF { 12 }
     { <true code>  }
     { <false code> }
@@ -147,7 +147,7 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 
 具体到应用，我们来看一个例子：
 
-```tex
+```latex-expl3
 % 声明变量
 \int_new:N \l_my_variable_int
 \int_new:N \g_my_variable_int
@@ -235,7 +235,7 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 
 事实上，\LaTeX3 提供了 `l3docstrip` 宏包，它在文学编程宏包 `docstrip` 的基础上引入了名字空间的手法。下面我们来给出一个例子：
 
-```tex
+```latex-expl3
 % 进入名字空间 `myi`
 %<@@=myi>
 \cs_new:Npn \myi_function:n #1
@@ -273,7 +273,7 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 
 以下是一个示例：
 
-```tex
+```latex-expl3
 \cs_new:Npn \my_foo:nn #1#2
   {
     \tl_if_empty:nTF {#1}
@@ -293,7 +293,7 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 
 如果只在一个 `.tex` 文件中使用，可以这样做：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{expl3}
 
@@ -304,7 +304,7 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 
 如果是要编写宏包或文档类，标准做法与在 \LaTeXe 中类似：
 
-```tex
+```latex
 \RequirePackage{expl3}
 
 % 宏包使用 \ProvidesExplPackage
@@ -317,7 +317,7 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 
 第二种方法继承并扩展了 \LaTeXe 中 `\ProvidesPackage`、`\ProvidesClass` 和 `\ProvidesFile` 的功能，大致相当于
 
-```tex
+```latex
 % Package info
 
 % 文件开头

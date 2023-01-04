@@ -56,7 +56,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 
 载入 `unicode-math` 宏包后，用 \XeLaTeX 或 \LuaLaTeX 编译，即可使用基于 OpenType 的数学字体：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{amsmath,unicode-math}
 \begin{document}
@@ -75,7 +75,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 
 基本用法和通常的 \LaTeX 并无二致。不过我们很快就可以看到 `unicode-math` 的独特之处，比如上面的公式还可以写成这样：
 
-```tex
+```latex
 % 需要 UTF-8 编码
 \[
     F(x; \, μ, \, σ)
@@ -88,7 +88,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 
 如果希望更换字体，可以用命令 `\setmathfont`（类似 `fontspec` 提供的 `\setmainfont` 等）。比如这里同时把文本和数学字体都换成大家喜闻乐见的 Times：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{amsmath,unicode-math}
 \setmainfont{XITS}       % XITS 是 Times Roman 的开源复刻版本
@@ -365,13 +365,13 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 
 这样，上文国标的效果可以通过加上
 
-```tex
+```latex
 \unimathsetup{math-style=ISO, bold-style=ISO}
 ```
 
 来实现。举例如下：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{amsmath,unicode-math}
 
@@ -411,7 +411,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 
 而在 `unicode-math` 宏包中，则可以使用 Unicode 所定义的数学符号，这是标准 \LaTeX+`amsmath` 的超集，足够满足日常需求。符号列表以及对应的命令都可以在文档 [`unimath-symbols.pdf`](https://mirrors.ctan.org/macros/unicodetex/latex/unicode-math/unimath-symbols.pdf) 中找到。和之前演示的一样，直接以 Unicode 字符输入也是可以的：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{amsmath,unicode-math}
 
@@ -477,7 +477,7 @@ OpenType 数学字体在相当长的时间内只有少数几种，不过近年�
 
 可以看到，XITS 等字体提供了粗体版本。与 `\symbf` 不同，这里是整套字体同时加粗，而非仅仅几个字母。我们可以用「数学版本」（math version）的功能在一份文档中使用多个字重（实际上也可以用来使用其他字体）：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{amsmath,unicode-math}
 
@@ -511,7 +511,7 @@ OpenType 数学字体在相当长的时间内只有少数几种，不过近年�
 
 有些数学字体还提供了一些样式变体（stylistic set），对应 OpenType 特性 `ssXX`，这一功能可以在声明字体时用 `StylisticSet` 选项指定：
 
-```tex
+```latex
 \documentclass{article}
 \usepackage{amsmath,unicode-math}
 

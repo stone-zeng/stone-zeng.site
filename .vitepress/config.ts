@@ -17,6 +17,13 @@ const highlighter = async () => {
     aliases: ['wl'],
   })
 
+  // @ts-ignore
+  highlighter.loadLanguage({
+    id: 'latex-expl3',
+    scopeName: 'text.tex.latex.expl3',
+    grammar: require('./lib/languages/LaTeX-Expl3.tmLanguage.json'),
+  })
+
   const preRE = /^<pre.*?>/
   const vueRE = /-vue$/
   return (str: string, lang: string) => {
@@ -36,6 +43,7 @@ export default async () =>
     head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
 
     markdown: {
+      typographer: true,
       highlight: await highlighter(),
     },
 

@@ -36,10 +36,12 @@ $$
 
 Tensor with higher ranks can be described similarly:
 
+<!--
 $$
 \bm{M} = \sum_{i,j=1}^D M_{ij} \bm{e}_i\otimes\bm{e}_j \eqqcolon M_{ij}, \quad
 \bm{T} = \sum_{i,j,k=1}^D T_{ijk} \bm{e}_i\otimes\bm{e}_j\otimes\bm{e}_k \eqqcolon T_{ijk}
 $$
+-->
 
 Here, $\otimes$ is the **tensor product**, while $\bm{e}_i\otimes\bm{e}_j$ and $\bm{e}_i\otimes\bm{e}_j\otimes \bm{e}_k$ are bases.
 
