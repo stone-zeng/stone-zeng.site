@@ -40,12 +40,12 @@ export default async () =>
     lang: 'en-US',
     title: 'stone-zeng.github.io',
     srcDir: 'docs',
-    cleanUrls: 'without-subfolders',
 
     head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
 
     markdown: {
       typographer: true,
+      headers: true,
       highlight: await highlighter(),
       config: (md) => {
         md.use(MarkdownItKaTeX)
