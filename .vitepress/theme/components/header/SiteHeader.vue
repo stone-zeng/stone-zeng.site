@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import SiteNavBar from '@/theme/components/SiteNavBar.vue'
-import SiteNavBarTitle from '@/theme/components/SiteNavBarTitle.vue'
+import SiteNavBar from '@/theme/components/header/SiteNavBar.vue'
+import SiteNavBarTitle from '@/theme/components/header/SiteNavBarTitle.vue'
 import Wrapper from '@/theme/components/Wrapper.vue'
 </script>
 

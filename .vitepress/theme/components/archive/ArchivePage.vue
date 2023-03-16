@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { data as posts } from '@/posts.data'
-import ArchiveEntry from '@/theme/components/ArchiveEntry.vue'
+import ArchiveEntry from '@/theme/components/archive/ArchiveEntry.vue'
 
 const groups = computed(() => {
   const res: Record<number, typeof posts> = {}

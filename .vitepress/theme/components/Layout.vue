@@ -2,10 +2,10 @@
 import { computed, onMounted, watch } from 'vue'
 import { Content, useData } from 'vitepress'
 import katex from 'katex'
-import PostAside from '@/theme/components/PostAside.vue'
-import PostHeader from '@/theme/components/PostHeader.vue'
-import SiteFooter from '@/theme/components/SiteFooter.vue'
-import SiteHeader from '@/theme/components/SiteHeader.vue'
+import PostAside from '@/theme/components/post/PostAside.vue'
+import PostHeader from '@/theme/components/post/PostHeader.vue'
+import SiteFooter from '@/theme/components/footer/SiteFooter.vue'
+import SiteHeader from '@/theme/components/header/SiteHeader.vue'
 import Wrapper from '@/theme/components/Wrapper.vue'
 
 const { page, frontmatter } = useData()

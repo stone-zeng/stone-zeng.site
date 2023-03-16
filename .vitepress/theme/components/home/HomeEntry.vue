@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toTitle } from '@/theme/utils'
-import PostDate from '@/theme/components/PostDate.vue'
+import PostDate from '@/theme/components/post/PostDate.vue'
 
 defineProps<{
   title: string

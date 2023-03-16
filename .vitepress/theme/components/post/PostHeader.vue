@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
-import { computed, onMounted, reactive } from 'vue'
+// import { useData } from 'vitepress'
+// import { computed, onMounted, reactive } from 'vue'
 
-import { isArray, isDate, toTitle } from '../utils'
-import MaterialIcon from './MaterialIcon.vue'
-import PostDate from './PostDate.vue'
-import PostTags from './PostTags.vue'
-import PostTitle from '@/theme/components/PostTitle.vue'
+// import { isArray, isDate, toTitle } from '../utils'
+// import MaterialIcon from './MaterialIcon.vue'
+// import PostDate from './PostDate.vue'
+// import PostTags from './PostTags.vue'
+import PostTitle from '@/theme/components/post/PostTitle.vue'
 
-const { page } = useData()
+// const { page } = useData()
 
 // const meta = reactive([])
 
