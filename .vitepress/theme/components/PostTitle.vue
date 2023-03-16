@@ -13,7 +13,7 @@ const editLink = computed(() =>
 </script>
 
 <template>
-  <h1 class="group mt-8 mb-4 text-2xl font-bold">
+  <h1 class="group mt-6 mb-4 text-2xl font-bold sm:mt-8">
     {{ toTitle(page.title) }}
     <BaseLink
       :href="editLink"

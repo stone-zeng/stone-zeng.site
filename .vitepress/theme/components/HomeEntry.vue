@@ -11,13 +11,13 @@ defineProps<{
 </script>
 
 <template>
-  <article class="flex flex-col gap-2 sm:gap-4">
-    <h1 class="text-xl font-bold sm:text-2xl">
+  <article>
+    <h1 class="mb-2 text-xl font-bold sm:text-2xl">
       <a :href="href" class="text-dark-400 hover:no-underline dark:text-light-800">
         {{ toTitle(title) }}
       </a>
     </h1>
-    <PostDate :date="new Date(date)" />
+    <PostDate :date="new Date(date)" class="mb-2 sm:mb-4" />
     <div class="prose">
       <div v-if="excerpt" class="mb-2 sm:mb-4">
         {{ excerpt }}

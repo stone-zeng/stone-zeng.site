@@ -42,7 +42,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="my-8 flex flex-col gap-8 sm:gap-10">
+  <div class="flex flex-col gap-8 py-6 sm:gap-10 sm:py-8">
     <HomeEntry
       v-for="post in pages[page - 1]"
       :title="post.title"

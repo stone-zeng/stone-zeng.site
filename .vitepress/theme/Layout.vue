@@ -29,8 +29,8 @@ watch(page, renderMath, { flush: 'post' })
 </script>
 
 <template>
-  <SiteHeader />
-  <Wrapper is="main">
+  <SiteHeader class="h-14 sm:h-16" />
+  <Wrapper is="main" class="mt-14 sm:mt-16">
     <Content v-if="layout === 'home'" />
     <div v-else class="flex justify-between gap-8">
       <article class="min-w-0">
