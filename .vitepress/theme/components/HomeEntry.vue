@@ -4,7 +4,7 @@ import PostDate from '@/theme/components/PostDate.vue'
 
 defineProps<{
   title: string
-  href: string
+  url: string
   date: string
   excerpt?: string
 }>()
@@ -13,7 +13,7 @@ defineProps<{
 <template>
   <article>
     <h1 class="mb-2 text-xl font-bold sm:text-2xl">
-      <a :href="href" class="text-dark-400 hover:no-underline dark:text-light-800">
+      <a :href="url" class="text-dark-400 hover:no-underline dark:text-light-800">
         {{ toTitle(title) }}
       </a>
     </h1>
@@ -23,7 +23,7 @@ defineProps<{
         {{ excerpt }}
       </div>
       <div>
-        <a :href="href">Read more &rarr;</a>
+        <a :href="url">Read more &rarr;</a>
       </div>
     </div>
   </article>

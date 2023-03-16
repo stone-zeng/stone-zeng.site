@@ -44,11 +44,11 @@ onMounted(() => {
 <template>
   <div class="flex flex-col gap-8 py-6 sm:gap-10 sm:py-8">
     <HomeEntry
-      v-for="post in pages[page - 1]"
-      :title="post.title"
-      :href="post.href"
-      :date="post.date"
-      :excerpt="post.excerpt"
+      v-for="{ title, url, date, excerpt } in pages[page - 1]"
+      :title="title"
+      :url="url"
+      :date="date"
+      :excerpt="excerpt"
     />
   </div>
   <Paginator :page-num="pages.length" />

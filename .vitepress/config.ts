@@ -40,6 +40,10 @@ export default async () =>
     lang: 'en-US',
     title: 'stone-zeng.github.io',
     srcDir: 'docs',
+    cleanUrls: true,
+    rewrites: {
+      'posts/:post.md': ':post.md',
+    },
 
     head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
 
