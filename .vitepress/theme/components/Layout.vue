@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, watch } from 'vue'
+import { onMounted, watch } from 'vue'
 import { Content, useData } from 'vitepress'
 import katex from 'katex'
 import PostAside from '@/theme/components/post/PostAside.vue'
@@ -9,7 +9,6 @@ import SiteHeader from '@/theme/components/header/SiteHeader.vue'
 import Wrapper from '@/theme/components/Wrapper.vue'
 
 const { page, frontmatter } = useData()
-const layout = computed(() => (frontmatter.value.layout as string) || 'doc')
 
 const renderMath = () => {
   const macros = {}
@@ -24,20 +23,43 @@ const renderMath = () => {
   })
 }
 
-onMounted(renderMath)
-watch(page, renderMath, { flush: 'post' })
+const alignPre = () => {
+  document.querySelectorAll('pre').forEach((el) => {
+    el.innerHTML = el.innerHTML.replace(
+      /([\p{Ideo}\u2E80-\u312F\uFF00-\uFFEF])/gu,
+      '<span class="cjk-code">$1</span>'
+    )
+  })
+}
+
+onMounted(() => {
+  renderMath()
+  alignPre()
+})
+watch(
+  page,
+  () => {
+    renderMath()
+    alignPre()
+  },
+  { flush: 'post' }
+)
 </script>
 
 <template>
   <SiteHeader class="h-14 sm:h-16" />
   <Wrapper is="main" class="mt-14 sm:mt-16">
-    <Content v-if="layout === 'home'" />
+    <Content v-if="frontmatter.layout === 'home'" />
+    <article v-else-if="frontmatter.layout === 'page'" class="min-w-0 overflow-auto">
+      <PostHeader />
+      <Content class="prose" />
+    </article>
     <div v-else class="flex justify-between gap-8">
       <article class="min-w-0">
         <PostHeader />
-        <Content id="content" class="prose" />
+        <Content class="prose" :class="{ 'leading-relaxed': frontmatter.lang !== 'en-US' }" />
       </article>
-      <PostAside v-if="layout === 'doc'" />
+      <PostAside />
     </div>
   </Wrapper>
   <SiteFooter />

@@ -141,6 +141,10 @@
     @apply border-[1.5px] border-light-800 pt-[1.5px] pb-0 text-xs dark:border-dark-50;
   }
 
+  .prose .cjk-code {
+    @apply px-[0.1em];
+  }
+
   /* Figures */
 
   .prose img {
