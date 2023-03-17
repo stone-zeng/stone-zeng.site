@@ -1,23 +1,16 @@
 @layer base {
   @font-face {
-    font-family: 'Inter';
+    font-family: 'Work Sans';
     font-weight: 100 900;
     font-style: normal;
-    src: url(@/theme/fonts/Inter-roman.var.woff2) format('woff2');
+    src: url(@/theme/fonts/WorkSans.woff2) format('woff2');
   }
 
   @font-face {
-    font-family: 'Inter';
+    font-family: 'Work Sans';
     font-weight: 100 900;
     font-style: italic;
-    src: url(@/theme/fonts/Inter-italic.var.woff2) format('woff2');
-  }
-
-  @font-face {
-    font-family: 'Inter Display';
-    font-weight: 200;
-    font-style: normal;
-    src: url(@/theme/fonts/InterDisplay-ExtraLight.subset.woff2) format('woff2');
+    src: url(@/theme/fonts/WorkSans-Italic.woff2) format('woff2');
   }
 
   @font-face {

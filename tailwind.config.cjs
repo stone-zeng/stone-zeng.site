@@ -3,9 +3,19 @@ module.exports = {
   content: ['./.vitepress/theme/**/*.vue'],
   theme: {
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
+      sans: [
+        '"Work Sans"',
+        '"Hiragino Sans GB"',
+        '"PingFang SC"',
+        '"Noto Sans CJK SC"',
+        '"Source Han Sans SC"',
+        '"Source Han Sans CN"',
+        '"Sarasa Gothic SC"',
+        '"Microsoft YaHei UI"',
+        '"Microsoft YaHei"',
+        'sans-serif',
+      ],
       mono: ['"JetBrains Mono"', 'monospace'],
-      display: ['"Inter Display"', 'sans-serif'],
     },
     extend: {
       colors: {

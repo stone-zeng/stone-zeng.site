@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
   <div class="my-1">
-    <time class="inline-block w-16">{{ formatDate(date) }}</time>
+    <time class="mr-4 inline-block w-12 text-right oldstyle-nums">{{ formatDate(date) }}</time>
     <a :href="url">{{ title }}</a>
   </div>
 </template>
