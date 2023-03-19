@@ -13,7 +13,7 @@
   "homepage": "https://stone-zeng.github.io/",
   "scripts": {
     "dev": "vitepress dev",
-    "build": "patch -i .vitepress/theme/styles/katex.css.diff -o .vitepress/theme/styles/katex.css && vitepress build",
+    "build": "patch node_modules/katex/dist/katex.css .vitepress/theme/styles/katex.css.diff -o .vitepress/theme/styles/katex.css && vitepress build",
     "serve": "vitepress serve"
   },
   "devDependencies": {
