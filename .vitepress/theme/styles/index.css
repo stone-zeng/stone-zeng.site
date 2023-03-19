@@ -4,6 +4,8 @@
 
 @import '@/theme/styles/fonts.css';
 @import '@/theme/styles/prose.css';
+
+/* Generateed from `node_modules/katex/dist/katex.css`, with woff and ttf fonts removed */
 @import '@/theme/styles/katex.css';
 
 @layer base {
@@ -15,5 +17,15 @@
 
   body {
     @apply bg-light-50 text-dark-400 dark:bg-dark-600 dark:text-light-800;
+  }
+}
+
+@layer components {
+  .katex {
+    @apply text-lg leading-none;
+  }
+
+  .katex-html {
+    @apply overflow-x-auto overflow-y-hidden;
   }
 }

@@ -1,9 +1,0 @@
-@import 'katex/dist/katex.min.css';
-
-.katex {
-  @apply text-lg leading-none;
-}
-
-.katex-html {
-  @apply overflow-x-auto overflow-y-hidden;
-}

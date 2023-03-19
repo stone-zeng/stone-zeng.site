@@ -18,3 +18,5 @@
 .vitepress/dist/
 .vscode/
 node_modules/
+
+.vitepress/theme/styles/katex.css
