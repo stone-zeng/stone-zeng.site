@@ -26,4 +26,12 @@
     font-style: italic;
     src: url(@/theme/fonts/JetBrainsMono-Italic.woff2) format('woff2');
   }
+
+  @font-face {
+    font-family: 'Punct Sans';
+    font-weight: 250 900;
+    font-style: normal;
+    font-feature-settings: 'kern';
+    src: url(@/theme/fonts/PunctSans-VF.woff2) format('woff2');
+  }
 }

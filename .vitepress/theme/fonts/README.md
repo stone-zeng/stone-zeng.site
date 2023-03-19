@@ -7,3 +7,4 @@
 - [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono) (v2.305)
   - [JetBrainsMono[wght].woff2](https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/variable/JetBrainsMono%5Bwght%5D.woff2) → JetBrainsMono.woff2
   - [JetBrainsMono-Italic[wght].woff2](https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/variable/JetBrainsMono-Italic%5Bwght%5D.woff2) → JetBrainsMono-Italic.woff2
+- Punct Sans

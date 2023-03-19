@@ -1,21 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./.vitepress/theme/**/*.vue'],
+  content: ['./.vitepress/theme/**/*.{vue,js}', './docs/**/*.md'],
   theme: {
     fontFamily: {
       sans: [
-        '"Work Sans"',
-        '"Hiragino Sans GB"',
-        '"PingFang SC"',
-        '"Noto Sans CJK SC"',
-        '"Source Han Sans SC"',
-        '"Source Han Sans CN"',
-        '"Sarasa Gothic SC"',
-        '"Microsoft YaHei UI"',
-        '"Microsoft YaHei"',
+        "'Punct Sans'",
+        "'Work Sans'",
+        "'Hiragino Sans GB'",
+        "'PingFang SC'",
+        "'Noto Sans CJK SC'",
+        "'Source Han Sans SC'",
+        "'Source Han Sans CN'",
+        "'Sarasa Gothic SC'",
+        "'Microsoft YaHei UI'",
+        "'Microsoft YaHei'",
         'sans-serif',
       ],
-      mono: ['"JetBrains Mono"', 'monospace'],
+      mono: ["'JetBrains Mono'", 'monospace'],
     },
     extend: {
       colors: {

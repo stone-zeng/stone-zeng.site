@@ -32,15 +32,26 @@ const alignPre = () => {
   })
 }
 
+const cjkKern = () => {
+  document.querySelectorAll('h1, h2, h3, h4, p, li, figcaption, td, th').forEach((el) => {
+    el.innerHTML = el.innerHTML.replace(
+      /(\p{Ideo})([（［〈《「『【〔〖〘])/gu,
+      '<span style="letter-spacing: 0.5em">$1</span>$2'
+    )
+  })
+}
+
 onMounted(() => {
   renderMath()
   alignPre()
+  cjkKern()
 })
 watch(
   page,
   () => {
     renderMath()
     alignPre()
+    cjkKern()
   },
   { flush: 'post' }
 )

@@ -22,6 +22,8 @@ const groups = computed(() => {
 <template>
   <template v-for="{ year, group } in groups">
     <h2>{{ year }}</h2>
-    <ArchiveEntry v-for="{ title, url, date } in group" :title="title" :url="url" :date="date" />
+    <ul class="!list-none !pl-0">
+      <ArchiveEntry v-for="{ title, url, date } in group" :title="title" :url="url" :date="date" />
+    </ul>
   </template>
 </template>

@@ -9,8 +9,8 @@ defineProps<{
 </script>
 
 <template>
-  <div class="my-1">
+  <li class="my-1">
     <time class="mr-4 inline-block w-12 text-right oldstyle-nums">{{ formatDate(date) }}</time>
     <a :href="url">{{ title }}</a>
-  </div>
+  </li>
 </template>

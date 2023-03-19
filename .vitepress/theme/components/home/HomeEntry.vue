@@ -19,9 +19,9 @@ defineProps<{
     </h1>
     <PostDate :date="new Date(date)" class="mb-2 sm:mb-4" />
     <div class="prose">
-      <div v-if="excerpt" class="mb-2 sm:mb-4">
+      <p v-if="excerpt" class="!mb-2 !mt-0 sm:!mb-4">
         {{ excerpt }}
-      </div>
+      </p>
       <div>
         <a :href="url">Read more &rarr;</a>
       </div>
