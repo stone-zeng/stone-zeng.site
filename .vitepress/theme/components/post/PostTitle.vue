@@ -19,7 +19,7 @@ const editLink = computed(() =>
       :href="editLink"
       :title="theme.editLink.text"
       external
-      class="text-blue-500 opacity-0 transition-opacity group-hover:opacity-100"
+      class="text-blue-500 opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100"
     >
       <MaterialIcon name="file-document-edit" class="mb-1 inline-block h-5 w-5" />
     </BaseLink>

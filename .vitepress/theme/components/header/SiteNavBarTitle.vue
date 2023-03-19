@@ -6,7 +6,7 @@ const { site } = useData()
 </script>
 
 <template>
-  <a href="/" class="SiteNavBarTitle text-xl font-[250] tracking-widest">{{
+  <a href="/" class="SiteNavBarTitle text-xl font-[250] tracking-wider">{{
     toTitle(site.title)
   }}</a>
 </template>

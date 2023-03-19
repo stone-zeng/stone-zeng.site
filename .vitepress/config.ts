@@ -38,7 +38,7 @@ const highlighter = async () => {
 export default async () =>
   defineConfigWithTheme<Theme.Config>({
     lang: 'en-US',
-    title: "Stone Zeng's Blog",
+    title: "Stone Zeng's Site",
     srcDir: 'docs',
     cleanUrls: true,
     rewrites: {
