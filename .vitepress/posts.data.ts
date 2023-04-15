@@ -12,13 +12,13 @@ interface Post {
 declare const data: Post[]
 export { data }
 
-export default createContentLoader('docs/**/*.md', {
+export default createContentLoader('src/posts/**/*.md', {
   transform: (raw): Post[] =>
     raw
       .filter(({ frontmatter }) => frontmatter.date && !frontmatter.draft)
       .map(({ frontmatter, url }) => ({
         title: frontmatter.title,
-        url: '/' + url.split('/').at(-1),
+        url: '/' + url.split('/').at(-2),
         date: frontmatter.date,
         updated: frontmatter.updated,
         tags: frontmatter.tags || [],

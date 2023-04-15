@@ -4,7 +4,6 @@ import { useData } from 'vitepress'
 import { toTitle } from '@/theme/utils'
 import BaseLink from '@/theme/components/BaseLink.vue'
 import MaterialIcon from '@/theme/components/MaterialIcon.vue'
-import type { Theme } from '@/theme/types'
 
 const { theme, page } = useData<Theme.Config>()
 const editLink = computed(() =>
@@ -13,7 +12,7 @@ const editLink = computed(() =>
 </script>
 
 <template>
-  <h1 class="group mt-6 mb-4 text-2xl font-bold sm:mt-8">
+  <h1 class="group mb-4 mt-6 text-2xl font-bold sm:mt-8">
     {{ toTitle(page.title) }}
     <BaseLink
       :href="editLink"

@@ -1,4 +1,4 @@
-export namespace Theme {
+declare namespace Theme {
   export interface Config {
     paginate: number
     editLink: EditLink

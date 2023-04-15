@@ -3,12 +3,11 @@ import { defineConfigWithTheme } from 'vitepress'
 import { getHighlighter } from 'shiki'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 import MarkdownItKaTeX from './lib/markdown-it-katex'
-import type { Theme } from './theme/types'
 
 const themeConfig: Theme.Config = {
   paginate: 10,
   editLink: {
-    pattern: 'https://github.com/stone-zeng/stone-zeng.github.io/blob/vitepress/docs/:path',
+    pattern: 'https://github.com/stone-zeng/stone-zeng.github.io/blob/vitepress/src/:path',
     text: 'Page source',
   },
   nav: [
@@ -86,10 +85,12 @@ export default async () =>
   defineConfigWithTheme<Theme.Config>({
     lang: 'en-US',
     title: "Stone Zeng's Site",
-    srcDir: 'docs',
+    srcDir: 'src',
     cleanUrls: true,
     rewrites: {
-      'posts/:post.md': ':post.md',
+      'posts/:post/index.md': ':post.md',
+      'about/index.md': 'about.md',
+      'archive/index.md': 'archive.md',
     },
     // prettier-ignore
     head: [

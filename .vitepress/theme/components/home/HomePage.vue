@@ -5,7 +5,6 @@ import { arrayChunk } from '@/theme/utils'
 import { data as posts } from '@/posts.data'
 import HomeEntry from '@/theme/components/home/HomeEntry.vue'
 import Paginator from '@/theme/components/home/Paginator.vue'
-import type { Theme } from '@/theme/types'
 
 const { theme } = useData<Theme.Config>()
 

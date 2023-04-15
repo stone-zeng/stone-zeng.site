@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import BaseLink from '@/theme/components/BaseLink.vue'
 import MaterialIcon from '@/theme/components/MaterialIcon.vue'
-import type { Theme } from '@/theme/types'
 
 const hoverColor = computed(() =>
   typeof props.color !== 'string' ? props.color : { light: props.color, dark: props.color }

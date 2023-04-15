@@ -4,5 +4,10 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": [
+    ".vitepress/*.ts",
+    ".vitepress/lib/**/*.ts",
+    ".vitepress/lib/**/*.d.ts",
+  ]
 }
