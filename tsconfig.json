@@ -24,6 +24,7 @@
     ".vitepress/**/*.ts",
     ".vitepress/**/*.d.ts",
     ".vitepress/**/*.vue",
+    "scripts/**/*.js",
     "src/**/*.vue"
   ]
 }
