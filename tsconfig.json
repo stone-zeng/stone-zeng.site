@@ -21,14 +21,9 @@
     "useDefineForClassFields": true
   },
   "include": [
-    ".vitepress/theme/**/*.ts",
-    ".vitepress/theme/**/*.d.ts",
-    ".vitepress/theme/**/*.vue",
-    "docs/**/*.vue",
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+    ".vitepress/**/*.ts",
+    ".vitepress/**/*.d.ts",
+    ".vitepress/**/*.vue",
+    "src/**/*.vue"
   ]
 }
