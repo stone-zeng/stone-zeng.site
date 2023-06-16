@@ -1,6 +1,6 @@
 import { fileURLToPath, URL } from 'url'
 import { defineConfigWithTheme } from 'vitepress'
-import { getHighlighter } from 'shiki'
+import { highlight } from './lib/highlight'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 import MarkdownItKaTeX from './lib/markdown-it-katex'
 
@@ -51,36 +51,6 @@ const themeConfig: Theme.Config = {
   },
 }
 
-// See https://github.com/vuejs/vitepress/issues/1067
-const highlighter = async () => {
-  const highlighter = await getHighlighter({
-    theme: 'github-light',
-  })
-
-  // @ts-ignore
-  highlighter.loadLanguage({
-    id: 'wolfram',
-    scopeName: 'source.wolfram',
-    grammar: require('./lib/languages/wolfram.tmLanguage.json'),
-    aliases: ['wl'],
-  })
-
-  // @ts-ignore
-  highlighter.loadLanguage({
-    id: 'latex-expl3',
-    scopeName: 'text.tex.latex.expl3',
-    grammar: require('./lib/languages/LaTeX-Expl3.tmLanguage.json'),
-  })
-
-  const preRE = /^<pre.*?>/
-  const vueRE = /-vue$/
-  return (str: string, lang: string) => {
-    const vPre = vueRE.test(lang) ? '' : 'v-pre'
-    lang = lang.replace(vueRE, '')
-    return highlighter.codeToHtml(str, { lang }).replace(preRE, `<pre ${vPre}>`)
-  }
-}
-
 export default async () =>
   defineConfigWithTheme<Theme.Config>({
     lang: 'en-US',
@@ -99,7 +69,8 @@ export default async () =>
     markdown: {
       typographer: true,
       headers: true,
-      highlight: await highlighter(),
+      highlight: await highlight(),
+      // highlight: await highlighter(),
       config: (md) => {
         md.use(MarkdownItKaTeX)
         md.use(MarkdownItMultimdTable, { headerless: true })
