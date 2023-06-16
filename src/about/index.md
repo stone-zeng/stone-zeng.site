@@ -3,9 +3,15 @@ title: About
 layout: page
 ---
 
+<script setup lang="ts">
+import AboutFormula from './AboutFormula.vue'
+</script>
+
 I'm Xiangdong Zeng (aka. Stone Zeng) working with
 
-<div class="about">|Physics⟩<span class="about-mbin">⊗</span>|LaTeX⟩<span class="about-mbin">⊗</span><div class="about-frac"><span class="about-frac-top">|Font engineering⟩<span class="about-mbin">+</span>|Type design⟩</span><span class="about-frac-bottom">√2</span></div></div>
+<AboutFormula />
+
+<!-- <div class="about">|Physics⟩<span class="about-mbin">⊗</span>|LaTeX⟩<span class="about-mbin">⊗</span><div class="about-frac"><span class="about-frac-top">|Font engineering⟩<span class="about-mbin">+</span>|Type design⟩</span><span class="about-frac-bottom">√2</span></div></div> -->
 
 Currently, I'm
 
