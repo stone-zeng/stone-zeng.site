@@ -1,37 +1,35 @@
-@layer base {
-  @font-face {
-    font-family: 'Work Sans';
-    font-weight: 100 900;
-    font-style: normal;
-    src: url(@/theme/fonts/WorkSans.woff2) format('woff2');
-  }
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 100 900;
+  font-style: normal;
+  src: url(@/theme/fonts/WorkSans.woff2) format('woff2');
+}
 
-  @font-face {
-    font-family: 'Work Sans';
-    font-weight: 100 900;
-    font-style: italic;
-    src: url(@/theme/fonts/WorkSans-Italic.woff2) format('woff2');
-  }
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 100 900;
+  font-style: italic;
+  src: url(@/theme/fonts/WorkSans-Italic.woff2) format('woff2');
+}
 
-  @font-face {
-    font-family: 'JetBrains Mono';
-    font-weight: 100 800;
-    font-style: normal;
-    src: url(@/theme/fonts/JetBrainsMono.woff2) format('woff2');
-  }
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: 100 800;
+  font-style: normal;
+  src: url(@/theme/fonts/JetBrainsMono.woff2) format('woff2');
+}
 
-  @font-face {
-    font-family: 'JetBrains Mono';
-    font-weight: 100 800;
-    font-style: italic;
-    src: url(@/theme/fonts/JetBrainsMono-Italic.woff2) format('woff2');
-  }
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: 100 800;
+  font-style: italic;
+  src: url(@/theme/fonts/JetBrainsMono-Italic.woff2) format('woff2');
+}
 
-  @font-face {
-    font-family: 'Punct Sans';
-    font-weight: 250 900;
-    font-style: normal;
-    font-feature-settings: 'kern';
-    src: url(@/theme/fonts/PunctSans-VF.woff2) format('woff2');
-  }
+@font-face {
+  font-family: 'Punct Sans';
+  font-weight: 250 900;
+  font-style: normal;
+  font-feature-settings: 'kern';
+  src: url(@/theme/fonts/PunctSans-VF.woff2) format('woff2');
 }

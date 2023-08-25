@@ -1,12 +1,10 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 @import '@/theme/styles/fonts.css';
+@import '@/theme/styles/katex.css';
 @import '@/theme/styles/prose.css';
 
-/* Generateed from `node_modules/katex/dist/katex.css`, with woff and ttf fonts removed */
-@import '@/theme/styles/katex.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   @media (prefers-color-scheme: dark) {
@@ -20,12 +18,10 @@
   }
 }
 
-@layer components {
-  .katex {
-    @apply text-lg leading-none;
-  }
+.katex {
+  @apply text-[17px] leading-none;
+}
 
-  .katex-html {
-    @apply overflow-x-auto overflow-y-hidden;
-  }
+.katex-html {
+  @apply overflow-x-auto;
 }

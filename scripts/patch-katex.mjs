@@ -9,13 +9,12 @@ const printError = (err) => {
   }
 }
 
+const patch = (str) =>
+  str
+    .replace(/(,\s*)?url\(\S+\)\s*format\((?:'|")(?:truetype|woff)(?:'|")\)(,\s*)?/g, '')
+    .replace(/url\(fonts\//g, 'url(katex/dist/fonts/')
+
 readFile(input_file, 'utf-8', (err, data) => {
   printError(err)
-  writeFile(
-    output_file,
-    data
-      .replace(/(,\s*)?url\(\S+\)\s*format\((?:'|")(?:truetype|woff)(?:'|")\)(,\s*)?/g, '')
-      .replace(/url\(fonts\//g, 'url(katex/dist/fonts/'),
-    printError
-  )
+  writeFile(output_file, patch(data), printError)
 })

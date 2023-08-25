@@ -11,6 +11,7 @@
     "url": "https://github.com/stone-zeng/stone-zeng.github.io/issues"
   },
   "homepage": "https://stone-zeng.github.io/",
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
@@ -18,22 +19,23 @@
     "patch-katex": "node scripts/patch-katex.mjs"
   },
   "devDependencies": {
-    "@types/katex": "^0.16.0",
-    "@types/markdown-it": "^12.2.3",
-    "@types/node": "^20.3.0",
-    "autoprefixer": "^10.4.14",
+    "@types/katex": "^0.16.2",
+    "@types/markdown-it": "^13.0.0",
+    "@types/node": "^20.5.6",
+    "@types/postcss-import": "^14.0.0",
+    "autoprefixer": "^10.4.15",
     "gray-matter": "^4.0.3",
-    "katex": "^0.16.7",
+    "katex": "^0.16.8",
     "markdown-it": "^13.0.1",
     "markdown-it-attrs": "^4.1.6",
-    "markdown-it-multimd-table": "^4.2.2",
-    "postcss": "^8.4.24",
+    "markdown-it-multimd-table": "^4.2.3",
+    "postcss": "^8.4.28",
     "postcss-import": "^15.1.0",
-    "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0",
-    "shiki": "^0.14.2",
-    "tailwindcss": "^3.3.2",
-    "vitepress": "1.0.0-beta.2",
+    "prettier": "^3.0.2",
+    "prettier-plugin-tailwindcss": "^0.5.3",
+    "shiki": "^0.14.3",
+    "tailwindcss": "^3.3.3",
+    "vitepress": "1.0.0-rc.4",
     "vue": "^3.3.4"
   },
   "pnpm": {
