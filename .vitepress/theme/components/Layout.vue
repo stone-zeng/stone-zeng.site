@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, watch } from 'vue'
-import { Content, useData } from 'vitepress'
+import { useData } from 'vitepress'
 import katex from 'katex'
 import PostAside from '@/theme/components/post/PostAside.vue'
 import PostHeader from '@/theme/components/post/PostHeader.vue'
@@ -27,7 +27,7 @@ const alignPre = () => {
   document.querySelectorAll('pre').forEach((el) => {
     el.innerHTML = el.innerHTML.replace(
       /([\p{Ideo}\u2E80-\u312F\uFF00-\uFFEF])/gu,
-      '<span class="cjk-code">$1</span>'
+      '<span class="cjk-code">$1</span>',
     )
   })
 }
@@ -36,7 +36,7 @@ const cjkKern = () => {
   document.querySelectorAll('h1, h2, h3, h4, p, li, figcaption, td, th').forEach((el) => {
     el.innerHTML = el.innerHTML.replace(
       /(\p{Ideo})([（［〈《「『【〔〖〘])/gu,
-      '<span style="letter-spacing: 0.5em">$1</span>$2'
+      '<span style="letter-spacing: 0.5em">$1</span>$2',
     )
   })
 }
@@ -53,7 +53,7 @@ watch(
     alignPre()
     cjkKern()
   },
-  { flush: 'post' }
+  { flush: 'post' },
 )
 </script>
 
