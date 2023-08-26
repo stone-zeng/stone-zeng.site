@@ -23,38 +23,15 @@ const renderMath = () => {
   })
 }
 
-const alignPre = () => {
-  document.querySelectorAll('pre').forEach((el) => {
-    el.innerHTML = el.innerHTML.replace(
-      /([\p{Ideo}\u2E80-\u312F\uFF00-\uFFEF])/gu,
-      '<span class="cjk-code">$1</span>',
-    )
-  })
-}
-
-const cjkKern = () => {
-  document.querySelectorAll('h1, h2, h3, h4, p, li, figcaption, td, th').forEach((el) => {
-    el.innerHTML = el.innerHTML.replace(
-      /(\p{Ideo})([（［〈《「『【〔〖〘])/gu,
-      '<span style="letter-spacing: 0.5em">$1</span>$2',
-    )
-  })
-}
-
-onMounted(() => {
-  renderMath()
-  alignPre()
-  cjkKern()
-})
-watch(
-  page,
-  () => {
-    renderMath()
-    alignPre()
-    cjkKern()
-  },
-  { flush: 'post' },
-)
+onMounted(renderMath)
+// watch(
+//   page,
+//   () => {
+//     console.log('Page changed.')
+//     renderMath()
+//   },
+//   { flush: 'post' },
+// )
 </script>
 
 <template>

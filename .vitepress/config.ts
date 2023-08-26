@@ -7,8 +7,10 @@ import tailwindcss from 'tailwindcss'
 // @ts-ignore
 import tailwindcssNesting from 'tailwindcss/nesting'
 
-import { highlight } from './lib/highlight'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
+
+import { highlight } from './lib/highlight'
+import MarkdownItCjkKern from './lib/markdown-it-cjk-kern'
 import MarkdownItKaTeX from './lib/markdown-it-katex'
 
 const themeConfig: Theme.Config = {
@@ -82,6 +84,7 @@ export default async () =>
       headers: true,
       highlight: await highlight(),
       config: (md) => {
+        md.use(MarkdownItCjkKern)
         md.use(MarkdownItKaTeX)
         md.use(MarkdownItMultimdTable, { headerless: true })
       },

@@ -152,6 +152,10 @@
       @apply px-[0.1em];
     }
 
+    .cjk-kern {
+      @apply tracking-[0.5em];
+    }
+
     /* Figures */
 
     img {
