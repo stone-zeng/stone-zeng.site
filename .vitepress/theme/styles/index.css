@@ -22,6 +22,6 @@
   @apply text-[17px] leading-none;
 }
 
-.katex-html {
-  @apply overflow-x-auto;
+.katex-display {
+  @apply overflow-x-auto py-2 my-0;
 }

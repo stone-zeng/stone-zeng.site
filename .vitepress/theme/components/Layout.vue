@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { onMounted, watch } from 'vue'
-import { useData } from 'vitepress'
+import { onContentUpdated, useData } from 'vitepress'
 import katex from 'katex'
 import PostAside from '@/theme/components/post/PostAside.vue'
 import PostHeader from '@/theme/components/post/PostHeader.vue'
@@ -8,30 +7,25 @@ import SiteFooter from '@/theme/components/footer/SiteFooter.vue'
 import SiteHeader from '@/theme/components/header/SiteHeader.vue'
 import Wrapper from '@/theme/components/Wrapper.vue'
 
-const { page, frontmatter } = useData()
+const { frontmatter } = useData()
 
 const renderMath = () => {
   const macros = {}
+  const renderToString = (tex: string | null, displayMode: boolean) =>
+    katex.renderToString(tex || '', {
+      throwOnError: true,
+      displayMode,
+      macros,
+    })
   document.querySelectorAll('[data-math]').forEach((el) => {
-    const renderToString = (displayMode: boolean) =>
-      katex.renderToString(el.textContent || '', {
-        throwOnError: true,
-        displayMode,
-        macros,
-      })
-    el.outerHTML = el.tagName === 'DIV' ? `<p>${renderToString(true)}</p>` : renderToString(false)
+    el.outerHTML =
+      el.tagName === 'DIV'
+        ? `<p>${renderToString(el.textContent, true)}</p>`
+        : renderToString(el.textContent, false)
   })
 }
 
-onMounted(renderMath)
-// watch(
-//   page,
-//   () => {
-//     console.log('Page changed.')
-//     renderMath()
-//   },
-//   { flush: 'post' },
-// )
+onContentUpdated(renderMath)
 </script>
 
 <template>

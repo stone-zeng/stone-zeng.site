@@ -131,8 +131,24 @@
       @apply font-mono;
     }
 
-    pre {
-      @apply rounded bg-light-500 px-4 py-3 dark:bg-dark-300;
+    [class^='language'] {
+      @apply relative;
+
+      .copy {
+        @apply hidden;
+      }
+
+      .lang {
+        @apply absolute right-2 top-0.5 text-xs text-neutral-400 dark:text-neutral-500;
+      }
+
+      pre {
+        @apply rounded bg-light-500 py-4 dark:bg-dark-300;
+
+        code {
+          @apply block w-fit px-4;
+        }
+      }
     }
 
     :not(pre) > code,
