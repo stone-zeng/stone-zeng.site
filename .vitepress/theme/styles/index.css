@@ -1,6 +1,7 @@
 @import '@/theme/styles/fonts.css';
 @import '@/theme/styles/katex.css';
 @import '@/theme/styles/prose.css';
+@import '@/theme/styles/tex-logo.css';
 
 @tailwind base;
 @tailwind components;
@@ -18,10 +19,20 @@
   }
 }
 
-.katex {
-  @apply text-[17px] leading-none;
-}
+@layer components {
+  .cjk-code {
+    @apply px-[0.1em];
+  }
 
-.katex-display {
-  @apply overflow-x-auto py-2 my-0;
+  .cjk-kern {
+    @apply tracking-[0.5em];
+  }
+
+  .katex {
+    @apply text-[17px] leading-none;
+  }
+
+  .katex-display {
+    @apply my-0 overflow-x-auto py-2;
+  }
 }

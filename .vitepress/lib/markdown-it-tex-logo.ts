@@ -1,76 +1,52 @@
-import MarkdownIt from 'markdown-it';
-import StateInline from 'markdown-it/lib/rules_inline/state_inline';
-import Token from 'markdown-it/lib/token';
+import type MarkdownIt from 'markdown-it'
 
-const span = (className: string, el: string) => `<span class="tex-logo-${className}">${el}</span>`;
+const span = (className: string, el: string) => `<span class="${className}">${el}</span>`
 
-const TEX = `T${span('e', 'e')}X`;
-const LA = `L${span('a', 'a')}`;
-const LATEX = LA + TEX;
-const E_ = `${span('epsilon', '&epsilon;')}${span('rkern', '-')}`;
-const TWO_E = `2${span('two-e-epsilon', '&epsilon;')}`;
-const TEX_LOGO = {
+const _TEX = `T${span('tex-e', 'e')}X`
+const _LA = `L${span('la-a', 'a')}`
+const _E = span('epsilon', '&epsilon;') + span('rkern', '-')
+const TEX = span('tex-logo shy', _TEX)
+const LATEX = span('tex-logo shy', _LA + _TEX)
+const TWO_E = span('tex-logo shy', '2' + span('two-e-epsilon', '&epsilon;'))
+
+const texLogo = {
   TeX: TEX,
   LaTeX: LATEX,
-  LaTeXe: `${LATEX}&thinsp;${TWO_E}`,
+  // LaTeXe: `${LATEX}&thinsp;${TWO_E}`,
   LaTeX3: `${LATEX}3`,
-  '(La)TeX': `${span('rkern', '(')}${LA}${span('rparen-kern', ')')}${TEX}`,
-  ConTeXt: `Co${span('rkern', 'n')}&shy;${TEX}t`,
-  eTeX: `${E_}${TEX}`,
-  pdfTeX: `pdf&shy;${TEX}`,
-  pdfLaTeX: `pdf&shy;${LATEX}`,
-  XeTeX: `X&#x2060;${span('xe-e xe-e-kern', 'e')}&#x2060;${TEX}`,
-  XeLaTeX: `X&#x2060;${span('xe-e', 'e')}${LATEX}`,
-  LuaTeX: `Lu${span('rkern', 'a')}&shy;${TEX}`,
-  LuaHBTeX: `LuaHB&shy;${TEX}`,
-  LuaLaTeX: `Lua&shy;${LATEX}`,
-  pTeX: `${span('rkern', 'p')}${TEX}`,
-  pLaTeX: `p${LATEX}`,
-  upTeX: `u${span('rkern', 'p')}&shy;${TEX}`,
-  upLaTeX: `up&shy;${LATEX}`,
-  ApTeX: `A${span('rkern', 'p')}&shy;${TEX}`,
-  BibTeX: `B${span('bib-ib rkern', 'ib')}${TEX}`,
-  CTeX: `C${TEX}`,
-  MacTeX: `Ma${span('rkern', 'c')}&shy;${TEX}`,
-  MiKTeX: `MiK&shy;${TEX}`,
-  '2e': TWO_E,
-};
+  '(La)TeX': span('tex-logo', `(${_LA})`) + TEX,
+  ConTeXx: `Con${TEX}t`,
+  // eTeX: span('tex-logo', _E) + span('tex-logo', _TEX),
+  pdfTeX: `pdf${TEX}`,
+  pdfLaTeX: `pdf${LATEX}`,
+  XeTeX: span('tex-logo', 'X' + span('xe-e xe-e-kern', 'e')) + span('tex-logo', _TEX),
+  XeLaTeX: span('tex-logo', 'X' + span('xe-e', 'e')) + LATEX,
+  LuaTeX: `Lua${TEX}`,
+  LuaHBTeX: 'Lua' + span('tex-logo shy', 'HB') + TEX,
+  LuaLaTeX: `Lua${LATEX}`,
+  pTeX: 'p' + span('tex-logo', _TEX),
+  pLaTeX: 'p' + span('tex-logo', _LA + _TEX),
+  upTeX: `up${TEX}`,
+  upLaTeX: `up${LATEX}`,
+  ApTeX: `Ap${TEX}`,
+  BibTeX: span('tex-logo', 'B' + span('bib-ib', 'ib')) + TEX,
+  CTeX: 'C' + span('tex-logo', _TEX),
+  MacTeX: `Mac${TEX}`,
+  MiKTeX: `MiK${TEX}`,
+  // '2e': TWO_E,
+}
 
-const TEX_LOGO_PATTERN = new RegExp(
-  `^(${Object.keys(TEX_LOGO)
+const texLogoPattern = new RegExp(
+  `\\\\(${Object.keys(texLogo)
     .join('|')
-    .replace(/([\(\)])/g, '\\$1')})\\b`
-);
-
-const parseTeXLogo = (state: StateInline, silent: boolean) => {
-  if (silent || state.src[state.pos] !== '\\' || state.pos + 1 >= state.posMax) return false;
-
-  // Skip `\`
-  state.pos += 1;
-
-  // Check if it's a TeX logo
-  const match = state.src.slice(state.pos).match(TEX_LOGO_PATTERN);
-  if (!match) return false;
-
-  let token = state.push('tex_logo_open', 'span', 1);
-  token.attrPush(['class', 'tex-logo']);
-  token = state.push('tex_logo_text', '', 0);
-  token.content = match[0];
-  token = state.push('tex_logo_close', 'span', -1);
-
-  state.pos += match[0].length;
-
-  return true;
-};
-
-const texLogoRenderer = (tokens: Token[], idx: number) => {
-  const content = tokens[idx].content;
-  return TEX_LOGO[content] || content;
-};
+    .replace(/([\(\)])/g, '\\$1')})\\b`,
+  'g',
+)
 
 const plugin = (md: MarkdownIt) => {
-  md.inline.ruler.before('escape', 'tex_logo', parseTeXLogo);
-  md.renderer.rules['tex_logo_text'] = texLogoRenderer;
-};
+  const text = md.renderer.rules.text!
+  md.renderer.rules.text = (...args) =>
+    text(...args).replace(texLogoPattern, (_, m) => texLogo[m as keyof typeof texLogo])
+}
 
-export default plugin;
+export default plugin

@@ -1,7 +1,8 @@
 import type { Config } from 'tailwindcss'
 
 export default <Config>{
-  content: ['./.vitepress/theme/**/*.{ts,vue}', './src/**/*.{ts,vue}'],
+  content: ['./.vitepress/lib/**/*.ts', './.vitepress/theme/**/*.{ts,vue}', './src/**/*.{ts,vue}'],
+  safelist: ['katex-display'],
   theme: {
     fontFamily: {
       sans: [

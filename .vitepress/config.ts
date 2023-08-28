@@ -12,6 +12,7 @@ import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 import { highlight } from './lib/highlight'
 import MarkdownItCjkKern from './lib/markdown-it-cjk-kern'
 import MarkdownItKaTeX from './lib/markdown-it-katex'
+import MarkdownItTeXLogo from './lib/markdown-it-tex-logo'
 
 const themeConfig: Theme.Config = {
   paginate: 10,
@@ -86,6 +87,7 @@ export default async () =>
       config: (md) => {
         md.use(MarkdownItCjkKern)
         md.use(MarkdownItKaTeX)
+        md.use(MarkdownItTeXLogo)
         md.use(MarkdownItMultimdTable, { headerless: true })
       },
     },
