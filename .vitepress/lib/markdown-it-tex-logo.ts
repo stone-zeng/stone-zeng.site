@@ -12,11 +12,11 @@ const TWO_E = span('tex-logo shy', '2' + span('two-e-epsilon', '&epsilon;'))
 const texLogo = {
   TeX: TEX,
   LaTeX: LATEX,
-  // LaTeXe: `${LATEX}&thinsp;${TWO_E}`,
+  LaTeXe: `${LATEX}&thinsp;${TWO_E}`,
   LaTeX3: `${LATEX}3`,
   '(La)TeX': span('tex-logo', `(${_LA})`) + TEX,
-  ConTeXx: `Con${TEX}t`,
-  // eTeX: span('tex-logo', _E) + span('tex-logo', _TEX),
+  ConTeXt: `Con${TEX}t`,
+  eTeX: span('tex-logo', _E) + span('tex-logo', _TEX),
   pdfTeX: `pdf${TEX}`,
   pdfLaTeX: `pdf${LATEX}`,
   XeTeX: span('tex-logo', 'X' + span('xe-e xe-e-kern', 'e')) + span('tex-logo', _TEX),
@@ -33,7 +33,7 @@ const texLogo = {
   CTeX: 'C' + span('tex-logo', _TEX),
   MacTeX: `Mac${TEX}`,
   MiKTeX: `MiK${TEX}`,
-  // '2e': TWO_E,
+  '2e': TWO_E,
 }
 
 const texLogoPattern = new RegExp(

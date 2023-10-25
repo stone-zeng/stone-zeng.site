@@ -1,6 +1,6 @@
 @layer components {
   .tex-logo {
-    @apply whitespace-nowrap text-red-400;
+    @apply whitespace-nowrap;
 
     &.shy {
       @apply before:content-['\00ad'];

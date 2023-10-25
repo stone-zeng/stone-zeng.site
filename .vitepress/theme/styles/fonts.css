@@ -8,6 +8,14 @@
 @font-face {
   font-family: 'Work Sans';
   font-weight: 100 900;
+  font-style: normal;
+  src: url(@/theme/fonts/WorkSansGreek.woff2) format('woff2');
+  unicode-range: U+03B5;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 100 900;
   font-style: italic;
   src: url(@/theme/fonts/WorkSans-Italic.woff2) format('woff2');
 }
