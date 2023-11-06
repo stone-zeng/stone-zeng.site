@@ -17,7 +17,7 @@ const languages = [
 // See https://github.com/vuejs/vitepress/issues/1067
 export const highlight = async () => {
   const highlighter = await getHighlighter({
-    theme: 'github-light',
+    themes: ['github-light', 'github-dark'],
   })
 
   // @ts-ignore
@@ -28,6 +28,11 @@ export const highlight = async () => {
   return (str: string, lang: string) => {
     const vPre = vueRE.test(lang) ? '' : 'v-pre'
     lang = lang.replace(vueRE, '')
-    return highlighter.codeToHtml(str, { lang }).replace(preRE, `<pre ${vPre}>`)
+    const codeToHtml = (theme: string, className: string) =>
+      highlighter
+        .codeToHtml(str, { lang, theme })
+        .replace(preRE, `<pre ${vPre}>`)
+        .replace(/^<pre/, `<pre class="${className}"`)
+    return codeToHtml('github-light', 'vp-code-light') + codeToHtml('github-dark', 'vp-code-dark')
   }
 }

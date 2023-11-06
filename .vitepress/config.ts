@@ -4,7 +4,6 @@ import { defineConfigWithTheme } from 'vitepress'
 import autoprefixer from 'autoprefixer'
 import tailwindcss from 'tailwindcss'
 import tailwindcssNesting from 'tailwindcss/nesting'
-
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 
 import { highlight } from './lib/highlight'
@@ -60,6 +59,14 @@ const themeConfig: Theme.Config = {
   },
 }
 
+// const languages = [
+//   {
+//     id: 'latex-expl3',
+//     scopeName: 'text.tex.latex.expl3',
+//     grammar: import('./lib/languages/LaTeX-Expl3.tmLanguage.json'),
+//   },
+// ]
+
 const postcssConfig = {
   plugins: [tailwindcssNesting, tailwindcss, autoprefixer],
 }
@@ -80,6 +87,9 @@ export default async () =>
       typographer: true,
       headers: true,
       highlight: await highlight(),
+      // TODO: see https://github.com/shikijs/shiki/pull/535
+      // // @ts-ignore
+      // languages,
       config: (md) => {
         md.use(MarkdownItCjkKern)
           .use(MarkdownItFootnote)

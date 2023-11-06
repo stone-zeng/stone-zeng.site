@@ -151,6 +151,16 @@
       }
     }
 
+    .vp-adaptive-theme {
+      .vp-code-dark {
+        @apply hidden dark:block;
+      }
+
+      .vp-code-light {
+        @apply dark:hidden;
+      }
+    }
+
     :not(pre) > code,
     kbd {
       @apply rounded bg-light-500 px-1 dark:bg-dark-300;
