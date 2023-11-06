@@ -142,8 +142,8 @@ const footnoteBlock = (state: FootnoteStateCore) => {
 
 const footnoteRefRenderer = (tokens: Token[], index: number) => {
   const token = tokens[index]
-  const link = `<a href="#${token.attrGet('href')}">${token.content}</a>`
-  return `<sup id="${token.attrGet('id')}">[${link}]</sup>`
+  const link = `<a href="#${token.attrGet('href')}">[${token.content}]</a>`
+  return `<sup id="${token.attrGet('id')}" class="footnote-ref">${link}</sup>`
 }
 
 const footnoteBackrefRenderer = (tokens: Token[], index: number) => {
@@ -152,11 +152,11 @@ const footnoteBackrefRenderer = (tokens: Token[], index: number) => {
   const link =
     count === 1
       ? `<a href="#fnref:${label}">^</a>`
-      : '^' +
+      : '<span>^</span>' +
         [...new Array(count).keys()]
           .map((i) => `<a href="#fnref:${label}:${i + 1}">${String.fromCharCode(0x61 + i)}</a>`)
           .join('')
-  return `<span>${link}</span>`
+  return `<sup class="footnote-backref">${link}</sup>`
 }
 
 const plugin = (md: MarkdownIt) => {

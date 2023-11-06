@@ -195,6 +195,29 @@
       }
     }
 
+    sup,
+    sub {
+      @apply font-[450];
+    }
+
+    /* Footnotes */
+
+    .footnote-ref {
+      @apply px-0.5;
+
+      & + .footnote-ref {
+        @apply pl-0;
+      }
+    }
+
+    .footnote-backref {
+      @apply inline-flex select-none gap-0.5 pr-1;
+
+      :not(:first-child) {
+        @apply italic;
+      }
+    }
+
     /* TODO: */
 
     .invert {
