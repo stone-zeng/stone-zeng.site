@@ -1,11 +1,9 @@
 // Based on https://github.com/waylonflinn/markdown-it-katex
 
-import MarkdownIt from 'markdown-it'
-import StateBlock from 'markdown-it/lib/rules_block/state_block'
-import StateInline from 'markdown-it/lib/rules_inline/state_inline'
-
-const MATH_INLINE = 'math_inline'
-const MATH_BLOCK = 'math_block'
+import type { Token } from 'markdown-it'
+import type MarkdownIt from 'markdown-it'
+import type StateBlock from 'markdown-it/lib/rules_block/state_block'
+import type StateInline from 'markdown-it/lib/rules_inline/state_inline'
 
 interface IsValidDelim {
   canOpen: boolean
@@ -30,7 +28,7 @@ const isDigit = (c: string) => {
   return code >= 0x30 && code <= 0x39
 }
 
-const parseMathInline = (state: StateInline, silent: boolean) => {
+const mathInline = (state: StateInline, silent: boolean) => {
   if (state.src[state.pos] !== '$') return false
 
   const isValidOpenDelim = isValidDelim(state, state.pos).canOpen
@@ -80,7 +78,7 @@ const parseMathInline = (state: StateInline, silent: boolean) => {
   }
 
   if (!silent) {
-    const token = state.push(MATH_INLINE, 'math', 0)
+    const token = state.push('math_inline', 'math', 0)
     token.markup = '$'
     token.content = state.src.slice(start, match)
   }
@@ -89,7 +87,7 @@ const parseMathInline = (state: StateInline, silent: boolean) => {
   return true
 }
 
-const parseMathBlock = (state: StateBlock, start: number, end: number, silent: boolean) => {
+const mathBlock = (state: StateBlock, start: number, end: number, silent: boolean) => {
   let pos = state.bMarks[start] + state.tShift[start]
   let max = state.eMarks[start]
 
@@ -129,7 +127,9 @@ const parseMathBlock = (state: StateBlock, start: number, end: number, silent: b
 
   state.line = next + 1
 
-  const token = state.push(MATH_BLOCK, 'math', 0)
+  const trimLine = (line: string) => (line && line.trim() ? line + '\n' : '')
+
+  const token = state.push('math_block', 'math', 0)
   token.block = true
   token.content =
     trimLine(firstLine) +
@@ -140,18 +140,17 @@ const parseMathBlock = (state: StateBlock, start: number, end: number, silent: b
   return true
 }
 
-const trimLine = (line: string) => (line && line.trim() ? line + '\n' : '')
-const replaceAngle = (s: string) => s.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+const mathRenderer = (token: Token, tag: 'div' | 'span') =>
+  `<${tag} data-math>${token.content.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</${tag}>`
 
 const plugin = (md: MarkdownIt) => {
-  md.inline.ruler.after('escape', MATH_INLINE, parseMathInline)
-  md.block.ruler.after('blockquote', MATH_BLOCK, parseMathBlock, {
+  md.inline.ruler.after('escape', 'math_inline', mathInline)
+  md.block.ruler.after('blockquote', 'math_block', mathBlock, {
     alt: ['paragraph', 'reference', 'blockquote', 'list'],
   })
-  md.renderer.rules[MATH_INLINE] = (tokens, idx) =>
-    `<span data-math>${replaceAngle(tokens[idx].content)}</span>`
-  md.renderer.rules[MATH_BLOCK] = (tokens, idx) =>
-    `<div data-math>${replaceAngle(tokens[idx].content)}</div>`
+
+  md.renderer.rules['math_inline'] = (tokens, index) => mathRenderer(tokens[index], 'span')
+  md.renderer.rules['math_block'] = (tokens, index) => mathRenderer(tokens[index], 'div')
 }
 
 export default plugin

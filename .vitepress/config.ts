@@ -11,6 +11,7 @@ import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 
 import { highlight } from './lib/highlight'
 import MarkdownItCjkKern from './lib/markdown-it-cjk-kern'
+import MarkdownItFootnote from './lib/markdown-it-footnote'
 import MarkdownItKaTeX from './lib/markdown-it-katex'
 import MarkdownItTeXLogo from './lib/markdown-it-tex-logo'
 
@@ -86,6 +87,7 @@ export default async () =>
       highlight: await highlight(),
       config: (md) => {
         md.use(MarkdownItCjkKern)
+        md.use(MarkdownItFootnote)
         md.use(MarkdownItKaTeX)
         md.use(MarkdownItTeXLogo)
         md.use(MarkdownItMultimdTable, { headerless: true })

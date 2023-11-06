@@ -22,7 +22,10 @@ excerpt: 嗯，此为一连载。背景是，我们希望 ctex-kit 最终提交�
 
 由于我对 \TeX 的 [WEB](https://www.ctan.org/pkg/web) 源代码比较熟悉，对于 [ttf2pk](https://github.com/TeX-Live/texlive-source/tree/trunk/texk/ttf2pk2)、[DVIPDFMx](https://ctan.org/pkg/dvipdfmx)、以及 \pdfTeX 的代码也略通一二，因此写这篇文章采用了比较宏观和触类旁通的笔法。文章中对于 \TeX 的字体相关的诸多概念和数据结构进行了扼要的阐述，每讲到一知识点，我就尽量引用 `tex.web`、`tftopl.web`、`ttf2tfm.c` 等代码[^tl-source]来阐明背后的原理，此外还在多处引申开来讲述了一些 \TeX 的算法原理。因此这篇文章不仅仅是给上述所说的开发者看的，任何对 \TeX 的字体原理感兴趣的读者，都能从中获得你想了解的东西。
 
-[^tl-source]:
+[^tl-source]: 原文章写于 2006 年，在这之后本文所引述的一些代码均有所修改，主要有：
+  - ttf2pk 基于 FreeType2 重构，因此文件路径更改为 `texk/ttf2pk2`
+  - 2014 年 Knuth 对 \TeX、TFtoPL 等进行了一些修订
+文中列出的代码片段，ttf2pk 相关部分来自[提交 5ead665c0c](https://github.com/TeX-Live/texlive-source/tree/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk)，而 web2c 部分来自[提交 e0e5ba1ea9](https://github.com/TeX-Live/texlive-source/tree/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c)（Knuth 修订后，所列代码实际没有改动）。
 
 当然，笔误难免，况且我只是一个建筑系的本科生，而不是学计算机的，肯定会犯下一些错误，希望版面上的老师们指正。
 
@@ -803,14 +806,4 @@ TFM 的部分析完了，做个总结。由于中文开发者希望用程序能�
 
 ## 注释
 
-<div id="footnotes">
-  <ol>
-    <li id="fn:tl-source">原文章写于 2006 年，在这之后本文所引述的一些代码均有所修改，主要有：
-      <ul>
-        <li markdown="1">ttf2pk 基于 FreeType2 重构，因此文件路径更改为 `texk/ttf2pk2`</li>
-        <li>2014 年 Knuth 对 \TeX、TFtoPL 等进行了一些修订</li>
-      </ul>
-      文中列出的代码片段，ttf2pk 相关部分来自<a href="https://github.com/TeX-Live/texlive-source/tree/5ead665c0ceef937dc9aa7d52c39745de244597c/texk/ttf2pk">提交 5ead665c0c</a>（重构之前），而 web2c 部分来自<a href="https://github.com/TeX-Live/texlive-source/tree/e0e5ba1ea9868ab6d3da91d2a5de26a5bbce9f63/texk/web2c">提交 e0e5ba1ea9</a>（Knuth 修订后，所列代码实际没有改动）。
-    </li>
-  </ol>
-</div>
+<div id="footnotes"></div>

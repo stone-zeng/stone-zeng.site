@@ -21,23 +21,18 @@
   "devDependencies": {
     "@types/katex": "^0.16.5",
     "@types/markdown-it": "^13.0.5",
-    "@types/markdown-it-footnote": "^3.0.2",
-    "@types/node": "^20.8.8",
-    "@types/postcss-import": "^14.0.2",
+    "@types/node": "^20.8.10",
     "autoprefixer": "^10.4.16",
     "gray-matter": "^4.0.3",
     "katex": "^0.16.9",
     "markdown-it": "^13.0.2",
     "markdown-it-attrs": "^4.1.6",
     "markdown-it-multimd-table": "^4.2.3",
-    "postcss": "^8.4.31",
-    "postcss-import": "^15.1.0",
-    "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
     "shiki": "^0.14.5",
-    "tailwindcss": "^3.3.4",
-    "vitepress": "1.0.0-rc.24",
-    "vue": "^3.3.7"
+    "tailwindcss": "^3.3.5",
+    "vitepress": "1.0.0-rc.25",
+    "vue": "^3.3.8"
   },
   "pnpm": {
     "peerDependencyRules": {
