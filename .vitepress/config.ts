@@ -2,9 +2,7 @@ import { fileURLToPath, URL } from 'url'
 import { defineConfigWithTheme } from 'vitepress'
 
 import autoprefixer from 'autoprefixer'
-import postcssImport from 'postcss-import'
 import tailwindcss from 'tailwindcss'
-// @ts-ignore
 import tailwindcssNesting from 'tailwindcss/nesting'
 
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
@@ -63,7 +61,7 @@ const themeConfig: Theme.Config = {
 }
 
 const postcssConfig = {
-  plugins: [postcssImport, tailwindcssNesting, tailwindcss, autoprefixer],
+  plugins: [tailwindcssNesting, tailwindcss, autoprefixer],
 }
 
 export default async () =>
@@ -77,20 +75,17 @@ export default async () =>
       'about/index.md': 'about.md',
       'archive/index.md': 'archive.md',
     },
-    // prettier-ignore
-    head: [
-      ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]
-    ],
+    head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
     markdown: {
       typographer: true,
       headers: true,
       highlight: await highlight(),
       config: (md) => {
         md.use(MarkdownItCjkKern)
-        md.use(MarkdownItFootnote)
-        md.use(MarkdownItKaTeX)
-        md.use(MarkdownItTeXLogo)
-        md.use(MarkdownItMultimdTable, { headerless: true })
+          .use(MarkdownItFootnote)
+          .use(MarkdownItKaTeX)
+          .use(MarkdownItTeXLogo)
+          .use(MarkdownItMultimdTable, { headerless: true })
       },
     },
     vite: {
