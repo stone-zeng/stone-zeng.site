@@ -16,14 +16,14 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "serve": "vitepress serve",
+    "test": "vitest run",
     "patch-katex": "node scripts/patch-katex.mjs"
   },
   "devDependencies": {
-    "@types/katex": "^0.16.5",
-    "@types/markdown-it": "^13.0.5",
+    "@types/katex": "^0.16.6",
+    "@types/markdown-it": "^13.0.6",
     "@types/node": "^20.8.10",
     "autoprefixer": "^10.4.16",
-    "gray-matter": "^4.0.3",
     "katex": "^0.16.9",
     "markdown-it": "^13.0.2",
     "markdown-it-attrs": "^4.1.6",
@@ -31,7 +31,9 @@
     "prettier-plugin-tailwindcss": "^0.5.6",
     "shiki": "^0.14.5",
     "tailwindcss": "^3.3.5",
+    "vite": "^4.5.0",
     "vitepress": "1.0.0-rc.25",
+    "vitest": "^0.34.6",
     "vue": "^3.3.8"
   },
   "pnpm": {

@@ -137,7 +137,9 @@ const footnoteBlock = (state: FootnoteStateCore) => {
   const placeholderPos = state.tokens.findIndex(
     ({ type, content }) => type === 'html_block' && content.includes('<div id="footnotes"></div>'),
   )
-  state.tokens.splice(placeholderPos, 1, ...tokens)
+  if (placeholderPos >= 0) {
+    state.tokens.splice(placeholderPos, 1, ...tokens)
+  }
 }
 
 const footnoteRefRenderer = (tokens: Token[], index: number) => {

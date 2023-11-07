@@ -1,9 +1,4 @@
-import { fileURLToPath, URL } from 'url'
 import { defineConfigWithTheme } from 'vitepress'
-
-import autoprefixer from 'autoprefixer'
-import tailwindcss from 'tailwindcss'
-import tailwindcssNesting from 'tailwindcss/nesting'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 
 import { highlight } from './lib/highlight'
@@ -11,6 +6,7 @@ import MarkdownItCjkKern from './lib/markdown-it-cjk-kern'
 import MarkdownItFootnote from './lib/markdown-it-footnote'
 import MarkdownItKaTeX from './lib/markdown-it-katex'
 import MarkdownItTeXLogo from './lib/markdown-it-tex-logo'
+import vite from '../vite.config'
 
 const themeConfig: Theme.Config = {
   paginate: 10,
@@ -67,10 +63,6 @@ const themeConfig: Theme.Config = {
 //   },
 // ]
 
-const postcssConfig = {
-  plugins: [tailwindcssNesting, tailwindcss, autoprefixer],
-}
-
 export default async () =>
   defineConfigWithTheme<Theme.Config>({
     lang: 'en-US',
@@ -98,11 +90,6 @@ export default async () =>
           .use(MarkdownItMultimdTable, { headerless: true })
       },
     },
-    vite: {
-      css: { postcss: postcssConfig },
-      resolve: {
-        alias: { '@': fileURLToPath(new URL('./', import.meta.url)) },
-      },
-    },
+    vite,
     themeConfig,
   })

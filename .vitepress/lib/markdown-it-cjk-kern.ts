@@ -11,7 +11,7 @@ const plugin = (md: MarkdownIt) => {
   const fence = md.renderer.rules.fence!
   md.renderer.rules.fence = (...args) =>
     fence(...args).replace(
-      /([\p{Ideo}\u2E80-\u312F\uFF00-\uFFEF])/gu,
+      /([\p{Ideo}\u2E80-\u312F\uFF00-\uFFEF]+)/gu,
       '<span class="cjk-code">$1</span>',
     )
 }

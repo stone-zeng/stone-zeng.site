@@ -21,7 +21,7 @@
 
 @layer components {
   .cjk-code {
-    @apply px-[0.1em];
+    @apply ml-[0.1em] mr-[-0.1em] tracking-[0.2em];
   }
 
   .cjk-kern {

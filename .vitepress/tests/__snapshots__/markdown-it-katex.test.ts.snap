@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Display formula > Aligned 1`] = `
+"<div data-math>  \\\\begin{aligned}
+    a &= b \\\\\\\\
+    c &= d
+  \\\\end{aligned}
+</div>"
+`;
+
+exports[`Display formula > Basic 1`] = `
+"<div data-math>c = \\\\pm\\\\sqrt{a^2 + b^2}
+</div>"
+`;
+
+exports[`Display formula > Definition 1`] = `
+"<div data-math>\\\\gdef\\\\id{\\\\mathrm{id}}
+</div><p>{:.katex-def}</p>
+"
+`;
+
+exports[`Display formula > List (1) 1`] = `
+"<ul>
+<li>Equation 1:<div data-math>a + b = c 
+</div></li>
+<li>Equation 2:<div data-math>i + j = k 
+</div></li>
+</ul>
+"
+`;
+
+exports[`Display formula > List (2) 1`] = `
+"<ul>
+<li>
+<p>Equation 1:</p>
+<div data-math>a + b = c 
+</div></li>
+<li>
+<p>Equation 2:</p>
+<div data-math>i + j = k 
+</div></li>
+</ul>
+"
+`;
+
+exports[`Inline formula > Basic (1) 1`] = `"<span data-math>\\\\sin x</span>"`;
+
+exports[`Inline formula > Basic (2) 1`] = `"This is <span data-math>a</span>, <span data-math>b</span> and <span data-math>c</span>"`;
+
+exports[`Inline formula > Code 1`] = `
+"<ul>
+<li>LaTeX logo <code>$\\\\LaTeX$</code></li>
+</ul>
+"
+`;
+
+exports[`Inline formula > Heading 1`] = `
+"<h2>Euler formula <span data-math>e^{i\\\\pi} + 1 = 0</span></h2>
+"
+`;
+
+exports[`Inline formula > With escaped $ 1`] = `"$a$ + b"`;
+
+exports[`Inline formula > With single $ 1`] = `"The price is $2.99."`;
+
+exports[`Inline formula > With spaces 1`] = `"Formula with $ spaces $ will be ignored."`;
+
+exports[`Raw markdown > Block 1`] = `
+"<p>$$a^2 + b^2 = c^2$$</p>
+"
+`;
+
+exports[`Raw markdown > Inline 1`] = `"$\\\\sin x$"`;
