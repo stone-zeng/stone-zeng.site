@@ -9,14 +9,17 @@ const { theme, page } = useData<Theme.Config>()
 const editLink = computed(() =>
   theme.value.editLink.pattern.replace(/:path/g, page.value.relativePath),
 )
-const title = computed(
-  () => posts.find(({ url }) => page.value.filePath.includes(url))?.title || page.value.title,
+const title = computed(() =>
+  (posts.find(({ url }) => page.value.filePath.includes(url))?.title || page.value.title).replace(
+    /([，、；：！？。）］〉》」』】〕〗〙])$/,
+    '<span class="tracking-[-0.5em]">$1</span>',
+  ),
 )
 </script>
 
 <template>
-  <h1 class="group mb-4 mt-6 text-2xl font-bold sm:mt-8">
-    <span v-html="title"></span>
+  <h1 class="group mb-4 mt-6 whitespace-nowrap pr-7 text-2xl font-bold sm:mt-8">
+    <span v-html="title" class="mr-2 whitespace-normal"></span>
     <BaseLink
       :href="editLink"
       :title="theme.editLink.text"
