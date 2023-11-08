@@ -1,19 +1,22 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData } from 'vitepress'
-import { toTitle } from '@/theme/utils'
+import { data as posts } from '@/posts.data'
 import BaseLink from '@/theme/components/BaseLink.vue'
 import MaterialIcon from '@/theme/components/MaterialIcon.vue'
 
 const { theme, page } = useData<Theme.Config>()
 const editLink = computed(() =>
-  theme.value.editLink.pattern.replace(/:path/g, page.value.relativePath)
+  theme.value.editLink.pattern.replace(/:path/g, page.value.relativePath),
+)
+const title = computed(
+  () => posts.find(({ url }) => page.value.filePath.includes(url))?.title || page.value.title,
 )
 </script>
 
 <template>
   <h1 class="group mb-4 mt-6 text-2xl font-bold sm:mt-8">
-    {{ toTitle(page.title) }}
+    <span v-html="title"></span>
     <BaseLink
       :href="editLink"
       :title="theme.editLink.text"

@@ -77,7 +77,6 @@ export default async () =>
     head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
     markdown: {
       typographer: true,
-      headers: true,
       highlight: await highlight(),
       // TODO: see https://github.com/shikijs/shiki/pull/535
       // // @ts-ignore

@@ -1,7 +1,7 @@
-import { createContentLoader, createMarkdownRenderer } from 'vitepress'
+import { slugify } from '@mdit-vue/shared'
+import { createContentLoader, createMarkdownRenderer, type ContentData } from 'vitepress'
 import MarkdownItCjkKern from './lib/markdown-it-cjk-kern'
 import MarkdownItTeXLogo from './lib/markdown-it-tex-logo'
-import type { ContentData } from 'vitepress'
 
 interface Post {
   title: string
@@ -15,7 +15,8 @@ interface Post {
 
 interface Header {
   level: number
-  header: string
+  title: string
+  link: string
   children?: Header[]
 }
 
@@ -24,7 +25,7 @@ md.use(MarkdownItCjkKern).use(MarkdownItTeXLogo)
 
 const transformContent = ({ url, src, frontmatter, excerpt }: ContentData): Post => ({
   title: md.renderInline(frontmatter.title),
-  url: '/' + url.split('/').at(-2),
+  url: url.replace(/\/posts(\/.+)\//, '$1'),
   date: frontmatter.date,
   updated: frontmatter.updated,
   tags: frontmatter.tags || [],
@@ -34,22 +35,24 @@ const transformContent = ({ url, src, frontmatter, excerpt }: ContentData): Post
 
 const parseHeaders = (src: string) => {
   const headers: Header[] = []
-  for (const [_, hash, headerSrc] of src.matchAll(/^(##+) (.+)$/gm)) {
+  for (const [_, hash, header] of src.matchAll(/^(##+) (.+)$/gm)) {
     const level = hash.length
-    const header = md.renderInline(headerSrc)
+    const title = md.renderInline(header)
+    const link = `#${slugify(header)}`
+    const item = { level, title, link }
     const lastElemH2 = headers[headers.length - 1]
 
     if (headers.length === 0 || level === lastElemH2.level) {
-      headers.push({ level, header })
+      headers.push(item)
       continue
     }
 
     if (level === lastElemH2.level + 1) {
       const children = lastElemH2.children
       if (!children) {
-        lastElemH2.children = [{ level, header }]
+        lastElemH2.children = [item]
       } else {
-        children.push({ level, header })
+        children.push(item)
       }
       continue
     }
@@ -59,15 +62,15 @@ const parseHeaders = (src: string) => {
         const lastElemH3 = lastElemH2.children[lastElemH2.children.length - 1]
         const children = lastElemH3.children
         if (!children) {
-          lastElemH3.children = [{ level, header }]
+          lastElemH3.children = [item]
         } else {
-          children.push({ level, header })
+          children.push(item)
         }
       }
       continue
     }
 
-    console.warn(`Invalid header level: "${'#'.repeat(level)} ${header}"`)
+    console.warn(`Invalid header level: "${'#'.repeat(level)} ${title}"`)
   }
   return [...headers]
 }

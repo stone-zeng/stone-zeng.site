@@ -20,6 +20,7 @@
     "patch-katex": "node scripts/patch-katex.mjs"
   },
   "devDependencies": {
+    "@mdit-vue/shared": "^1.0.0",
     "@types/katex": "^0.16.6",
     "@types/markdown-it": "^13.0.6",
     "@types/node": "^20.8.10",

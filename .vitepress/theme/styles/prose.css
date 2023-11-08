@@ -81,7 +81,7 @@
         @apply list-[circle];
 
         > li > ul {
-          @apply list-[square];
+          @apply list-["-_"];
         }
       }
 
@@ -89,7 +89,7 @@
         @apply list-[lower-alpha];
 
         > li > ul {
-          @apply list-[square];
+          @apply list-["-_"];
         }
       }
 
@@ -167,11 +167,11 @@
     }
 
     :not(pre) > code {
-      @apply py-px text-sm;
+      @apply py-px text-[0.875em];
     }
 
     kbd {
-      @apply border-[1.5px] border-light-800 pb-0 pt-[1.5px] text-xs dark:border-dark-50;
+      @apply border-[1.5px] border-light-800 pb-0 pt-[1.5px] text-[0.75em] dark:border-dark-50;
     }
 
     /* Figures */
