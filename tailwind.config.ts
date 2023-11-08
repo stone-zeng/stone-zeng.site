@@ -1,24 +1,23 @@
 import type { Config } from 'tailwindcss'
 
+const baseCjkFonts = [
+  '"Hiragino Sans GB"',
+  '"PingFang SC"',
+  '"Noto Sans CJK SC"',
+  '"Source Han Sans SC"',
+  '"Source Han Sans CN"',
+  '"Sarasa Gothic SC"',
+  '"Microsoft YaHei UI"',
+  '"Microsoft YaHei"',
+]
+
 export default <Config>{
   content: ['./.vitepress/lib/**/*.ts', './.vitepress/theme/**/*.{ts,vue}', './src/**/*.{ts,vue}'],
   safelist: ['katex-display'],
   theme: {
     fontFamily: {
-      sans: [
-        '"Punct Sans"',
-        '"Work Sans"',
-        '"Hiragino Sans GB"',
-        '"PingFang SC"',
-        '"Noto Sans CJK SC"',
-        '"Source Han Sans SC"',
-        '"Source Han Sans CN"',
-        '"Sarasa Gothic SC"',
-        '"Microsoft YaHei UI"',
-        '"Microsoft YaHei"',
-        'sans-serif',
-      ],
-      mono: ['"JetBrains Mono"', 'monospace'],
+      sans: ['"Punct Sans"', '"Work Sans"', ...baseCjkFonts, 'sans-serif'],
+      mono: ['"JetBrains Mono"', ...baseCjkFonts, 'monospace'],
     },
     extend: {
       colors: {
