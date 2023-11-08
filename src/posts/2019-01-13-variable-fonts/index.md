@@ -1,5 +1,5 @@
 ---
-title: 在 TeX 中使用 OpenType 可变字体
+title: 在 \TeX 中使用 OpenType 可变字体
 date: 2019-01-13
 updated: 2019-07-15
 tags:

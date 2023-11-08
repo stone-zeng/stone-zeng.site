@@ -1,5 +1,5 @@
 ---
-title: Project Euler (1–10)
+title: Project Euler (1--10)
 date: 2020-08-07
 excerpt: 欧拉计划 1--10 题。
 ---

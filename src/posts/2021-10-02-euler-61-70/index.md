@@ -1,5 +1,5 @@
 ---
-title: Project Euler (61–70)
+title: Project Euler (61--70)
 date: 2021-10-02
 math: true
 excerpt: 欧拉计划 61--70 题。

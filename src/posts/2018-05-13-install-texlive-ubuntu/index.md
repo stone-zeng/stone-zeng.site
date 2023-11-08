@@ -1,5 +1,5 @@
 ---
-title: 在 Ubuntu 中安装 TeX Live 2018
+title: 在 Ubuntu 中安装 \TeX Live 2018
 date: 2018-05-13
 updated: 2019-01-24
 tags:
@@ -9,7 +9,7 @@ excerpt: Ubuntu 安装源已经打包了 \TeX Live。对于大部分的用户，
 
 Ubuntu 安装源已经打包了 \TeX Live。对于大部分的用户，源里面的 \TeX Live 安装简单，稳定性通常也足够，所以可以直接安装[^li-a-ling]。为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）：
 
-[^li-a-ling]: 李阿玲. [还是不要装源里面的 \TeX Live！](https://zhuanlan.zhihu.com/p/19699561) 这篇文章写于 2014 年，现在来看也未必完全合理。
+[^li-a-ling]: 李阿玲. [还是不要装源里面的 \TeX Live！](https://zhuanlan.zhihu.com/p/19699561)这篇文章写于 2014 年，现在来看也未必完全合理。
 
 ```bash
 sudo apt-get install texlive-full

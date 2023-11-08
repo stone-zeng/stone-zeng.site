@@ -66,7 +66,7 @@ const themeConfig: Theme.Config = {
 export default async () =>
   defineConfigWithTheme<Theme.Config>({
     lang: 'en-US',
-    title: "Stone Zeng's Site",
+    title: 'Stone Zeng\u{2019}s Site',
     srcDir: 'src',
     cleanUrls: true,
     rewrites: {

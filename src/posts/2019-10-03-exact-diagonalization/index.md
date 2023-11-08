@@ -1,5 +1,5 @@
 ---
-title: "Exact diagonalization: Bose–Hubbard model"
+title: "Exact diagonalization: Bose--Hubbard model"
 date: 2019-10-03
 updated: 2019-10-30
 tags:

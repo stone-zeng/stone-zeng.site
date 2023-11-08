@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
-import { toTitle } from '@/theme/utils'
 
 const { site } = useData()
 </script>
 
 <template>
-  <a href="/" class="SiteNavBarTitle text-xl font-[250] tracking-wider">{{
-    toTitle(site.title)
-  }}</a>
+  <a href="/" class="SiteNavBarTitle text-xl font-[250] tracking-wider">{{ site.title }}</a>
 </template>
 
 <style scoped>

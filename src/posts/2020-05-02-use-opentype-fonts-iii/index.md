@@ -1,5 +1,5 @@
 ---
-title: 在 LaTeX 中使用 OpenType 字体（三）
+title: 在 \LaTeX 中使用 OpenType 字体（三）
 date: 2020-05-02
 updated: 2021-11-29
 math: true

@@ -1,5 +1,5 @@
 ---
-title: 在 LaTeX 中使用 Emoji ✌️
+title: 在 \LaTeX 中使用 Emoji ✌️
 date: 2020-02-28
 updated: 2020-02-29
 tags:

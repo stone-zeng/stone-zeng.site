@@ -1,5 +1,5 @@
 ---
-title: 在 LaTeX 中使用 OpenType 字体
+title: 在 \LaTeX 中使用 OpenType 字体
 date: 2018-08-08
 updated: 2020-04-27
 tags:

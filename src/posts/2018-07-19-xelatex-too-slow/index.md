@@ -1,5 +1,5 @@
 ---
-title: 解决 XeLaTeX 编译卡住不动的问题
+title: 解决 \XeLaTeX 编译卡住不动的问题
 date: 2018-07-19
 tags:
   - LaTeX

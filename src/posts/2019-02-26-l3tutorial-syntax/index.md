@@ -1,5 +1,5 @@
 ---
-title: LaTeX3 教程（二）——语法概要
+title: \LaTeX3 教程（二）——语法概要
 date: 2019-02-26
 updated: 2020-01-16
 tags:

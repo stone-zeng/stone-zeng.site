@@ -1,5 +1,5 @@
 ---
-title: LaTeX3 教程（三）——从一个例子说起
+title: \LaTeX3 教程（三）——从一个例子说起
 date: 2019-11-20
 updated: 2021-09-04
 tags:

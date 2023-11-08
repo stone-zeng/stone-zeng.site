@@ -1,5 +1,5 @@
 ---
-title: 回「LaTeX 的罪与罚」
+title: 回「\LaTeX 的罪与罚」
 date: 2019-07-23
 updated: 2019-07-24
 tags:

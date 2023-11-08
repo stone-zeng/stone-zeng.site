@@ -16,7 +16,12 @@ defineProps<{
   <div class="flex justify-center gap-4">
     <template v-for="i in pageNum">
       <span v-if="i === page">{{ i }}</span>
-      <a v-else @click="updatePage(i)" :href="`/?page=${i}`" class="text-blue-500 hover:underline">
+      <a
+        v-else
+        @click="updatePage(i)"
+        :href="`/?page=${i}`"
+        class="text-blue-500 hover:underline dark:text-blue-400"
+      >
         {{ i }}
       </a>
     </template>

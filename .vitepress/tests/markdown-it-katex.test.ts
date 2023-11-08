@@ -55,11 +55,11 @@ describe('Display formula', () => {
 
   test('Aligned', () => {
     expect(
-      md.render(`$$
-  \\begin{aligned}
-    a &= b \\\\
+      md.render(String.raw`$$
+  \begin{aligned}
+    a &= b \\
     c &= d
-  \\end{aligned}
+  \end{aligned}
 $$`),
     ).toMatchSnapshot()
   })
@@ -92,8 +92,8 @@ $$`),
   // TODO: hide definition (.katex-def)
   test('Definition', () => {
     expect(
-      md.render(`$$
-\\gdef\\id{\\mathrm{id}}
+      md.render(String.raw`$$
+\gdef\id{\mathrm{id}}
 $$
 {:.katex-def}
 `),
