@@ -1,5 +1,6 @@
 ---
 layout: home
+titleTemplate: false
 ---
 
 <script setup lang="ts">

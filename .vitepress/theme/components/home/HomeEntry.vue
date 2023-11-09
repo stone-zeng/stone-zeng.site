@@ -20,7 +20,7 @@ defineProps<{
     </h1>
     <PostDate :date="new Date(date)" class="mb-2 sm:mb-4" />
     <div class="prose">
-      <div class="HomeExcerpt" v-if="excerpt" v-html="excerpt"></div>
+      <div class="HomeExcerpt mb-2 sm:mb-4" v-if="excerpt" v-html="excerpt"></div>
       <div>
         <a :href="url">Read more &rarr;</a>
       </div>

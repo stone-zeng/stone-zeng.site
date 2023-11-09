@@ -75,6 +75,9 @@ export default async () =>
       'archive/index.md': 'archive.md',
     },
     head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
+    transformPageData: ({ title }) => ({
+      title: title.replace(/\\/g, ''),
+    }),
     markdown: {
       typographer: true,
       highlight: await highlight(),
