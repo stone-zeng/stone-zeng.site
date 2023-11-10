@@ -10,15 +10,39 @@ interface Post {
   updated?: string
   tags: string[]
   excerpt?: string
-  headers: Header[]
+  headings: Heading[]
+  wordCount: WordCount
 }
 
-interface Header {
+interface Heading {
   level: number
   title: string
   link: string
-  children?: Header[]
+  children?: Heading[]
 }
+
+export interface WordCount {
+  pre?: number
+  code?: number
+  mathBlock?: number
+  mathInline?: number
+  image?: number
+  latin?: number
+  cjk?: number
+}
+
+export default createContentLoader('src/posts/**/*.md', {
+  excerpt: '<!-- more -->',
+  includeSrc: true,
+  transform: (raw) =>
+    raw
+      .filter(({ frontmatter }) => frontmatter.date && !frontmatter.draft)
+      .map(transformContent)
+      .sort((a, b) => (a.date < b.date ? 1 : -1)),
+})
+
+declare const data: Post[]
+export { data }
 
 const md = await createMarkdownRenderer('src', { typographer: true })
 md.use(MarkdownItCjkKern).use(MarkdownItTeXLogo)
@@ -30,20 +54,21 @@ const transformContent = ({ url, src, frontmatter, excerpt }: ContentData): Post
   updated: frontmatter.updated,
   tags: frontmatter.tags || [],
   excerpt: frontmatter.excerpt ? md.render(frontmatter.excerpt) : excerpt,
-  headers: parseHeaders(src || ''),
+  headings: parseHeadings(src || ''),
+  wordCount: wordCount(src || ''),
 })
 
-const parseHeaders = (src: string) => {
-  const headers: Header[] = []
+const parseHeadings = (src: string) => {
+  const headings: Heading[] = []
   for (const [_, hash, header] of src.matchAll(/^(##+) (.+)$/gm)) {
     const level = hash.length
     const title = md.renderInline(header)
     const link = `#${slugify(header)}`
     const item = { level, title, link }
-    const lastElemH2 = headers[headers.length - 1]
+    const lastElemH2 = headings[headings.length - 1]
 
-    if (headers.length === 0 || level === lastElemH2.level) {
-      headers.push(item)
+    if (headings.length === 0 || level === lastElemH2.level) {
+      headings.push(item)
       continue
     }
 
@@ -72,18 +97,52 @@ const parseHeaders = (src: string) => {
 
     console.warn(`Invalid header level: "${'#'.repeat(level)} ${title}"`)
   }
-  return [...headers]
+  return [...headings]
 }
 
-export default createContentLoader('src/posts/**/*.md', {
-  excerpt: '<!-- more -->',
-  includeSrc: true,
-  transform: (raw) =>
-    raw
-      .filter(({ frontmatter }) => frontmatter.date && !frontmatter.draft)
-      .map(transformContent)
-      .sort((a, b) => (a.date < b.date ? 1 : -1)),
-})
+const wordCount = (src: string) => {
+  const re = {
+    frontmatter: /^\n*---\n.*?\n---\n/gs,
+    comment: /<!--.*?-->/gs,
+    pre: /```[\w\-]*$(.+?)```$/gms,
+    code: /```.+?```|``.+?``|`[^`]`|`\S.*?\S`/g,
+    script: /^<script.+<\/script>/gms,
+    mathBlock: /\$\$.+?\$\$$/gms,
+    mathInline: /\$.\$|\$\S.*?\S\$/g,
+    image: /!\[.*?\]\(.*?\)|<img .+?>/g,
+    link: /\[[^\^](.*?)\]\(.*?\)|<https?.+?>/g,
+    footnote: /\[\^.+?\]/g,
+    style: /\{:.+?\}/g,
+    html: /<\/?[a-z]+(?:\s+[\w\-]+=".+?")*\s?\/?>/g,
+  }
+  const normalize = (s: string) => s.replace(/[^\p{L}\d]+/gu, ' ')
 
-declare const data: Post[]
-export { data }
+  const count: WordCount = {}
+  let s = src
+  s = s.replace(re.frontmatter, '').replace(re.comment, '')
+
+  count.pre = s.match(re.pre)?.length
+  count.code = s.match(re.code)?.length
+  count.mathBlock = s.match(re.mathBlock)?.length
+  s = s
+    .replace(re.pre, (_, m) => normalize(m))
+    .replace(re.code, normalize)
+    .replace(re.script, '')
+    .replace(re.mathBlock, '')
+
+  count.mathInline = s.match(re.mathInline)?.length
+  count.image = s.match(re.image)?.length
+  s = s
+    .replace(re.mathInline, '')
+    .replace(re.image, '')
+    .replace(re.link, '$1')
+    .replace(re.footnote, '')
+    .replace(re.style, '')
+    .replace(re.html, '')
+  s = normalize(s)
+
+  count.latin = s.match(/\w+/g)?.length
+  count.cjk = s.match(/\p{Ideo}/gu)?.length
+
+  return count
+}
