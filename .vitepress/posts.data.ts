@@ -22,13 +22,13 @@ interface Heading {
 }
 
 export interface WordCount {
-  pre?: number
-  code?: number
-  mathBlock?: number
-  mathInline?: number
-  image?: number
-  latin?: number
-  cjk?: number
+  latin: number
+  cjk: number
+  pre: number
+  code: number
+  mathBlock: number
+  mathInline: number
+  image: number
 }
 
 export default createContentLoader('src/posts/**/*.md', {
@@ -100,7 +100,7 @@ const parseHeadings = (src: string) => {
   return [...headings]
 }
 
-const wordCount = (src: string) => {
+const wordCount = (src: string): WordCount => {
   const re = {
     frontmatter: /^\n*---\n.*?\n---\n/gs,
     comment: /<!--.*?-->/gs,
@@ -117,21 +117,20 @@ const wordCount = (src: string) => {
   }
   const normalize = (s: string) => s.replace(/[^\p{L}\d]+/gu, ' ')
 
-  const count: WordCount = {}
   let s = src
   s = s.replace(re.frontmatter, '').replace(re.comment, '')
 
-  count.pre = s.match(re.pre)?.length
-  count.code = s.match(re.code)?.length
-  count.mathBlock = s.match(re.mathBlock)?.length
+  const pre = s.match(re.pre)?.length ?? 0
+  const code = s.match(re.code)?.length ?? 0
+  const mathBlock = s.match(re.mathBlock)?.length ?? 0
   s = s
     .replace(re.pre, (_, m) => normalize(m))
     .replace(re.code, normalize)
     .replace(re.script, '')
     .replace(re.mathBlock, '')
 
-  count.mathInline = s.match(re.mathInline)?.length
-  count.image = s.match(re.image)?.length
+  const mathInline = s.match(re.mathInline)?.length ?? 0
+  const image = s.match(re.image)?.length ?? 0
   s = s
     .replace(re.mathInline, '')
     .replace(re.image, '')
@@ -141,8 +140,8 @@ const wordCount = (src: string) => {
     .replace(re.html, '')
   s = normalize(s)
 
-  count.latin = s.match(/\w+/g)?.length
-  count.cjk = s.match(/\p{Ideo}/gu)?.length
+  const latin = s.match(/\w+/g)?.length ?? 0
+  const cjk = s.match(/\p{Ideo}/gu)?.length ?? 0
 
-  return count
+  return { latin, cjk, pre, code, mathBlock, mathInline, image }
 }

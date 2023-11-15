@@ -1,13 +1,21 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { onContentUpdated, useData } from 'vitepress'
 import katex from 'katex'
+import { data as posts } from '@/posts.data'
 import PostAside from '@/theme/components/post/PostAside.vue'
-import PostHeader from '@/theme/components/post/PostHeader.vue'
+import PostMeta from '@/theme/components/post/PostMeta.vue'
+import PostTitle from '@/theme/components/post/PostTitle.vue'
 import SiteFooter from '@/theme/components/footer/SiteFooter.vue'
 import SiteHeader from '@/theme/components/header/SiteHeader.vue'
 import Wrapper from '@/theme/components/Wrapper.vue'
 
-const { frontmatter } = useData()
+const { frontmatter, page } = useData()
+const post = computed(() => posts.find(({ url }) => page.value.filePath.includes(url)))
+
+const isHome = computed(() => frontmatter.value.layout === 'home')
+const isPage = computed(() => frontmatter.value.layout === 'page')
+const isZh = computed(() => frontmatter.value.lang !== 'en-US')
 
 const renderMath = () => {
   const macros = {}
@@ -24,24 +32,28 @@ const renderMath = () => {
         : renderToString(el.textContent, false)
   })
 }
-
 onContentUpdated(renderMath)
 </script>
 
 <template>
   <SiteHeader class="h-14 sm:h-16" />
   <Wrapper is="main" class="mt-14 sm:mt-16">
-    <Content v-if="frontmatter.layout === 'home'" />
-    <article v-else-if="frontmatter.layout === 'page'" class="min-w-0 overflow-auto">
-      <PostHeader />
-      <Content class="prose" />
-    </article>
+    <Content v-if="isHome" />
     <div v-else class="flex justify-between gap-8">
       <article class="min-w-0">
-        <PostHeader />
-        <Content class="prose" :class="{ 'leading-relaxed': frontmatter.lang !== 'en-US' }" />
+        <div class="my-6 sm:mt-8">
+          <PostTitle :title="post?.title ?? frontmatter.title" class="mb-2" />
+          <PostMeta
+            v-if="post"
+            :date="post.date"
+            :updated="post.updated"
+            :tags="post.tags"
+            :wordCount="post.wordCount"
+          />
+        </div>
+        <Content class="prose" :class="{ 'leading-relaxed': isZh }" />
       </article>
-      <PostAside />
+      <PostAside v-if="!isPage" />
     </div>
   </Wrapper>
   <SiteFooter />

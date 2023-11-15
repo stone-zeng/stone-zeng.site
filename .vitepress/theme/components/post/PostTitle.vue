@@ -1,24 +1,27 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData } from 'vitepress'
-import { data as posts } from '@/posts.data'
+import { IconEdit } from '@tabler/icons-vue'
 import BaseLink from '@/theme/components/BaseLink.vue'
-import MaterialIcon from '@/theme/components/MaterialIcon.vue'
 
 const { theme, page } = useData<Theme.Config>()
 const editLink = computed(() =>
   theme.value.editLink.pattern.replace(/:path/g, page.value.relativePath),
 )
 const title = computed(() =>
-  (posts.find(({ url }) => page.value.filePath.includes(url))?.title || page.value.title).replace(
+  (props.title || page.value.title).replace(
     /([，、；：！？。）］〉》」』】〕〗〙])$/,
     '<span class="tracking-[-0.5em]">$1</span>',
   ),
 )
+
+const props = defineProps<{
+  title?: string
+}>()
 </script>
 
 <template>
-  <h1 class="group mb-4 mt-6 whitespace-nowrap pr-7 text-2xl font-bold sm:mt-8">
+  <h1 class="group whitespace-nowrap pr-7 text-2xl font-bold">
     <span v-html="title" class="mr-2 whitespace-normal"></span>
     <BaseLink
       :href="editLink"
@@ -26,7 +29,7 @@ const title = computed(() =>
       external
       class="text-blue-500 opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100 dark:text-blue-400"
     >
-      <MaterialIcon name="file-document-edit" class="mb-1 inline-block h-5 w-5" />
+      <IconEdit :size="20" class="inline-block -translate-y-0.5" />
     </BaseLink>
   </h1>
 </template>

@@ -8,12 +8,18 @@ devDependencies:
   '@mdit-vue/shared':
     specifier: ^1.0.0
     version: 1.0.0
+  '@tabler/icons-vue':
+    specifier: ^2.40.0
+    version: 2.40.0(vue@3.3.8)
   '@types/katex':
     specifier: ^0.16.6
     version: 0.16.6
   '@types/markdown-it':
     specifier: ^13.0.6
     version: 13.0.6
+  '@types/markdown-it-attrs':
+    specifier: ^4.1.3
+    version: 4.1.3
   '@types/node':
     specifier: ^20.8.10
     version: 20.8.10
@@ -541,6 +547,19 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
+  /@tabler/icons-vue@2.40.0(vue@3.3.8):
+    resolution: {integrity: sha512-nXwwCa10CKz9dxhOpxnq2QmpkPOriQZ/vvXrsAFwCC0XRow3/Jfc1E1U7D07dcWdmC2GihIeIUKEDj7EU+1mCg==}
+    peerDependencies:
+      vue: '>=3.0.1'
+    dependencies:
+      '@tabler/icons': 2.40.0
+      vue: 3.3.8
+    dev: true
+
+  /@tabler/icons@2.40.0:
+    resolution: {integrity: sha512-VqKsBSX159cLFTnCzkCmGhZtSPJHNN0lM2sC4xe0HPOfPUnjiex7rDHDdut4oe4iKRecDDpwXwM9BcU6xCPlCg==}
+    dev: true
+
   /@types/chai-subset@1.3.5:
     resolution: {integrity: sha512-c2mPnw+xHtXDoHmdtcCXGwyLMiauiAyxWMzhGpqHC4nqI/Y5G2XhTampslK2rb59kpcuHon03UH8W6iYUzw88A==}
     dependencies:
@@ -557,6 +576,12 @@ packages:
 
   /@types/linkify-it@3.0.5:
     resolution: {integrity: sha512-yg6E+u0/+Zjva+buc3EIb+29XEg4wltq7cSmd4Uc2EE/1nUVmxyzpX6gUXD0V8jIrG0r7YeOGVIbYRkxeooCtw==}
+    dev: true
+
+  /@types/markdown-it-attrs@4.1.3:
+    resolution: {integrity: sha512-1JsseFdHD6rQHsPcy4W3xx/whxvZ09Z+CqPpnOtrGtpmkFW07N11q7oM383//LtoKv54yn+HGnk6r4ZHUTHJVg==}
+    dependencies:
+      '@types/markdown-it': 13.0.6
     dev: true
 
   /@types/markdown-it@13.0.6:
