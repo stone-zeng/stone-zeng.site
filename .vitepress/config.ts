@@ -33,12 +33,6 @@ const themeConfig: Theme.Config = {
         icon: 'twitter',
       },
       {
-        name: 'Telegram',
-        link: 'https://t.me/xdzeng96',
-        color: '#0088cc',
-        icon: 'telegram',
-      },
-      {
         name: 'E-mail',
         link: 'mailto:xdzeng96@gmail.com',
         color: '#fbbf24',

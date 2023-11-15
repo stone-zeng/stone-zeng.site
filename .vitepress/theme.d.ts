@@ -33,5 +33,5 @@ declare namespace Theme {
         dark: string
       }
 
-  type SocialLinkIcon = 'email' | 'github' | 'rss' | 'telegram' | 'twitter'
+  type SocialLinkIcon = 'email' | 'github' | 'rss' | 'twitter'
 }

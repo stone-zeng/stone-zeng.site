@@ -42,14 +42,14 @@ const { wordCount } = defineProps<{
 </script>
 
 <template>
-  <ul class="flex gap-4 text-sm text-neutral-400 dark:text-neutral-500">
+  <ul class="flex flex-wrap gap-x-4 text-sm/relaxed text-neutral-400 dark:text-neutral-500">
     <li class="flex items-center gap-1">
       <IconCalendarPlus :size="16" class="translate-y-0.5" />
-      <PostDate :date="date" />
+      <PostDate :date="date" title="Posted on" />
     </li>
     <li v-if="updated" class="flex items-center gap-1">
       <IconCalendarCheck :size="16" class="translate-y-0.5" />
-      <PostDate :date="updated" />
+      <PostDate :date="updated" title="Updated on" />
     </li>
     <li class="flex items-center gap-1">
       <IconFileAnalytics :size="16" class="translate-y-0.5" />
@@ -57,7 +57,9 @@ const { wordCount } = defineProps<{
     </li>
     <li class="flex items-center gap-1">
       <IconClock :size="16" class="translate-y-0.5" />
-      <span>{{ readingTime }}&thinsp;min</span>
+      <span :title="`Estimated reading time: ${readingTime} min`"
+        >{{ readingTime }}&thinsp;min</span
+      >
     </li>
   </ul>
 </template>

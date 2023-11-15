@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { IconBrandGithub, IconBrandTwitter, IconMail, IconRss } from '@tabler/icons-vue'
 import BaseLink from '@/theme/components/BaseLink.vue'
-import MaterialIcon from '@/theme/components/MaterialIcon.vue'
 
 const hoverColor = computed(() =>
-  typeof props.color !== 'string' ? props.color : { light: props.color, dark: props.color }
+  typeof props.color !== 'string' ? props.color : { light: props.color, dark: props.color },
 )
+
+const icons = {
+  github: IconBrandGithub,
+  twitter: IconBrandTwitter,
+  email: IconMail,
+  rss: IconRss,
+}
 
 const props = defineProps<{
   name: string
@@ -22,13 +29,17 @@ const props = defineProps<{
     :external="!link.startsWith('/')"
     class="SocialLink text-neutral-400 transition-colors dark:text-neutral-500"
   >
-    <MaterialIcon :name="icon" class="h-5 w-5" />
+    <component :is="icons[icon]" :size="18" />
   </BaseLink>
 </template>
 
 <style scoped>
 .SocialLink:hover {
   color: v-bind('hoverColor.light');
+
+  :deep(svg) {
+    stroke-width: 2.5;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
