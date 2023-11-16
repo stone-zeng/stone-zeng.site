@@ -1,6 +1,7 @@
 import { defineConfigWithTheme } from 'vitepress'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 
+import { genFeed } from './lib/feed'
 import { highlight } from './lib/highlight'
 import MarkdownItCjkKern from './lib/markdown-it-cjk-kern'
 import MarkdownItFootnote from './lib/markdown-it-footnote'
@@ -61,6 +62,7 @@ export default async () =>
   defineConfigWithTheme<Theme.Config>({
     lang: 'en-US',
     title: 'Stone Zeng\u{2019}s Site',
+    description: 'Personal website of Xiangdong Zeng',
     srcDir: 'src',
     cleanUrls: true,
     rewrites: {
@@ -69,6 +71,7 @@ export default async () =>
       'archive/index.md': 'archive.md',
     },
     head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
+    buildEnd: genFeed,
     transformPageData: ({ title }) => ({
       title: title.replace(/\\/g, ''),
     }),
