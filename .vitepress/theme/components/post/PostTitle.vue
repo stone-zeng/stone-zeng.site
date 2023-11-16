@@ -27,7 +27,7 @@ const props = defineProps<{
       :href="editLink"
       :title="theme.editLink.text"
       external
-      class="text-blue-500 opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100 dark:text-blue-400"
+      class="text-primary opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100"
     >
       <IconEdit :size="20" class="inline-block -translate-y-0.5" />
     </BaseLink>

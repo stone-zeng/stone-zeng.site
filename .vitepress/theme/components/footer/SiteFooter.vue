@@ -7,7 +7,7 @@ const { theme } = useData<Theme.Config>()
 </script>
 
 <template>
-  <Wrapper is="footer" class="my-12 text-xs text-neutral-400 dark:text-neutral-500">
+  <Wrapper is="footer" class="my-12 text-xs text-secondary">
     <div class="flex flex-col items-center gap-6">
       <ul class="flex gap-6">
         <li v-for="socialLink in theme.footer.socialLinks">

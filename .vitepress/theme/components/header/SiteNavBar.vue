@@ -5,7 +5,7 @@ const { theme, frontmatter } = useData<Theme.Config>()
 </script>
 
 <template>
-  <nav>
+  <nav class="hidden sm:block">
     <ul class="flex gap-4">
       <li v-for="{ text, link } in theme.nav">
         <a

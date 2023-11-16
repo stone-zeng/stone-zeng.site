@@ -42,7 +42,7 @@ const { wordCount } = defineProps<{
 </script>
 
 <template>
-  <ul class="flex flex-wrap gap-x-4 text-sm/relaxed text-neutral-400 dark:text-neutral-500">
+  <ul class="flex flex-wrap gap-x-4 text-sm/relaxed text-secondary">
     <li class="flex items-center gap-1">
       <IconCalendarPlus :size="16" class="translate-y-0.5" />
       <PostDate :date="date" title="Posted on" />

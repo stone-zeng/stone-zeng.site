@@ -8,9 +8,16 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: #3b82f6; /* blue-500 */
+    --color-secondary: #a3a3a3; /* neutral-400 */
+  }
+
   @media (prefers-color-scheme: dark) {
     :root {
       color-scheme: dark;
+      --color-primary: #60a5fa; /* blue-400 */
+      --color-secondary: #737373; /* neutral-500 */
     }
   }
 

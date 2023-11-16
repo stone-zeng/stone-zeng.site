@@ -27,7 +27,7 @@ const props = defineProps<{
     :href="link"
     :title="name"
     :external="!link.startsWith('/')"
-    class="SocialLink text-neutral-400 transition-colors dark:text-neutral-500"
+    class="SocialLink transition-colors"
   >
     <component :is="icons[icon]" :size="18" />
   </BaseLink>

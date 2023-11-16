@@ -45,6 +45,8 @@ export default <Config>{
           800: '#181818',
           900: '#0f0f0f',
         },
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
       },
     },
   },

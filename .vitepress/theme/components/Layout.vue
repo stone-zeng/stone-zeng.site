@@ -40,7 +40,7 @@ onContentUpdated(renderMath)
   <Wrapper is="main" class="mt-14 sm:mt-16">
     <Content v-if="isHome" />
     <div v-else class="flex justify-between gap-8">
-      <article class="min-w-0">
+      <article class="min-w-0 grow">
         <div class="my-6 sm:mt-8">
           <PostTitle :title="post?.title ?? frontmatter.title" class="mb-2" />
           <PostMeta
