@@ -17,7 +17,7 @@
     }
 
     .la-a {
-      @apply ml-[-0.4em] mr-[-0.1em] translate-y-[-0.6ex] text-[70%] font-medium;
+      @apply ml-[-0.4em] mr-[-0.1em] translate-y-[-0.6ex] text-[70%] font-[500];
     }
 
     .two-e-epsilon {
@@ -50,7 +50,7 @@
   strong,
   th {
     .tex-logo .la-a {
-      @apply font-extrabold;
+      @apply font-[750];
     }
   }
 }
