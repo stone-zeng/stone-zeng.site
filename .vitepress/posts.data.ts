@@ -53,7 +53,9 @@ const transformContent = ({ url, src, frontmatter, excerpt }: ContentData): Post
   date: frontmatter.date,
   updated: frontmatter.updated,
   tags: frontmatter.tags || [],
-  excerpt: frontmatter.excerpt ? md.render(frontmatter.excerpt) : excerpt,
+  excerpt: frontmatter.excerpt
+    ? md.render(frontmatter.excerpt)
+    : excerpt?.replace(/<sup id="fnref:.+?<\/sup>/g, ''),
   headings: parseHeadings(src || ''),
   wordCount: wordCount(src || ''),
 })

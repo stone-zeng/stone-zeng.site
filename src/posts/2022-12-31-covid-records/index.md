@@ -1,11 +1,11 @@
 ---
-layout: post
 title: 新冠感染记录
 date: 2022-12-31
-description: 事情当然要从「双十一」开始说起。想不到打折力度最大的既不是天猫，也不是京东，而是国家卫健委。随后的一个月在动荡中度过，场面堪比阿根廷对法国的那场决赛。政策来回拉扯，作为普通人唯有随波逐流。12 月 7 日又出「新十条」，放开的局面便再也收不住了。
 ---
 
 事情当然要从「双十一」开始说起。想不到打折力度最大的既不是天猫，也不是京东，而是国家卫健委[^20-measures]。随后的一个月在动荡中度过，场面堪比阿根廷对法国的那场决赛。政策来回拉扯，作为普通人唯有随波逐流。12 月 7 日又出「新十条」[^new-10-points]，放开的局面便再也收不住了。
+
+<!-- more -->
 
 [^20-measures]: 国务院联防联控机制. [关于进一步优化新冠肺炎疫情防控措施 科学精准做好防控工作的通知](http://www.nhc.gov.cn/xcs/yqfkdt/202211/ed9d123bbfe14e738402d846290049ea.shtml)
 [^new-10-points]: 国务院联防联控机制. [关于进一步优化落实新冠肺炎疫情防控措施的通知](http://www.nhc.gov.cn/xcs/gzzcwj/202212/8278e7a7aee34e5bb378f0e0fc94e0f0.shtml)
@@ -17,7 +17,7 @@ description: 事情当然要从「双十一」开始说起。想不到打折力�
 办公室自然也非法外之地，几位回家的同学先后发烧，我们驻守的则又回到了每天不做下核酸嗓子就痒痒的状态。终于，21 号，我对面的同学蹲到了阳性的核酸结果；两天之后，我也阳了。
 
 <figure>
-  <img src="/images/covid-records/nucleic-acid-test.jpg" alt="nucleic-acid-test" style="max-width: 240px">
+  <img src="./nucleic-acid-test.jpg" alt="nucleic-acid-test" style="max-width: 240px">
   <figcaption>核酸检测记录</figcaption>
 </figure>
 
@@ -34,8 +34,8 @@ description: 事情当然要从「双十一」开始说起。想不到打折力�
 - Day 8（30 日）：连续两天核酸阴性，达到康复标准 🎉
 
 <figure>
-  <img src="/images/covid-records/antigen-test.jpg" alt="antigen-test" style="max-width: 600px">
-  <figcaption markdown="span">23、24、25 三天的抗原记录</figcaption>
+  <img src="./antigen-test.jpg" alt="antigen-test" style="max-width: min(600px, 100%)">
+  <figcaption>23、24、25 三天的抗原记录</figcaption>
 </figure>
 
 国庆节的时候也发过一次烧，但抗原和核酸都是阴性，怀疑是流感。就我个人而言，新冠和流感的症状确实是很接近的，也都要一周左右的时间来恢复。
@@ -45,8 +45,10 @@ description: 事情当然要从「双十一」开始说起。想不到打折力�
 退烧药只吃了两片泰诺林（对乙酰氨基酚缓释片，650 mg），对于缓解发热的不适还是有很大帮助的，尤其是在睡前。后期还吃了一点西瓜霜含片缓解嗓子痛，聊胜于无。其他症状都比较轻，也就没有吃别的药了。
 
 <figure>
-  <!-- <source srcset="/images/covid-records/temperature.dark.svg" media="(prefers-color-scheme: dark)"> -->
-  <img src="/images/covid-records/temperature.light.svg" alt="temperature">
+  <picture>
+    <source srcset="./temperature.dark.svg" media="(prefers-color-scheme: dark)">
+    <img src="./temperature.light.svg" alt="temperature">
+  </picture>
   <figcaption>体温变化情况，绿色箭头表示服用退烧药</figcaption>
 </figure>
 

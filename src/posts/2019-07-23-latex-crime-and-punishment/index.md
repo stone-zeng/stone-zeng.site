@@ -44,7 +44,7 @@ excerpt: 作为 \LaTeX 开发者，看到这种嘲讽自然是非常 angry 的�
 
 其中的 `ref.bib` 如下：
 
-```
+```bibtex
 Google Scholar 搜索 cnn 的前三项结果
 
 @inproceedings{ren2015faster,
@@ -269,7 +269,7 @@ A
 
 > 要想在 `misc` 中加 `url`，要这么写：
 >
-> ```
+> ```bibtex
 > @misc{crappyLaTeX,
 > howpublished = {\url{xsdfsaefaef}}}
 > ```
