@@ -129,6 +129,7 @@
     code,
     kbd {
       @apply font-mono;
+      font-feature-settings: 'cv12', 'cv14'; /* cv12: u; cv14: $, ¢ */
     }
 
     [class^='language'] {
@@ -203,6 +204,13 @@
       &:hover {
         @apply underline;
       }
+    }
+
+    /* Other elements */
+
+    strong,
+    th {
+      @apply font-bold;
     }
 
     sup,

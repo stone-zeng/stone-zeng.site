@@ -19,6 +19,10 @@ export default <Config>{
       sans: ['"Punct Sans"', '"Work Sans"', ...baseCjkFonts, 'sans-serif'],
       mono: ['"JetBrains Mono"', ...baseCjkFonts, 'monospace'],
     },
+    fontWeight: {
+      normal: '400',
+      bold: '650',
+    },
     extend: {
       colors: {
         light: {

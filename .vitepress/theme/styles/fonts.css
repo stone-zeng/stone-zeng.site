@@ -21,35 +21,9 @@
 }
 
 @font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-variation-settings: 'wght' 650;
-  src: url(@/theme/fonts/WorkSans.woff2) format('woff2');
-}
-
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-variation-settings: 'wght' 650;
-  src: url(@/theme/fonts/WorkSansGreek.woff2) format('woff2');
-  unicode-range: U+03B5;
-}
-
-@font-face {
-  font-family: 'Work Sans';
-  font-style: italic;
-  font-weight: 700;
-  font-variation-settings: 'wght' 650;
-  src: url(@/theme/fonts/WorkSans-Italic.woff2) format('woff2');
-}
-
-@font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 100 800;
-  font-feature-settings: 'cv12', 'cv14'; /* cv12: u, cv14: $¢ */
   src: url(@/theme/fonts/JetBrainsMono.woff2) format('woff2');
 }
 
@@ -57,7 +31,6 @@
   font-family: 'JetBrains Mono';
   font-style: italic;
   font-weight: 100 800;
-  font-feature-settings: 'cv12', 'cv14';
   src: url(@/theme/fonts/JetBrainsMono-Italic.woff2) format('woff2');
 }
 

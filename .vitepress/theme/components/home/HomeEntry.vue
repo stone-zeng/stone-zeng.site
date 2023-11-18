@@ -19,7 +19,7 @@ defineProps<{
         v-html="title"
       ></a>
     </h1>
-    <div class="mb-2 flex items-center gap-1 text-sm text-secondary sm:mb-4">
+    <div class="mb-2 flex items-center gap-1 text-sm leading-relaxed text-secondary sm:mb-4">
       <IconCalendarPlus :size="16" class="translate-y-0.5" />
       <PostDate :date="date" title="Posted on" />
     </div>
