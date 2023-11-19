@@ -2,11 +2,11 @@
 title: 新型冠状病毒肺炎疫情统计
 date: 2020-02-01
 updated: 2020-03-01
-math: true
-excerpt: 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地，形势越发严峻。这里简要罗列一些数据，并且据此给出（未必非常靠谱）的预测。
 ---
 
 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地，形势越发严峻。这里简要罗列一些数据，并且据此给出（未必非常靠谱）的预测。
+
+<!-- more -->
 
 本文数据见 [2019-nCoV-data.csv](https://github.com/stone-zeng/stone-zeng.github.io/blob/main/src/wuhan-coronavirus/2019-nCoV-data.csv)，来源于[^2019-nCoV-wiki][^2019-nCoV-tg]。绘图及拟合代码见 [2019-nCoV.wl](https://github.com/stone-zeng/stone-zeng.github.io/blob/main/src/wuhan-coronavirus/2019-nCoV.wl)。
 
@@ -136,9 +136,8 @@ $$
 
 [^who-twitter]: @WHO 的[推文](https://twitter.com/WHO/status/1222969618505093121)。
 
-<p style="text-align: center">
-<strong>We must remember that these are people, not numbers.</strong>
-</p>
+**We must remember that these are people, not numbers.**
+{.text-center}
 
 ## 注释与参考
 

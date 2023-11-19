@@ -1,4 +1,5 @@
 import { defineConfigWithTheme } from 'vitepress'
+import MarkdownItAttrs from 'markdown-it-attrs'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 
 import { genFeed } from './lib/feed'
@@ -84,11 +85,12 @@ export default async () =>
       // // @ts-ignore
       // languages,
       config: (md) => {
-        md.use(MarkdownItCjkKern)
+        md.use(MarkdownItAttrs)
+          .use(MarkdownItCjkKern)
           .use(MarkdownItFootnote)
           .use(MarkdownItKaTeX)
-          .use(MarkdownItTeXLogo)
           .use(MarkdownItMultimdTable, { headerless: true })
+          .use(MarkdownItTeXLogo)
       },
     },
     vite,

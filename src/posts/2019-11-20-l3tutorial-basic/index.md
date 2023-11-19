@@ -7,6 +7,10 @@ tags:
 excerpt: 学习一门编程语言，如果只了解语法，必然十分枯燥而且并没有什么用。所以，我们准备从一个基本的例子讲起，尽可能地覆盖 \LaTeX3 的重要知识。
 ---
 
+<script setup lang="ts">
+import CatcodeExample from './CatcodeExample.vue'
+</script>
+
 前文链接：
 
 - [\LaTeX3 教程（一）——背景知识](./2019-02-24-l3tutorial-background)
@@ -39,7 +43,7 @@ excerpt: 学习一门编程语言，如果只了解语法，必然十分枯燥�
 
 我本人使用的是 [TeX Live 2019](https://www.tug.org/texlive/) + [Visual Studio Code](https://code.visualstudio.com)。
 
-此外，如果要开始一个正式的项目 / 工程，强烈建议建立一个 Git 仓库来管理。具体做法可参阅[廖雪峰的 Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)。
+此外，如果要开始一个正式的项目 / 工程，强烈建议建立一个 Git 仓库来管理。具体做法可参阅 [廖雪峰的 Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)。
 
 ### 目录结构
 
@@ -119,16 +123,7 @@ zhdummy/
 
 记号列表，顾名思义由一系列的**记号**（token，也称为字元）组成。而记号，要么是指一个附带有类别码的字符（character），要么是一个控制序列。比如，在标准情况下，`{\hskip 36 pt}` 就是下面的一组记号（下标表示类别码，`␣` 表示空格，注意 `\hskip` 后的空格是被忽略掉的）：
 
-<p markdown="1" style="text-align: center">
-  `{`<sub>1</sub>
-  `\hskip`<sub>控制序列</sub>
-  `3`<sub>12</sub>
-  `6`<sub>12</sub>
-  `␣`<sub>10</sub>
-  `p`<sub>11</sub>
-  `t`<sub>11</sub>
-  `}`<sub>2</sub>
-</p>
+<CatcodeExample />
 
 不过，就目前来说，我们可以先忽略这些技术细节。毕竟假文中几乎只含有汉字、标点和一些字母、数字，它们都是比较「正常」的东西，不需要特殊处理。
 
@@ -286,7 +281,7 @@ l.7 \end{document}
 
 正所谓「临门一脚」，我们上面的所有工作最终都要面向用户。\LaTeX3 提供的方案是 `xparse` 宏包，它可以很方便地声明用户层（文档层）命令。
 
-在代码底层，程序员应当控制合适的粒度，使得绝大多数函数都只完成单一的工作。因而，底层函数的参数应当是确定的。但在用户层，需求可以千变万化，但接口应当尽可能保持统一，这就要求参数形式具有一定的多样性。这与 C++ 中依靠[函数重载](https://en.cppreference.com/w/cpp/language/overload_resolution)实现的所谓 [*ad hoc* 多态](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism)有异曲同工之处。
+在代码底层，程序员应当控制合适的粒度，使得绝大多数函数都只完成单一的工作。因而，底层函数的参数应当是确定的。但在用户层，需求可以千变万化，但接口应当尽可能保持统一，这就要求参数形式具有一定的多样性。这与 C++ 中依靠 [函数重载](https://en.cppreference.com/w/cpp/language/overload_resolution) 实现的所谓 [*ad hoc* 多态](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism) 有异曲同工之处。
 
 `xparse` 宏包提供了 `\NewDocumentCommand` 函数，其语法如下：
 
@@ -382,7 +377,7 @@ l.7 \end{document}
 
 ## 参考
 
-- [zhlipsum: 中文乱数假文(Lorem ipsum)](https://mirrors.ctan.org/macros/latex/contrib/zhlipsum/zhlipsum.pdf) - `texdoc zhlipsum.pdf`
+- [zhlipsum: 中文乱数假文 (Lorem ipsum)](https://mirrors.ctan.org/macros/latex/contrib/zhlipsum/zhlipsum.pdf) - `texdoc zhlipsum.pdf`
 - [The \LaTeX3 Interfaces](https://mirrors.ctan.org/macros/latex/contrib/l3kernel/interface3.pdf) - `texdoc interface3`
   - Part VI - The `l3tl` package: Token lists
   - Part XI - The `l3int` package: Integers

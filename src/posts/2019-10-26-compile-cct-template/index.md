@@ -3,10 +3,11 @@ title: 编译 CCT 模板
 date: 2019-10-26
 tags:
   - CJK
-excerpt: 正如 Liam Huang 所言，「国内有不少期刊依旧在使用过时的 CCT 方式来支持中文」，《中国科学：信息科学》也不例外。我们的目的是把它移植到现代 \TeX 发行版中，使之可以正常编译。
 ---
 
 正如 Liam Huang 所言，「国内有不少期刊依旧在使用过时的 CCT 方式来支持中文」[^liam-cct]，《中国科学：信息科学》[^ssi]也不例外。我们的目的是把它移植到现代 \TeX 发行版中，使之可以正常编译。
+
+<!-- more -->
 
 [^liam-cct]: [【LaTeX Tips】国内期刊 CCT 模板编译经验](https://liam.page/2013/10/15/LaTeX-CCT-template/)
 [^ssi]: [快速了解中国科学信息科学](http://scis.scichina.com/)

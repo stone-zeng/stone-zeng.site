@@ -4,10 +4,11 @@ date: 2019-02-24
 updated: 2019-02-26
 tags:
   - LaTeX3
-excerpt: \LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 年），但一直只挖坑而不填土。作为初学者，错误在所难免，恳请各位不吝赐教。
 ---
 
 \LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 年），但一直只挖坑而不填土。作为初学者，错误在所难免，恳请各位不吝赐教。
+
+<!-- more -->
 
 ## 历史回顾
 
@@ -17,9 +18,9 @@ excerpt: \LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 
 
 [^lamport-book]: [\LaTeX: A Document Preparation System - The Writings of Leslie Lamport](https://lamport.azurewebsites.net/pubs/pubs.html#latex)
 
-1992 年，\LaTeX 2.09 发布，之后 Lamport 便退居二线，开发工作交给由 Frank Mittelbach 领导的 [\LaTeX3 团队](https://www.latex-project.org/about/team/)负责。顾名思义，这个团队就是要代表 \LaTeX 行业的发展要求，代表 \LaTeX 界最新技术的前进方向，代表 \LaTeX 最广大用户的根本利益。于是他们埋头苦干了两年，搞了个大新闻——推出了 \LaTeXe。
+1992 年，\LaTeX 2.09 发布，之后 Lamport 便退居二线，开发工作交给由 Frank Mittelbach 领导的 [\LaTeX3 团队](https://www.latex-project.org/about/team/) 负责。顾名思义，这个团队就是要代表 \LaTeX 行业的发展要求，代表 \LaTeX 界最新技术的前进方向，代表 \LaTeX 最广大用户的根本利益。于是他们埋头苦干了两年，搞了个大新闻——推出了 \LaTeXe。
 
-「\LaTeXe」这个名字，一看就知道来源于微积分里面的 [*ε*-*δ* 语言](https://en.wikipedia.org/wiki/(%CE%B5,_%CE%B4)-definition_of_limit)。「\2e」比 2 大，但是作为一个无穷小量，离 3 却还有着十万八千里。因此过了二十多年，\LaTeX3 的正式发布依然还是遥遥无期。
+「\LaTeXe」这个名字，一看就知道来源于微积分里面的 [$\varepsilon$-$\delta$ 语言](https://en.wikipedia.org/wiki/(%CE%B5,_%CE%B4)-definition_of_limit)。「\2e」比 2 大，但是作为一个无穷小量，离 3 却还有着十万八千里。因此过了二十多年，\LaTeX3 的正式发布依然还是遥遥无期。
 
 ## \LaTeXe 的不足
 
@@ -83,7 +84,7 @@ excerpt: \LaTeX3 教程这个系列的文章其实早已动笔（开始于 2017 
 
 然而事情并不总是那么完美的。\LaTeX 的内核很小（`latex.ltx` 约 8500 行，`article.cls` 约 600 行，`size10.clo` 约 200 行），要么缺乏相关功能的支持，要么就是格式写死了没法改。总之，除非完全按照八股文的方式，只要你稍微想做一些格式上的更改，就只有 Google 半天再自己写上一长串啰里啰嗦、不知所云的代码。
 
-时代总是在发展的，[Till Tantau](https://fr.wikipedia.org/wiki/Till_Tantau) 教授在准备他的博士论文答辩时，编写了 [`beamer`](https://ctan.org/pkg/beamer) 文档类，用以构建幻灯片（为此，他还编写了绘图包 [`PGF/Ti`*`k`*`Z`](https://ctan.org/pkg/pgf)，简直令人叹为观止）。就架构而言，`beamer` 的设计是高度创造性的。它划分了 3 个层次：
+时代总是在发展的，[Till Tantau](https://fr.wikipedia.org/wiki/Till_Tantau) 教授在准备他的博士论文答辩时，编写了 [`beamer`](https://ctan.org/pkg/beamer) 文档类，用以构建幻灯片（为此，他还编写了绘图包 [`PGF/TikZ`](https://ctan.org/pkg/pgf)，简直令人叹为观止）。就架构而言，`beamer` 的设计是高度创造性的。它划分了 3 个层次：
 
 - 幻灯片作者只需要了解 `frame`、`theorem`、`emph` 这些与演示相关的命令或环境，只需选择相应的主题（theme），就可以完成制作；
 - 模板 / 主题设计师，可以用 `\setbeamertemplate`、 `\setbeamercolor`、 `\setbeamerfont` 等命令来设置各成分的格式，但却无需考虑演示文稿的具体内容；

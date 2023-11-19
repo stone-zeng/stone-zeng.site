@@ -222,13 +222,13 @@ Hello, world!
 
 按引擎分组：
 
-![dvi-by-engines](./dvi-by-engines.svg){:.invert}
-![pdf-by-engines](./pdf-by-engines.svg){:.invert}
+![dvi-by-engines](./dvi-by-engines.svg){.dark:invert}
+![pdf-by-engines](./pdf-by-engines.svg){.dark:invert}
 
 按测试项目分组：
 
-![dvi-by-tasks](./dvi-by-tasks.svg){:.invert}
-![pdf-by-tasks](./pdf-by-tasks.svg){:.invert}
+![dvi-by-tasks](./dvi-by-tasks.svg){.dark:invert}
+![pdf-by-tasks](./pdf-by-tasks.svg){.dark:invert}
 
 以上纵轴单位均为秒。
 
@@ -267,7 +267,7 @@ Hello, world!
 
 原理就是利用 `zhlipsum` 生成长度正比于 *N* 的文本，并用 `l3benchmark` 提供的函数测量时间。结果如下（横轴为文本长度，纵轴为时间/s；左图为线性坐标，右图为对数坐标）：
 
-![zh-benchmark](./zh-benchmark.svg){:.invert}
+![zh-benchmark](./zh-benchmark.svg){.dark:invert}
 
 对以上数据使用多项式拟合，可以得到：
 

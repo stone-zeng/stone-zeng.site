@@ -57,7 +57,7 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 
 [^l3backend]: 2019 年 7 月 `l3backend` 的代码从 `l3kernel` 中独立出来，以便采取不同的更新策略。
 
-这就是当前 \LaTeX3 的主要组成。除此以外，在 \LaTeX3 的 [GitHub 存储库](https://github.com/latex3/latex3)中，还包含了一些高度实验性的功能以及弃用的模块。对于普通用户和开发者来说，它们不应该直接使用。
+这就是当前 \LaTeX3 的主要组成。除此以外，在 \LaTeX3 的 [GitHub 存储库](https://github.com/latex3/latex3) 中，还包含了一些高度实验性的功能以及弃用的模块。对于普通用户和开发者来说，它们不应该直接使用。
 
 ## 命名规范
 
@@ -187,8 +187,8 @@ excerpt: 从这次的内容开始，我们就将正式进入 \LaTeX3 的世界�
 以下这几种直接继承了前面所说的寄存器类型：
 
 - `box`
-- `int` <-- `count` (**int**eger)
-- `dim` <-- `dimen`
+- `int` ← `count` (**int**eger)
+- `dim` ← `dimen`
 - `skip`
 - `muskip`
 

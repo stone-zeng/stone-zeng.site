@@ -6,10 +6,11 @@ tags:
   - LaTeX
   - Fonts
   - OpenType
-excerpt: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
 ---
 
-在 2016 年，随着 [OpenType 标准 1.8 版](https://docs.microsoft.com/typography/opentype/spec)的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
+在 2016 年，随着 [OpenType 标准 1.8 版](https://docs.microsoft.com/typography/opentype/spec) 的出台，字体界迎来了一次重大变革，即可变字体（OpenType Variable Fonts）的诞生。
+
+<!-- more -->
 
 可变字体的源头是 Knuth 在创造 \TeX 时「顺便」实现的 [METAFONT](https://en.wikipedia.org/wiki/Metafont)。时间过去了近 40 年，\TeX 依然大受欢迎，而 METAFONT 却几乎仅限于极客们的玩具，高质量的商业字体几乎没有采用这套流程进行开发。然而 Knuth 高瞻远瞩的理念在最近终于被从故纸堆中翻了出来，参数化字体设计伴着可变字体的火热又重回人们的视线。
 
@@ -87,7 +88,7 @@ excerpt: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界迎�
 
 编译方式与 \LaTeX 类似。在命令行执行 `context <file name>`，它会自动确定编译次数，直至生成最终的 PDF。第一次使用时，\ConTeXt 可能会花费较长时间生成字体缓存（每个实例都要生成），需要耐心等待。之后再进行编译，相对而言速度还可以接受。
 
-![vf-bahnschrift](./bahnschrift.png){:.invert}
+![vf-bahnschrift](./bahnschrift.png){.dark:invert}
 
 ### Adobe VF Prototype
 
@@ -97,7 +98,7 @@ excerpt: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界迎�
 \definefontfeature[w200c0][default][axis={weight:200,contrast:0}]
 ```
 
-![vf-adobe-vf-protype](./adobe-vf-protype.png){:.invert}
+![vf-adobe-vf-protype](./adobe-vf-protype.png){.dark:invert}
 
 可以看到 `fi` 连字发挥正常，但 `i`、`F`、`P` 等出现了一些畸变，暂时还不清楚其中的原因。
 
@@ -145,7 +146,7 @@ excerpt: 在 2016 年，随着 OpenType 标准 1.8 版的出台，字体界迎�
 \stoptext
 ```
 
-![vf-adobe-vf-protype-mf](./adobe-vf-protype-mf.png){:.invert}
+![vf-adobe-vf-protype-mf](./adobe-vf-protype-mf.png){.dark:invert}
 
 图中可以看到大量笔画的重叠，这可以保证轮廓在连续变化时不会走样。与上文类似，仍然出现了不明原因的畸变。当然，字体本身是没有问题的。
 
