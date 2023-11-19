@@ -9,6 +9,8 @@ import MarkdownItKaTeX from './lib/markdown-it-katex'
 import MarkdownItTeXLogo from './lib/markdown-it-tex-logo'
 import vite from '../vite.config'
 
+const buildDate = new Date(process.env.VITEPRESS_BUILD_DATE || Date.now())
+
 const themeConfig: Theme.Config = {
   paginate: 10,
   editLink: {
@@ -46,7 +48,7 @@ const themeConfig: Theme.Config = {
         icon: 'rss',
       },
     ],
-    copyright: `© 2018\u{2013}${new Date().getFullYear()} Xiangdong Zeng`,
+    copyright: `© 2018\u{2013}${buildDate.getFullYear()} Xiangdong Zeng`,
   },
 }
 
@@ -91,4 +93,7 @@ export default async () =>
     },
     vite,
     themeConfig,
+    contentProps: {
+      buildDate: buildDate.toISOString(),
+    },
   })

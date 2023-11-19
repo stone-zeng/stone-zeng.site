@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-x-auto whitespace-nowrap py-2 text-center font-mono text-sm">
+  <pre class="whitespace-nowrap py-2 text-center">
     |Physics⟩<span class="mx-1">⊗</span>|LaTeX⟩<span class="mx-1">⊗</span>
     <div class="inline-block align-middle">
       <div class="border-b border-current">
@@ -7,5 +7,5 @@
       </div>
       <div>√2</div>
     </div>
-  </div>
+  </pre>
 </template>

@@ -5,13 +5,12 @@ layout: page
 
 <script setup lang="ts">
 import AboutFormula from './AboutFormula.vue'
+import AboutStatistics from './AboutStatistics.vue'
 </script>
 
 I'm Xiangdong Zeng (aka. Stone Zeng) working with
 
 <AboutFormula />
-
-<!-- <div class="about">|Physics⟩<span class="about-mbin">⊗</span>|LaTeX⟩<span class="about-mbin">⊗</span><div class="about-frac"><span class="about-frac-top">|Font engineering⟩<span class="about-mbin">+</span>|Type design⟩</span><span class="about-frac-bottom">√2</span></div></div> -->
 
 Currently, I'm
 
@@ -56,11 +55,9 @@ Currently, I'm
 - [Twitter](https://twitter.com/xiangdong_zeng)
 - [知乎](https://www.zhihu.com/people/stone-zeng-32)
 
-## 统计
+## Statistics
 
-- 文章数：
-- <span id="busuanzi_container_site_uv">总访客数：<span id="busuanzi_value_site_uv"></span></span>
-- 最后构建：{{ new Date().toISOString() }}
+<AboutStatistics />
 
 ## 许可证
 
