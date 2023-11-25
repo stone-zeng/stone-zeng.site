@@ -1,6 +1,7 @@
 @import '@/theme/styles/fonts.css';
 @import '@/theme/styles/katex.css';
 @import '@/theme/styles/prose.css';
+@import '@/theme/styles/specials.css';
 @import '@/theme/styles/tex-logo.css';
 
 @tailwind base;
@@ -45,6 +46,18 @@
 }
 
 @layer utilities {
+  .font-mono {
+    font-feature-settings: 'cv12', 'cv14'; /* cv12: u; cv14: $, ¢ */
+  }
+
+  .font-feature-calt-off {
+    font-feature-settings: 'calt' 0 !important;
+  }
+
+  .font-feature-frac {
+    font-feature-settings: 'frac' !important;
+  }
+
   .small-caps {
     font-variant: small-caps;
   }

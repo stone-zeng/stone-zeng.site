@@ -11,12 +11,13 @@ excerpt: 欧拉计划 71--80 题。
 >
 > If we list the set of reduced proper fractions for *d* ≤ 8 in ascending order of size, we get:
 >
-> {:.problem-example}
 > 1/8, 1/7, 1/6, 1/5, 1/4, 2/7, 1/3, 3/8, **2/5**, 3/7, 1/2, 4/7, 3/5, 5/8, 2/3, 5/7, 3/4, 4/5, 5/6, 6/7, 7/8
+> {.problem-example .font-feature-frac}
 >
 > It can be seen that 2/5 is the fraction immediately to the left of 3/7.
+> {.font-feature-frac}
 >
-> By listing the set of reduced proper fractions for *d* ≤ 1,000,000 in ascending order of size, find the numerator of the fraction immediately to the left of 3/7.
+> By listing the set of reduced proper fractions for *d* ≤ 1,000,000 in ascending order of size, find the numerator of the fraction immediately to the left of <span class="font-feature-frac">3/7</span>.
 
 这道题看起来是不是最简真分数并不要紧，那么我们不妨直接列出所有单位分数（即 1/*d*），用 3/7 除掉取余数，得到最近的距离，再扣掉即可。
 
@@ -31,8 +32,8 @@ With[{r = 3/7}, r - Min @ DeleteCases[0] @ Mod[r, 1 / Range[1*^6]]]
 >
 > If we list the set of reduced proper fractions for *d* ≤ 8 in ascending order of size, we get:
 >
-> {:.problem-example}
 > 1/8, 1/7, 1/6, 1/5, 1/4, 2/7, 1/3, 3/8, 2/5, 3/7, 1/2, 4/7, 3/5, 5/8, 2/3, 5/7, 3/4, 4/5, 5/6, 6/7, 7/8
+> {.problem-example .font-feature-frac}
 >
 > It can be seen that there are 21 elements in this set.
 >
@@ -51,12 +52,12 @@ Total @ EulerPhi @ Range[2, 1*^6]
 >
 > If we list the set of reduced proper fractions for *d* ≤ 8 in ascending order of size, we get:
 >
-> {:.problem-example}
 > 1/8, 1/7, 1/6, 1/5, 1/4, 2/7, 1/3, **3/8**, **2/5**, **3/7**, 1/2, 4/7, 3/5, 5/8, 2/3, 5/7, 3/4, 4/5, 5/6, 6/7, 7/8
+> {.problem-example .font-feature-frac}
 >
-> It can be seen that there are 3 fractions between 1/3 and 1/2.
+> It can be seen that there are 3 fractions between <span class="font-feature-frac">1/3</span> and <span class="font-feature-frac">1/2</span>.
 >
-> How many fractions lie between 1/3 and 1/2 in the sorted set of reduced proper fractions for *d* ≤ 12,000?
+> How many fractions lie between <span class="font-feature-frac">1/3</span> and <span class="font-feature-frac">1/2</span> in the sorted set of reduced proper fractions for *d* ≤ 12,000?
 
 直接用死办法枚举 + 筛选，碰巧这个序列是可以用内置函数 [`FareySequence`](https://reference.wolfram.com/language/ref/FareySequence.html) 给出的，虽然还是很慢。
 
@@ -69,22 +70,22 @@ Count[FareySequence[12000], _?(1/3 < # < 1/2 &)] // AbsoluteTiming
 
 > The number 145 is well known for the property that the sum of the factorial of its digits is equal to 145:
 >
-> {:.problem-example-left}
 > 1! + 4! + 5! = 1 + 24 + 120 = 145
+> {.problem-example}
 >
 > Perhaps less well known is 169, in that it produces the longest chain of numbers that link back to 169; it turns out that there are only three such loops that exist:
 >
-> {:.problem-example-left}
 > 169 → 363601 → 1454 → 169
 > 871 → 45361 → 871
 > 872 → 45362 → 872
+> {.problem-example}
 >
 > It is not difficult to prove that EVERY starting number will eventually get stuck in a loop. For example,
 >
-> {:.problem-example-left}
 > 69 → 363600 → 1454 → 169 → 363601 (→ 1454)
 > 78 → 45360 → 871 → 45361 (→ 871)
 > 540 → 145 (→ 145)
+> {.problem-example}
 >
 > Starting with 69 produces a chain of five non-repeating terms, but the longest non-repeating chain with a starting number below one million is sixty terms.
 >
@@ -114,22 +115,22 @@ Module[{max = 1*^6, len = 60, func, mapFunc, groups, chains},
 
 ## 75. Singular integer right triangles
 
-> It turns out that 12 cm is the smallest length of wire that can be bent to form an integer sided right angle triangle in exactly one way, but there are many more examples.
+> It turns out that 12\,cm is the smallest length of wire that can be bent to form an integer sided right angle triangle in exactly one way, but there are many more examples.
 >
-> {:.problem-example-left}
-> **12 cm**: (3,4,5)
-> **24 cm**: (6,8,10)
-> **30 cm**: (5,12,13)
-> **36 cm**: (9,12,15)
-> **40 cm**: (8,15,17)
-> **48 cm**: (12,16,20)
+> **12\,cm**: (3,4,5)
+> **24\,cm**: (6,8,10)
+> **30\,cm**: (5,12,13)
+> **36\,cm**: (9,12,15)
+> **40\,cm**: (8,15,17)
+> **48\,cm**: (12,16,20)
+> {.problem-example}
 >
-> In contrast, some lengths of wire, like 20 cm, cannot be bent to form an integer sided right angle triangle, and other lengths allow more than one solution to be found; for example, using 120 cm it is possible to form exactly three different integer sided right angle triangles.
+> In contrast, some lengths of wire, like 20\,cm, cannot be bent to form an integer sided right angle triangle, and other lengths allow more than one solution to be found; for example, using 120\,cm it is possible to form exactly three different integer sided right angle triangles.
 >
-> {:.problem-example-left}
-> **120 cm**: (30,40,50), (20,48,52), (24,45,51)
+> **120\,cm**: (30,40,50), (20,48,52), (24,45,51)
+> {.problem-example}
 >
-> Given that L is the length of the wire, for how many values of L ≤ 1,500,000 can exactly one integer sided right angle triangle be formed?
+> Given that *L* is the length of the wire, for how many values of *L* ≤ 1,500,000 can exactly one integer sided right angle triangle be formed?
 
 勾股数（$a^2+b^2=c^2$）可以由下式给出：
 
@@ -157,13 +158,13 @@ Module[{max = 15*^5, imax, kmax, triples},
 
 > It is possible to write five as a sum in exactly six different ways:
 >
-> {:.problem-example-left}
 > 4 + 1
 > 3 + 2
 > 3 + 1 + 1
 > 2 + 2 + 1
 > 2 + 1 + 1 + 1
 > 1 + 1 + 1 + 1 + 1
+> {.problem-example}
 >
 > How many different ways can one hundred be written as a sum of at least two positive integers?
 
@@ -178,12 +179,12 @@ PartitionsP[100] - 1
 
 > It is possible to write ten as the sum of primes in exactly five different ways:
 >
-> {:.problem-example-left}
 > 7 + 3
 > 5 + 5
 > 5 + 3 + 2
 > 3 + 3 + 2 + 2
 > 2 + 2 + 2 + 2 + 2
+> {.problem-example}
 >
 > What is the first value which can be written as the sum of primes in over five thousand different ways?
 
@@ -200,7 +201,6 @@ NestWhile[# + 1 &, 1, primePartitions[#] < 5000 &]
 
 > Let p(*n*) represent the number of different ways in which *n* coins can be separated into piles. For example, five coins can be separated into piles in exactly seven different ways, so p(5)=7.
 >
-> {:.problem-example-left}
 > OOOOO
 > OOOO O
 > OOO OO
@@ -208,6 +208,7 @@ NestWhile[# + 1 &, 1, primePartitions[#] < 5000 &]
 > OO OO O
 > OO O O O
 > O O O O O
+> {.problem-example}
 >
 > Find the least value of *n* for which p(*n*) is divisible by one million.
 

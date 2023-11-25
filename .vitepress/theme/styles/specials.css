@@ -1,0 +1,14 @@
+@layer components {
+  /* euler */
+  .problem-example {
+    @apply pl-8 sm:mx-8;
+  }
+
+  .problem-input {
+    @apply overflow-auto whitespace-nowrap text-center font-mono text-sm;
+  }
+
+  .problem-highlight {
+    @apply text-red-500 dark:text-red-400;
+  }
+}

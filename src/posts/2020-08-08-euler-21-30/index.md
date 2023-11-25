@@ -79,8 +79,8 @@ With[{n = 28123},
 
 > A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:
 >
-> {:.problem-example}
 > 012&emsp;021&emsp;102&emsp;120&emsp;201&emsp;210
+> {.problem-example}
 >
 > What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 
@@ -95,12 +95,11 @@ FromDigits @ Part[Permutations[Range[0, 9]], 1*^6]
 
 > The Fibonacci sequence is defined by the recurrence relation:
 >
-> {:.problem-example-left}
 > *F*<sub>*n*</sub> = *F*<sub>*n*-1</sub> + *F*<sub>*n*-2</sub>,&emsp;where *F*<sub>1</sub> = 1 and *F*<sub>2</sub> = 1.
+> {.problem-example}
 >
 > Hence the first 12 terms will be:
 >
-> {:.problem-example-left}
 > *F*<sub>1</sub>  = 1
 > *F*<sub>2</sub>  = 1
 > *F*<sub>3</sub>  = 2
@@ -113,6 +112,7 @@ FromDigits @ Part[Permutations[Range[0, 9]], 1*^6]
 > *F*<sub>10</sub> = 55
 > *F*<sub>11</sub> = 89
 > *F*<sub>12</sub> = 144
+> {.problem-example}
 >
 > The 12th term, *F*<sub>12</sub>, is the first term to contain three digits.
 >
@@ -129,20 +129,18 @@ NestWhile[# + 1 &, 1, IntegerLength[Fibonacci[#]] < 1000 &]
 
 > A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:
 >
-> {:.problem-example-left}
-> {:.frac}
-> 1/2  = 0.5
-> 1/3  = 0.(3)
-> 1/4  = 0.25
-> 1/5  = 0.2
-> 1/6  = 0.1(6)
-> 1/7  = 0.(142857)
-> 1/8  = 0.125
-> 1/9  = 0.(1)
-> 1/10 = 0.1
+> <span class="font-feature-frac">1/2</span>  = 0.5
+> <span class="font-feature-frac">1/3</span>  = 0.(3)
+> <span class="font-feature-frac">1/4</span>  = 0.25
+> <span class="font-feature-frac">1/5</span>  = 0.2
+> <span class="font-feature-frac">1/6</span>  = 0.1(6)
+> <span class="font-feature-frac">1/7</span>  = 0.(142857)
+> <span class="font-feature-frac">1/8</span>  = 0.125
+> <span class="font-feature-frac">1/9</span>  = 0.(1)
+> <span class="font-feature-frac">1/10</span> = 0.1
+> {.problem-example}
 >
-> {:.frac}
-> Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that 1/7 has a 6-digit recurring cycle.
+> Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that <span class="font-feature-frac">1/7</span> has a 6-digit recurring cycle.
 >
 > Find the value of *d* < 1000 for which 1/*d* contains the longest recurring cycle in its decimal fraction part.
 
@@ -157,19 +155,19 @@ First @ MaximalBy[Range[1000], Length @ RealDigits[1 / #][[1, 1]] &]
 
 > Euler discovered the remarkable quadratic formula:
 >
-> {:.problem-example}
 > *n*² + *n* + 41
+> {.problem-example}
 >
 > It turns out that the formula will produce 40 primes for the consecutive integer values 0 ≤ *n* ≤ 39. However, when *n* = 40, 40² + 40 + 41 = 40&nbsp;(40 + 1) is divisible by 41, and certainly when *n* = 41, 41² + 41 + 41 is clearly divisible by 41.
 >
-> The incredible formula *n*² - 79*n* + 1601 was discovered, which produces 80 primes for the consecutive values 0 ≤ *n* ≤ 79. The product of the coefficients, −79 and 1601, is −126479.
+> The incredible formula *n*² &minus; 79*n* + 1601 was discovered, which produces 80 primes for the consecutive values 0 ≤ *n* ≤ 79. The product of the coefficients, &minus;79 and 1601, is &minus;126479.
 >
 > Considering quadratics of the form:
 >
-> {:.problem-example}
-> *n*² + *an* + *b*, where \|*a*\| < 1000 and \|*b*\| ≤ 1000
+> *n*² + *an* + *b*, where |*a*| < 1000 and |*b*| ≤ 1000
+> {.problem-example}
 >
-> where \|*n*\| is the modulus/absolute value of *n*. e.g. \|11\| = 11 and \|-4\| = 4
+> where |*n*| is the modulus/absolute value of *n*. e.g. |11| = 11 and |&minus;4| = 4
 >
 > Find the product of the coefficients, *a* and *b*, for the quadratic expression that produces the maximum number of primes for consecutive values of *n*, starting with *n* = 0.
 
@@ -186,12 +184,12 @@ Times @@ First @ MaximalBy[Apply[qPrimesCount]] @ Catenate @
 
 > Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
 >
-> {:.problem-input}
-> **21**{:.problem-highlight} 22 23 24 **25**{:.problem-highlight}
-> 20  **7**{:.problem-highlight}  8  **9**{:.problem-highlight} 10
-> 19  6  **1**{:.problem-highlight}  2 11
-> 18  **5**{:.problem-highlight}  4  **3**{:.problem-highlight} 12
-> **17**{:.problem-highlight} 16 15 14 **13**{:.problem-highlight}
+> **21**{.problem-highlight} 22 23 24 **25**{.problem-highlight}
+> 20 &nbsp;**7**{.problem-highlight} &nbsp;8 &nbsp;**9**{.problem-highlight} 10
+> 19 &nbsp;6 &nbsp;**1**{.problem-highlight} &nbsp;2 11
+> 18 &nbsp;**5**{.problem-highlight} &nbsp;4 &nbsp;**3**{.problem-highlight} 12
+> **17**{.problem-highlight} 16 15 14 **13**{.problem-highlight}
+> {.problem-input}
 >
 > It can be verified that the sum of the numbers on the diagonals is 101.
 >
@@ -208,16 +206,16 @@ Total[Total[n^2 - (n-1) * Range[0, 3]] /. n -> Range[3, 1001, 2]] + 1
 
 > Consider all integer combinations of *ab* for 2 ≤ *a* ≤ 5 and 2 ≤ *b* ≤ 5:
 >
-> {:.problem-example-left}
-> 2²=4,  2³=8,   2⁴=16,  2⁵=32
-> 3²=9,  3³=27,  3⁴=81,  3⁵=243
-> 4²=16, 4³=64,  4⁴=256, 4⁵=1024
-> 5²=25, 5³=125, 5⁴=625, 5⁵=3125
+> 2² = 4,  2³ = 8,   2⁴ = 16,  2⁵ = 32
+> 3² = 9,  3³ = 27,  3⁴ = 81,  3⁵ = 243
+> 4² = 16, 4³ = 64,  4⁴ = 256, 4⁵ = 1024
+> 5² = 25, 5³ = 125, 5⁴ = 625, 5⁵ = 3125
+> {.problem-example}
 >
 > If they are then placed in numerical order, with any repeats removed, we get the following sequence of 15 distinct terms:
 >
-> {:.problem-example}
 > 4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125
+> {.problem-example}
 >
 > How many distinct terms are in the sequence generated by ab for 2 ≤ a ≤ 100 and 2 ≤ b ≤ 100?
 
@@ -232,10 +230,10 @@ Union @@ Table[a^b, {a, 2, 100}, {b, 2, 100}] // Length
 
 > Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
 >
-> {:.problem-example-left}
 > 1634 = 1⁴ + 6⁴ + 3⁴ + 4⁴
 > 8208 = 8⁴ + 2⁴ + 0⁴ + 8⁴
 > 9474 = 9⁴ + 4⁴ + 7⁴ + 4⁴
+> {.problem-example}
 >
 > As 1 = 1⁴ is not a sum it is not included.
 >

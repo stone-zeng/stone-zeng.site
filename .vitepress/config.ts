@@ -79,6 +79,7 @@ export default async () =>
       title: title.replace(/\\/g, ''),
     }),
     markdown: {
+      breaks: true,
       typographer: true,
       highlight: await highlight(),
       // TODO: see https://github.com/shikijs/shiki/pull/535
@@ -89,7 +90,11 @@ export default async () =>
           .use(MarkdownItCjkKern)
           .use(MarkdownItFootnote)
           .use(MarkdownItKaTeX)
-          .use(MarkdownItMultimdTable, { headerless: true })
+          .use(MarkdownItMultimdTable, {
+            headerless: true,
+            multiline: true,
+            rowspan: true,
+          })
           .use(MarkdownItTeXLogo)
       },
     },

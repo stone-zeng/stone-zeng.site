@@ -13,7 +13,21 @@ const baseCjkFonts = [
 
 export default <Config>{
   content: ['./.vitepress/lib/**/*.ts', './.vitepress/theme/**/*.{ts,vue}', './src/**/*.{ts,vue}'],
-  safelist: ['katex-display', 'small-caps', 'text-center', 'dark:invert'],
+  safelist: [
+    // Built-in
+    'text-center',
+    'dark:invert',
+    // Utilities
+    'font-feature-calt-off',
+    'font-feature-frac',
+    'small-caps',
+    // Components
+    'katex',
+    'katex-display',
+    'problem-example',
+    'problem-input',
+    'problem-highlight',
+  ],
   theme: {
     fontFamily: {
       sans: ['"Punct Sans"', '"Work Sans"', ...baseCjkFonts, 'sans-serif'],

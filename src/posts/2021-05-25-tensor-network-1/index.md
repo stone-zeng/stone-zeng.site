@@ -51,7 +51,7 @@ As vectors and matrices, we can define addition and scalar-multiplication for ge
 
 $$ C_{abc} = \sum_k A_{abk} B_{kc} \eqqcolon A_{abk} B_{kc} $$
 
-The result is a rank-3 tensor, as the repeated index $k$ is summed over (3 = 3 + 2 - 2). Note that we have omitted the summation symbol here, which is called the **Einstein notation**.
+The result is a rank-3 tensor, as the repeated index $k$ is summed over (3 = 3 + 2 &minus; 2). Note that we have omitted the summation symbol here, which is called the **Einstein notation**.
 
 We can contract more than one indices as well:
 

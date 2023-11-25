@@ -65,7 +65,7 @@ $$ \tilde{s}_{ij} = \tilde{s}_{ji} = \tilde{s}_{i^\vee j^\vee} = \tilde{s}_{j^\v
 
 The the **modular tensor category** (MTC) can be defined as a semi-simple ribbon category $\cat{C}$, where
 
-- $\cat{C}$ has only a finite number of simple objects, i.e. $\|I\|<\infty$
+- $\cat{C}$ has only a finite number of simple objects, i.e. $|I|<\infty$
 - Matrix $\tilde{\bm{s}}=[\tilde{s}_{ij}]$ is invertible
 
 If $\cat{C}$ is symmetric (i.e. $\sigma_{x,y}=\sigma_{x,y}^{-1}$), then $\tilde{s}_{ij}=d_i d_j$. We can see that $\tilde{\bm{s}}$ is invertible so $\cat{C}$ is not modular.

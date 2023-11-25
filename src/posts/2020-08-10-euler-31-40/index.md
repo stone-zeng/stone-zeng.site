@@ -8,13 +8,13 @@ excerpt: 欧拉计划 31--40 题。
 
 > In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:
 >
-> {:.problem-example-left}
 > 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p).
+> {.problem-example}
 >
 > It is possible to make £2 in the following way:
 >
-> {:.problem-example-left}
 > 1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
+> {.problem-example}
 >
 > How many different ways can £2 be made using any number of coins?
 
@@ -37,7 +37,7 @@ FrobeniusSolve[{1, 2, 5, 10, 20, 50, 100, 200}, 200] // Length
 >
 > HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.
 
-`pandigitalQ` 函数用来检查列表是否等于 `Range[9]`（那为什么不直接 `Union[#] == Range[9] &` 呢？）。之后分两部分讨论：`_ × ____ = ____` 和 `__ × ___ = ____`。都是先枚举出允许的值然后 `Select`。
+`pandigitalQ` 函数用来检查列表是否等于 `Range[9]`（那为什么不直接 `Union[#] == Range[9] &` 呢？）。之后分两部分讨论：`_ × ____ = ____` 和 `__ × ___ = ____`{.font-feature-calt-off}。都是先枚举出允许的值然后 `Select`。
 
 ```wl
 pandigitalQ[list_] := DuplicateFreeQ[list] && FreeQ[list, 0]
@@ -57,10 +57,10 @@ Join[
 
 ## 33. Digit cancelling fractions
 
-{:.frac}
-> The fraction 49/98 is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that 49/98 = 4/8, which is correct, is obtained by cancelling the 9s.
+> The fraction <span class="font-feature-frac">49/98</span> is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that <span class="font-feature-frac">49/98 = 4/8</span>, which is correct, is obtained by cancelling the 9s.
 >
 > We shall consider fractions like, 30/50 = 3/5, to be trivial examples.
+> {.font-feature-frac}
 >
 > There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.
 >
@@ -82,8 +82,8 @@ Denominator[Times @@ Divide @@@ Echo[#]] & @
 (* 100 *)
 ```
 
-{:.frac}
 满足要求的四组分数为 16/64、26/65、19/95 和 49/98。
+{.font-feature-frac}
 
 ## 34. Digit factorials
 
@@ -162,10 +162,10 @@ Total @ Last @ NestWhile[
 
 > Take the number 192 and multiply it by each of 1, 2, and 3:
 >
-> {:.problem-example-left}
 > 192 × 1 = 192
 > 192 × 2 = 384
 > 192 × 3 = 576
+> {.problem-example}
 >
 > By concatenating each product we get the 1 to 9 pandigital, 192384576. We will call 192384576 the concatenated product of 192 and (1,2,3)
 >
@@ -173,7 +173,7 @@ Total @ Last @ NestWhile[
 >
 > What is the largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product of an integer with (1,2, ... , *n*) where *n* > 1?
 
-所谓 concatenated product 显然只能有 `_|_|_|_|_|_|_|_|_`、`__|__|__|___`、`___|___|___`、`____|_____` 这么几种。手动先把第一个数字的范围算出来：9、25--33、100--333、5000--9999，然后和 1、2… 相乘。为了「简化」代码，这里用 [`CurryApplied`](https://reference.wolfram.com/language/ref/CurryApplied.html) 实施了柯里化操作。接着就是拆分数字、查找无重复项（用 [32 题](#32-pandigital-products)的 `pandigitalQ`）、合并数字、找最大值，都是套路，不再赘述。
+所谓 concatenated product 显然只能有 `_|_|_|_|_|_|_|_|_`{.font-feature-calt-off}、`__|__|__|___`{.font-feature-calt-off}、`___|___|___`、`____|_____` 这么几种。手动先把第一个数字的范围算出来：9、25--33、100--333、5000--9999，然后和 1、2… 相乘。为了「简化」代码，这里用 [`CurryApplied`](https://reference.wolfram.com/language/ref/CurryApplied.html) 实施了柯里化操作。接着就是拆分数字、查找无重复项（用 [32 题](#32-pandigital-products)的 `pandigitalQ`）、合并数字、找最大值，都是套路，不再赘述。
 
 ```wl
 With[{f = #2 -> Catenate[IntegerDigits[#2 * Range[#1]]] &},
@@ -201,8 +201,8 @@ FromDigits /@ Select[DuplicateFreeQ[#] && FreeQ[#, 0] &] @ Association[
 
 > If *p* is the perimeter of a right angle triangle with integral length sides, {a,b,c}, there are exactly three solutions for *p* = 120.
 >
-> {:.problem-example-left}
 > \{20,48,52\}, \{24,45,51\}, \{30,40,50\}
+> {.problem-example}
 >
 > For which value of *p* ≤ 1000, is the number of solutions maximised?
 
@@ -229,15 +229,16 @@ With[{pyTriples = Select[Apply[CoprimeQ]] @ Catenate @
 
 > An irrational decimal fraction is created by concatenating the positive integers:
 >
-> {:.problem-example}
-> 0.12345678910**1**{:.problem-highlight}112131415161718192021...
+> 0.12345678910**1**{.problem-highlight}112131415161718192021...
+> {.problem-example}
 >
-> It can be seen that the 12<span>th</span>{:.ordn} digit of the fractional part is 1.
+> It can be seen that the 12<sup>th</sup> digit of the fractional part is 1.
 >
-> If *d<sub>n</sub>* represents the *n*<span>th</span>{:.ordn} digit of the fractional part, find the value of the following expression.
+> If *d<sub>n</sub>* represents the *n*<sup>th</sup> digit of the fractional part, find the value of the following expression.
 >
-> {:.problem-example}
-> d<sub>1</sub> × d<sub>10</sub> × d<sub>100</sub> × d<sub>1000</sub> × d<sub>10000</sub> × d<sub>100000</sub> × d<sub>1000000</sub>
+> *d*<sub>1</sub> × *d*<sub>10</sub> × *d*<sub>100</sub> × *d*<sub>1000</sub> × *d*<sub>10000</sub> × *d*<sub>100000</sub> × *d*<sub>1000000</sub>
+> {.problem-example}
+> <!-- HACK: fix markdown-it-attrs ambiguity -->
 
 [ChampernowneNumber](https://reference.wolfram.com/language/ref/CurryApplied.html) 也是内置函数。注意用 `With` 避免重复计算。
 

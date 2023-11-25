@@ -7,7 +7,8 @@
     ol,
     pre,
     blockquote,
-    figure {
+    figure,
+    hr {
       @apply my-4;
     }
 
@@ -121,7 +122,6 @@
     code,
     kbd {
       @apply font-mono;
-      font-feature-settings: 'cv12', 'cv14'; /* cv12: u; cv14: $, ¢ */
     }
 
     [class^='language'] {
@@ -180,7 +180,7 @@
     /* Tables */
 
     table {
-      @apply mx-auto block max-w-fit border-collapse whitespace-pre;
+      @apply mx-auto block max-w-fit border-collapse;
     }
 
     tr:nth-child(2n) {
@@ -195,6 +195,10 @@
     td,
     th {
       @apply border border-light-800 px-4 py-2 dark:border-dark-50;
+
+      p {
+        @apply my-0;
+      }
     }
 
     /* Links */
@@ -209,6 +213,10 @@
 
     /* Other elements */
 
+    hr {
+      @apply border-t border-light-800 dark:border-dark-50;
+    }
+
     strong,
     th {
       @apply font-bold;
@@ -221,6 +229,18 @@
     sup,
     sub {
       @apply font-[450];
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    strong,
+    th {
+      sup,
+      sub {
+        @apply font-[700];
+      }
     }
 
     /* Footnotes */

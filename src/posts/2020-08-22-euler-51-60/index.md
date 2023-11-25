@@ -7,9 +7,9 @@ excerpt: 欧拉计划 51--60 题。
 
 ## 51. Prime digit replacements
 
-> By replacing the 1<span>st</span>{:.ordn} digit of the 2-digit number *3, it turns out that six of the nine possible values: 13, 23, 43, 53, 73, and 83, are all prime.
+> By replacing the 1<sup>st</sup> digit of the 2-digit number *3, it turns out that six of the nine possible values: 13, 23, 43, 53, 73, and 83, are all prime.
 >
-> By replacing the 3<span>rd</span>{:.ordn} and 4<span>th</span>{:.ordn} digits of 56**3 with the same digit, this 5-digit number is the first example having seven primes among the ten generated numbers, yielding the family: 56003, 56113, 56333, 56443, 56663, 56773, and 56993. Consequently 56003, being the first member of this family, is the smallest prime with this property.
+> By replacing the 3<sup>rd</sup> and 4<sup>th</sup> digits of 56**3 with the same digit, this 5-digit number is the first example having seven primes among the ten generated numbers, yielding the family: 56003, 56113, 56333, 56443, 56663, 56773, and 56993. Consequently 56003, being the first member of this family, is the smallest prime with this property.
 >
 > Find the smallest prime which, by replacing part of the number (not necessarily adjacent digits) with the same digit, is part of an eight prime value family.
 
@@ -60,8 +60,8 @@ Catch @ Do[If[Equal @@ Sort /@ IntegerDigits[j * {2, 3, 4, 5, 6}], Throw[j]],
 
 > There are exactly ten ways of selecting three from five, 12345:
 >
-> {:.problem-example}
 > 123, 124, 125, 134, 135, 145, 234, 235, 245, and 345
+> {.problem-example}
 >
 > In combinatorics, we use the notation, $\binom53$ = 10.
 >
@@ -95,20 +95,27 @@ Count[Flatten @ Table[Binomial[i, j], {i, 100}, {j, i}], _?(# > 1*^6 &)]
 >
 > The cards are valued in the order:
 >
-> {:.problem-example-left}
 > 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace.
+> {.problem-example}
 >
 > If two players have the same ranked hands then the rank made up of the highest value wins; for example, a pair of eights beats a pair of fives (see example 1 below). But if two ranks tie, for example, both players have a pair of queens, then highest cards in each hand are compared (see example 4 below); if the highest cards tie then the next highest cards are compared, and so on.
 >
 > Consider the following five hands dealt to two players:
 >
-> | Hand | Player 1                                               | Player 2                                              | Winner   |
-> |:----:|:------------------------------------------------------:|:-----------------------------------------------------:|:--------:|
-> | 1    | 5H 5C 6S 7S KD<br>Pair of Fives                        | 2C 3S 8S 8D TD<br>Pair of Eights                      | Player 2 |
-> | 2    | 5D 8C 9S JS AC<br>Highest card Ace                     | 2C 5C 7D 8S QH<br>Highest card Queen                  | Player 1 |
-> | 3    | 2D 9C AS AH AC<br>Three Aces                           | 3D 6D 7D TD QD<br>Flush with Diamonds                 | Player 2 |
-> | 4    | 4D 6S 9H QH QC<br>Pair of Queens<br>Highest card Nine  | 3D 6D 7H QD QS<br>Pair of Queens<br>Highest card Seven | Player 1 |
-> | 5    | 2H 2D 4C 4D 4S<br>Full House<br>With Three Fours       | 3C 3D 3S 9S 9D<br>Full House<br>With Three Threes      | Player 1 |
+> | Hand | Player 1          | Player 2            | Winner   |
+> |:----:|:-----------------:|:-------------------:|:--------:|
+> | 1    | 5H 5C 6S 7S KD    | 2C 3S 8S 8D TD      | Player 2 | \
+> |      | Pair of Fives     | Pair of Eights      |          |
+> | 2    | 5D 8C 9S JS AC    | 2C 5C 7D 8S QH      | Player 1 | \
+> |      | Highest card Ace  | Highest card Queen  |          |
+> | 3    | 2D 9C AS AH AC    | 3D 6D 7D TD QD      | Player 2 | \
+> |      | Three Aces        | Flush with Diamonds |          |
+> | 4    | 4D 6S 9H QH QC    | 3D 6D 7H QD QS      | Player 1 | \
+> |      | Pair of Queens    | Pair of Queens      |          | \
+> |      | Highest card Nine | Highest card Seven  |          |
+> | 5    | 2H 2D 4C 4D 4S    | 3C 3D 3S 9S 9D      | Player 1 | \
+> |      | Full House        | Full House          |          | \
+> |      | With Three Fours  | with Three Threes   |          |
 >
 > The file, [**poker.txt**](https://projecteuler.net/project/resources/p054_poker.txt), contains one-thousand random hands dealt to two players. Each line of the file contains ten cards (separated by a single space): the first five are Player 1's cards and the last five are Player 2's cards. You can assume that all hands are valid (no invalid characters or repeated cards), each player's hand is in no specific order, and in each hand there is a clear winner.
 >
@@ -187,10 +194,10 @@ Count[playerOneWinQ @@@ data, True]
 >
 > Not all numbers produce palindromes so quickly. For example,
 >
-> {:.problem-example-left}
 > 349 + 943 = 1292
 > 1292 + 2921 = 4213
 > 4213 + 3124 = 7337
+> {.problem-example}
 >
 > That is, 349 took three iterations to arrive at a palindrome.
 >
@@ -232,11 +239,11 @@ Max[Total /@ IntegerDigits @ Flatten @ Array[Power, {100, 100}]]
 >
 > By expanding this for the first four iterations, we get:
 >
-> {:.problem-example-left}
 > $1+\frac12 = \frac32 = 1.5$
 > $1+\frac{1}{2+\frac12} = \frac75 = 1.4$
 > $1+\frac{1}{2+\frac{1}{2+\frac12}} = \frac{17}{12} = 1.41666\cdots$
 > $1+\frac{1}{2+\frac{1}{2+\frac{1}{2+\frac12}}} = \frac{41}{29} = 1.41379\cdots$
+> {.problem-example}
 >
 > The next three expansions are $\frac{99}{70}$, $\frac{239}{169}$ and $\frac{577}{408}$, but the eighth expansion, $\frac{1393}{985}$, is the first example where the number of digits in the numerator exceeds the number of digits in the denominator.
 >
@@ -255,14 +262,14 @@ With[{n = 1000 + 1}, Length @ DeleteCases[{x_, x_}] @ Map[
 
 > Starting with 1 and spiralling anticlockwise in the following way, a square spiral with side length 7 is formed.
 >
-> {:.problem-input}
-> **37**{:.problem-highlight} 36 35 34 33 32 **31**{:.problem-highlight}
-> 38 **17**{:.problem-highlight} 16 15 14 **13**{:.problem-highlight} 30
-> 39 18  **5**{:.problem-highlight}  4  **3**{:.problem-highlight} 12 29
-> 40 19  6  1  2 11 28
-> 41 20  **7**{:.problem-highlight}  8  9 10 27
+> **37**{.problem-highlight} 36 35 34 33 32 **31**{.problem-highlight}
+> 38 **17**{.problem-highlight} 16 15 14 **13**{.problem-highlight} 30
+> 39 18 &nbsp;**5**{.problem-highlight} &nbsp;4 &nbsp;**3**{.problem-highlight} 12 29
+> 40 19 &nbsp;6 &nbsp;1 &nbsp;2 11 28
+> 41 20 &nbsp;**7**{.problem-highlight} &nbsp;8 &nbsp;9 10 27
 > 42 21 22 23 24 25 26
-> **43**{:.problem-highlight} 44 45 46 47 48 49
+> **43**{.problem-highlight} 44 45 46 47 48 49
+> {.problem-input}
 >
 > It is interesting to note that the odd squares lie along the bottom right diagonal, but what is more interesting is that 8 out of the 13 numbers lying along both diagonals are prime; that is, a ratio of 8/13 ≈ 62%.
 >
@@ -369,7 +376,7 @@ Total @ First[x8]
 
 中间输出如下：
 
-```
+```wl
 time(x1) = 0.000826
 len(x1)  = 1228
 time(x2) = 3.457

@@ -264,7 +264,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 具体到语义变体的使用，我国国家标准 [GB 3102.11--93《物理科学和技术中使用的数学符号》](https://zh.wikisource.org/wiki/GB_3102.11_物理科学和技术中使用的数学符号)给出了一些说明：
 
 > - 变量（例如 $x$，$y$ 等）、变动附标（例如 $\sum_i x_i$ 中的 $i$）及函数（例如 $f$，$g$ 等）用斜体字母表示。点 $A$、线段 $AB$ 及 弧 $CD$ 用斜体字母表示。在特定场合中视为常数的参数（例如 $a$，$b$ 等）也用斜体字母表示。
-> - 有定义的已知函数（例如 $\sin$，$\exp$，$\ln$，$\Gamma$ 等）用正体字母表示。其值不变的数学常数（例如 $\mathrm{e}=2.718\,281\,8\cdots$，$\mathrm{π}=3.141\,592\,6\cdots$，$\mathrm{i}^2=−1$ 等）用正体字母表示。已定义的算子（例如 $\operatorname{div}$，$\mathrm{\delta}x$ 中的 $\mathrm{\delta}$ 及 $\mathrm{d}f/\mathrm{d}x$ 中的 $\mathrm{d}$）也用正体字母表示[^up-greek]。
+> - 有定义的已知函数（例如 $\sin$，$\exp$，$\ln$，$\Gamma$ 等）用正体字母表示。其值不变的数学常数（例如 $\mathrm{e}=2.718\,281\,8\cdots$，$\mathrm{π}=3.141\,592\,6\cdots$，$\mathrm{i}^2=-1$ 等）用正体字母表示。已定义的算子（例如 $\operatorname{div}$，$\mathrm{\delta}x$ 中的 $\mathrm{\delta}$ 及 $\mathrm{d}f/\mathrm{d}x$ 中的 $\mathrm{d}$）也用正体字母表示[^up-greek]。
 > - 数字表中数（例如 $351\,204$，$1.32$，$7/8$）的表示用正体。
 
 [^up-greek]: 受网页技术限制，这里的 $\mathrm{\delta}$ 和 $\mathrm{\pi}$ 实际上并不是正体。在标准 \LaTeX 中，虽然也可以通过 `upgreek` 等包使用直立的小写希腊字母，但与默认的 Computer Modern 字体并不匹配。
