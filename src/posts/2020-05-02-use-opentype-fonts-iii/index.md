@@ -2,7 +2,6 @@
 title: 在 \LaTeX 中使用 OpenType 字体（三）
 date: 2020-05-02
 updated: 2021-11-29
-math: true
 tags:
   - LaTeX
   - Fonts
@@ -37,7 +36,8 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 [^unicode-utr25]: [UTR 25: Unicode Support for Mathematics](https://www.unicode.org/reports/tr25/)
 
 <figure>
-  <!-- <img src="./word-equation-editor.gif" alt="word-equation-editor" style="max-width: 600px;"> -->
+  <!-- TODO: -->
+  <img src="./word-equation-editor.gif" alt="word-equation-editor" style="width: 600px">
   <figcaption markdown="span">Word 2019 中的公式编辑器。特殊符号可通过反斜线 `\` 转义，其后输入空格则会触发自动替换</figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 ```
 
 <figure>
-  <img src="./basic.svg" alt="basic" class="invert">
+  <img src="./basic.svg" alt="basic" class="dark:invert" style="width: 380px">
   <figcaption>正态分布的累积分布函数</figcaption>
 </figure>
 
@@ -103,7 +103,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 ```
 
 <figure>
-  <img src="./xits.svg" alt="xits" class="invert">
+  <img src="./xits.svg" alt="xits" class="dark:invert" style="width: 350px">
   <figcaption>含时 Schrödinger 方程</figcaption>
 </figure>
 
@@ -111,7 +111,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 
 ## 字符支持
 
-数学公式中所使用的字符，一方面是字母、数字以及它们的各种字体形式，另一方面则是加减乘除、大于小于、积分求和、圆三角方这些符号。标准 \LaTeX 使用 Knuth 教授开发的 Computer Modern 字体排版数学公式。由于 \TeX 自身的限制，这种传统的 Type1 字体最多只能包含 256 个字符形（glyph）。因此在 \LaTeX 的 NFSS 方案中，需要不停切换编码和字体才实现比较好的排版效果，非常麻烦。而 `unicode-math` 宏包中使用 OpenType 数学字体，它把这些字符（以及相关的度量信息）封装在了一个单独的字体文件中，不再需要引入额外的宏包。
+数学公式中所使用的字符，一方面是字母、数字以及它们的各种字体形式，另一方面则是加减乘除、大于小于、积分求和、圆三角方这些符号。标准 \LaTeX 使用 Knuth 教授开发的 Computer Modern 字体排版数学公式。由于 \TeX 自身的限制，这种传统的 Type1 字体最多只能包含 256 个字符形 (glyph)。因此在 \LaTeX 的 NFSS 方案中，需要不停切换编码和字体才实现比较好的排版效果，非常麻烦。而 `unicode-math` 宏包中使用 OpenType 数学字体，它把这些字符（以及相关的度量信息）封装在了一个单独的字体文件中，不再需要引入额外的宏包。
 
 ### 字母表
 
@@ -123,139 +123,32 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 
 除此之外，数学公式还会需要大量语义变体，也就是上文提到过的不同样式的字母，包括：
 
-<table style="text-align: center;">
-  <thead>
-    <tr>
-      <th colspan="3">字体</th>
-      <th colspan="2">命令</th>
-      <th colspan="3">字母</th>
-    </tr>
-    <tr>
-      <th>族</th>
-      <th>形状</th>
-      <th>字重</th>
-      <th>字符名</th>
-      <th>带参数形式</th>
-      <th>拉丁</th>
-      <th>希腊</th>
-      <th>数字</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="4" style="white-space:pre;">衬线体<br>（serif）</td>
-      <td rowspan="2">直立</td>
-      <td>正常</td>
-      <td markdown="span">`\mup...`</td>
-      <td markdown="span">`\symup`</td>
-      <td>&check;</td><td>&check;</td><td>&check;</td>
-    </tr>
-    <tr>
-      <td>加粗</td>
-      <td markdown="span">`\mbf...`</td>
-      <td markdown="span">`\symbfup`</td>
-      <td>&check;</td><td>&check;</td><td>&check;</td>
-    </tr>
-    <tr>
-      <td rowspan="2">倾斜</td>
-      <td>正常</td>
-      <td markdown="span">`\mit...`</td>
-      <td markdown="span">`\symit`</td>
-      <td>&check;</td><td>&check;</td><td></td>
-    </tr>
-    <tr>
-      <td>加粗</td>
-      <td markdown="span">`\mbfit...`</td>
-      <td markdown="span">`\symbfit`</td>
-      <td>&check;</td><td>&check;</td><td></td>
-    </tr>
-    <tr>
-      <td rowspan="4" style="white-space:pre;">无衬线体<br>（sans serif）</td>
-      <td rowspan="2">直立</td>
-      <td>正常</td>
-      <td markdown="span">`\msans...`</td>
-      <td markdown="span">`\symsfup`</td>
-      <td>&check;</td><td></td><td>&check;</td>
-    </tr>
-    <tr>
-      <td>加粗</td>
-      <td markdown="span">`\mbfsans...`</td>
-      <td markdown="span">`\symbfsfup`</td>
-      <td>&check;</td><td>&check;</td><td>&check;</td>
-    </tr>
-    <tr>
-      <td rowspan="2">倾斜</td>
-      <td>正常</td>
-      <td markdown="span">`\mitsans...`</td>
-      <td markdown="span">`\symsfit`</td>
-      <td>&check;</td><td></td><td></td>
-    </tr>
-    <tr>
-      <td>加粗</td>
-      <td markdown="span">`\mbfitsans...`</td>
-      <td markdown="span">`\symbfsfit`</td>
-      <td>&check;</td><td>&check;</td><td></td>
-    </tr>
-    <tr>
-      <td style="white-space:pre;">打字机体<br>（typewriter）</td>
-      <td>直立</td>
-      <td>正常</td>
-      <td markdown="span">`\mtt...`</td>
-      <td markdown="span">`\symtt`</td>
-      <td>&check;</td><td></td><td>&check;</td>
-    </tr>
-    <tr>
-      <td rowspan="2" style="white-space:pre;">双线体<br>（double struck）</td>
-      <td>直立</td>
-      <td>正常</td>
-      <td markdown="span">`\Bbb...`</td>
-      <td markdown="span">`\symbb`</td>
-      <td>&check;</td><td>&#x25cb;</td><td>&check;</td>
-    </tr>
-    <tr>
-      <td>倾斜</td>
-      <td>正常</td>
-      <td markdown="span">`\mitBbb...`</td>
-      <td markdown="span">`\symbbit`</td>
-      <td>&#x25cb;</td><td></td><td></td>
-    </tr>
-    <tr>
-      <td rowspan="2" style="white-space:pre;">手写体<br>（script）</td>
-      <td rowspan="2">直立</td>
-      <td>正常</td>
-      <td markdown="span">`\mscr...`</td>
-      <td markdown="span">`\symscr`</td>
-      <td>&check;</td><td></td><td></td>
-    </tr>
-    <tr>
-      <td>加粗</td>
-      <td markdown="span">`\mbfscr...`</td>
-      <td markdown="span">`\symbfscr`</td>
-      <td>&check;</td><td></td><td></td>
-    </tr>
-    <tr>
-      <td rowspan="2" style="white-space:pre;">哥特体<br>（fraktur）</td>
-      <td rowspan="2">直立</td>
-      <td>正常</td>
-      <td markdown="span">`\mfrak...`</td>
-      <td markdown="span">`\symfrak`</td>
-      <td>&check;</td><td></td><td></td>
-    </tr>
-    <tr>
-      <td>加粗</td>
-      <td markdown="span">`\mbffrak...`</td>
-      <td markdown="span">`\symbffrak`</td>
-      <td>&check;</td><td></td><td></td>
-    </tr>
-  </tbody>
-</table>
+| 字体                                  ||| 命令                          || 字母                        |||
+| 族                        | 形状 | 字重 | 字符名          | 带参数形式   | 拉丁     | 希腊     | 数字    |
+|:-------------------------:|:----:|:----:|:---------------:|:------------:|:--------:|:--------:|:-------:|
+| 衬线体<br>(Serif)         | 直立 | 正常 | `\mup...`       | `\symup`     | &check;  | &check;  | &check; |
+| ^^                        | ^^   | 加粗 | `\mbf...`       | `\symbfup`   | &check;  | &check;  | &check; |
+| ^^                        | 倾斜 | 正常 | `\mit...`       | `\symit`     | &check;  | &check;  |         |
+| ^^                        | ^^   | 加粗 | `\mbfit...`     | `\symbfit`   | &check;  | &check;  |         |
+| 无衬线体<br>(Sans serif)  | 直立 | 正常 | `\msans...`     | `\symsfup`   | &check;  |          | &check; |
+| ^^                        | ^^   | 加粗 | `\mbfsans...`   | `\symbfsfup` | &check;  | &check;  | &check; |
+| ^^                        | 倾斜 | 正常 | `\mitsans...`   | `\symsfit`   | &check;  |          |         |
+| ^^                        | ^^   | 加粗 | `\mbfitsans...` | `\symbfsfit` | &check;  | &check;  |         |
+| 打字机体<br>(Typewriter)  | 直立 | 正常 | `\mtt...`       | `\symtt`     | &check;  |          | &check; |
+| 双线体<br>(Double struck) | 直立 | 正常 | `\Bbb...`       | `\symbb`     | &check;  | &#x25cb; | &check; |
+| ^^                        | 倾斜 | 正常 | `\mitBbb...`    | `\symbbit`   | &#x25cb; |          |         |
+| 手写体<br>(Script)        | 直立 | 正常 | `\mscr...`      | `\symscr`    | &check;  |          |         |
+| ^^                        | ^^   | 加粗 | `\mbfscr...`    | `\symbfscr`  | &check;  |          |         |
+| 哥特体<br>(Fraktur)       | 倾斜 | 正常 | `\mfrak...`     | `\symfrak`   | &check;  |          |         |
+| ^^                        | ^^   | 加粗 | `\mbffrak...`   | `\symbffrak` | &check;  |          |         |
+{.whitespace-nowrap}
 
 表中有些地方需要注意：
 
 - `...` 表示字母、数字的名称，如 `a`、`A`、`beta`、`two`
 - 「&#x25cb;」表示只有部分符号可用
 - `\mup...` 不适用于拉丁字母和数字
-- 双线体也叫黑板粗体（**B**lack**b**oard **b**old）
+- 双线体也叫黑板粗体 (**B**lack**b**oard **b**old)
 
 标准 \LaTeX 及 `amsmath` 扩展也提供了 `\mathbf`、`\mathcal`、`\mathbb` 等命令用来输入不同样式的字母，不过在使用 `unicode-math` 包之后，建议只使用 `\sym...` 这样的命令，以避免不必要的麻烦[^math-vs-sym]。此外需注意与 `\textbf` 等文本字体命令不同，无论是 `\math...` 还是 `\sym...` 都不能嵌套。
 
@@ -279,89 +172,18 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 
 允许的取值和效果见下表（* 表示默认值）：
 
-<table style="text-align: center;">
-  <thead>
-    <tr>
-      <th rowspan="2" colspan="2">选项</th>
-      <th colspan="2">拉丁字母</th>
-      <th colspan="2">希腊字母</th>
-    </tr>
-    <tr>
-      <th>小写</th>
-      <th>大写</th>
-      <th>小写</th>
-      <th>大写</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="4" markdown="span">`math-style`</td>
-      <td markdown="span">`ISO`</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-    </tr>
-    <tr>
-      <td markdown="span">`TeX`*</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-      <td>直立</td>
-    </tr>
-    <tr>
-      <td markdown="span">`french`</td>
-      <td>倾斜</td>
-      <td>直立</td>
-      <td>直立</td>
-      <td>直立</td>
-    </tr>
-    <tr>
-      <td markdown="span">`upright`</td>
-      <td>直立</td>
-      <td>直立</td>
-      <td>直立</td>
-      <td>直立</td>
-    </tr>
-    <tr>
-      <td rowspan="3" markdown="span">`bold-style`</td>
-      <td markdown="span">`ISO`</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-    </tr>
-    <tr>
-      <td markdown="span">`TeX`*</td>
-      <td>直立</td>
-      <td>直立</td>
-      <td>倾斜</td>
-      <td>直立</td>
-    </tr>
-    <tr>
-      <td markdown="span">`upright`</td>
-      <td>直立</td>
-      <td>直立</td>
-      <td>直立</td>
-      <td>直立</td>
-    </tr>
-    <tr>
-      <td rowspan="2" markdown="span">`sans-style`</td>
-      <td markdown="span">`italic`</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-      <td>倾斜</td>
-    </tr>
-    <tr>
-      <td markdown="span">`upright`*</td>
-      <td>直立</td>
-      <td>直立</td>
-      <td>直立</td>
-      <td>直立</td>
-    </tr>
-  </tbody>
-</table>
+| 选项                     || 拉丁字母   || 希腊字母   ||
+| ^^                       || 小写 | 大写 | 小写 | 大写 |
+|:------------:|:----------:|:----:|:----:|:----:|:----:|
+| `math-style` | `ISO`      | 倾斜 | 倾斜 | 倾斜 | 倾斜 |
+| ^^           | `TeX`*     | 倾斜 | 倾斜 | 倾斜 | 直立 |
+| ^^           | `french`   | 倾斜 | 直立 | 直立 | 直立 |
+| ^^           | `upright`  | 直立 | 直立 | 直立 | 直立 |
+| `bold-style` | `ISO`      | 倾斜 | 倾斜 | 倾斜 | 倾斜 |
+| ^^           | `TeX`*     | 直立 | 直立 | 倾斜 | 直立 |
+| ^^           | `upright`  | 直立 | 直立 | 直立 | 直立 |
+| `sans-style` | `italic`   | 倾斜 | 倾斜 | 倾斜 | 倾斜 |
+| ^^           | `upright`* | 直立 | 直立 | 直立 | 直立 |
 
 这样，上文国标的效果可以通过加上
 
@@ -401,7 +223,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 ```
 
 <figure>
-  <img src="./iso-style.svg" alt="iso-style" class="invert">
+  <img src="./iso-style.svg" alt="iso-style" class="dark:invert" style="width: 640px">
   <figcaption>Maxwell 方程组</figcaption>
 </figure>
 
@@ -442,7 +264,7 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 \end{document}
 ```
 
-![symbols](./symbols.svg){:.invert}
+![symbols](./symbols.svg){.dark:invert style="width: 350px"}
 
 ## 数学字体
 
@@ -451,31 +273,31 @@ OpenType 数学字体在相当长的时间内只有少数几种，不过近年�
 [^math-fonts]: [Which OpenType Math fonts are available?](https://tex.stackexchange.com/q/425098)
 [^math-fonts-zhihu]: 坏名字. [有哪些适用于 Unicode Math 的字体推荐？- 知乎](https://www.zhihu.com/question/415431516/answer/1466968600)
 
-- Asana Math（`Asana-Math.otf`)
+- Asana Math (`Asana-Math.otf`)
 - Erewhon Math (`Erewhon-Math.otf`)
-- Fira Math（`FiraMath-Regular.otf`)
-- Garamond Math（`Garamond-Math.otf`)
-- GFS Neohellenic Math（`GFSNeohellenicMath.otf`)
+- Fira Math (`FiraMath-Regular.otf`)
+- Garamond Math (`Garamond-Math.otf`)
+- GFS Neohellenic Math (`GFSNeohellenicMath.otf`)
 - Kp Math (`KpMath-Light.otf`、`KpMath-Regular.otf`、`KpMath-Semibold.otf`、`KpMath-Bold.otf` 以及 `KpMath-Sans.otf`)
-- Libertinus Math（`LibertinusMath-Regular.otf`)
+- Libertinus Math (`LibertinusMath-Regular.otf`)
 - Computer Modern 系列
-  - 默认字体：Latin Modern Math（`latinmodern-math.otf`）
+  - 默认字体：Latin Modern Math (`latinmodern-math.otf`)
   - 复刻版本：New Computer Modern Math (`NewCMMath-Regular.otf`、`NewCMMath-Book.otf`)
 - STIX 系列
-  - STIX（`STIXMath-Regular.otf`)
-  - STIX2（`STIX2Math.otf`)
-  - 复刻版本：XITS（`XITSMath-Regular.otf`、`XITSMath-Bold.otf`）
-  - 复刻版本：STEP（`STEPMath-Regular.otf`、`STEPMath-Bold.otf`)
+  - STIX (`STIXMath-Regular.otf`)
+  - STIX2 (`STIX2Math.otf`)
+  - 复刻版本：XITS (`XITSMath-Regular.otf`、`XITSMath-Bold.otf`)
+  - 复刻版本：STEP (`STEPMath-Regular.otf`、`STEPMath-Bold.otf`)
 - TeX Gyre 系列
-  - TeX Gyre Bonum（`texgyrebonum-math.otf`)
-  - TeX Gyre DejaVu / DejaVu Math TeX Gyre（`texgyredejavu-math.otf`)
-  - TeX Gyre Pagella（`texgyrepagella-math.otf`)
-  - TeX Gyre Schola（`texgyreschola-math.otf`)
-  - TeX Gyre Termes（`texgyretermes-math.otf`)
+  - TeX Gyre Bonum (`texgyrebonum-math.otf`)
+  - TeX Gyre DejaVu / DejaVu Math TeX Gyre (`texgyredejavu-math.otf`)
+  - TeX Gyre Pagella (`texgyrepagella-math.otf`)
+  - TeX Gyre Schola (`texgyreschola-math.otf`)
+  - TeX Gyre Termes (`texgyretermes-math.otf`)
 
 另外还有一些商业字体，比如 Windows 自带的 Cambria Math、TUG 支持的 [Lucida Bright Math](https://tug.org/store/lucida/opentype.html)，还有 *Nature* 杂志御用的 [Minion Math](http://www.typoma.com/en/fonts.html)。
 
-可以看到，XITS 等字体提供了粗体版本。与 `\symbf` 不同，这里是整套字体同时加粗，而非仅仅几个字母。我们可以用「数学版本」（math version）的功能在一份文档中使用多个字重（实际上也可以用来使用其他字体）：
+可以看到，XITS 等字体提供了粗体版本。与 `\symbf` 不同，这里是整套字体同时加粗，而非仅仅几个字母。我们可以用「数学版本」(math version)的功能在一份文档中使用多个字重（实际上也可以用来使用其他字体）：
 
 ```latex
 \documentclass{article}
@@ -505,11 +327,11 @@ OpenType 数学字体在相当长的时间内只有少数几种，不过近年�
 ```
 
 <figure>
-  <img src="./math-version.svg" alt="math-version" class="invert">
+  <img src="./math-version.svg" alt="math-version" class="dark:invert" style="width: 500px">
   <figcaption>Einstein&ndash;Hilbert 作用量及 Einstein 场方程</figcaption>
 </figure>
 
-有些数学字体还提供了一些样式变体（stylistic set），对应 OpenType 特性 `ssXX`，这一功能可以在声明字体时用 `StylisticSet` 选项指定：
+有些数学字体还提供了一些样式变体 (stylistic set)，对应 OpenType 特性 `ssXX`，这一功能可以在声明字体时用 `StylisticSet` 选项指定：
 
 ```latex
 \documentclass{article}
@@ -542,7 +364,7 @@ OpenType 数学字体在相当长的时间内只有少数几种，不过近年�
 ```
 
 <figure>
-  <img src="./stylistic-set.svg" alt="stylistic-set" class="invert">
+  <img src="./stylistic-set.svg" alt="stylistic-set" class="dark:invert" style="width: 400px">
   <figcaption>Stefan&ndash;Boltzmann 定律</figcaption>
 </figure>
 

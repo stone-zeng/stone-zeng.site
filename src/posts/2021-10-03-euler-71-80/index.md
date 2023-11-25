@@ -1,7 +1,6 @@
 ---
 title: Project Euler (71--80)
 date: 2021-10-03
-math: true
 excerpt: 欧拉计划 71--80 题。
 ---
 

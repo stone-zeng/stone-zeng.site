@@ -4,8 +4,6 @@ date: 2020-12-17
 updated: 2021-04-30
 tags:
   - Category theory
-lang: en-US
-math: true
 excerpt: Category theory formalizes many mathematical structures, especially the mapping between “objects”. A modular tensor category is a category with some extra structures and can provide a mathematical foundation for some physical concepts, especially the topological orders.
 ---
 

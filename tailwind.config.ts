@@ -16,12 +16,14 @@ export default <Config>{
   safelist: [
     // Built-in
     'text-center',
+    'whitespace-nowrap',
     'dark:invert',
     // Utilities
     'font-feature-calt-off',
     'font-feature-frac',
     'small-caps',
     // Components
+    'font-sample',
     'katex',
     'katex-display',
     'problem-example',

@@ -17,7 +17,7 @@ date: 2022-12-31
 办公室自然也非法外之地，几位回家的同学先后发烧，我们驻守的则又回到了每天不做下核酸嗓子就痒痒的状态。终于，21 号，我对面的同学蹲到了阳性的核酸结果；两天之后，我也阳了。
 
 <figure>
-  <img src="./nucleic-acid-test.jpg" alt="nucleic-acid-test" style="max-width: 240px">
+  <img src="./nucleic-acid-test.jpg" alt="nucleic-acid-test" style="width: 240px">
   <figcaption>核酸检测记录</figcaption>
 </figure>
 
@@ -34,7 +34,7 @@ date: 2022-12-31
 - Day 8（30 日）：连续两天核酸阴性，达到康复标准 🎉
 
 <figure>
-  <img src="./antigen-test.jpg" alt="antigen-test" style="max-width: min(600px, 100%)">
+  <img src="./antigen-test.jpg" alt="antigen-test" style="width: 480px">
   <figcaption>23、24、25 三天的抗原记录</figcaption>
 </figure>
 
@@ -47,7 +47,7 @@ date: 2022-12-31
 <figure>
   <picture>
     <source srcset="./temperature.dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="./temperature.light.svg" alt="temperature">
+    <img src="./temperature.light.svg" alt="temperature" style="width: 480px">
   </picture>
   <figcaption>体温变化情况，绿色箭头表示服用退烧药</figcaption>
 </figure>

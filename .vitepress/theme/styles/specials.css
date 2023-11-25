@@ -1,4 +1,13 @@
 @layer components {
+  /* use-opentype-fonts */
+  .font-sample {
+    @apply overflow-auto;
+
+    img {
+      @apply h-32;
+    }
+  }
+
   /* euler */
   .problem-example {
     @apply pl-8 sm:mx-8;

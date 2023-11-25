@@ -6,10 +6,15 @@ tags:
   - LaTeX
   - Fonts
   - OpenType
-excerpt: 在上一回中，我们介绍了字体的相关背景知识，并且给出了通过 `fontspec` 宏包使用 OpenType 字体的基本方法。这一篇我们将继续深入，讨论字体的各种样式。
 ---
 
+<script setup lang="ts">
+import FontWeight from './FontWeight.vue'
+</script>
+
 在[上一回](./2018-08-08-use-opentype-fonts)中，我们介绍了字体的相关背景知识，并且给出了通过 `fontspec` 宏包使用 OpenType 字体的基本方法。这一篇我们将继续深入，讨论字体的各种样式。
+
+<!-- more -->
 
 ## NFSS 简介
 
@@ -31,21 +36,19 @@ excerpt: 在上一回中，我们介绍了字体的相关背景知识，并且�
 
 对于刚接触 \LaTeX 的朋友来说，字体问题一定是一个大坑。在 Word 里面，选择字体只需在下拉菜单中选一下，加粗选「**B**」，倾斜选「<em><span class="slab-I">I</span></em>」，字号也可以很轻易地改为任意想要的数字。为什么 \LaTeX 就要制造这么多困难呢？
 
-<div class="figure-slideshow">
-  <figure>
-    <img src="./word-font-settings.png" alt="word-font-settings" style="max-width: 400px;">
-    <figcaption>Word 中的字体面板</figcaption>
-  </figure>
-  <!-- TODO -->
-  <!-- <figure>
-    <img src="./indesign-font-settings.png" alt="indesign-font-settings">
-    <figcaption>Adobe Indesign 中的字体面板</figcaption>
-  </figure> -->
-</div>
+<figure>
+  <img src="./word-font-settings.png" alt="word-font-settings" style="width: 360px;">
+  <figcaption>Word 中的字体面板</figcaption>
+</figure>
 
 一方面，人类的语言文字无比复杂，字体技术也必须有足够的规模才能够把它们支撑起来；另一方面，\TeX 和 \LaTeX 又太过古老，那个年代既没有 Unicode 也没有 OpenType，Word 也不知在哪里。此外，Word 作为字处理软件，隐藏了字体排印中的许多细节，相当于一部「能拍照的智能手机」；而 \TeX 则是一部「全功能单反相机」[^eric-liu-camera]，它把繁琐的细节都交给了用户。Word 里面那几个按钮所做的工作远不止看上去那么简单，下面我们就来一一解释。
 
 [^eric-liu-camera]: 语出播客节目 [《字谈字畅》](https://www.thetype.com/typechat/)
+
+<figure>
+  <img src="./indesign-font-settings.png" alt="indesign-font-settings">
+  <figcaption>Adobe InDesign 中的字体面板</figcaption>
+</figure>
 
 ## 字体的坐标
 
@@ -87,61 +90,42 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 
 著名字体设计师 [Adrian Frutiger](https://en.wikipedia.org/wiki/Adrian_Frutiger) 在设计 [Univers](https://en.wikipedia.org/wiki/Univers) 字体时，采用数字对不同字重进行标记：
 
-<table class="font-weight">
-  <tr>
-    <td>35</td>
-    <td>45</td>
-    <td>55</td>
-    <td>65</td>
-    <td>75</td>
-    <td>85</td>
-  </tr>
-  <tr>
-    <td style="font-variation-settings: 'wght' 100;">Thin</td>
-    <td style="font-variation-settings: 'wght' 300;">Light</td>
-    <td style="font-variation-settings: 'wght' 400;">Regular</td>
-    <td style="font-variation-settings: 'wght' 500;">Medium</td>
-    <td style="font-variation-settings: 'wght' 700;">Bold</td>
-    <td style="font-variation-settings: 'wght' 900;">Heavy</td>
-  </tr>
-</table>
+<FontWeight
+  :data="[
+    { number: 35, weight: 100, name: 'Thin' },
+    { number: 45, weight: 300, name: 'Light' },
+    { number: 55, weight: 400, name: 'Regular' },
+    { number: 65, weight: 500, name: 'Medium' },
+    { number: 75, weight: 700, name: 'Bold' },
+    { number: 85, weight: 900, name: 'Heavy' },
+  ]"
+/>
 
 在 CSS 的设计中，这一精神被继承了下来。它采用数字 100--900 来标记字重，具体的对应关系如下表：
 
-<table class="font-weight">
-  <tr>
-    <td>100</td>
-    <td>200</td>
-    <td>300</td>
-    <td>400</td>
-    <td>500</td>
-    <td>600</td>
-    <td>700</td>
-    <td>800</td>
-    <td>900</td>
-  </tr>
-  <tr>
-    <td style="font-variation-settings: 'wght' 100;">Thin<br>Hairline</td>
-    <td style="font-variation-settings: 'wght' 200;">ExtraLight<br>UltraLight</td>
-    <td style="font-variation-settings: 'wght' 300;">Light</td>
-    <td style="font-variation-settings: 'wght' 400;">Regular<br>Normal</td>
-    <td style="font-variation-settings: 'wght' 500;">Medium</td>
-    <td style="font-variation-settings: 'wght' 600;">SemiBold<br>DemiBold</td>
-    <td style="font-variation-settings: 'wght' 700;">Bold</td>
-    <td style="font-variation-settings: 'wght' 800;">ExtraBold<br>UltraBold</td>
-    <td style="font-variation-settings: 'wght' 900;">Black<br>Heavy</td>
-  </tr>
-</table>
+<FontWeight
+  :data="[
+    { weight: 100, name: ['Thin', 'Hairline'] },
+    { weight: 200, name: ['ExtraLight', 'UltraLight'] },
+    { weight: 300, name: 'Light' },
+    { weight: 400, name: ['Regular', 'Normal'] },
+    { weight: 500, name: 'Medium' },
+    { weight: 600, name: ['SemiBold', 'DemiBold'] },
+    { weight: 700, name: 'Bold' },
+    { weight: 800, name: ['ExtraBold', 'UltraBold'] },
+    { weight: 900, name: ['Black', 'Heavy'] },
+  ]"
+/>
 
 在实际的字体设计中，不同字重的字体一般需要独立绘制，或通过多母版技术进行插值。换而言之，「加粗」并不是一个简单的几何变换。如果某个字体没有额外设计粗体，那么通过 Word 的加粗按钮得到的就是所谓「伪粗体」，它一般是通过加粗所有笔画来实现的。下图我们可以看到「伪粗」和「真粗」的区别：
 
-![bold-vs-fake-bold](./bold-vs-fake-bold.svg){:.invert}
+![bold-vs-fake-bold](./bold-vs-fake-bold.svg){.dark:invert style="width: 400px"}
 
 左侧真正的粗体有鲜明的笔画对比，显得端庄、优雅；而右侧的伪粗体不仅损失了这样的特色，而且笔画粘连，黑度不均，难于辨认。
 
 \LaTeX 的 `amsmath` 包还提供了另一种伪粗体，即「Poor man's bold」。它会连续输出三个相同的符号，但使其稍稍错位，以实现加粗的效果：
 
-![bold-vs-pmb](./bold-vs-pmb.svg){:.invert}
+![bold-vs-pmb](./bold-vs-pmb.svg){.dark:invert style="width: 450px"}
 
 ### 倾斜
 
@@ -150,20 +134,16 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 [^italic]: Toshi Omagari. [Italic subtleties](https://tosche.net/blog/italic-subtleties)
 
 <!-- https://tosche.net/media/pages/blog/italic-subtleties/4e4d6e7365-1604737638/jacksons1-1020x.png -->
-<figure>
-  <img src="./italic-jackson.png" alt="italic-jackson" style="max-width: 360px;">
-</figure>
+![italic-jackson](./italic-jackson.png){style="width: 240px"}
 
 他同时也指出，非意大利体的倾斜有些时候也是必要的，但需要做额外的调整以达到视觉平衡。下图是 Helvetica 与 Neue Helvetica 的对比。Helvetica（第一行）使用的是单纯的的 oblique，而 Neue Helvetica（第二行）则进行了细致的修正。除去字重的调整，可以看出 O 的形状、c 的开口和 f 的头部都有优化之处：
 
-<figure>
-  <img src="./helvetica-vs-neue-outline.png" alt="helvetica-vs-neue-outline" style="width: 49%;" class="invert">
-  <img src="./helvetica-vs-neue.png" alt="helvetica-vs-neue" style="width: 49%;" class="invert">
-</figure>
+![helvetica-vs-neue-outline](./helvetica-vs-neue-outline.png){.dark:invert style="width: 320px"}
+![helvetica-vs-neue](./helvetica-vs-neue.png){.dark:invert style="width: 320px"}
 
 另一方面，意大利体也未必一定是倾斜的。\TeX 的默认字体 Computer Modern 家族中就包含了一个未倾斜的意大利体；当然倾斜的意大利体和伪斜体也是有的（这里的 slant 没有经过额外的调整，所以是「伪」斜）：
 
-![cm-italic](./cm-italic.svg){:.invert}
+![cm-italic](./cm-italic.svg){.dark:invert style="width: 450px"}
 
 对于汉字来说，传统上并没有倾斜这一变体形式。从源流来说，意大利体这一手写风格与楷体更为接近[^han-italic]。表示强调意味的话，习惯上也会使用<span class="zh-emph">着重号</span>而非改变字体。
 
@@ -184,7 +164,7 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 
 小型大写同样不是大写字母的简单缩小。一般来说，为了保持灰度的统一，小型大写字母会略增加字重，并且拉开字距：
 
-![small-caps](./small-caps.svg){:.invert}
+![small-caps](./small-caps.svg){.dark:invert style="width: 470px"}
 
 最后需要说明的是，小型大写字母是为了和小写字母更好地匹配。在中西文混排的时候，由于汉字字面一般较大，因此不太适合搭配使用小型大写字母。
 
@@ -196,7 +176,7 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 
 Computer Modern 以及现代复刻版本 Latin Modern 均采取了视觉字号的设计：
 
-![lm-optical-size](./lm-optical-size.svg){:.invert}
+![lm-optical-size](./lm-optical-size.svg){.dark:invert style="width: 600px"}
 
 至此我们简要回顾了几种字体的坐标，下面我们就重新回到 \TeX 的轨道上，介绍在 `fontspec` 中的使用方法。
 
@@ -282,7 +262,7 @@ sed do eiusmod tempor incididunt ut.
 
 这里我们只显式指定了 upright 和 bold，而 italic 仍然是由 `fontspec` 自动选择的：
 
-![fontspec-selection-a](./fontspec-selection-a.svg){:.invert}
+![fontspec-selection-a](./fontspec-selection-a.svg){.dark:invert style="width: 640px"}
 
 很多时候同一字体家族内字体的名称会很类似，此时可以用 `*` 代替重复的部分。另外，对于使用文件名调用的情况，扩展名可以通过 `Extension` 选项统一指定：
 
@@ -310,7 +290,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
   10 раз меньше, в предгорьях и горах.}}
 ```
 
-![fontspec-selection-b](./fontspec-selection-b.svg){:.invert}
+![fontspec-selection-b](./fontspec-selection-b.svg){.dark:invert style="width: 640px"}
 
 ### 更多变体
 
@@ -348,13 +328,13 @@ laboris nisi ut aliquip ex ea commodo consequat.
 \end{document}
 ```
 
-![fontspec-firasans](./fontspec-firasans.svg){:.invert}
+![fontspec-firasans](./fontspec-firasans.svg){.dark:invert style="width: 480px"}
 
 ### 小型大写的使用
 
 现代字体中往往会把小型大写作为一项 OpenType 特性，因而在 `fontspec` 中是自动开启的，直接使用 `\textsc` 或 `\scshape` 就可以调用。但需要注意的是，并不是所有字体（的每种子样式）都会配备小型大写字母，所以有时候会回退到其他字体：
 
-![fontspec-small-caps](./fontspec-small-caps.svg){:.invert}
+![fontspec-small-caps](./fontspec-small-caps.svg){.dark:invert style="width: 490px"}
 
 ## `CTeX` 宏集提高篇
 
@@ -425,7 +405,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 \end{document}
 ```
 
-![fandol](./fandol.svg){:.invert}
+![fandol](./fandol.svg){.dark:invert style="width: 450px"}
 
 实际上各高校学位论文几乎都是只给了 Word 模版，于是我们要做的就是模仿出一套 Word 风格：
 
@@ -547,7 +527,7 @@ macOS 中没有自带中易字体，但如果安装了 Office，则可以找到�
 
 效果如下（这里修改了页边距和页面大小以方便显示）：
 
-![ctex-demo](./ctex-demo.svg){:.invert}
+![ctex-demo](./ctex-demo.svg){.dark:invert style="width: 800px"}
 
 ## 附录
 

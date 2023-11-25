@@ -3,8 +3,6 @@ title: Ising model (2)
 date: 2021-12-31
 tags:
   - Lattice models
-lang: en-US
-math: true
 excerpt: TODO
 draft: true
 ---

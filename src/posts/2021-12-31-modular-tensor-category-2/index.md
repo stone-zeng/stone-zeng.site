@@ -3,8 +3,6 @@ title: Notes on modular tensor category (2)
 date: 2021-12-31
 tags:
   - Category theory
-lang: en-US
-math: true
 excerpt: TODO
 draft: true
 ---

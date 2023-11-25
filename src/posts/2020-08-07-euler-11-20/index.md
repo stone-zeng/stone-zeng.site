@@ -455,7 +455,7 @@ maxPathSum[data]
 HighlightGraph[graph, path, GraphLayout -> "LayeredDigraphEmbedding", ImageSize -> 600]
 ```
 
-![18-graph](./18-graph.svg){.dark:invert style="max-width: min(400px, 100%)"}
+![18-graph](./18-graph.svg){.dark:invert style="width: 400px"}
 
 ## 19. Counting Sundays
 
