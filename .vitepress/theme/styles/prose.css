@@ -156,14 +156,9 @@
       }
     }
 
-    .vp-adaptive-theme {
-      .vp-code-dark {
-        @apply hidden dark:block;
-      }
-
-      .vp-code-light {
-        @apply dark:hidden;
-      }
+    .shiki,
+    .shiki span {
+      @apply text-[--shiki-light] dark:text-[--shiki-dark];
     }
 
     :not(pre) > code,

@@ -1,5 +1,5 @@
 {
-  "name": "LaTeX-Expl3",
+  "name": "latex-expl3",
   "patterns": [
     {
       "begin": "(\\$\\$|\\$)",

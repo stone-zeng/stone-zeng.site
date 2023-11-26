@@ -3,7 +3,6 @@ import MarkdownItAttrs from 'markdown-it-attrs'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 
 import { genFeed } from './lib/feed'
-import { highlight } from './lib/highlight'
 import MarkdownItCjkKern from './lib/markdown-it-cjk-kern'
 import MarkdownItFootnote from './lib/markdown-it-footnote'
 import MarkdownItKaTeX from './lib/markdown-it-katex'
@@ -53,54 +52,44 @@ const themeConfig: Theme.Config = {
   },
 }
 
-// const languages = [
-//   {
-//     id: 'latex-expl3',
-//     scopeName: 'text.tex.latex.expl3',
-//     grammar: import('./lib/languages/LaTeX-Expl3.tmLanguage.json'),
-//   },
-// ]
-
-export default async () =>
-  defineConfigWithTheme<Theme.Config>({
-    lang: 'en-US',
-    title: 'Stone Zeng\u{2019}s Site',
-    description: 'Personal website of Xiangdong Zeng',
-    srcDir: 'src',
-    cleanUrls: true,
-    rewrites: {
-      'posts/:post/index.md': ':post.md',
-      'about/index.md': 'about.md',
-      'archive/index.md': 'archive.md',
+export default defineConfigWithTheme<Theme.Config>({
+  lang: 'en-US',
+  title: 'Stone Zeng\u{2019}s Site',
+  description: 'Personal website of Xiangdong Zeng',
+  srcDir: 'src',
+  cleanUrls: true,
+  rewrites: {
+    'posts/:post/index.md': ':post.md',
+    'about/index.md': 'about.md',
+    'archive/index.md': 'archive.md',
+  },
+  head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
+  buildEnd: genFeed,
+  transformPageData: ({ title }) => ({
+    title: title.replace(/\\/g, ''),
+  }),
+  markdown: {
+    breaks: true,
+    typographer: true,
+    // @ts-ignore
+    languages: [import('./lib/languages/latex-expl3.tmLanguage.json')],
+    languageAlias: { wl: 'wolfram' },
+    config: (md) => {
+      md.use(MarkdownItAttrs)
+        .use(MarkdownItCjkKern)
+        .use(MarkdownItFootnote)
+        .use(MarkdownItKaTeX)
+        .use(MarkdownItMultimdTable, {
+          headerless: true,
+          multiline: true,
+          rowspan: true,
+        })
+        .use(MarkdownItTeXLogo)
     },
-    head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
-    buildEnd: genFeed,
-    transformPageData: ({ title }) => ({
-      title: title.replace(/\\/g, ''),
-    }),
-    markdown: {
-      breaks: true,
-      typographer: true,
-      highlight: await highlight(),
-      // TODO: see https://github.com/shikijs/shiki/pull/535
-      // // @ts-ignore
-      // languages,
-      config: (md) => {
-        md.use(MarkdownItAttrs)
-          .use(MarkdownItCjkKern)
-          .use(MarkdownItFootnote)
-          .use(MarkdownItKaTeX)
-          .use(MarkdownItMultimdTable, {
-            headerless: true,
-            multiline: true,
-            rowspan: true,
-          })
-          .use(MarkdownItTeXLogo)
-      },
-    },
-    vite,
-    themeConfig,
-    contentProps: {
-      buildDate: buildDate.toISOString(),
-    },
-  })
+  },
+  vite,
+  themeConfig,
+  contentProps: {
+    buildDate: buildDate.toISOString(),
+  },
+})
