@@ -7,15 +7,27 @@
     ol,
     pre,
     blockquote,
+    details,
     figure,
+    table,
     hr {
       @apply my-4;
     }
 
+    details,
     table,
     pre,
-    figcaption {
+    figcaption,
+    small {
       @apply text-sm;
+    }
+
+    details summary {
+      @apply text-base;
+
+      &:hover {
+        @apply cursor-pointer;
+      }
     }
 
     table,
@@ -180,7 +192,7 @@
     /* Tables */
 
     table {
-      @apply mx-auto block max-w-fit border-collapse;
+      @apply mx-auto block max-w-fit;
     }
 
     tr:nth-child(2n) {
@@ -258,6 +270,13 @@
 
       :not(:first-child) {
         @apply italic;
+      }
+    }
+
+    #footnotes {
+      p,
+      ul {
+        @apply my-0;
       }
     }
   }

@@ -5,10 +5,11 @@ updated: 2020-02-29
 tags:
   - LaTeX
   - Fonts
-excerpt: Emoji（<span lang="ja">絵文字</span>）是聊天软件和社交平台的常客，也几乎成为了一种新的「世界语」。虽然 \LaTeX 以排版严肃的学术类文章见长，但偶尔卖个萌也不为过。
 ---
 
 Emoji（<span lang="ja"><ruby>絵<rt>え</rt></ruby><ruby>文<rt>も</rt></ruby><ruby>字<rt>じ</rt></ruby></span>）是聊天软件和社交平台的常客，也几乎成为了一种新的「世界语」。虽然 \LaTeX 以排版严肃的学术类文章见长，但偶尔卖个萌也不为过。
+
+<!-- more -->
 
 ## 背景
 
@@ -51,7 +52,7 @@ The monkey gets the moon: {\EmojiFont 🙈🌛}.
 
 使用 `lualatex-dev` 编译，得到：
 
-![emoji-basic](./emoji-basic.svg)
+![emoji-basic](./emoji-basic.svg){style="width: 310px"}
 
 ## `emoji` 宏包
 
@@ -71,7 +72,7 @@ $
 \end{document}
 ```
 
-![emoji-package](./emoji-package.svg)
+![emoji-package](./emoji-package.svg){style="width: 280px"}
 
 `\emoji` 命令的参数来自 GitHub 的 emoji 短名，可以参考宏包文档或 [Complete list of github markdown emoji markup](https://gist.github.com/rxaviers/7360908)（可能不完整）。
 
@@ -150,7 +151,7 @@ Emoji 背后的技术比较复杂，值得额外谈谈。
 \end{document}
 ```
 
-![emoji-unicode](./emoji-unicode.svg)
+![emoji-unicode](./emoji-unicode.svg){style="width: 160px"}
 
 这也是 `emoji` 宏包内部使用的方法。
 

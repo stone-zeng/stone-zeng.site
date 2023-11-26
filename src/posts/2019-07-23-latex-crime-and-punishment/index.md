@@ -93,7 +93,7 @@ LaTeX Warning: Empty bibliography on input line 13.
 LaTeX Warning: There were undefined references.
 ```
 
-![fullcite-1](./fullcite-1.png){:.invert}
+![fullcite-1](./fullcite-1.png){.dark:invert}
 
 出了一堆 undefined citation 的警告，PDF 里面引用又全都显示不出来，so，满意了吧？不过**请把提示信息读完**：
 
@@ -118,7 +118,7 @@ pdflatex mytest
 
 现在 PDF 里面该有的就都应该有了：
 
-![fullcite-2](./fullcite-2.png){:.invert}
+![fullcite-2](./fullcite-2.png){.dark:invert}
 
 **含有参考文献的时候 \LaTeX 要编译多次**，这个应当属于常识。编译的消息窗口很有用的，要做什么它明明都说了，不看怪谁呢。
 
@@ -150,13 +150,14 @@ PS：我觉得 latexmk 就很靠谱，不知道为什么 PDFTeXify 不够 robust
 
 然后编译（图省事直接用 `latexmk -pdf mytest`）：
 
-![bibentry-1](./bibentry-1.png){:.invert}
+![bibentry-1](./bibentry-1.png){.dark:invert}
 
 嗯，是只有 `itemize` 的几个点。
 
 于是搜文档，果然是 `NULL`。找了一圈真没发现文档，这个应该确实是个 bug。不妨考虑去买张彩票。下面是手动生成文档的方法，不想看可以跳过。
 
-<div markdown="1" class="small">
+<details>
+<summary>手动生成文档的方法</summary>
 
 CTAN 页面中显示 `bibentry` 属于 `natbib` 的一部分，然而打开 `natbib` 的 `doc` 目录只有如下这些：
 
@@ -175,16 +176,15 @@ CTAN 页面中显示 `bibentry` 属于 `natbib` 的一部分，然而打开 `nat
 - `natbib.ins`
 
 编译 `bibentry.dtx` 可以得到文档。
-
-</div>
+</details>
 
 其实 Google 搜索一下也可以找到文档，不过这不重要。一种正确的写法是用 `\nobibliography` 代替 `\bibliography`（并且要放在 `\bibentry` 前面）：
 
-![bibentry-2](./bibentry-2.png){:.invert}
+![bibentry-2](./bibentry-2.png){.dark:invert}
 
 另一种是作者提到的「额外写一句 `\nobibliography*`」：
 
-![bibentry-3](./bibentry-3.png){:.invert}
+![bibentry-3](./bibentry-3.png){.dark:invert}
 
 注意这两种结果并不一样，前者是把原来的 `thebibliography`（即参考文献表）隐藏起来，然后用 `\bibentry` 给出其中的条目；后者则允许插入原来的 `thebibliography`。至于为什么要这么麻烦，<small>这个包的原理是重定义 `thebibliography` 里面的 `\bibitem`，然后存储到一些宏里面。而 `thebibliography` 存储在外部文件 `<jobname>.bbl`，那就只有预先把它读进来，而且还不能破坏和原来参考文献机制的兼容性，</small>简单、现代的方法就在上面（`biblatex`），但你自己选择弃疗了……
 
@@ -203,7 +203,7 @@ A
 
 另外，`.aux` 辅助文件也是在导言区（隐式）载入的，所以如果辅助文件由于不可知的原因（上一次编译失败、异常读写、高能宇宙射线等）挂了，其中的某些命令在重复编译时就会被错误执行，然后产生排版语句（即使是空的分段也算！），就出现了这个报错。经验之谈：**出现奇怪的问题，先删干净辅助文件再编译一次**。
 
-最后，某些不可见字符，如 BOM（U+FEFF，Byte order mark）、LRM（U+200E，Left-to-right mark）等也会造成这个问题，而且不幸的是肉眼还看不出来。解决的办法是复制问题代码到靠谱的程序（推荐 [Unicode code converter](https://r12a.github.io/app-conversion/)）检查是否有可疑的字符。多说一句，\LaTeX 在 2018 年 4 月之后将 UTF-8 设为了默认编码[^utf8]，文件开始的 BOM 将不再引发问题。所以建议更新 \TeX Live 到最新版。
+最后，某些不可见字符，如 BOM (U+FEFF, Byte order mark)、LRM (U+200E, Left-to-right mark) 等也会造成这个问题，而且不幸的是肉眼还看不出来。解决的办法是复制问题代码到靠谱的程序（推荐 [Unicode code converter](https://r12a.github.io/app-conversion/)）检查是否有可疑的字符。多说一句，\LaTeX 在 2018 年 4 月之后将 UTF-8 设为了默认编码[^utf8]，文件开始的 BOM 将不再引发问题。所以建议更新 \TeX Live 到最新版。
 
 [^utf8]: 参考 [\LaTeXe News Issue 28](https://www.latex-project.org/news/latex2e-news/ltnews28.pdf)。
 
@@ -226,7 +226,9 @@ A
 - 第三行说明了 error 的原因，这里是说段落在命令 `\BR@c@bibitem` 完成之前段就结束了
 
 <small>
+
 具体到这个问题，原因大致是，\TeX 里面定义宏时，默认不允许吃进去的参数（实参）里面带有 `\par`，除非手动添加 `\long` 声明，这个可以理解为一种简单的预防措施。在 \TeX 发明的上古时期，计算机性能极端受限。一旦出现异常，但由于参数中不允许出现 `\par`，\TeX 便会在下一个段落之前停下；否则这个参数可能会一直吃到文件结束，这时候机器可能就挂了。明知不能分段而偏要分段，\BibTeX 自然不会犯这种低级错误。所以，问题就是参数本身出现了意外。这里其实是因为 URL 中的 `%` 被当作注释处理，因为之后的 `}` 就无法匹配，使得参数一直吃到下一处分段而引发这个错误。
+
 </small>
 
 作为「\LaTeX 普通用户」，你当然可以不需要知道这些。但你会上网吧？请找一个**靠谱的搜索引擎**，然后把这个错误输进那个搜索框里面去（上下文就不用带了，这不是给人看）：
@@ -261,7 +263,7 @@ A
 
 然而如果找对了文档，并且真的看了，那么，请看 [`btxdoc.pdf`](https://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf) 的第 3.1 节 Entry Types，在第 8 页从上面数第 2 自然段：
 
-> **ignored**&emsp;The field is ignored. BibTeX ignores any field that is not required or optional, so you can include any fields you want in a bib file entry…
+> **ignored**&emsp;The field is ignored. \BibTeX ignores any field that is not required or optional, so you can include any fields you want in a bib file entry…
 
 后面的 `misc` 中确实没有把 `url` 作为 required 或者 optional，那么就应该被理解为 ignored，换句话说写不写都没有任何影响。事实上，这篇文档中根本就没有出现 URL 这个词，因为那个时候 URL 还就没有出现……
 
@@ -407,7 +409,7 @@ PS：这段话中英文夹杂、大小写错乱怎么看怎么别扭。国内的
 
 下面列了几个「可以满足要求」的方法，你选择哪个？（`\verb` 会默认使用等宽字体，其余默认正文字体）
 
-![verbatim](./verbatim.png){:.invert}
+![verbatim](./verbatim.png){.dark:invert}
 
 PS：原文图里面 `\TeX` 后面漏了 `{}` 或者 `\<space>`，而且引号写反了……
 
@@ -562,13 +564,13 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 
 可以看到左边的引号后面多出了一个空格：
 
-![debug-1](./debug-1.png){:.invert}
+![debug-1](./debug-1.png){.dark:invert}
 
 然而，该用户因为知道「`zhspacing` 包是用来解决中英文之间的空格，包括代码块中中英文之间的空格」，所以想用 `zhspacing` 包来处理，结果却遇到了 Linux 下没有 SimSun 字体而产生的错误，这才过来报告 issue。
 
 该用户发现在 Windows 上配合 `zhspacing` 包可以实现想要的效果：
 
-![zhspacing-win](https://user-images.githubusercontent.com/12031874/34298120-1286a9d6-e757-11e7-9254-dc31153f637d.PNG){:.invert}
+![zhspacing-win](https://user-images.githubusercontent.com/12031874/34298120-1286a9d6-e757-11e7-9254-dc31153f637d.PNG){.dark:invert}
 
 观察仔细可以发现这里的引号其实是蝌蚪引号 U+2018 Right single quotation mark，而不是编程语言中一般用的 U+0027 Apostrophe。所以这其实并不是正确的解决方案。
 
@@ -608,7 +610,9 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 这样我们就得到了一开始的那份问题代码，于是终于可以开始 debug 了。
 
 1. 使用 \LaTeX 的标准 `verbatim` 环境（注意大小写），发现是正常的。
+
 2. 使用 `article` + `xeCJK` 代替 `ctexart` 文档类，同样出现问题。
+
 3. 在 `xeCJK` 的文档中搜索有关抄录环境的问题，可以找到 `Verb` 选项和 `\xeCJKVerbAddon` 等命令。根据说明，我们可以把它添加到 `fancyvrb` 宏包的 `formatcom` 选项中：
 
    ```latex
@@ -631,17 +635,13 @@ lshort 强烈建议**完整**读一遍，普通文章排版所需要的几乎全
 
    这时修补过的 `Highlighting` 就可以表现正常了（`Verbatim` 用来对照）：
 
-   ![debug-2](./debug-2.png){:.invert}
+   ![debug-2](./debug-2.png){.dark:invert}
 
 4. 查看[代码](https://github.com/CTeX-org/ctex-kit/blob/dce0e53ef106740d74e676164a9039de27b79596/xeCJK/xeCJK.dtx#L7491-L7495)可以看出，`xeCJK` 仅为 `\verbatim@font` 打了补丁，而这个是 `\verb` 或者 `verbatim` 环境内部所使用的字体样式。如果是其他抄录环境则需额外定义（`listings` 宏包由于使用自己的一套机制 `xeCJK` 对此单独做了修补）。
 
 到此问题便得到了解决。我们可以总结一下：
 
 - 有问题请尽快整理出示例，向更有经验的人求助。一知半解 + 穷折腾很有可能会把问题代入死胡同。
-  1. xx
-  1. xx
-  1. xx
-  1. xx
 - 一定要给出**最小工作示例（MWE）**：
   - 应当是一个**完整**的、在你的电脑上**能编译**的 \LaTeX 文档
   - 何为完整？以 `\documentclass` 开始，以 `\end{document}` 结束

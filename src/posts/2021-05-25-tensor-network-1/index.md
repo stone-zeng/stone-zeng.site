@@ -43,7 +43,7 @@ Here, $\otimes$ is the **tensor product**, while $\bm{e}_i\otimes\bm{e}_j$ and $
 
 A convenient way to describe tensors is the diagram notation. Like ball-and-stick models of molecules, we use solid shapes ("balls") for tensors, bonds ("legs") for indices. A tensor with $n$ indices should have $n$ legs on the diagram.
 
-![tensors](./tensors.svg){.dark:invert}{style="width: 340px;"}
+![tensors](./tensors.svg){.dark:invert style="width: 340px"}
 
 ## Tensor contraction
 
@@ -63,7 +63,7 @@ $$ \operatorname{tr}(\bm{M}) = \sum_i M_{ii} \eqqcolon M_{ii} $$
 
 With diagram notation, the above contractions can be visualized as
 
-![contraction](./contraction.svg){.dark:invert}{style="width: 450px;"}
+![contraction](./contraction.svg){.dark:invert style="width: 450px"}
 
 ## Tensor programming
 
@@ -216,11 +216,11 @@ $$ M_{abcd} v_{cd} = \lambda v_{ab} $$
 
 In the diagram notation, it's shown as
 
-![eigenvalue-equation](./eigenvalue-equation.svg){.dark:invert}{style="width: 230px;"}
+![eigenvalue-equation](./eigenvalue-equation.svg){.dark:invert style="width: 230px"}
 
 Most eigensolvers only accept matrix, or tensor with two indices, as their input parameter, but $\bm{M}$ has four indices. So we need to reshape it into a matrix: combine two legs on each side as a single one, just as the following diagram:
 
-![reshape](./reshape.svg){.dark:invert}{style="width: 320px;"}
+![reshape](./reshape.svg){.dark:invert style="width: 320px"}
 
 In NumPy, we have
 

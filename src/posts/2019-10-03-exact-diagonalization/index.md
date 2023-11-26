@@ -5,18 +5,24 @@ updated: 2019-10-30
 tags:
   - Quantum Physics
   - Lattice models
-excerpt: To calculate the ground state and the corresponding energy of a quantum system is a very important task in physics. As we all known, the ground state energy is just the smallest eigenvalue of the Hamiltonian of this system.
 ---
+
+<script setup lang="ts">
+import ImageGroup from '@/theme/components/ImageGroup.vue'
+</script>
 
 ## Introduction
 
 To calculate the **ground state** and the corresponding energy of a quantum system is a very important task in physics. As we all known, the ground state energy is just the smallest eigenvalue of the Hamiltonian of this system. Therefore, we can directly find the ground state and its energy once given the Hamiltonian in principle.
+
+<!-- more -->
 
 $$
 \gdef\ee{\mathrm{e}}
 \gdef\ii{\mathrm{i}}
 \gdef\ev#1{\langle#1\rangle}
 $$
+{.katex-def}
 
 For a specific set of basis $\ket{\psi_i}$ (a basis transformation), the Hamiltonian operator $\hat{H}$ can be expressed with a matrix:
 
@@ -46,7 +52,7 @@ The second part is the **interaction term**, which describes the on-site interac
 
 The **chemical potential** $\mu$ in the last part essentially sets the total number of particles. If the number is fixed, then it will become a constant and we can simply ignore it.
 
-To represent the wave fuction, we can choose the occupation number basis:
+To represent the wave function, we can choose the occupation number basis:
 
 $$
 \ket{n_1,\, n_2, \, \ldots,\, n_i,\, \ldots,\, n_N}.
@@ -302,8 +308,18 @@ kineticPartMapFunc[stateValuePairs_, index_] :=
 The basic idea is to calculate all the non-vanishing matrix elements. I use some list tricks to find the components of $\hat{a}_i^\dagger\hat{a}_j$ in `opADagAState[]`, then obtain their indices from the association `positionMap`. In `opADagAValue[]`, the coefficients are calculated. Note that the zero elements will be removed in `kineticPart[]`, as they make no contributions to the Hamiltonian matrix.
 
 <figure>
-  <img src="./hamiltonian-matrix-n=3.svg" alt="hamiltonian-matrix-n=3" style="width: 25%;" class="invert"><img src="./hamiltonian-matrix-n=4.svg" alt="hamiltonian-matrix-n=4" style="width: 25%;" class="invert"><img src="./hamiltonian-matrix-n=5.svg" alt="hamiltonian-matrix-n=5" style="width: 25%;" class="invert"><img src="./hamiltonian-matrix-n=6.svg" alt="hamiltonian-matrix-n=6" style="width: 25%;" class="invert">
-  <figcaption markdown="span">The result of `getMatrix[]` with `siteNum = particleNum = 3, 4, 5, 6` and `couplingConst = 1`. Colors are not scaled equally in above 4 figures.</figcaption>
+  <ImageGroup>
+    <div class="flex gap-2">
+      <img src="./hamiltonian-matrix-n=3.svg" alt="hamiltonian-matrix-n=3" class="!w-1/2 dark:invert" style="margin: 0">
+      <img src="./hamiltonian-matrix-n=4.svg" alt="hamiltonian-matrix-n=4" class="!w-1/2 dark:invert" style="margin: 0">
+    </div>
+    <div class="flex gap-2">
+      <img src="./hamiltonian-matrix-n=5.svg" alt="hamiltonian-matrix-n=5" class="!w-1/2 dark:invert" style="margin: 0">
+      <img src="./hamiltonian-matrix-n=6.svg" alt="hamiltonian-matrix-n=6" class="!w-1/2 dark:invert" style="margin: 0">
+    </div>
+  </ImageGroup>
+  <!-- TODO: inline markdown -->
+  <figcaption>The result of <code>getMatrix[]</code> with <code>siteNum = particleNum = 3, 4, 5, 6</code> and <code>couplingConst = 1</code>. Colors are not scaled equally in above 4 figures.</figcaption>
 </figure>
 
 ### Eigensystem
@@ -401,7 +417,8 @@ getOccupationVariance[groundState_, basis_, i_: 1] := With[{
 The above numeric results are the following:
 
 <figure>
-  <img src="./numeric-results.svg" alt="numeric-results" class="invert">
+  <img src="./numeric-results.svg" alt="numeric-results" class="dark:invert">
+  <!-- TODO: inline markdown -->
   <figcaption>The SPDM is actually $\rho_{1,\,\lceil n/2\rceil}^{(1)}$. The $x$-axis is coupling constant $U/t$. Different curves are for different $M$ and $N$ (we take $M=N$ here for convenience).</figcaption>
 </figure>
 

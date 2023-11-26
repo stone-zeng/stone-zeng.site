@@ -7,6 +7,10 @@ tags:
 excerpt: Category theory formalizes many mathematical structures, especially the mapping between “objects”. A modular tensor category is a category with some extra structures and can provide a mathematical foundation for some physical concepts, especially the topological orders.
 ---
 
+Category theory formalizes many mathematical structures, especially the mapping between "objects". A modular tensor category is a category with some extra structures and can provide the mathematical foundation of some physical concepts, especially the topological orders.
+
+<!-- more -->
+
 $$
 \gdef\id{\mathrm{id}}
 \gdef\tr{\operatorname{tr}}
@@ -18,9 +22,7 @@ $$
 \gdef\qtext#1{\enspace\text{#1}\enspace}
 \gdef\ldual#1{ {}^\vee\mkern{-2mu}#1}
 $$
-{:.katex-def}
-
-Category theory formalizes many mathematical structures, especially the mapping between "objects". A modular tensor category is a category with some extra structures and can provide the mathematical foundation of some physical concepts, especially the topological orders.
+{.katex-def}
 
 In the first part of this note, we will introduce some basic ideas of category theory. For people with programming backgrounds (or just interested in it), we will use Haskell as an example. Then some more structures will be added into the "bare" category, such as tensor product, braiding and dual. These will be helpful when we deal with modular tensor category in the next part, although some physicists may complain that they are too tedious.
 
@@ -46,18 +48,15 @@ and the following axioms should hold:
 
 In a pictorial representation, the morphism in a category can be visualized as a "black box":
 
-<!-- ![morphism](/images/category-theory/morphism.svg){:.invert}{:style="max-width: 210px;"} -->
-![morphism](./morphism.svg)
+![morphism](./morphism.svg){.dark:invert style="width: 210px"}
 
 For identity morphism $\id_x$, the box can be omitted:
 
-<!-- ![id-morphism](/images/category-theory/id-morphism.svg){:.invert}{:style="max-width: 160px;"} -->
-![id-morphism](./id-morphism.svg)
+![id-morphism](./id-morphism.svg){.dark:invert style="width: 160px"}
 
 For the composition of two morphisms $f$ and $g$, we use two consecutive boxes:
 
-<!-- ![composition](/images/category-theory/composition.svg){:.invert}{:style="max-width: 180px;"} -->
-![composition](./composition.svg)
+![composition](./composition.svg){.dark:invert style="width: 180px"}
 
 In our convention, these diagrams should be read *from top to bottom*, as the arrows indicate. The direction will be significant when we meet the dual of objects (see below).
 
@@ -143,18 +142,15 @@ $$ \tau_y\circ F_f = G_f\circ\tau_x, \quad \forall f\in\Hom_\cat{C}(x,y) $$
 
 In a pictorial representation, that is to say the following diagram is *commutative*, i.e. the two paths from $F(x)$ to $G(y)$ are equivalent:
 
-<!-- ![natural-transformation-components-1](/images/category-theory/natural-transformation-components-1.svg){:.invert}{:.tikz-cd}{:style="max-width: 250px;"} -->
-![natural-transformation-components-1](./natural-transformation-components-1.svg)
+![natural-transformation-components-1](./natural-transformation-components-1.svg){.dark:invert style="width: 250px"}
 
 or more complicated:
 
-<!-- ![natural-transformation-components-2](/images/category-theory/natural-transformation-components-2.svg){:.invert}{:.tikz-cd}{:style="max-width: 400px;"} -->
-![natural-transformation-components-2](./natural-transformation-components-2.svg)
+![natural-transformation-components-2](./natural-transformation-components-2.svg){.dark:invert style="width: 400px"}
 
 Natural transformation itself is usually denoted as a double arrow:
 
-<!-- ![natural-transformation](/images/category-theory/natural-transformation.svg){:.invert}{:.tikz-cd}{:style="max-width: 150px;"} -->
-![natural-transformation](./natural-transformation.svg)
+![natural-transformation](./natural-transformation.svg){.dark:invert style="width: 150px"}
 
 A natural transformation $\tau$ with every component $\tau_x$ invertible is called a **natural isomorphism**. In such case, we can automatically define the natural transformation $\tau^{-1}$ with components $\tau^{-1}_x\colon G(x)\to F(x)$ such that
 
@@ -224,19 +220,17 @@ such that the following two diagrams commute:
 
 - Triangle equation:
 
-  <!-- ![triangle-equation](/images/category-theory/triangle-equation.svg){:.invert}{:.tikz-cd}{:style="max-width: 360px;"} -->
-  ![triangle-equation](./triangle-equation.svg)
+  ![triangle-equation](./triangle-equation.svg){.dark:invert style="width: 360px"}
 
 - Pentagon equation:
 
-  <!-- ![pentagon-equation](/images/category-theory/pentagon-equation.svg){:.invert}{:.tikz-cd}{:style="max-width: 560px;"} -->
-  ![pentagon-equation](./pentagon-equation.svg)
+  ![pentagon-equation](./pentagon-equation.svg){.dark:invert style="width: 560px"}
 
 In the above definition, we use "$\overset\sim\to$" to denote the natural isomorphism. If "$\overset\sim\to$" becomes "$=$", then we call the tensor category **strict**. In such case, $\alpha_x$, $\lambda_x$ and $\rho_x$ become identity isomorphisms.
 
 MacLane gives the following important result:
 
-> **Coherence theorem:**\\
+> **Coherence theorem:**
 > *Every tensor category is (tensor) equivalent to a strict one.*
 
 The name *tensor category* is very intuitive, as we have just equipped the category with a *tensor* product. The alternate name *monoidal category* is not so straight forward, but it indicates a remarkable fact: a strict monoidal category is indeed a *monoid* (i.e. a "group" without invertibility):
@@ -254,40 +248,33 @@ $$ \sigma_{x,y} \colon x\otimes y \overset\sim\to y\otimes x, \quad \forall x,y 
 
 such that the following diagrams (hexagon equations) commute:
 
-<!-- ![hexagon-equation](/images/category-theory/hexagon-equation.svg){:.invert}{:.tikz-cd}{:style="max-width: 540px;"} -->
-![hexagon-equation](./hexagon-equation.svg)
+![hexagon-equation](./hexagon-equation.svg){.dark:invert style="width: 540px"}
 
 In the graphical notation, $\sigma$ and its inverse can be visualized as
 
-<!-- ![sigma](/images/category-theory/sigma.svg){:.invert}{:style="max-width: 480px;"} -->
-![sigma](./sigma.svg)
+![sigma](./sigma.svg){.dark:invert style="width: 480px"}
 
 Then it can be easily shown that $\sigma_{x,y}^{-1}\circ\sigma_{x,y}=\sigma_{y,x}\circ\sigma_{y,x}^{-1}=\id_{x\otimes y}$, as they are *topologically* equivalent:
 
-<!-- ![sigma-composition](/images/category-theory/sigma-composition.svg){:.invert}{:style="max-width: 300px;"} -->
-![sigma-composition](./sigma-composition.svg)
+![sigma-composition](./sigma-composition.svg){.dark:invert style="width: 300px"}
 
 The hexagon equations become apparent as well:
 
-<!-- ![hexagon-equation-string](/images/category-theory/hexagon-equation-string.svg){:.invert}{:style="max-width: 560px;"} -->
-![hexagon-equation-string](./hexagon-equation-string.svg)
+![hexagon-equation-string](./hexagon-equation-string.svg){.dark:invert style="width: 560px"}
 
 Furthermore, we can find the following important identities via the graphical calculus:
 
 - $\sigma_{x^\prime,y^\prime}\circ(f\otimes g) = (g\otimes f)\circ\sigma_{x,y}, \quad \forall f\in\Hom_\cat{C}(x,x^\prime), \, g\in\Hom_\cat{C}(y,y^\prime)$
 
-  <!-- ![btc-identity](/images/category-theory/btc-identity.svg){:.invert}{:style="max-width: 250px;"} -->
-  ![btc-identity](./btc-identity.svg)
+  ![btc-identity](./btc-identity.svg){.dark:invert style="width: 250px"}
 
 - $(\sigma_{y,z}\otimes\id_x) \circ (\id_y\otimes\sigma_{x,z}) \circ (\sigma_{x,y}\otimes\id_z) = (\id_z\otimes\sigma_{x,y}) \circ (\sigma_{x,z}\otimes\id_y) \circ (\id_x\otimes\sigma_{y,z})$, which is called the *Yang--Baxter equation*
 
-  <!-- ![yang-baxter-equation](/images/category-theory/yang-baxter-equation.svg){:.invert}{:style="max-width: 270px;"} -->
-  ![yang-baxter-equation](./yang-baxter-equation.svg)
+  ![yang-baxter-equation](./yang-baxter-equation.svg){.dark:invert style="width: 270px"}
 
 A braided tensor category is called **symmetric**, if $\sigma_{y,x}\circ\sigma_{x,y}=\id_{x\otimes y}$, or equivalently $\sigma_{x,y}=\sigma_{y,x}^{-1}$, just as the following diagram:
 
-<!-- ![symmetric-category](/images/category-theory/symmetric-category.svg){:.invert}{:style="max-width: 480px;"} -->
-![symmetric-category](./symmetric-category.svg)
+![symmetric-category](./symmetric-category.svg){.dark:invert style="width: 480px"}
 
 In braided tensor categories, a compatible functor requires some more constraints. Let $\cat{C}_1$ and $\cat{C}_2$ be braided tensor categories, then a **tensor functor** from $\cat{C}_1$ to $\cat{C}_2$ is defined as a pair $(F,\mu)$ where
 
@@ -382,13 +369,11 @@ and similar rigidity axioms. By definition, if $x$ is the right dual of $y$, the
 
 In the graphical notation, the dual of an object is represented by simply reversing the arrow. In addition, the unit object $\1$, or "vacuum", can be neglected. So $e_x$ and $i_x$ correspond to the following diagrams:
 
-<!-- ![dual](/images/category-theory/dual.svg){:.invert}{:style="max-width: 680px;"} -->
-![dual](./dual.svg)
+![dual](./dual.svg){.dark:invert style="width: 680px"}
 
 The rigidity axioms (for right dual) then become
 
-<!-- ![rigidity-axioms](/images/category-theory/rigidity-axioms.svg){:.invert}{:style="max-width: 400px;"} -->
-![rigidity-axioms](./rigidity-axioms.svg)
+![rigidity-axioms](./rigidity-axioms.svg){.dark:invert style="width: 400px"}
 
 It can be shown that $\Hom_\cat{C}(x,y)$ is isomorphic to $\Hom_\cat{C}(y^\vee,x^\vee)$, therefore for every morphism $f\in\Hom_\cat{C}(x,y)$, we can define the dual as its image $f^\vee\in\Hom_\cat{C}(y^\vee,x^\vee)$:
 
@@ -396,40 +381,33 @@ $$ f^\vee \coloneqq (e_y\otimes\id_x) \circ (\id_{y^\vee}\otimes f\otimes\id_{x^
 
 or in the graphical notation:
 
-<!-- ![f-dual](/images/category-theory/f-dual.svg){:.invert}{:style="max-width: 360px;"} -->
-![f-dual](./f-dual.svg)
+![f-dual](./f-dual.svg){.dark:invert style="width: 360px"}
 
 If combining the dual with tensor and braiding structures, we can then find some important identities:
 
 - $(x\otimes y)^\vee = y^\vee\otimes x^\vee$
 
-  <!-- ![dual-and-monoidal](/images/category-theory/dual-and-monoidal.svg){:.invert}{:style="max-width: 300px;"} -->
-  ![dual-and-monoidal](./dual-and-monoidal.svg)
+  ![dual-and-monoidal](./dual-and-monoidal.svg){.dark:invert style="width: 300px"}
 
 - $(e_y\otimes\id_x)\circ\sigma_{x,y^\vee\otimes y} = \sigma_{x,\1}\circ(\id_x\otimes e_y)$
 
-  <!-- ![lemma-e-sigma](/images/category-theory/lemma-e-sigma.svg){:.invert}{:style="max-width: 270px;"} -->
-  ![lemma-e-sigma](./lemma-e-sigma.svg)
+  ![lemma-e-sigma](./lemma-e-sigma.svg){.dark:invert style="width: 270px"}
 
 - $e_{x\otimes y} = (e_x\otimes e_y)\circ(\sigma_{y^\vee,x^\vee\otimes x}\otimes\id_y)$
 
-  <!-- ![e-and-braiding](/images/category-theory/e-and-braiding.svg){:.invert}{:style="max-width: 300px;"} -->
-  ![e-and-braiding](./e-and-braiding.svg)
+  ![e-and-braiding](./e-and-braiding.svg){.dark:invert style="width: 300px"}
 
 - $i_{x\otimes y} = (\id_x\otimes\sigma_{x^\vee,y^\vee\otimes y})\circ(i_x\otimes i_y)$
 
-  <!-- ![i-and-braiding](/images/category-theory/i-and-braiding.svg){:.invert}{:style="max-width: 300px;"} -->
-  ![i-and-braiding](./i-and-braiding.svg)
+  ![i-and-braiding](./i-and-braiding.svg){.dark:invert style="width: 300px"}
 
 - $e_y\circ(\id_{y^\vee}\otimes f) = e_x\circ(f^\vee\otimes\id_x), \quad (f\otimes\id_{x^\vee})\circ i_x = (\id_y\otimes f^\vee)\circ i_y$
 
-  <!-- ![dual-morphism-identities](/images/category-theory/dual-morphism-identities.svg){:.invert}{:style="max-width: 420px;"} -->
-  ![dual-morphism-identities](./dual-morphism-identities.svg)
+  ![dual-morphism-identities](./dual-morphism-identities.svg){.dark:invert style="width: 420px"}
 
 - $\sigma_{x,y}^\vee = \sigma_{x^\vee,y^\vee}$
 
-  <!-- ![dual-and-braiding](/images/category-theory/dual-and-braiding.svg){:.invert} -->
-  ![dual-and-braiding](./dual-and-braiding.svg){:.invert}
+  ![dual-and-braiding](./dual-and-braiding.svg){.dark:invert style="width: 800px"}
 
 where $\sigma$ can be replaced by $\sigma^{-1}$ in these equations.
 
@@ -455,8 +433,7 @@ and therefore $x^{\vee\vee}$ is the left dual of $x^\vee$. By renaming $x^\vee$ 
 
 In a pivotal category $\cat{C}$, a morphism $f\in\Hom_\cat{C}(x,y)$ will be identified with its double dual $f^{\vee\vee}\in\Hom_\cat{C}(x^{\vee\vee},y^{\vee\vee})\simeq\Hom_\cat{C}(x,y)$:
 
-<!-- ![double-dual](/images/category-theory/double-dual.svg){:.invert}{:style="max-width: 200px;"} -->
-![double-dual](./double-dual.svg)
+![double-dual](./double-dual.svg){.dark:invert style="width: 200px"}
 
 For an endomorphism $f\in\End_{\cat{C}}(x)$, where $\cat{C}$ is a pivotal category, we can define the left and right **(pivotal) traces** as
 
@@ -481,8 +458,7 @@ Note that the left/right trace is not the same thing as the left/right dual (we 
 
 The graphical representation of trace and dimension are the following:
 
-<!-- ![trace-dimension](/images/category-theory/trace-dimension.svg){:.invert} -->
-![trace-dimension](./trace-dimension.svg){:.invert}
+![trace-dimension](./trace-dimension.svg){.dark:invert style="width: 800px"}
 
 If the left and right traces of every endomorphism $f\in\End_{\cat{C}}(x)$ coincide, then $\cat{C}$ is called **spherical**.
 
@@ -514,23 +490,22 @@ $$ \theta_x = \psi_x \circ \delta_x, \quad \forall x\in\cat{C} $$
 
 The graphical notation of $\theta$ can be deduced from the definition of $\psi$, once we identify $x$ and $x^{\vee\vee}$ (i.e. simply ignore $\delta$):
 
-<!-- ![twist](/images/category-theory/twist.svg){:.invert}{:style="max-width: 250px;"} -->
-![twist](./twist.svg)
+![twist](./twist.svg){.dark:invert style="width: 250px"}
 
 However, if imagining such thing as a 1-dimensional line or string in $\R^3$, then we may think that $\theta=\id$, which is not true in general. Therefore, we may turn to use a 2D object, or a "ribbon", to correctly represent $\theta$:
 
 TODO:
-<!-- ![twist-ribbon](/images/category-theory/twist-ribbon.svg){:.invert} -->
+<!-- ![twist-ribbon](/images/category-theory/twist-ribbon.svg){.dark:invert} -->
 
 When trying to straighten it, we will get a ribbon with a "twist", and clearly it's not the same as a flat one. With such "ribbon" representation, the identity $\theta_{x\otimes y}=\sigma_{y,x}\circ\sigma_{x,y}\circ(\theta_x\otimes\theta_y)$ can be visualized as:
 
 TODO:
-<!-- ![twist-identity](/images/category-theory/twist-identity.svg){:.invert} -->
+<!-- ![twist-identity](/images/category-theory/twist-identity.svg){.dark:invert} -->
 
 Every ribbon category admits a spherical structure. It can be seen from the following procedure:
 
 TODO:
-<!-- ![ribbon-spherical](/images/category-theory/ribbon-spherical.svg){:.invert} -->
+<!-- ![ribbon-spherical](/images/category-theory/ribbon-spherical.svg){.dark:invert} -->
 
 ## Summary
 

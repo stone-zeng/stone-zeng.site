@@ -36,9 +36,9 @@ excerpt: 之前两篇文章介绍了 \LaTeX 中使用 `fontspec` 等宏包设置
 [^unicode-utr25]: [UTR 25: Unicode Support for Mathematics](https://www.unicode.org/reports/tr25/)
 
 <figure>
-  <!-- TODO: -->
+  <!-- TODO: inline markdown -->
   <img src="./word-equation-editor.gif" alt="word-equation-editor" style="width: 600px">
-  <figcaption markdown="span">Word 2019 中的公式编辑器。特殊符号可通过反斜线 `\` 转义，其后输入空格则会触发自动替换</figcaption>
+  <figcaption>Word 2019 中的公式编辑器。特殊符号可通过反斜线 <code>\</code> 转义，其后输入空格则会触发自动替换</figcaption>
 </figure>
 
 花开两朵，各表一枝。\\(La)TeX 这边虽然历经一二十年已经搞成了公式排版的事实标准，但缺乏新技术的支持（Unicode 和 OpenType 也不能算新了），很多时候仍然显得落伍。于是 Jonathan Kew 单枪匹马开发出了 \XeTeX，终于与时代接了轨。再后来 Hans Hagen 等人又开发了 \LuaTeX，与 \XeTeX 一样原生支持 Unicode 与 OpenType，同时还可借由内嵌 Lua 实现多种扩展功能。

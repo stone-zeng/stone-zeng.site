@@ -2,11 +2,11 @@ import type { Config } from 'tailwindcss'
 
 const baseCjkFonts = [
   '"Hiragino Sans GB"',
-  '"PingFang SC"',
   '"Noto Sans CJK SC"',
   '"Source Han Sans SC"',
   '"Source Han Sans CN"',
   '"Sarasa Gothic SC"',
+  '"PingFang SC"',
   '"Microsoft YaHei UI"',
   '"Microsoft YaHei"',
 ]
@@ -18,22 +18,41 @@ export default <Config>{
     'text-center',
     'whitespace-nowrap',
     'dark:invert',
+    '!w-1/2',
+    'sm:!m-0',
+    'sm:!w-[45%]',
+    'sm:!w-[55%]',
     // Utilities
     'font-feature-calt-off',
     'font-feature-frac',
     'small-caps',
+    'text-emphasis-filled',
     // Components
+    'circled-number',
     'font-sample',
     'katex',
+    'katex-def',
     'katex-display',
     'problem-example',
-    'problem-input',
     'problem-highlight',
+    'problem-input',
   ],
   theme: {
     fontFamily: {
       sans: ['"Punct Sans"', '"Work Sans"', ...baseCjkFonts, 'sans-serif'],
       mono: ['"JetBrains Mono"', ...baseCjkFonts, 'monospace'],
+      zh: [...baseCjkFonts, 'sans-serif'],
+      ja: [
+        '"Hiragino Sans"',
+        '"Hiragino Kaku Gothic Pro"',
+        '"Noto Sans CJK JP"',
+        '"Source Han Sans"',
+        '"Source Han Sans JP"',
+        '"Sarasa Gothic J"',
+        '"Yu Gothic UI"',
+        '"Yu Gothic"',
+        'sans-serif',
+      ],
     },
     fontWeight: {
       normal: '400',

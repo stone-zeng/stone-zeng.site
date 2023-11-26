@@ -25,6 +25,10 @@
   body {
     @apply bg-light-50 text-dark-400 dark:bg-dark-600 dark:text-light-800;
   }
+
+  :lang(ja) {
+    @apply font-ja;
+  }
 }
 
 @layer components {
@@ -38,6 +42,10 @@
 
   .katex {
     @apply text-[17px] leading-none;
+  }
+
+  .katex-def {
+    @apply !-mt-8;
   }
 
   .katex-display {
@@ -60,5 +68,10 @@
 
   .small-caps {
     font-variant: small-caps;
+  }
+
+  .text-emphasis-filled {
+    text-emphasis: filled;
+    text-emphasis-position: under left;
   }
 }

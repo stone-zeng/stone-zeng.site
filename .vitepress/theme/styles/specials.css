@@ -8,6 +8,17 @@
     }
   }
 
+  /* circled-numbers */
+  .circled-number {
+    tr:nth-child(odd) {
+      @apply font-zh text-xl;
+    }
+
+    tr:nth-child(even) {
+      @apply font-mono;
+    }
+  }
+
   /* euler */
   .problem-example {
     @apply pl-8 sm:mx-8;

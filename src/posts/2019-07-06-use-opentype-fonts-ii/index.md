@@ -9,6 +9,7 @@ tags:
 ---
 
 <script setup lang="ts">
+import ImageGroup from '@/theme/components/ImageGroup.vue'
 import FontWeight from './FontWeight.vue'
 </script>
 
@@ -34,10 +35,10 @@ import FontWeight from './FontWeight.vue'
 
 ## 与 Word 的比较
 
-对于刚接触 \LaTeX 的朋友来说，字体问题一定是一个大坑。在 Word 里面，选择字体只需在下拉菜单中选一下，加粗选「**B**」，倾斜选「<em><span class="slab-I">I</span></em>」，字号也可以很轻易地改为任意想要的数字。为什么 \LaTeX 就要制造这么多困难呢？
+对于刚接触 \LaTeX 的朋友来说，字体问题一定是一个大坑。在 Word 里面，选择字体只需在下拉菜单中选一下，加粗选「**B**」，倾斜选「*I*」，字号也可以很轻易地改为任意想要的数字。为什么 \LaTeX 就要制造这么多困难呢？
 
 <figure>
-  <img src="./word-font-settings.png" alt="word-font-settings" style="width: 360px;">
+  <img src="./word-font-settings.png" alt="word-font-settings" style="width: 360px">
   <figcaption>Word 中的字体面板</figcaption>
 </figure>
 
@@ -138,14 +139,16 @@ Name ID 6 是所谓 PostScript 名称，与 Name ID 4 类似，但其中不允�
 
 他同时也指出，非意大利体的倾斜有些时候也是必要的，但需要做额外的调整以达到视觉平衡。下图是 Helvetica 与 Neue Helvetica 的对比。Helvetica（第一行）使用的是单纯的的 oblique，而 Neue Helvetica（第二行）则进行了细致的修正。除去字重的调整，可以看出 O 的形状、c 的开口和 f 的头部都有优化之处：
 
-![helvetica-vs-neue-outline](./helvetica-vs-neue-outline.png){.dark:invert style="width: 320px"}
-![helvetica-vs-neue](./helvetica-vs-neue.png){.dark:invert style="width: 320px"}
+<ImageGroup>
+  <img src="./helvetica-vs-neue-outline.png" alt="./helvetica-vs-neue-outline" class="dark:invert">
+  <img src="./helvetica-vs-neue.png" alt="./helvetica-vs-neue" class="dark:invert">
+</ImageGroup>
 
 另一方面，意大利体也未必一定是倾斜的。\TeX 的默认字体 Computer Modern 家族中就包含了一个未倾斜的意大利体；当然倾斜的意大利体和伪斜体也是有的（这里的 slant 没有经过额外的调整，所以是「伪」斜）：
 
 ![cm-italic](./cm-italic.svg){.dark:invert style="width: 450px"}
 
-对于汉字来说，传统上并没有倾斜这一变体形式。从源流来说，意大利体这一手写风格与楷体更为接近[^han-italic]。表示强调意味的话，习惯上也会使用<span class="zh-emph">着重号</span>而非改变字体。
+对于汉字来说，传统上并没有倾斜这一变体形式。从源流来说，意大利体这一手写风格与楷体更为接近[^han-italic]。表示强调意味的话，习惯上也会使用<span class="text-emphasis-filled">着重号</span>而非改变字体。
 
 [^han-italic]: 刘育黎. [楷书、斜体、连笔，意大利体的汉字匹配方案探索](https://mp.weixin.qq.com/s/gd2rB0hjZhPGavGcZKtSOg)
 
