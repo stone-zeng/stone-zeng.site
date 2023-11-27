@@ -1,7 +1,4 @@
 .DS_Store
-.jekyll-metadata
-Gemfile.lock
-package-lock.json
 
 *.aux
 *.dvi
@@ -14,13 +11,13 @@ package-lock.json
 
 *.otf
 *.ttf
+*.woff2
 *.pdf
 
-_draft/
-_site/
-.bundle/
-.sass-cache/
+.vitepress/cache/
+.vitepress/dist/
 .vscode/
 node_modules/
-temp/
-vendor/
+
+.vitepress/config.ts.timestamp-*.mjs
+.vitepress/theme/styles/katex.css

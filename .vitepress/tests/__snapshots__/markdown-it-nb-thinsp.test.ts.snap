@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`No-break thin space 1`] = `"1&#x202F;GB"`;
+
+exports[`No-break thin space 2`] = `"; is semicolon"`;
+
+exports[`No-break thin space 3`] = `"<code>\\\\,</code> is \\\\,"`;

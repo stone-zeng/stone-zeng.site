@@ -1,0 +1,72 @@
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply italic text-neutral-400;
+  @apply dark:text-neutral-500;
+}
+
+/* .token.punctuation {
+} */
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+  @apply text-green-700;
+  @apply dark:text-green-300;
+}
+
+/* .token.function-name {
+} */
+
+.token.boolean,
+.token.number,
+.token.function {
+  @apply text-orange-500;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+  @apply text-blue-500;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+  @apply text-red-500;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+  @apply text-sky-700;
+  @apply dark:text-sky-300;
+}
+
+/* .token.operator,
+.token.entity,
+.token.url {
+} */
+
+.token.important,
+.token.bold {
+  @apply font-bold;
+}
+
+/* .token.italic {
+  @apply font-italic;
+} */
+
+/* .token.entity {
+} */
+
+/* .token.inserted {
+} */

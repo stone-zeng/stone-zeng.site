@@ -1,0 +1,56 @@
+@layer components {
+  .tex-logo {
+    @apply whitespace-nowrap;
+
+    &.shy {
+      @apply before:content-['\00ad'];
+    }
+
+    .tex-e,
+    .la-a,
+    .xe-e {
+      @apply inline-block uppercase;
+    }
+
+    .tex-e {
+      @apply ml-[-0.16em] mr-[-0.1em] translate-y-[0.5ex];
+    }
+
+    .la-a {
+      @apply ml-[-0.4em] mr-[-0.1em] translate-y-[-0.6ex] text-[70%] font-[500];
+    }
+
+    .two-e-epsilon {
+      @apply inline-block translate-y-[0.3ex];
+    }
+
+    .xe-e {
+      @apply mx-[-0.05em];
+      transform: rotateY(180deg) translateY(0.5ex);
+    }
+
+    .xe-e-kern {
+      @apply mr-[-0.16em];
+    }
+
+    .bib-ib {
+      @apply mr-[-0.05em];
+      font-variant: small-caps;
+    }
+
+    .rkern {
+      @apply mr-[-0.1em];
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  strong,
+  th {
+    .tex-logo .la-a {
+      @apply font-[750];
+    }
+  }
+}
