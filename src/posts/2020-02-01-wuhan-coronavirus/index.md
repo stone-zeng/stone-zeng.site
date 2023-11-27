@@ -13,7 +13,7 @@ import ImageGroup from '@/theme/components/ImageGroup.vue'
 <!-- more -->
 
 <!-- TODO: update url -->
-本文数据见 [2019-nCoV-data.csv](https://github.com/stone-zeng/stone-zeng.github.io/blob/main/src/wuhan-coronavirus/2019-nCoV-data.csv)，来源于[^2019-nCoV-wiki][^2019-nCoV-tg]。绘图及拟合代码见 [2019-nCoV.wl](https://github.com/stone-zeng/stone-zeng.github.io/blob/main/src/wuhan-coronavirus/2019-nCoV.wl)。
+本文数据见 [2019-nCoV-data.csv](https://github.com/stone-zeng/stone-zeng.site/blob/main/src/posts/2020-02-01-wuhan-coronavirus/2019-nCoV-data.csv)，来源于[^2019-nCoV-wiki][^2019-nCoV-tg]。绘图及拟合代码见 [2019-nCoV.wl](https://github.com/stone-zeng/stone-zeng.site/blob/main/src/posts/2020-02-01-wuhan-coronavirus/2019-nCoV.wl)。
 
 [^2019-nCoV-wiki]: [2019 新型冠状病毒中国大陆病例 - 维基百科](https://zh.wikipedia.org/wiki/2019新型冠状病毒中国大陆病例)。由于统计口径差异等原因，新增病例数之和与累计病例数、各省市数据之和与全国数据均略有出入。
 [^2019-nCoV-tg]: [2019-nCoV 疫情实时播报](https://t.me/nCoV2019)

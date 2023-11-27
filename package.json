@@ -1,16 +1,16 @@
 {
-  "name": "stone-zeng.github.io",
+  "name": "stone-zeng.site",
   "version": "0.1.0",
   "author": "Xiangdong Zeng",
   "description": "Personal website of Xiangdong Zeng",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stone-zeng/stone-zeng.github.io.git"
+    "url": "git+https://github.com/stone-zeng/stone-zeng.site.git"
   },
   "bugs": {
-    "url": "https://github.com/stone-zeng/stone-zeng.github.io/issues"
+    "url": "https://github.com/stone-zeng/stone-zeng.site/issues"
   },
-  "homepage": "https://stone-zeng.github.io/",
+  "homepage": "https://stone-zeng.site",
   "type": "module",
   "scripts": {
     "dev": "vitepress dev",

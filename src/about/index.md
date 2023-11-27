@@ -40,5 +40,5 @@ Currently, I'm
 
 ## Licenses
 
-- Code is licensed under the [MIT](https://github.com/stone-zeng/stone-zeng.github.io/blob/main/LICENSE-MIT) License
-- Words and images are licensed under the [CC BY-NC-SA 4.0](https://github.com/stone-zeng/stone-zeng.github.io/blob/main/LICENSE-CC-BY-SA) License
+- Code is licensed under the [MIT](https://github.com/stone-zeng/stone-zeng.site/blob/main/LICENSE-MIT) License
+- Words and images are licensed under the [CC BY-SA 4.0](https://github.com/stone-zeng/stone-zeng.site/blob/main/LICENSE-CC-BY-SA) License

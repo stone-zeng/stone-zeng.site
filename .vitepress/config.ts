@@ -15,7 +15,7 @@ const buildDate = new Date(process.env.VITEPRESS_BUILD_DATE || Date.now())
 const themeConfig: Theme.Config = {
   paginate: 10,
   editLink: {
-    pattern: 'https://github.com/stone-zeng/stone-zeng.github.io/blob/vitepress/src/:path',
+    pattern: 'https://github.com/stone-zeng/stone-zeng.site/blob/main/src/:path',
     text: 'Page source',
   },
   nav: [

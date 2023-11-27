@@ -5,9 +5,7 @@ import { IconEdit } from '@tabler/icons-vue'
 import BaseLink from '@/theme/components/BaseLink.vue'
 
 const { theme, page } = useData<Theme.Config>()
-const editLink = computed(() =>
-  theme.value.editLink.pattern.replace(/:path/g, page.value.relativePath),
-)
+const editLink = computed(() => theme.value.editLink.pattern.replace(/:path/g, page.value.filePath))
 const title = computed(() =>
   (props.title || page.value.title).replace(
     /([，、；：！？。）］〉》」』】〕〗〙])$/,
