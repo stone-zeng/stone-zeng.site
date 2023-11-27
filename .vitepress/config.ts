@@ -6,6 +6,7 @@ import { genFeed } from './lib/feed'
 import MarkdownItCjkKern from './lib/markdown-it-cjk-kern'
 import MarkdownItFootnote from './lib/markdown-it-footnote'
 import MarkdownItKaTeX from './lib/markdown-it-katex'
+import MarkdownItNbThinsp from './lib/markdown-it-nb-thinsp'
 import MarkdownItTeXLogo from './lib/markdown-it-tex-logo'
 import vite from '../vite.config'
 
@@ -84,6 +85,7 @@ export default defineConfigWithTheme<Theme.Config>({
           multiline: true,
           rowspan: true,
         })
+        .use(MarkdownItNbThinsp)
         .use(MarkdownItTeXLogo)
     },
   },
