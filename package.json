@@ -20,6 +20,7 @@
     "patch-katex": "node scripts/patch-katex.mjs"
   },
   "devDependencies": {
+    "@giscus/vue": "^2.3.0",
     "@mdit-vue/shared": "^1.0.0",
     "@tabler/icons-vue": "^2.42.0",
     "@types/katex": "^0.16.7",

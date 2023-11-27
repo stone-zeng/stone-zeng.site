@@ -4,6 +4,7 @@ import { onContentUpdated, useData } from 'vitepress'
 import katex from 'katex'
 import { data as posts } from '@/posts.data'
 import PostAside from '@/theme/components/post/PostAside.vue'
+import PostComments from '@/theme/components/post/PostComments.vue'
 import PostMeta from '@/theme/components/post/PostMeta.vue'
 import PostTitle from '@/theme/components/post/PostTitle.vue'
 import SiteFooter from '@/theme/components/footer/SiteFooter.vue'
@@ -52,6 +53,7 @@ onContentUpdated(renderMath)
           />
         </div>
         <Content class="prose" :class="{ 'leading-relaxed': isZh }" />
+        <PostComments v-if="!isPage" />
       </article>
       <PostAside v-if="!isPage" />
     </div>
