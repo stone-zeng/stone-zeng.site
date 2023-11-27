@@ -14,7 +14,7 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev",
-    "build": "VITEPRESS_BUILD_DATE=`date \"+%Y-%m-%d %H:%M:%S\"` vitepress build",
+    "build": "VITEPRESS_BUILD_DATE=`date \"+%Y-%m-%d %H:%M:%S\"` NODE_ENV='production' vitepress build",
     "serve": "vitepress serve",
     "test": "vitest run",
     "patch-katex": "node scripts/patch-katex.mjs"

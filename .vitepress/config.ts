@@ -11,6 +11,7 @@ import MarkdownItTeXLogo from './lib/markdown-it-tex-logo'
 import vite from '../vite.config'
 
 const buildDate = new Date(process.env.VITEPRESS_BUILD_DATE || Date.now())
+const isProd = process.env.NODE_ENV === 'production'
 
 const themeConfig: Theme.Config = {
   paginate: 10,
@@ -64,7 +65,19 @@ export default defineConfigWithTheme<Theme.Config>({
     'about/index.md': 'about.md',
     'archive/index.md': 'archive.md',
   },
-  head: [['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]],
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+    [
+      'script',
+      isProd
+        ? {
+            async: '',
+            src: 'https://analytics.umami.is/script.js',
+            'data-website-id': '7020b454-d5c3-4544-ac43-4c75b2cc8187',
+          }
+        : {},
+    ],
+  ],
   buildEnd: genFeed,
   transformPageData: ({ title }) => ({
     title: title.replace(/\\/g, ''),
