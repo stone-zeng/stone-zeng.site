@@ -87,6 +87,9 @@ export default <Config>{
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
       },
+      strokeWidth: {
+        3: '3',
+      },
     },
   },
 }

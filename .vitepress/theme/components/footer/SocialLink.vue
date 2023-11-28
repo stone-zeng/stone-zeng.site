@@ -27,19 +27,19 @@ const props = defineProps<{
     :href="link"
     :title="name"
     :external="!link.startsWith('/')"
-    class="SocialLink transition-colors"
+    class="SocialLink group transition-colors"
   >
-    <component :is="icons[icon]" :size="18" />
+    <component
+      :is="icons[icon]"
+      :size="18"
+      class="group-hover:stroke-3 transition-[stroke-width]"
+    />
   </BaseLink>
 </template>
 
 <style scoped>
 .SocialLink:hover {
   color: v-bind('hoverColor.light');
-
-  :deep(svg) {
-    stroke-width: 2.5;
-  }
 }
 
 @media (prefers-color-scheme: dark) {

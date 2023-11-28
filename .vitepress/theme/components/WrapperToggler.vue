@@ -17,7 +17,7 @@ const { expanded, toggleExpanded } = inject('expanded') as {
       aria-label="Toggle content width"
       @click="toggleExpanded"
     >
-      <component :is="expanded ? IconMinimize : IconMaximize" :size="18" class="" />
+      <component :is="expanded ? IconMinimize : IconMaximize" :size="18" />
     </button>
   </div>
 </template>
