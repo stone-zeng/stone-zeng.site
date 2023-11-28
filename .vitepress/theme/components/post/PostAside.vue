@@ -7,6 +7,12 @@ const { page } = useData()
 const headings = computed(
   () => posts.find(({ url }) => page.value.filePath.includes(url))?.headings || [],
 )
+
+const scrollToComments = () => {
+  const commentsElem = document.querySelector('#comments')
+  const elem = commentsElem?.shadowRoot?.querySelector('iframe')
+  elem?.scrollIntoView()
+}
 </script>
 
 <template>
@@ -26,6 +32,9 @@ const headings = computed(
               </ul>
             </li>
           </ul>
+        </li>
+        <li>
+          <a href="#" @click="scrollToComments">Comments</a>
         </li>
       </ul>
     </div>
