@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, provide, ref } from 'vue'
 import { onContentUpdated, useData } from 'vitepress'
 import katex from 'katex'
 import { data as posts } from '@/posts.data'
@@ -10,9 +10,19 @@ import PostTitle from '@/theme/components/post/PostTitle.vue'
 import SiteFooter from '@/theme/components/footer/SiteFooter.vue'
 import SiteHeader from '@/theme/components/header/SiteHeader.vue'
 import Wrapper from '@/theme/components/Wrapper.vue'
+import WrapperToggler from '@/theme/components/WrapperToggler.vue'
 
 const { frontmatter, page } = useData()
 const post = computed(() => posts.find(({ url }) => page.value.filePath.includes(url)))
+
+const expanded = ref(false)
+const toggleExpanded = () => {
+  expanded.value = !expanded.value
+}
+provide('expanded', {
+  expanded,
+  toggleExpanded,
+})
 
 const isHome = computed(() => frontmatter.value.layout === 'home')
 const isPage = computed(() => frontmatter.value.layout === 'page')
@@ -59,4 +69,5 @@ onContentUpdated(renderMath)
     </div>
   </Wrapper>
   <SiteFooter />
+  <WrapperToggler />
 </template>
