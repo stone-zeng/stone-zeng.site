@@ -1,0 +1,34 @@
+{
+  "name": "markdown-it-plugins",
+  "version": "0.1.0",
+  "author": "Xiangdong Zeng <xdzeng96@gmail.com>",
+  "description": "Markdown-It plugins for stone-zeng.site",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stone-zeng/stone-zeng.site.git",
+    "directory": "packages/markdown-it-plugins"
+  },
+  "type": "module",
+  "module": "./dist/markdown-it-plugins.js",
+  "main": "./dist/markdown-it-plugins.js",
+  "exports": {
+    ".": {
+      "import": "./dist/markdown-it-plugins.js",
+      "require": "./dist/markdown-it-plugins.cjs"
+    }
+  },
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "markdown-it": "^13.0.2"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^13.0.7",
+    "vite": "^5.0.4",
+    "vitest": "^0.34.6"
+  }
+}

@@ -14,9 +14,9 @@
 *.woff2
 *.pdf
 
-.vitepress/cache/
-.vitepress/dist/
 .vscode/
+cache/
+dist/
 node_modules/
 
 .vitepress/config.ts.timestamp-*.mjs

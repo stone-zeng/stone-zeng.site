@@ -1,7 +1,7 @@
 import { test, expect } from 'vitest'
 import MarkdownIt from 'markdown-it'
 
-import MarkdownItTeXLogo from '@/lib/markdown-it-tex-logo'
+import MarkdownItTeXLogo from '../src/tex-logo'
 
 const md = new MarkdownIt()
 md.use(MarkdownItTeXLogo)

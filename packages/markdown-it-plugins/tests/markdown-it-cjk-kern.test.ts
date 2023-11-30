@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest'
 import MarkdownIt from 'markdown-it'
 
-import MarkdownItCjkKern from '@/lib/markdown-it-cjk-kern'
+import MarkdownItCjkKern from '../src/cjk-kern'
 
 const md = new MarkdownIt()
 md.use(MarkdownItCjkKern)

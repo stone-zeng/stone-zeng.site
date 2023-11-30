@@ -1,13 +1,15 @@
 import { defineConfigWithTheme } from 'vitepress'
 import MarkdownItAttrs from 'markdown-it-attrs'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
+import {
+  MarkdownItCjkKern,
+  MarkdownItFootnote,
+  MarkdownItKaTeX,
+  MarkdownItNbThinsp,
+  MarkdownItTeXLogo,
+} from 'markdown-it-plugins'
 
 import { genFeed } from './lib/feed'
-import MarkdownItCjkKern from './lib/markdown-it-cjk-kern'
-import MarkdownItFootnote from './lib/markdown-it-footnote'
-import MarkdownItKaTeX from './lib/markdown-it-katex'
-import MarkdownItNbThinsp from './lib/markdown-it-nb-thinsp'
-import MarkdownItTeXLogo from './lib/markdown-it-tex-logo'
 import vite from '../vite.config'
 
 const copyrightYear = new Date(process.env.VITE_BUILD_TIME || Date.now()).getFullYear()

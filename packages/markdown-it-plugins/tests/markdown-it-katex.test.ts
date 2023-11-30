@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest'
 import MarkdownIt from 'markdown-it'
 
-import MarkdownItKaTeX from '@/lib/markdown-it-katex'
+import MarkdownItKaTeX from '../src/katex'
 
 const mdRaw = new MarkdownIt()
 

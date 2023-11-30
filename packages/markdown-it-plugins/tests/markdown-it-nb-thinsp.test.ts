@@ -1,7 +1,7 @@
 import { test, expect } from 'vitest'
 import MarkdownIt from 'markdown-it'
 
-import MarkdownItNbThinsp from '@/lib/markdown-it-nb-thinsp'
+import MarkdownItNbThinsp from '../src/nb-thinsp'
 
 const md = new MarkdownIt()
 md.use(MarkdownItNbThinsp)

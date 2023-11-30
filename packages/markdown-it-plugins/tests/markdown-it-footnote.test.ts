@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest'
 import MarkdownIt from 'markdown-it'
 
-import MarkdownItFootnote from '@/lib/markdown-it-footnote'
+import MarkdownItFootnote from '../src/footnote'
 
 const md = new MarkdownIt({ html: true })
 md.use(MarkdownItFootnote)
