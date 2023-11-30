@@ -16,8 +16,9 @@
     "dev": "vitepress dev",
     "build": "VITE_BUILD_TIME=$(date '+%Y-%m-%d %H:%M:%S') vitepress build",
     "serve": "vitepress serve",
-    "test": "pnpm run --filter=./packages/markdown-it-plugins test",
-    "patch-katex": "node scripts/patch-katex.mjs"
+    "patch-katex": "node scripts/patch-katex.mjs",
+    "packages:build": "pnpm -r run build",
+    "packages:test": "pnpm -r run test"
   },
   "devDependencies": {
     "@giscus/vue": "^2.3.0",
