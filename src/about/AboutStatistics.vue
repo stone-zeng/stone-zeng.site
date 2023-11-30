@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
 import { data as posts } from '@/posts.data'
 
-const { site } = useData()
 const totalWordCountShort = posts
   .map(({ wordCount }) => wordCount)
   .reduce((a, b) => a + b.latin + b.cjk, 0)
@@ -20,6 +18,8 @@ const totalWordCountLong = (() => {
     }))
   return `Latin words: ${latin}, CJK characters: ${cjk}, code (block + inline): ${pre} + ${code}, math (block + inline): ${mathBlock} + ${mathInline}, images: ${image}`
 })()
+
+const buildTime = new Date(import.meta.env.VITE_BUILD_TIME || Date.now()).toISOString()
 </script>
 
 <template>
@@ -28,6 +28,6 @@ const totalWordCountLong = (() => {
     <li>
       Total word count: <span :title="totalWordCountLong">{{ totalWordCountShort }}</span>
     </li>
-    <li>Last updated: {{ site.contentProps?.buildDate }}</li>
+    <li>Last updated: {{ buildTime }}</li>
   </ul>
 </template>

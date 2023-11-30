@@ -10,7 +10,7 @@ import MarkdownItNbThinsp from './lib/markdown-it-nb-thinsp'
 import MarkdownItTeXLogo from './lib/markdown-it-tex-logo'
 import vite from '../vite.config'
 
-const buildDate = new Date(process.env.VITEPRESS_BUILD_DATE || Date.now())
+const copyrightYear = new Date(process.env.VITE_BUILD_TIME || Date.now()).getFullYear()
 const isProd = process.env.NODE_ENV === 'production'
 
 const themeConfig: Theme.Config = {
@@ -50,7 +50,7 @@ const themeConfig: Theme.Config = {
         icon: 'rss',
       },
     ],
-    copyright: `© 2018\u{2013}${buildDate.getFullYear()} Xiangdong Zeng`,
+    copyright: `© 2018\u{2013}${copyrightYear} Xiangdong Zeng`,
   },
 }
 
@@ -104,7 +104,4 @@ export default defineConfigWithTheme<Theme.Config>({
   },
   vite,
   themeConfig,
-  contentProps: {
-    buildDate: buildDate.toISOString(),
-  },
 })
