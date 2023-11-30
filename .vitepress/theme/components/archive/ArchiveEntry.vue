@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const formatDate = (value: string) => new Date(value).toISOString().slice(5, 10)
-
 defineProps<{
   title: string
   url: string
@@ -9,8 +7,14 @@ defineProps<{
 </script>
 
 <template>
-  <li class="my-1">
-    <time class="mr-4 inline-block w-12 text-right oldstyle-nums">{{ formatDate(date) }}</time>
+  <li class="my-1 flex">
+    <time
+      class="mr-4 inline-block w-12 shrink-0 text-right oldstyle-nums"
+      :datetime="date"
+      :title="`Posted on: ${date}`"
+    >
+      {{ date.slice(5, 10) }}
+    </time>
     <a :href="url" v-html="title"></a>
   </li>
 </template>

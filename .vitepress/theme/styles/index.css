@@ -74,4 +74,9 @@
     text-emphasis: filled;
     text-emphasis-position: under left;
   }
+
+  /* TODO: tailwind next version */
+  .text-wrap {
+    text-wrap: pretty;
+  }
 }

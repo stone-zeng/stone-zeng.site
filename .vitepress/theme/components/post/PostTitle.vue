@@ -19,13 +19,13 @@ const props = defineProps<{
 </script>
 
 <template>
-  <h1 class="group whitespace-nowrap pr-7 text-2xl font-bold">
-    <span v-html="title" class="mr-2 whitespace-normal"></span>
+  <h1 class="group pr-7 text-2xl font-bold">
+    <span v-html="title" class="mr-2"></span>
     <BaseLink
       :href="editLink"
       :title="theme.editLink.text"
       external
-      class="text-primary opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100"
+      class="absolute text-primary opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100"
     >
       <IconEdit :size="20" class="inline-block -translate-y-0.5" />
     </BaseLink>
