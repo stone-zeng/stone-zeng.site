@@ -15,6 +15,7 @@
 *.pdf
 
 .vscode/
+.temp/
 cache/
 dist/
 node_modules/

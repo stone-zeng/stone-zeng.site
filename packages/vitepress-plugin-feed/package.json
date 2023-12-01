@@ -18,7 +18,7 @@
       "require": "./dist/vitepress-plugin-feed.cjs"
     }
   },
-  "types": "./index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build"
   },
@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "vite": "^5.0.4",
-    "vitest": "^0.34.6"
+    "vite-plugin-dts": "^3.6.4"
   }
 }

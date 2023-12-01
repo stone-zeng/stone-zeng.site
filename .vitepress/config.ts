@@ -15,6 +15,8 @@ import vite from '../vite.config'
 const copyrightYear = new Date(process.env.VITE_BUILD_TIME || Date.now()).getFullYear()
 const isProd = process.env.NODE_ENV === 'production'
 
+const baseUrl = 'https://stone-zeng.site'
+
 const themeConfig: Theme.Config = {
   paginate: 10,
   editLink: {
@@ -60,7 +62,7 @@ export default defineConfigWithTheme<Theme.Config>({
   lang: 'en-US',
   title: 'Stone Zeng\u{2019}s Site',
   description: 'Personal website of Xiangdong Zeng',
-  base: 'https://stone-zeng.site',
+  base: baseUrl,
   srcDir: 'src',
   cleanUrls: true,
   rewrites: {
@@ -81,7 +83,28 @@ export default defineConfigWithTheme<Theme.Config>({
         : {},
     ],
   ],
-  buildEnd: genFeed,
+  buildEnd: (siteConfig) => {
+    genFeed(siteConfig, {
+      pattern: 'src/posts/**/*.md',
+      filter: ({ frontmatter }) => frontmatter.date && !frontmatter.draft,
+      transform: ({ url, excerpt, frontmatter, html }) => {
+        const link = baseUrl + url.replace(/^\/posts/g, '')
+        return {
+          title: frontmatter.title.replace(/\\/g, ''),
+          id: link,
+          link,
+        }
+      },
+      feedOptions: {
+        copyright: themeConfig.footer.copyright,
+        author: {
+          name: 'Xiangdong Zeng',
+          email: 'xdzeng96@gmail.com',
+          link: 'https://github.com/stone-zeng',
+        },
+      },
+    })
+  },
   transformPageData: ({ title }) => ({
     title: title.replace(/\\/g, ''),
   }),

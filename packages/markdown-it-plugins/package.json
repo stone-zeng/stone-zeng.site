@@ -18,7 +18,7 @@
       "require": "./dist/markdown-it-plugins.cjs"
     }
   },
-  "types": "./index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build",
     "test": "vitest run"
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "vite": "^5.0.4",
+    "vite-plugin-dts": "^3.6.4",
     "vitest": "^0.34.6"
   }
 }

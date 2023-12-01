@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   build: {
@@ -11,4 +12,5 @@ export default defineConfig({
       external: ['feed', 'fs', 'ora', 'path', 'vitepress'],
     },
   },
+  plugins: [dts({ rollupTypes: true })],
 })
