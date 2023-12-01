@@ -62,7 +62,6 @@ export default defineConfigWithTheme<Theme.Config>({
   lang: 'en-US',
   title: 'Stone Zeng\u{2019}s Site',
   description: 'Personal website of Xiangdong Zeng',
-  base: baseUrl,
   srcDir: 'src',
   cleanUrls: true,
   rewrites: {
@@ -87,7 +86,7 @@ export default defineConfigWithTheme<Theme.Config>({
     genFeed(siteConfig, {
       pattern: 'src/posts/**/*.md',
       filter: ({ frontmatter }) => frontmatter.date && !frontmatter.draft,
-      transform: ({ url, excerpt, frontmatter, html }) => {
+      transform: ({ url, frontmatter }) => {
         const link = baseUrl + url.replace(/^\/posts/g, '')
         return {
           title: frontmatter.title.replace(/\\/g, ''),
