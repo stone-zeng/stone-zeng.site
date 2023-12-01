@@ -1,0 +1,34 @@
+{
+  "name": "@stone-zeng/vitepress-plugin-feed",
+  "version": "0.1.0",
+  "author": "Xiangdong Zeng <xdzeng96@gmail.com>",
+  "description": "VitePress plugin for generating RSS feed",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stone-zeng/stone-zeng.site.git",
+    "directory": "packages/vitepress-plugin-feed"
+  },
+  "type": "module",
+  "module": "./dist/vitepress-plugin-feed.js",
+  "main": "./dist/vitepress-plugin-feed.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vitepress-plugin-feed.js",
+      "require": "./dist/vitepress-plugin-feed.cjs"
+    }
+  },
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "feed": "^4.2.2",
+    "ora": "^7.0.1",
+    "vitepress": "1.0.0-rc.31"
+  },
+  "devDependencies": {
+    "vite": "^5.0.4",
+    "vitest": "^0.34.6"
+  }
+}

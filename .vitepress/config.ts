@@ -7,9 +7,9 @@ import {
   MarkdownItKaTeX,
   MarkdownItNbThinsp,
   MarkdownItTeXLogo,
-} from 'markdown-it-plugins'
+} from '@stone-zeng/markdown-it-plugins'
+import { genFeed } from '@stone-zeng/vitepress-plugin-feed'
 
-import { genFeed } from './lib/feed'
 import vite from '../vite.config'
 
 const copyrightYear = new Date(process.env.VITE_BUILD_TIME || Date.now()).getFullYear()
@@ -60,6 +60,7 @@ export default defineConfigWithTheme<Theme.Config>({
   lang: 'en-US',
   title: 'Stone Zeng\u{2019}s Site',
   description: 'Personal website of Xiangdong Zeng',
+  base: 'https://stone-zeng.site',
   srcDir: 'src',
   cleanUrls: true,
   rewrites: {

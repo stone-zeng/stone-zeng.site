@@ -1,6 +1,6 @@
 import { slugify } from '@mdit-vue/shared'
+import { MarkdownItCjkKern, MarkdownItTeXLogo } from '@stone-zeng/markdown-it-plugins'
 import { createContentLoader, createMarkdownRenderer, type ContentData } from 'vitepress'
-import { MarkdownItCjkKern, MarkdownItTeXLogo } from 'markdown-it-plugins'
 
 interface Post {
   title: string
