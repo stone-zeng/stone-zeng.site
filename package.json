@@ -37,7 +37,7 @@
     "prettier-plugin-tailwindcss": "^0.5.7",
     "shikiji": "^0.7.5",
     "tailwindcss": "^3.3.5",
-    "vite": "^5.0.4",
+    "vite": "^5.0.5",
     "vitepress": "1.0.0-rc.31",
     "vitest": "^0.34.6",
     "vue": "^3.3.9"
