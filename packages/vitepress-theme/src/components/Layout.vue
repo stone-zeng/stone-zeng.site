@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, provide, ref } from 'vue'
+import { computed } from 'vue'
 import { useData } from 'vitepress'
 import { usePosts } from '../composables/usePosts'
 import { useRenderMath } from '../composables/useRenderMath'
@@ -11,27 +11,17 @@ import PostTitle from './post/PostTitle.vue'
 import SiteFooter from './footer/SiteFooter.vue'
 import SiteHeader from './header/SiteHeader.vue'
 import Wrapper from './Wrapper.vue'
-import WrapperToggler from './WrapperToggler.vue'
 
 const { frontmatter, page } = useData()
 const posts = usePosts()
 const post = computed(() => posts.find(({ url }) => page.value.filePath.includes(url)))
-
-const expanded = ref(false)
-const toggleExpanded = () => {
-  expanded.value = !expanded.value
-}
-provide('expanded', {
-  expanded,
-  toggleExpanded,
-})
 
 useRenderMath()
 </script>
 
 <template>
   <SiteHeader class="h-14 sm:h-16" />
-  <Wrapper is="main" class="mt-14 sm:mt-16">
+  <Wrapper is="main" class="mt-14 sm:mt-16" with-toggler>
     <HomePage v-if="frontmatter.layout === 'home'" />
     <div v-else class="flex justify-between gap-8">
       <article class="min-w-0 grow">
@@ -52,5 +42,4 @@ useRenderMath()
     </div>
   </Wrapper>
   <SiteFooter />
-  <WrapperToggler />
 </template>

@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import { inject } from 'vue'
 import { IconMaximize, IconMinimize } from '@tabler/icons-vue'
-import type { Ref } from 'vue'
+import { useExpanded } from '../composables/useExpanded'
 
-const { expanded, toggleExpanded } = inject('expanded') as {
-  expanded: Ref<boolean>
-  toggleExpanded: () => void
-}
+const { expanded, toggle } = useExpanded()
 </script>
 
 <template>
@@ -15,7 +11,7 @@ const { expanded, toggleExpanded } = inject('expanded') as {
       class="rounded border border-light-800 p-1.5 dark:border-dark-50"
       title="Toggle content width"
       aria-label="Toggle content width"
-      @click="toggleExpanded"
+      @click="toggle"
     >
       <component :is="expanded ? IconMinimize : IconMaximize" :size="18" />
     </button>
