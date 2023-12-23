@@ -112,7 +112,7 @@ export default defineConfigWithTheme<Theme.Config>({
     breaks: true,
     typographer: true,
     // @ts-ignore
-    languages: [import('./lib/languages/latex-expl3.tmLanguage.json')],
+    languages: [import('./languages/latex-expl3.tmLanguage.json')],
     // TODO: shiki next version
     languageAlias: { wl: 'wolfram' },
     config: (md) => {
