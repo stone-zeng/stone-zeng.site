@@ -24,11 +24,11 @@
   },
   "dependencies": {
     "feed": "^4.2.2",
-    "ora": "^7.0.1",
-    "vitepress": "1.0.0-rc.31"
+    "ora": "^8.0.1",
+    "vitepress": "1.0.0-rc.32"
   },
   "devDependencies": {
-    "vite": "^5.0.4",
+    "vite": "^5.0.10",
     "vite-plugin-dts": "^3.6.4"
   }
 }
