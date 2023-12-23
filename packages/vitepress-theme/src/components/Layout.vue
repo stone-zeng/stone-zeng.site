@@ -11,6 +11,7 @@ import PostTitle from './post/PostTitle.vue'
 import SiteFooter from './footer/SiteFooter.vue'
 import SiteHeader from './header/SiteHeader.vue'
 import Wrapper from './Wrapper.vue'
+import WrapperToggler from './WrapperToggler.vue'
 
 const { frontmatter, page } = useData()
 const posts = usePosts()
@@ -21,7 +22,7 @@ useRenderMath()
 
 <template>
   <SiteHeader class="h-14 sm:h-16" />
-  <Wrapper is="main" class="mt-14 sm:mt-16" with-toggler>
+  <Wrapper is="main" class="mt-14 sm:mt-16">
     <HomePage v-if="frontmatter.layout === 'home'" />
     <div v-else class="flex justify-between gap-8">
       <article class="min-w-0 grow">
@@ -42,4 +43,5 @@ useRenderMath()
     </div>
   </Wrapper>
   <SiteFooter />
+  <WrapperToggler />
 </template>

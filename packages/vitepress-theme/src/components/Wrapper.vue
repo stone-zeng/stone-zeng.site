@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { useExpanded } from '../composables/useExpanded'
-import WrapperToggler from './WrapperToggler.vue'
 
 const { expanded } = useExpanded()
 
 defineProps<{
   is?: string
-  withToggler?: boolean
 }>()
 </script>
 
@@ -17,8 +15,5 @@ defineProps<{
     :class="{ 'xl:max-w-screen-xl xl:px-16 2xl:max-w-screen-2xl': expanded }"
   >
     <slot></slot>
-    <Teleport v-if="withToggler" to="#app">
-      <WrapperToggler />
-    </Teleport>
   </component>
 </template>
