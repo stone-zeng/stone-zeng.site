@@ -5,7 +5,7 @@ updated: 2020-03-01
 ---
 
 <script setup lang="ts">
-// import ImageGroup from '@/theme/components/ImageGroup.vue'
+import { ImageGroup } from '@stone-zeng/vitepress-theme'
 </script>
 
 新年伊始，肺炎疫情从武汉蔓延至全国乃至世界各地，形势越发严峻。这里简要罗列一些数据，并且据此给出（未必非常靠谱）的预测。

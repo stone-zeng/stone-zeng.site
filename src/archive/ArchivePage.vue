@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { data as posts } from '@/posts.data'
-import ArchiveEntry from '@/theme/components/archive/ArchiveEntry.vue'
+import { usePosts } from '@stone-zeng/vitepress-theme'
 
+const posts = usePosts()
 const groups = computed(() => {
   const res: Record<number, typeof posts> = {}
   posts.forEach((post) => {
@@ -23,12 +23,16 @@ const groups = computed(() => {
   <template v-for="{ year, group } in groups">
     <h2>{{ year }}</h2>
     <ul class="text-pretty !list-none !pl-0">
-      <ArchiveEntry
-        v-for="{ title, url, date } in group"
-        :title="title"
-        :url="url"
-        :date="new Date(date).toISOString()"
-      />
+      <li v-for="{ title, url, date } in group" class="my-1 flex">
+        <time
+          class="mr-4 inline-block w-12 shrink-0 text-right oldstyle-nums"
+          :datetime="date"
+          :title="`Posted on: ${date}`"
+        >
+          {{ date.slice(5, 10) }}
+        </time>
+        <a :href="url" v-html="title"></a>
+      </li>
     </ul>
   </template>
 </template>

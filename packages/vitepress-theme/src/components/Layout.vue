@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import katex from 'katex'
 import { computed, provide, ref } from 'vue'
 import { onContentUpdated, useData } from 'vitepress'
-import katex from 'katex'
-// import { data as posts } from '@/posts.data'
+import { usePosts } from '../composables/usePosts'
 import HomePage from './home/HomePage.vue'
 import PostAside from './post/PostAside.vue'
 import PostComments from './post/PostComments.vue'
@@ -12,13 +12,10 @@ import SiteFooter from './footer/SiteFooter.vue'
 import SiteHeader from './header/SiteHeader.vue'
 import Wrapper from './Wrapper.vue'
 import WrapperToggler from './WrapperToggler.vue'
-// import { inject } from 'vue'
-import { usePosts } from '../composables/usePosts'
 
 const { frontmatter, page } = useData()
 const posts = usePosts()
 const post = computed(() => posts.find(({ url }) => page.value.filePath.includes(url)))
-// let post: any
 
 const expanded = ref(false)
 const toggleExpanded = () => {
@@ -28,12 +25,6 @@ provide('expanded', {
   expanded,
   toggleExpanded,
 })
-
-// const x = inject('posts')
-
-const isHome = computed(() => frontmatter.value.layout === 'home')
-const isPage = computed(() => frontmatter.value.layout === 'page')
-const isZh = computed(() => frontmatter.value.lang !== 'en-US')
 
 const renderMath = () => {
   const macros = {}
@@ -56,9 +47,7 @@ onContentUpdated(renderMath)
 <template>
   <SiteHeader class="h-14 sm:h-16" />
   <Wrapper is="main" class="mt-14 sm:mt-16">
-    {{ posts }}
-    <!-- <Content v-if="isHome" />
-    <HomePage v-if="isHome" />
+    <HomePage v-if="frontmatter.layout === 'home'" />
     <div v-else class="flex justify-between gap-8">
       <article class="min-w-0 grow">
         <div class="my-6 sm:mt-8">
@@ -71,11 +60,11 @@ onContentUpdated(renderMath)
             :wordCount="post.wordCount"
           />
         </div>
-        <Content class="prose" :class="{ 'leading-relaxed': isZh }" />
-        <PostComments v-if="!isPage" />
+        <Content class="prose" :class="{ 'leading-relaxed': frontmatter.lang !== 'en-US' }" />
+        <PostComments v-if="post" />
       </article>
-      <PostAside v-if="!isPage" />
-    </div> -->
+      <PostAside v-if="post" />
+    </div>
   </Wrapper>
   <SiteFooter />
   <WrapperToggler />

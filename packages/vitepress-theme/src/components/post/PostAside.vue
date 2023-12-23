@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import { computed } from 'vue'
-// import { data as posts } from '@/posts.data'
-let posts: any
+import { usePosts } from '../../composables/usePosts'
 
+const posts = usePosts()
 const { page } = useData()
 const headings = computed(
   () => posts.find(({ url }) => page.value.filePath.includes(url))?.headings || [],

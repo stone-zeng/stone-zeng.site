@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { data as posts } from '@/posts.data'
+import { usePosts } from '@stone-zeng/vitepress-theme'
 
+const posts = usePosts()
 const totalWordCountShort = posts
   .map(({ wordCount }) => wordCount)
   .reduce((a, b) => a + b.latin + b.cjk, 0)
