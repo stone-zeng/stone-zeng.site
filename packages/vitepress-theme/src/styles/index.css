@@ -1,7 +1,6 @@
 @import './fonts.css';
 @import './katex.css';
 @import './prose.css';
-@import './specials.css';
 @import './tex-logo.css';
 
 @tailwind base;
@@ -73,10 +72,5 @@
   .text-emphasis-filled {
     text-emphasis: filled;
     text-emphasis-position: under left;
-  }
-
-  /* TODO: tailwind next version */
-  .text-wrap {
-    text-wrap: pretty;
   }
 }

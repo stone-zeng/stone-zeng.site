@@ -29,11 +29,7 @@ const props = defineProps<{
     :external="!link.startsWith('/')"
     class="SocialLink group transition-colors"
   >
-    <component
-      :is="icons[icon]"
-      :size="18"
-      class="transition-[stroke-width] group-hover:stroke-3"
-    />
+    <component :is="icons[icon]" :size="18" class="transition-stroke group-hover:stroke-3" />
   </BaseLink>
 </template>
 

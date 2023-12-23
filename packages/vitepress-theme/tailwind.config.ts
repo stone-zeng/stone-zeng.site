@@ -1,7 +1,9 @@
 import type { Config } from 'tailwindcss'
-import { tailwindTheme } from './src/tailwind'
+import tailwind from './src/tailwind'
 
+const { theme, safelist } = tailwind
 export default <Config>{
   content: ['src/**/*.{ts,vue}'],
-  theme: tailwindTheme,
+  theme,
+  safelist,
 }
