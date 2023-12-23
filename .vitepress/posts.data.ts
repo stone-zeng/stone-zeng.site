@@ -1,34 +1,7 @@
+import { createContentLoader, createMarkdownRenderer, type ContentData } from 'vitepress'
 import { slugify } from '@mdit-vue/shared'
 import { MarkdownItCjkKern, MarkdownItTeXLogo } from '@stone-zeng/markdown-it-plugins'
-import { createContentLoader, createMarkdownRenderer, type ContentData } from 'vitepress'
-
-interface Post {
-  title: string
-  url: string
-  date: string
-  updated?: string
-  tags: string[]
-  excerpt?: string
-  headings: Heading[]
-  wordCount: WordCount
-}
-
-interface Heading {
-  level: number
-  title: string
-  link: string
-  children?: Heading[]
-}
-
-export interface WordCount {
-  latin: number
-  cjk: number
-  pre: number
-  code: number
-  mathBlock: number
-  mathInline: number
-  image: number
-}
+import type { Heading, Post, WordCount } from '@stone-zeng/vitepress-theme'
 
 export default createContentLoader('src/posts/**/*.md', {
   excerpt: '<!-- more -->',
