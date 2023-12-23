@@ -69,20 +69,5 @@ export default {
       },
     },
   },
-  safelist: [
-    // Components
-    'cjk-code',
-    'cjk-kern',
-    'katex',
-    'katex-def',
-    'katex-display',
-    'prose',
-    'tex-logo',
-    // Utilities
-    'font-mono',
-    'font-feature-calt-off',
-    'font-feature-frac',
-    'small-caps',
-    'text-emphasis-filled',
-  ],
+  safelist: ['katex', 'katex-def', 'katex-display', 'prose', 'font-mono'],
 }

@@ -1,5 +1,3 @@
-@tailwind components;
-
 @layer components {
   /* use-opentype-fonts */
   .font-sample {

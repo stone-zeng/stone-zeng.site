@@ -1,7 +1,7 @@
 import type { Theme } from 'vitepress'
 import { theme } from '@stone-zeng/vitepress-theme'
 import { data } from '../posts.data'
-import './styles.css'
+import './index.css'
 
 export default <Theme>{
   extends: theme,

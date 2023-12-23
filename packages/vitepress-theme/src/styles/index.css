@@ -1,7 +1,6 @@
 @import './fonts.css';
 @import './katex.css';
 @import './prose.css';
-@import './tex-logo.css';
 
 @tailwind base;
 @tailwind components;
@@ -31,14 +30,6 @@
 }
 
 @layer components {
-  .cjk-code {
-    @apply ml-[0.1em] mr-[-0.1em] tracking-[0.2em];
-  }
-
-  .cjk-kern {
-    @apply tracking-[0.5em];
-  }
-
   .katex {
     @apply text-[17px] leading-none;
   }
@@ -55,22 +46,5 @@
 @layer utilities {
   .font-mono {
     font-feature-settings: 'cv12', 'cv14'; /* cv12: u; cv14: $, ¢ */
-  }
-
-  .font-feature-calt-off {
-    font-feature-settings: 'calt' 0 !important;
-  }
-
-  .font-feature-frac {
-    font-feature-settings: 'frac' !important;
-  }
-
-  .small-caps {
-    font-variant: small-caps;
-  }
-
-  .text-emphasis-filled {
-    text-emphasis: filled;
-    text-emphasis-position: under left;
   }
 }

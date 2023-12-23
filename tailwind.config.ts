@@ -14,10 +14,18 @@ export default <Config>{
     'sm:!w-[45%]',
     'sm:!w-[55%]',
     // Components
-    'font-sample',
     'circled-number',
+    'cjk-code',
+    'cjk-kern',
+    'font-sample',
     'problem-example',
-    'problem-input',
     'problem-highlight',
+    'problem-input',
+    'tex-logo',
+    // Utilities
+    'font-feature-calt-off',
+    'font-feature-frac',
+    'small-caps',
+    'text-emphasis-filled',
   ],
 }
