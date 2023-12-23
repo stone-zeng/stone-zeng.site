@@ -20,7 +20,7 @@ const icons = {
             <component
               :is="icons[text]"
               :size="18"
-              class="group-hover:stroke-3 translate-y-0.5 transition-[stroke-width]"
+              class="translate-y-0.5 transition-[stroke-width] group-hover:stroke-3"
               :class="{ 'stroke-3': text === frontmatter.title }"
             />
           </span>

@@ -3,8 +3,8 @@ layout: home
 titleTemplate: false
 ---
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import HomePage from '@/theme/components/home/HomePage.vue'
 </script>
 
-<HomePage />
+<HomePage /> -->

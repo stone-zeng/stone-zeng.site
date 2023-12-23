@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { IconCalendarPlus } from '@tabler/icons-vue'
-import PostDate from '@/theme/components/post/PostDate.vue'
+import PostDate from '../post/PostDate.vue'
 
 defineProps<{
   title: string

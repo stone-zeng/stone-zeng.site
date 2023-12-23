@@ -6,8 +6,8 @@ import {
   IconClock,
   IconFileAnalytics,
 } from '@tabler/icons-vue'
-import { type WordCount } from '@/posts.data'
-import PostDate from '@/theme/components/post/PostDate.vue'
+// import { type WordCount } from '@/posts.data'
+import PostDate from './PostDate.vue'
 
 const wordsShort = computed(() => wordCount.latin + wordCount.cjk)
 const wordsLong = computed(

@@ -1,4 +1,11 @@
-import Layout from '@/theme/components/Layout.vue'
-import '@/theme/styles/index.css'
+import type { Theme } from 'vitepress'
+import { theme } from '@stone-zeng/vitepress-theme'
 
-export default { Layout }
+import { data } from '../posts.data'
+
+export default <Theme>{
+  extends: theme,
+  enhanceApp({ app }) {
+    app.provide('posts', data)
+  },
+}

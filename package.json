@@ -21,11 +21,10 @@
     "packages:test": "pnpm -r run test"
   },
   "devDependencies": {
-    "@giscus/vue": "^2.3.0",
     "@mdit-vue/shared": "^1.0.0",
     "@stone-zeng/markdown-it-plugins": "workspace:^",
     "@stone-zeng/vitepress-plugin-feed": "workspace:^",
-    "@tabler/icons-vue": "^2.42.0",
+    "@stone-zeng/vitepress-theme": "workspace:^",
     "@types/katex": "^0.16.7",
     "@types/markdown-it-attrs": "^4.1.3",
     "@types/node": "^20.10.1",

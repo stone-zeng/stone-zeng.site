@@ -1,14 +1,28 @@
 <script setup lang="ts">
 import { computed, onMounted, provide, ref } from 'vue'
 import { useData } from 'vitepress'
-import { arrayChunk } from '@/theme/utils'
-import { data as posts } from '@/posts.data'
-import HomeEntry from '@/theme/components/home/HomeEntry.vue'
-import Paginator from '@/theme/components/home/Paginator.vue'
+// import { arrayChunk } from '@/theme/utils'
+// import { data as posts } from '@/posts.data'
+import HomeEntry from './HomeEntry.vue'
+import Paginator from './Paginator.vue'
+
+const posts = [
+  { title: 'a', url: 'a', date: '2023-12-01' },
+  { title: 'a', url: 'a', date: '2023-12-01' },
+  { title: 'a', url: 'a', date: '2023-12-01' },
+]
+const arrayChunk = <T,>(array: T[], size: number) => {
+  const result: T[][] = []
+  for (let i = 0; i < array.length; i += size) {
+    result.push(array.slice(i, i + size))
+  }
+  return result
+}
 
 const { theme } = useData<Theme.Config>()
 
 const pages = computed(() => arrayChunk(posts, theme.value.paginate))
+// const pages = computed(() => [])
 const page = ref(1)
 const updatePage = (i: number) => {
   page.value = i

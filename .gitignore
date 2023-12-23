@@ -21,4 +21,5 @@ dist/
 node_modules/
 
 .vitepress/config.ts.timestamp-*.mjs
-.vitepress/theme/styles/katex.css
+
+packages/vitepress-theme/src/styles/katex.css

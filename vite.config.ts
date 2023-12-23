@@ -9,6 +9,11 @@ export default defineConfig({
     postcss: { plugins: [tailwindcssNesting, tailwindcss, autoprefixer] },
   },
   resolve: {
-    alias: { '@': fileURLToPath(new URL('./.vitepress/', import.meta.url)) },
+    alias: {
+      '@': fileURLToPath(new URL('./.vitepress/', import.meta.url)),
+      '@stone-zeng/vitepress-theme': fileURLToPath(
+        new URL('./packages/vitepress-theme/src/', import.meta.url),
+      ),
+    },
   },
 })

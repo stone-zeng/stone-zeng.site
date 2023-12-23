@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { IconBrandGithub, IconBrandTwitter, IconMail, IconRss } from '@tabler/icons-vue'
-import BaseLink from '@/theme/components/BaseLink.vue'
+import BaseLink from '../BaseLink.vue'
 
 const hoverColor = computed(() =>
   typeof props.color !== 'string' ? props.color : { light: props.color, dark: props.color },
@@ -32,7 +32,7 @@ const props = defineProps<{
     <component
       :is="icons[icon]"
       :size="18"
-      class="group-hover:stroke-3 transition-[stroke-width]"
+      class="transition-[stroke-width] group-hover:stroke-3"
     />
   </BaseLink>
 </template>

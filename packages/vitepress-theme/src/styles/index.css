@@ -1,8 +1,8 @@
-@import '@/theme/styles/fonts.css';
-@import '@/theme/styles/katex.css';
-@import '@/theme/styles/prose.css';
-@import '@/theme/styles/specials.css';
-@import '@/theme/styles/tex-logo.css';
+@import './fonts.css';
+/* @import './katex.css'; */
+@import './prose.css';
+@import './specials.css';
+@import './tex-logo.css';
 
 @tailwind base;
 @tailwind components;

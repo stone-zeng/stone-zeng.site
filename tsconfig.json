@@ -11,6 +11,9 @@
     "paths": {
       "@/*": [
         "./.vitepress/*"
+      ],
+      "@stone-zeng/vitepress-theme": [
+        "./packages/vitepress-theme/src/"
       ]
     },
     "resolveJsonModule": true,

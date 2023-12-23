@@ -1,0 +1,42 @@
+{
+  "name": "@stone-zeng/vitepress-theme",
+  "version": "0.1.0",
+  "author": "Xiangdong Zeng <xdzeng96@gmail.com>",
+  "description": "VitePress theme for stone-zeng.site",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stone-zeng/stone-zeng.site.git",
+    "directory": "packages/vitepress-theme"
+  },
+  "type": "module",
+  "module": "./dist/vitepress-theme.js",
+  "main": "./dist/vitepress-theme.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vitepress-theme.js",
+      "require": "./dist/vitepress-theme.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@giscus/vue": "^2.3.0",
+    "katex": "^0.16.9",
+    "vitepress": "1.0.0-rc.31",
+    "vue": "^3.3.9"
+  },
+  "devDependencies": {
+    "@laynezh/vite-plugin-lib-assets": "^0.5.10",
+    "@tabler/icons-vue": "^2.42.0",
+    "@types/katex": "^0.16.7",
+    "@vitejs/plugin-vue": "^4.5.1",
+    "autoprefixer": "^10.4.16",
+    "tailwindcss": "^3.3.5",
+    "vite": "^5.0.4",
+    "vite-plugin-dts": "^3.6.4"
+  }
+}

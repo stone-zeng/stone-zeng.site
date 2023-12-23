@@ -2,18 +2,23 @@
 import { computed, provide, ref } from 'vue'
 import { onContentUpdated, useData } from 'vitepress'
 import katex from 'katex'
-import { data as posts } from '@/posts.data'
-import PostAside from '@/theme/components/post/PostAside.vue'
-import PostComments from '@/theme/components/post/PostComments.vue'
-import PostMeta from '@/theme/components/post/PostMeta.vue'
-import PostTitle from '@/theme/components/post/PostTitle.vue'
-import SiteFooter from '@/theme/components/footer/SiteFooter.vue'
-import SiteHeader from '@/theme/components/header/SiteHeader.vue'
-import Wrapper from '@/theme/components/Wrapper.vue'
-import WrapperToggler from '@/theme/components/WrapperToggler.vue'
+// import { data as posts } from '@/posts.data'
+import HomePage from './home/HomePage.vue'
+import PostAside from './post/PostAside.vue'
+import PostComments from './post/PostComments.vue'
+import PostMeta from './post/PostMeta.vue'
+import PostTitle from './post/PostTitle.vue'
+import SiteFooter from './footer/SiteFooter.vue'
+import SiteHeader from './header/SiteHeader.vue'
+import Wrapper from './Wrapper.vue'
+import WrapperToggler from './WrapperToggler.vue'
+// import { inject } from 'vue'
+import { usePosts } from '../composables/usePosts'
 
 const { frontmatter, page } = useData()
+const posts = usePosts()
 const post = computed(() => posts.find(({ url }) => page.value.filePath.includes(url)))
+// let post: any
 
 const expanded = ref(false)
 const toggleExpanded = () => {
@@ -23,6 +28,8 @@ provide('expanded', {
   expanded,
   toggleExpanded,
 })
+
+// const x = inject('posts')
 
 const isHome = computed(() => frontmatter.value.layout === 'home')
 const isPage = computed(() => frontmatter.value.layout === 'page')
@@ -49,7 +56,9 @@ onContentUpdated(renderMath)
 <template>
   <SiteHeader class="h-14 sm:h-16" />
   <Wrapper is="main" class="mt-14 sm:mt-16">
-    <Content v-if="isHome" />
+    {{ posts }}
+    <!-- <Content v-if="isHome" />
+    <HomePage v-if="isHome" />
     <div v-else class="flex justify-between gap-8">
       <article class="min-w-0 grow">
         <div class="my-6 sm:mt-8">
@@ -66,7 +75,7 @@ onContentUpdated(renderMath)
         <PostComments v-if="!isPage" />
       </article>
       <PostAside v-if="!isPage" />
-    </div>
+    </div> -->
   </Wrapper>
   <SiteFooter />
   <WrapperToggler />

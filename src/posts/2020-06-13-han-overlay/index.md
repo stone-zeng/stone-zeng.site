@@ -6,7 +6,7 @@ excerpt: 「把所有汉字叠写起来会怎么样呢？」这个问题源于�
 ---
 
 <script setup lang="ts">
-import ImageGroup from '@/theme/components/ImageGroup.vue'
+// import ImageGroup from '@/theme/components/ImageGroup.vue'
 </script>
 
 ## 背景介绍

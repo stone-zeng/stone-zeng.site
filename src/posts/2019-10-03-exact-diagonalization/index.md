@@ -8,7 +8,7 @@ tags:
 ---
 
 <script setup lang="ts">
-import ImageGroup from '@/theme/components/ImageGroup.vue'
+// import ImageGroup from '@/theme/components/ImageGroup.vue'
 </script>
 
 ## Introduction
