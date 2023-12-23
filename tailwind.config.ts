@@ -1,9 +1,7 @@
 import type { Config } from 'tailwindcss'
-import { tailwindTheme } from '@stone-zeng/vitepress-theme'
+import { tailwindTheme } from '@stone-zeng/vitepress-theme/tailwind'
 
 export default <Config>{
-  // content: ['src/**/*.{ts,vue}'],
-  // content: ['./.vitepress/lib/**/*.ts', './.vitepress/theme/**/*.{ts,vue}', './src/**/*.{ts,vue}'],
   content: ['./packages/vitepress-theme/src/**/*.{ts,vue}', './src/**/*.{ts,vue}'],
   theme: tailwindTheme,
 }

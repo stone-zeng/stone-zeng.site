@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     assetsInlineLimit: 0,
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: [resolve(__dirname, 'src/index.ts'), resolve(__dirname, 'src/tailwind.ts')],
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

@@ -17,6 +17,10 @@
       "import": "./dist/vitepress-theme.js",
       "require": "./dist/vitepress-theme.cjs"
     },
+    "./tailwind": {
+      "import": "./dist/tailwind.js",
+      "require": "./dist/tailwind.cjs"
+    },
     "./style.css": "./dist/style.css"
   },
   "types": "./dist/index.d.ts",

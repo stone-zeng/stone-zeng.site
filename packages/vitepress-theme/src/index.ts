@@ -1,5 +1,5 @@
 import Layout from './components/Layout.vue'
-import { tailwindTheme } from './tailwindTheme'
+import { tailwindTheme } from './tailwind'
 import './styles/index.css'
 
 const theme = { Layout }

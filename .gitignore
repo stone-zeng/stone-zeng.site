@@ -9,6 +9,8 @@
 *.tuc
 *.xdv
 
+*.timestamp-*.mjs
+
 *.otf
 *.ttf
 *.woff2
@@ -19,7 +21,5 @@
 cache/
 dist/
 node_modules/
-
-.vitepress/config.ts.timestamp-*.mjs
 
 packages/vitepress-theme/src/styles/katex.css

@@ -12,8 +12,8 @@
       "@/*": [
         "./.vitepress/*"
       ],
-      "@stone-zeng/vitepress-theme": [
-        "./packages/vitepress-theme/src/"
+      "@stone-zeng/vitepress-theme/*": [
+        "./packages/vitepress-theme/src/*"
       ]
     },
     "resolveJsonModule": true,
