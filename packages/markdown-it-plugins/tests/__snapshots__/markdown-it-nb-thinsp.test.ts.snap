@@ -4,4 +4,4 @@ exports[`No-break thin space 1`] = `"1&#x202F;GB"`;
 
 exports[`No-break thin space 2`] = `"; is semicolon"`;
 
-exports[`No-break thin space 3`] = `"<code>\\\\,</code> is \\\\,"`;
+exports[`No-break thin space 3`] = `"<code>\\,</code> is \\,"`;

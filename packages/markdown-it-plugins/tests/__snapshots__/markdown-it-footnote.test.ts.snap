@@ -1,38 +1,38 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Complex notes > Multiline (a) 1`] = `
-"<p>Some text<sup id=\\"fnref:note\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></p>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note\\">^</a></sup>This is a multiline<p>footnote.</p>
+"<p>Some text<sup id="fnref:note" class="footnote-ref"><a href="#fn:note">[1]</a></sup></p>
+<ol id="footnotes">
+<li id="fn:note"><sup class="footnote-backref"><a href="#fnref:note">^</a></sup>This is a multiline<p>footnote.</p>
 </li>
 </ol>
 "
 `;
 
 exports[`Complex notes > Multiline (b) 1`] = `
-"<p>Some text<sup id=\\"fnref:note\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></p>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note\\">^</a></sup>This is a multiline<p>footnote.</p>
+"<p>Some text<sup id="fnref:note" class="footnote-ref"><a href="#fn:note">[1]</a></sup></p>
+<ol id="footnotes">
+<li id="fn:note"><sup class="footnote-backref"><a href="#fnref:note">^</a></sup>This is a multiline<p>footnote.</p>
 </li>
 </ol>
 "
 `;
 
 exports[`Complex notes > Multiline (c) 1`] = `
-"<p>Some text<sup id=\\"fnref:note\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></p>
+"<p>Some text<sup id="fnref:note" class="footnote-ref"><a href="#fn:note">[1]</a></sup></p>
 <p>footnote.</p>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note\\">^</a></sup>This is NOT a multiline</li>
+<ol id="footnotes">
+<li id="fn:note"><sup class="footnote-backref"><a href="#fnref:note">^</a></sup>This is NOT a multiline</li>
 </ol>
 "
 `;
 
 exports[`Complex notes > With code 1`] = `
 "<ul>
-<li>Some text<sup id=\\"fnref:note\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></li>
+<li>Some text<sup id="fnref:note" class="footnote-ref"><a href="#fn:note">[1]</a></sup></li>
 </ul>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note\\">^</a></sup>This is a note with code:<pre><code class=\\"language-cpp\\">std::cout &lt;&lt; &quot;Hello, world!&quot; &lt;&lt; std::endl;
+<ol id="footnotes">
+<li id="fn:note"><sup class="footnote-backref"><a href="#fnref:note">^</a></sup>This is a note with code:<pre><code class="language-cpp">std::cout &lt;&lt; &quot;Hello, world!&quot; &lt;&lt; std::endl;
 
 </code></pre>
 </li>
@@ -41,9 +41,9 @@ exports[`Complex notes > With code 1`] = `
 `;
 
 exports[`Complex notes > With list (a) 1`] = `
-"<p>Some text<sup id=\\"fnref:note\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></p>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note\\">^</a></sup>This is a note with list:<ul>
+"<p>Some text<sup id="fnref:note" class="footnote-ref"><a href="#fn:note">[1]</a></sup></p>
+<ol id="footnotes">
+<li id="fn:note"><sup class="footnote-backref"><a href="#fnref:note">^</a></sup>This is a note with list:<ul>
 <li>Item A</li>
 <li>Item B</li>
 </ul>
@@ -54,10 +54,10 @@ exports[`Complex notes > With list (a) 1`] = `
 
 exports[`Complex notes > With list (b) 1`] = `
 "<ul>
-<li>Some text<sup id=\\"fnref:note\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></li>
+<li>Some text<sup id="fnref:note" class="footnote-ref"><a href="#fn:note">[1]</a></sup></li>
 </ul>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note\\">^</a></sup>This is a note with list:<ul>
+<ol id="footnotes">
+<li id="fn:note"><sup class="footnote-backref"><a href="#fnref:note">^</a></sup>This is a note with list:<ul>
 <li>Item A</li>
 <li>Item B</li>
 </ul>
@@ -69,52 +69,52 @@ exports[`Complex notes > With list (b) 1`] = `
 
 exports[`Complex notes > With list (c) 1`] = `
 "<ul>
-<li>Some text<sup id=\\"fnref:note\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></li>
+<li>Some text<sup id="fnref:note" class="footnote-ref"><a href="#fn:note">[1]</a></sup></li>
 </ul>
 <ul>
 <li>Item A</li>
 <li>Item B</li>
 </ul>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note\\">^</a></sup>This is NOT a note with list:</li>
+<ol id="footnotes">
+<li id="fn:note"><sup class="footnote-backref"><a href="#fnref:note">^</a></sup>This is NOT a note with list:</li>
 </ol>
 "
 `;
 
-exports[`Footnote ref > Multiple ref 1`] = `"Some <sup id=\\"fnref:note:1\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup> and <sup id=\\"fnref:note:2\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup>"`;
+exports[`Footnote ref > Multiple ref 1`] = `"Some <sup id="fnref:note:1" class="footnote-ref"><a href="#fn:note">[1]</a></sup> and <sup id="fnref:note:2" class="footnote-ref"><a href="#fn:note">[1]</a></sup>"`;
 
-exports[`Footnote ref > Single ref 1`] = `"Some <sup id=\\"fnref:note\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup>"`;
+exports[`Footnote ref > Single ref 1`] = `"Some <sup id="fnref:note" class="footnote-ref"><a href="#fn:note">[1]</a></sup>"`;
 
 exports[`Full post > Multiple ref (a) 1`] = `
 "<ul>
-<li>Some text<sup id=\\"fnref:note-a\\" class=\\"footnote-ref\\"><a href=\\"#fn:note-a\\">[1]</a></sup></li>
-<li>Some text<sup id=\\"fnref:note-b\\" class=\\"footnote-ref\\"><a href=\\"#fn:note-b\\">[2]</a></sup></li>
+<li>Some text<sup id="fnref:note-a" class="footnote-ref"><a href="#fn:note-a">[1]</a></sup></li>
+<li>Some text<sup id="fnref:note-b" class="footnote-ref"><a href="#fn:note-b">[2]</a></sup></li>
 </ul>
 <h2>Footnotes</h2>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note-a\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note-a\\">^</a></sup>This is footnote A.</li>
-<li id=\\"fn:note-b\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note-b\\">^</a></sup>This is footnote B.</li>
+<ol id="footnotes">
+<li id="fn:note-a"><sup class="footnote-backref"><a href="#fnref:note-a">^</a></sup>This is footnote A.</li>
+<li id="fn:note-b"><sup class="footnote-backref"><a href="#fnref:note-b">^</a></sup>This is footnote B.</li>
 </ol>
 "
 `;
 
 exports[`Full post > Multiple ref (b) 1`] = `
 "<ul>
-<li>Some text<sup id=\\"fnref:note:1\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></li>
-<li>Some text<sup id=\\"fnref:note:2\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></li>
+<li>Some text<sup id="fnref:note:1" class="footnote-ref"><a href="#fn:note">[1]</a></sup></li>
+<li>Some text<sup id="fnref:note:2" class="footnote-ref"><a href="#fn:note">[1]</a></sup></li>
 </ul>
 <h2>Footnotes</h2>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note\\"><sup class=\\"footnote-backref\\"><span>^</span><a href=\\"#fnref:note:1\\">a</a><a href=\\"#fnref:note:2\\">b</a></sup>This is a footnote.</li>
+<ol id="footnotes">
+<li id="fn:note"><sup class="footnote-backref"><span>^</span><a href="#fnref:note:1">a</a><a href="#fnref:note:2">b</a></sup>This is a footnote.</li>
 </ol>
 "
 `;
 
 exports[`Full post > Single ref 1`] = `
-"<p>Some text<sup id=\\"fnref:note\\" class=\\"footnote-ref\\"><a href=\\"#fn:note\\">[1]</a></sup></p>
+"<p>Some text<sup id="fnref:note" class="footnote-ref"><a href="#fn:note">[1]</a></sup></p>
 <h2>Footnotes</h2>
-<ol id=\\"footnotes\\">
-<li id=\\"fn:note\\"><sup class=\\"footnote-backref\\"><a href=\\"#fnref:note\\">^</a></sup>This is a footnote.</li>
+<ol id="footnotes">
+<li id="fn:note"><sup class="footnote-backref"><a href="#fnref:note">^</a></sup>This is a footnote.</li>
 </ol>
 "
 `;

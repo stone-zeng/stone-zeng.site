@@ -2,43 +2,43 @@
 
 exports[`Logos 1`] = `
 "<ul>
-<li><span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li><span class=\\"tex-logo shy\\">L<span class=\\"la-a\\">a</span>T<span class=\\"tex-e\\">e</span>X</span></li>
-<li><span class=\\"tex-logo shy\\">L<span class=\\"la-a\\">a</span>T<span class=\\"tex-e\\">e</span>X</span>&thinsp;<span class=\\"tex-logo shy\\">2<span class=\\"two-e-epsilon\\">&epsilon;</span></span></li>
-<li><span class=\\"tex-logo shy\\">L<span class=\\"la-a\\">a</span>T<span class=\\"tex-e\\">e</span>X</span>3</li>
-<li><span class=\\"tex-logo\\">(L<span class=\\"la-a\\">a</span>)</span><span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>Con<span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span>t</li>
-<li><span class=\\"tex-logo\\"><span class=\\"epsilon\\">&epsilon;</span><span class=\\"rkern\\">-</span></span><span class=\\"tex-logo\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>pdf<span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>pdf<span class=\\"tex-logo shy\\">L<span class=\\"la-a\\">a</span>T<span class=\\"tex-e\\">e</span>X</span></li>
-<li><span class=\\"tex-logo\\">X<span class=\\"xe-e xe-e-kern\\">e</span></span><span class=\\"tex-logo\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li><span class=\\"tex-logo\\">X<span class=\\"xe-e\\">e</span></span><span class=\\"tex-logo shy\\">L<span class=\\"la-a\\">a</span>T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>Lua<span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>Lua<span class=\\"tex-logo shy\\">HB</span><span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>Lua<span class=\\"tex-logo shy\\">L<span class=\\"la-a\\">a</span>T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>p<span class=\\"tex-logo\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>p<span class=\\"tex-logo\\">L<span class=\\"la-a\\">a</span>T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>up<span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>up<span class=\\"tex-logo shy\\">L<span class=\\"la-a\\">a</span>T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>Ap<span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li><span class=\\"tex-logo\\">B<span class=\\"bib-ib\\">ib</span></span><span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>C<span class=\\"tex-logo\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>Mac<span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li>MiK<span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></li>
-<li><span class=\\"tex-logo shy\\">2<span class=\\"two-e-epsilon\\">&epsilon;</span></span></li>
+<li><span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li><span class="tex-logo shy">L<span class="la-a">a</span>T<span class="tex-e">e</span>X</span></li>
+<li><span class="tex-logo shy">L<span class="la-a">a</span>T<span class="tex-e">e</span>X</span>&thinsp;<span class="tex-logo shy">2<span class="two-e-epsilon">&epsilon;</span></span></li>
+<li><span class="tex-logo shy">L<span class="la-a">a</span>T<span class="tex-e">e</span>X</span>3</li>
+<li><span class="tex-logo">(L<span class="la-a">a</span>)</span><span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li>Con<span class="tex-logo shy">T<span class="tex-e">e</span>X</span>t</li>
+<li><span class="tex-logo"><span class="epsilon">&epsilon;</span><span class="rkern">-</span></span><span class="tex-logo">T<span class="tex-e">e</span>X</span></li>
+<li>pdf<span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li>pdf<span class="tex-logo shy">L<span class="la-a">a</span>T<span class="tex-e">e</span>X</span></li>
+<li><span class="tex-logo">X<span class="xe-e xe-e-kern">e</span></span><span class="tex-logo">T<span class="tex-e">e</span>X</span></li>
+<li><span class="tex-logo">X<span class="xe-e">e</span></span><span class="tex-logo shy">L<span class="la-a">a</span>T<span class="tex-e">e</span>X</span></li>
+<li>Lua<span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li>Lua<span class="tex-logo shy">HB</span><span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li>Lua<span class="tex-logo shy">L<span class="la-a">a</span>T<span class="tex-e">e</span>X</span></li>
+<li>p<span class="tex-logo">T<span class="tex-e">e</span>X</span></li>
+<li>p<span class="tex-logo">L<span class="la-a">a</span>T<span class="tex-e">e</span>X</span></li>
+<li>up<span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li>up<span class="tex-logo shy">L<span class="la-a">a</span>T<span class="tex-e">e</span>X</span></li>
+<li>Ap<span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li><span class="tex-logo">B<span class="bib-ib">ib</span></span><span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li>C<span class="tex-logo">T<span class="tex-e">e</span>X</span></li>
+<li>Mac<span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li>MiK<span class="tex-logo shy">T<span class="tex-e">e</span>X</span></li>
+<li><span class="tex-logo shy">2<span class="two-e-epsilon">&epsilon;</span></span></li>
 </ul>
 "
 `;
 
 exports[`Logos in list 1`] = `
 "<ul>
-<li><a href=\\"https://www.latex-project.org\\"><span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></a> and <span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span> and <span class=\\"tex-logo shy\\">L<span class=\\"la-a\\">a</span>T<span class=\\"tex-e\\">e</span>X</span></li>
-<li><em>pdf<span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span></em>
+<li><a href="https://www.latex-project.org"><span class="tex-logo shy">T<span class="tex-e">e</span>X</span></a> and <span class="tex-logo shy">T<span class="tex-e">e</span>X</span> and <span class="tex-logo shy">L<span class="la-a">a</span>T<span class="tex-e">e</span>X</span></li>
+<li><em>pdf<span class="tex-logo shy">T<span class="tex-e">e</span>X</span></em>
 <ul>
 <li>Happy \`TeX\`ing!</li>
-<li>Happy <span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span>\\\\ing!</li>
-<li>Happy <span class=\\"tex-logo shy\\">2<span class=\\"two-e-epsilon\\">&epsilon;</span></span>!</li>
-<li>Happy <strong><span class=\\"tex-logo\\">(L<span class=\\"la-a\\">a</span>)</span><span class=\\"tex-logo shy\\">T<span class=\\"tex-e\\">e</span>X</span>!</strong></li>
+<li>Happy <span class="tex-logo shy">T<span class="tex-e">e</span>X</span>\\ing!</li>
+<li>Happy <span class="tex-logo shy">2<span class="two-e-epsilon">&epsilon;</span></span>!</li>
+<li>Happy <strong><span class="tex-logo">(L<span class="la-a">a</span>)</span><span class="tex-logo shy">T<span class="tex-e">e</span>X</span>!</strong></li>
 </ul>
 </li>
 </ul>
