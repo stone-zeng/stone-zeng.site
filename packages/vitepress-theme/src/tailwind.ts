@@ -77,6 +77,7 @@ export default {
     'katex-def',
     'katex-display',
     'prose',
+    'tex-logo',
     // Utilities
     'font-mono',
     'font-feature-calt-off',
