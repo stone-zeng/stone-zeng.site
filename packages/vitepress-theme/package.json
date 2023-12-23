@@ -25,7 +25,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "vite build"
+    "build": "node scripts/patch-katex.mjs && vite build"
   },
   "dependencies": {
     "@giscus/vue": "^2.3.0",
@@ -34,9 +34,9 @@
     "vue": "^3.3.9"
   },
   "devDependencies": {
-    "@laynezh/vite-plugin-lib-assets": "^0.5.10",
     "@tabler/icons-vue": "^2.42.0",
     "@types/katex": "^0.16.7",
+    "@types/node": "^20.10.5",
     "@vitejs/plugin-vue": "^4.5.1",
     "autoprefixer": "^10.4.16",
     "tailwindcss": "^3.3.5",

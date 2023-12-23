@@ -1,5 +1,5 @@
 @import './fonts.css';
-/* @import './katex.css'; */
+@import './katex.css';
 @import './prose.css';
 @import './specials.css';
 @import './tex-logo.css';

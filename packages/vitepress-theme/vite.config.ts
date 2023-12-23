@@ -5,11 +5,9 @@ import tailwindcss from 'tailwindcss'
 import tailwindcssNesting from 'tailwindcss/nesting'
 import dts from 'vite-plugin-dts'
 import vue from '@vitejs/plugin-vue'
-import libAssetsPlugin from '@laynezh/vite-plugin-lib-assets'
 
 export default defineConfig({
   build: {
-    assetsInlineLimit: 0,
     lib: {
       entry: [resolve(__dirname, 'src/index.ts'), resolve(__dirname, 'src/tailwind.ts')],
       formats: ['es', 'cjs'],
@@ -21,9 +19,5 @@ export default defineConfig({
   css: {
     postcss: { plugins: [tailwindcssNesting, tailwindcss, autoprefixer] },
   },
-  plugins: [
-    dts({ rollupTypes: true }),
-    // libAssetsPlugin({ name: '[name].[contenthash:8].[ext]' }),
-    vue(),
-  ],
+  plugins: [dts({ rollupTypes: true }), vue()],
 })

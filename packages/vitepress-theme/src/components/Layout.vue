@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import katex from 'katex'
 import { computed, provide, ref } from 'vue'
-import { onContentUpdated, useData } from 'vitepress'
+import { useData } from 'vitepress'
 import { usePosts } from '../composables/usePosts'
+import { useRenderMath } from '../composables/useRenderMath'
 import HomePage from './home/HomePage.vue'
 import PostAside from './post/PostAside.vue'
 import PostComments from './post/PostComments.vue'
@@ -26,22 +26,7 @@ provide('expanded', {
   toggleExpanded,
 })
 
-const renderMath = () => {
-  const macros = {}
-  const renderToString = (tex: string | null, displayMode: boolean) =>
-    katex.renderToString(tex || '', {
-      throwOnError: true,
-      displayMode,
-      macros,
-    })
-  document.querySelectorAll('[data-math]').forEach((el) => {
-    el.outerHTML =
-      el.tagName === 'DIV'
-        ? `<p>${renderToString(el.textContent, true)}</p>`
-        : renderToString(el.textContent, false)
-  })
-}
-onContentUpdated(renderMath)
+useRenderMath()
 </script>
 
 <template>

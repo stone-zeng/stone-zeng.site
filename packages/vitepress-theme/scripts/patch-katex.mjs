@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs'
 
 const input_file = 'node_modules/katex/dist/katex.css'
-const output_file = '.vitepress/theme/styles/katex.css'
+const output_file = 'src/styles/katex.css'
 
 const printError = (err) => {
   if (err) {
