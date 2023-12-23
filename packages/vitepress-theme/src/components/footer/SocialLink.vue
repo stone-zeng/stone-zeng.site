@@ -17,9 +17,25 @@ const icons = {
 const props = defineProps<{
   name: string
   link: string
-  color: Theme.SocialLinkColor
-  icon: Theme.SocialLinkIcon
+  color: SocialLinkColor
+  icon: SocialLinkIcon
 }>()
+
+export type SocialLink = {
+  name: string
+  link: string
+  color: SocialLinkColor
+  icon: SocialLinkIcon
+}
+
+export type SocialLinkColor =
+  | string
+  | {
+      light: string
+      dark: string
+    }
+
+export type SocialLinkIcon = 'email' | 'github' | 'rss' | 'twitter'
 </script>
 
 <template>

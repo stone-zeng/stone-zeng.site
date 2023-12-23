@@ -9,6 +9,7 @@ import {
   MarkdownItTeXLogo,
 } from '@stone-zeng/markdown-it-plugins'
 import { genFeed } from '@stone-zeng/vitepress-plugin-feed'
+import type { Theme } from '@stone-zeng/vitepress-theme'
 
 import vite from '../vite.config'
 

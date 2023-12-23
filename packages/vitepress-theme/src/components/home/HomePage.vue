@@ -4,6 +4,7 @@ import { useData } from 'vitepress'
 import { usePosts } from '../../composables/usePosts'
 import HomeEntry from './HomeEntry.vue'
 import Paginator from './Paginator.vue'
+import type { Theme } from '../../theme'
 
 const posts = usePosts()
 const arrayChunk = <T,>(array: T[], size: number) => {

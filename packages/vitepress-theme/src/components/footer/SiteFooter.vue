@@ -2,6 +2,7 @@
 import { useData } from 'vitepress'
 import SocialLink from './SocialLink.vue'
 import Wrapper from '../Wrapper.vue'
+import type { Theme } from '../../theme'
 
 const { theme } = useData<Theme.Config>()
 </script>

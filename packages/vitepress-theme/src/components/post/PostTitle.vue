@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useData } from 'vitepress'
 import { IconEdit } from '@tabler/icons-vue'
 import BaseLink from '../BaseLink.vue'
+import type { Theme } from '../../theme'
 
 const { theme, page } = useData<Theme.Config>()
 const editLink = computed(() => theme.value.editLink.pattern.replace(/:path/g, page.value.filePath))

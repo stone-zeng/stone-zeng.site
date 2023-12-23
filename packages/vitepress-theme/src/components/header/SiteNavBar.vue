@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import { IconArchive, IconUser } from '@tabler/icons-vue'
+import type { Theme } from '../../theme'
 
 const { theme, frontmatter } = useData<Theme.Config>()
 
