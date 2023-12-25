@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
+import { useMediumZoom } from '../composables/useMediumZoom'
 import { useRenderMath } from '../composables/useRenderMath'
 import HomePage from './home/HomePage.vue'
 import PostPage from './post/PostPage.vue'
@@ -11,6 +12,7 @@ import WrapperToggler from './WrapperToggler.vue'
 const { frontmatter } = useData()
 
 useRenderMath()
+useMediumZoom()
 </script>
 
 <template>

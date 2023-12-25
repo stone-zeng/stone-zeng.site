@@ -41,6 +41,15 @@
   .katex-display {
     @apply my-0 overflow-x-auto py-2;
   }
+
+  .medium-zoom-overlay {
+    @apply bg-light-50 dark:bg-dark-600;
+  }
+
+  .medium-zoom-overlay,
+  .medium-zoom-image--opened {
+    @apply z-10;
+  }
 }
 
 @layer utilities {

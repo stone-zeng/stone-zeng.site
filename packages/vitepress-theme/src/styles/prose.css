@@ -1,6 +1,7 @@
 @layer components {
   .prose {
     hyphens: auto;
+    text-wrap: pretty;
 
     p,
     ul,
@@ -178,6 +179,10 @@
 
     img {
       @apply mx-auto max-w-full border border-light-800 dark:border-dark-50;
+    }
+
+    picture {
+      @apply mx-auto;
     }
 
     figcaption {

@@ -69,5 +69,13 @@ export default {
       },
     },
   },
-  safelist: ['katex', 'katex-def', 'katex-display', 'prose', 'font-mono'],
+  safelist: [
+    'katex',
+    'katex-def',
+    'katex-display',
+    'medium-zoom-overlay',
+    'medium-zoom-image--opened',
+    'prose',
+    'font-mono',
+  ],
 }

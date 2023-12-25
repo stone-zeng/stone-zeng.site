@@ -5,7 +5,7 @@
 </template>
 
 <style scoped>
-:deep(img) {
+:deep(> *) {
   @apply w-[360px] sm:w-1/2;
 }
 </style>
