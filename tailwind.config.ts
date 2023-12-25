@@ -1,12 +1,11 @@
 import type { Config } from 'tailwindcss'
 import tailwind from '@stone-zeng/vitepress-theme/tailwind'
 
-const { theme, safelist } = tailwind
+const { theme } = tailwind
 export default <Config>{
   content: ['./packages/vitepress-theme/src/**/*.{ts,vue}', './src/**/*.{ts,vue}'],
   theme,
   safelist: [
-    ...safelist,
     // Built-in
     'dark:invert',
     '!w-1/2',
