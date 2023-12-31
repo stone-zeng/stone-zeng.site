@@ -25,7 +25,7 @@
   "dependencies": {
     "feed": "^4.2.2",
     "ora": "^8.0.1",
-    "vitepress": "1.0.0-rc.33"
+    "vitepress": "1.0.0-rc.34"
   },
   "devDependencies": {
     "vite": "^5.0.10",
