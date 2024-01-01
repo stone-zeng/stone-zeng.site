@@ -95,7 +95,7 @@ $$`),
       md.render(String.raw`$$
 \gdef\id{\mathrm{id}}
 $$
-{:.katex-def}
+{.katex-def}
 `),
     ).toMatchSnapshot()
   })

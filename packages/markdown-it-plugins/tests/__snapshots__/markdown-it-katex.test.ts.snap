@@ -15,7 +15,7 @@ exports[`Display formula > Basic 1`] = `
 
 exports[`Display formula > Definition 1`] = `
 "<div data-math>\\gdef\\id{\\mathrm{id}}
-</div><p>{:.katex-def}</p>
+</div><p>{.katex-def}</p>
 "
 `;
 

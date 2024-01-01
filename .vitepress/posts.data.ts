@@ -86,7 +86,7 @@ const wordCount = (src: string): WordCount => {
     image: /!\[.*?\]\(.*?\)|<img .+?>/g,
     link: /\[[^\^](.*?)\]\(.*?\)|<https?.+?>/g,
     footnote: /\[\^.+?\]/g,
-    style: /\{:.+?\}/g,
+    style: /\{.+?\}/g,
     html: /<\/?[a-z]+(?:\s+[\w\-]+=".+?")*\s?\/?>/g,
   }
   const normalize = (s: string) => s.replace(/[^\p{L}\d]+/gu, ' ')
