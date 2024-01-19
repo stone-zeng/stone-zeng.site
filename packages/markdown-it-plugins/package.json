@@ -28,7 +28,7 @@
     "markdown-it": "^14.0.0"
   },
   "devDependencies": {
-    "vite": "^5.0.10",
+    "vite": "^5.0.12",
     "vite-plugin-dts": "^3.7.0",
     "vitest": "^1.1.1"
   }
