@@ -12,10 +12,7 @@ I'm Xiangdong Zeng (aka. Stone Zeng) working with
 
 <AboutFormula />
 
-Currently, I'm
-
-- a PhD candidate at Department of Physics, Fudan University
-- an intern technician at [atelierAnchor](https://atelier-anchor.com)
+Currently, I'm a quantum software developer at USTC Shanghai Institute.
 
 ## Projects
 
