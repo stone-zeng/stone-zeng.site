@@ -25,10 +25,10 @@
   "dependencies": {
     "feed": "^4.2.2",
     "ora": "^8.0.1",
-    "vitepress": "1.0.0-rc.39"
+    "vitepress": "1.0.0-rc.44"
   },
   "devDependencies": {
-    "vite": "^5.0.12",
-    "vite-plugin-dts": "^3.7.1"
+    "vite": "^5.1.4",
+    "vite-plugin-dts": "^3.7.3"
   }
 }

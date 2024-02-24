@@ -113,8 +113,6 @@ export default defineConfigWithTheme<Theme.Config>({
     typographer: true,
     // @ts-ignore
     languages: [import('./languages/latex-expl3.tmLanguage.json')],
-    // TODO: shiki next version
-    languageAlias: { wl: 'wolfram' },
     config: (md) => {
       md.use(MarkdownItAttrs)
         .use(MarkdownItCjkKern)

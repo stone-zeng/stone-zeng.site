@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import { IconArchive, IconUser } from '@tabler/icons-vue'
+import type { Component } from 'vue'
 import type { Theme } from '../../theme'
 
 const { theme, frontmatter } = useData<Theme.Config>()
@@ -9,7 +10,7 @@ const { theme, frontmatter } = useData<Theme.Config>()
 const icons = {
   Archive: IconArchive,
   About: IconUser,
-} as any
+} as Record<string, Component>
 </script>
 
 <template>
