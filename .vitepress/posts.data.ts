@@ -3,7 +3,7 @@ import { slugify } from '@mdit-vue/shared'
 import { MarkdownItCjkKern, MarkdownItTeXLogo } from '@stone-zeng/markdown-it-plugins'
 import type { Heading, Post, WordCount } from '@stone-zeng/vitepress-theme'
 
-export default createContentLoader('src/posts/**/*.md', {
+export default createContentLoader('posts/**/*.md', {
   excerpt: '<!-- more -->',
   includeSrc: true,
   transform: (raw) =>
