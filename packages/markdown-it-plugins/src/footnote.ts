@@ -1,10 +1,6 @@
 // Based on https://github.com/markdown-it/markdown-it-footnote
 
-import Token from 'markdown-it/lib/token'
-import type MarkdownIt from 'markdown-it'
-import type StateBlock from 'markdown-it/lib/rules_block/state_block'
-import type StateCore from 'markdown-it/lib/rules_core/state_core'
-import type StateInline from 'markdown-it/lib/rules_inline/state_inline'
+import type { default as MarkdownIt, StateBlock, StateCore, StateInline, Token } from 'markdown-it'
 
 type Footnotes = Map<string, number>
 
@@ -101,7 +97,7 @@ const footnoteBlock = (state: FootnoteStateCore) => {
       const label = token.attrGet('id')?.slice(3)
       if (label) {
         labels.push(label)
-        const backrefToken = new Token('footnote_backref', '', 0)
+        const backrefToken = new state.Token('footnote_backref', '', 0)
         backrefToken.meta = {
           label,
           count: state.env.footnotes.get(label) ?? 0,
@@ -131,8 +127,8 @@ const footnoteBlock = (state: FootnoteStateCore) => {
   ranges.reverse().forEach(([start, end]) => {
     tokens.unshift(...state.tokens.splice(start, end - start + 1))
   })
-  tokens.unshift(new Token('footnote_block_open', 'ol', 1))
-  tokens.push(new Token('footnote_block_close', 'ol', -1))
+  tokens.unshift(new state.Token('footnote_block_open', 'ol', 1))
+  tokens.push(new state.Token('footnote_block_close', 'ol', -1))
 
   const placeholderPos = state.tokens.findIndex(
     ({ type, content }) => type === 'html_block' && content.includes('<div id="footnotes"></div>'),
