@@ -20,6 +20,7 @@ export default <Config>{
     'problem-example',
     'problem-highlight',
     'problem-input',
+    'tabler-icon',
     'tex-logo',
     // Utilities
     'font-feature-calt-off',

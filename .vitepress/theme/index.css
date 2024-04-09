@@ -12,6 +12,10 @@
   .cjk-kern {
     @apply tracking-[0.5em];
   }
+
+  .tabler-icon {
+    @apply stroke-2;
+  }
 }
 
 @layer utilities {
