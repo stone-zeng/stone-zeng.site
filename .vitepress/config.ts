@@ -113,6 +113,10 @@ export default defineConfigWithTheme<Theme.Config>({
     typographer: true,
     // @ts-ignore
     languages: [import('./languages/latex-expl3.tmLanguage.json')],
+    theme: {
+      light: 'catppuccin-latte',
+      dark: 'catppuccin-mocha',
+    },
     config: (md) => {
       md.use(MarkdownItAttrs)
         .use(MarkdownItCjkKern)
