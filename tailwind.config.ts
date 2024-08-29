@@ -7,8 +7,9 @@ export default <Config>{
   theme,
   safelist: [
     // Built-in
-    'dark:invert',
+    'tabular-nums',
     '!w-1/2',
+    'dark:invert',
     'sm:!m-0',
     'sm:!w-[45%]',
     'sm:!w-[55%]',
