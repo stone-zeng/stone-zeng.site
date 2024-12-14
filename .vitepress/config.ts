@@ -11,8 +11,6 @@ import {
 import { genFeed } from '@stone-zeng/vitepress-plugin-feed'
 import type { Theme } from '@stone-zeng/vitepress-theme'
 
-import vite from '../vite.config'
-
 const copyrightYear = new Date(process.env.VITE_BUILD_TIME || Date.now()).getFullYear()
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -131,6 +129,6 @@ export default defineConfigWithTheme<Theme.Config>({
         .use(MarkdownItTeXLogo)
     },
   },
-  vite,
+  vite: { configFile: 'vite.config.ts' },
   themeConfig,
 })

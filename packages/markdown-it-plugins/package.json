@@ -20,7 +20,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && cp src/index.d.ts dist/index.d.ts",
     "test": "vitest run"
   },
   "dependencies": {
