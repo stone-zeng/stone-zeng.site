@@ -26,6 +26,9 @@ export const useWordCount = (wordCount: WordCount) => {
 
 export const useTotalWordCount = () => {
   const posts = usePosts()
+  if (!posts.length) {
+    return { short: 0, long: '' }
+  }
   const short = posts.map(({ wordCount }) => wordCount).reduce((a, b) => a + b.latin + b.cjk, 0)
   const { latin, cjk, pre, code, mathBlock, mathInline, image } = posts
     .map(({ wordCount }) => wordCount)
