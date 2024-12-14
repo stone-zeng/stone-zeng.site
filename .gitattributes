@@ -3,4 +3,5 @@
 *.gif   binary
 *.jpg   binary
 *.png   binary
+*.webp  binary
 *.woff2 binary
