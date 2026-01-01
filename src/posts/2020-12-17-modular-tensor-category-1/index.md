@@ -527,7 +527,7 @@ At the end of this part, we list of all the "ingredients" that can be added in a
 
   - S MacLane. *Categories for the Working Mathematician*
   - V G Turaev. *Quantum Invariants of Knots and 3-Manifolds*
-  - B Bakalov, A Kirillov. [*Lectures on Tensor Categories and Modular Frunctor*](https://www.math.stonybrook.edu/~kirillov/tensor/tensor.html)
+  - B Bakalov, A Kirillov. [*Lectures on Tensor Categories and Modular Functor*](https://www.math.stonybrook.edu/~kirillov/tensor/tensor.html)
   - V Turaev, A Virelizier. *Monoidal Categories and Topological Field Theory*
   - B Milewski. [*Category Theory for Programmers*](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
 

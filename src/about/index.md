@@ -12,7 +12,7 @@ I'm Xiangdong Zeng (aka. Stone Zeng) working with
 
 <AboutFormula />
 
-Currently, I'm a quantum software developer at USTC Shanghai Institute.
+Currently, I'm a quantum software developer at USTC Shanghai Institute / Hefei National Laboratory.
 
 ## Projects
 
