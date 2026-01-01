@@ -1,0 +1,117 @@
+@import 'tailwindcss';
+
+@source '../../theme/';
+
+@theme {
+  --color-light-50: oklch(0.993 0 0);
+  --color-light-100: oklch(0.989 0 0);
+  --color-light-200: oklch(0.982 0 0);
+  --color-light-300: oklch(0.976 0 0);
+  --color-light-400: oklch(0.969 0 0);
+  --color-light-500: oklch(0.957 0 0);
+  --color-light-600: oklch(0.952 0 0);
+  --color-light-700: oklch(0.93 0 0);
+  --color-light-800: oklch(0.902 0 0);
+  --color-light-900: oklch(0.895 0 0);
+
+  --color-dark-50: oklch(0.405 0 0);
+  --color-dark-100: oklch(0.345 0 0);
+  --color-dark-200: oklch(0.3 0 0);
+  --color-dark-300: oklch(0.27 0 0);
+  --color-dark-400: oklch(0.225 0 0);
+  --color-dark-500: oklch(0.21 0 0);
+  --color-dark-600: oklch(0.195 0 0);
+  --color-dark-700: oklch(0.185 0 0);
+  --color-dark-800: oklch(0.17 0 0);
+  --color-dark-900: oklch(0.125 0 0);
+
+  --font-sans: 'Punct Sans', 'Work Sans', var(--base-zh-fonts), sans-serif;
+  --font-mono: 'JetBrains Mono', var(--base-zh-fonts), monospace;
+  --font-mono--font-feature-settings: 'cv12', 'cv14'; /* cv12: u; cv14: $, ¢ */
+
+  --font-zh: var(--base-zh-fonts), sans-serif;
+  --font-ja: var(--base-ja-fonts), sans-serif;
+
+  --font-weight-*: initial;
+  --font-weight-normal: 400;
+  --font-weight-bold: 650;
+}
+
+@layer base {
+  @import './fonts.css';
+
+  :root {
+    --base-zh-fonts:
+      'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN',
+      'Sarasa Gothic SC', 'PingFang SC', 'Microsoft YaHei UI', 'Microsoft YaHei';
+    --base-ja-fonts:
+      'Hiragino Sans', 'Hiragino Kaku Gothic Pro', 'Noto Sans CJK JP', 'Source Han Sans',
+      'Source Han Sans JP', 'Sarasa Gothic J', 'Yu Gothic UI', 'Yu Gothic';
+  }
+
+  body {
+    @apply bg-light-50 text-dark-400 dark:bg-dark-600 dark:text-light-800;
+  }
+
+  :lang(ja) {
+    @apply font-ja;
+  }
+}
+
+@layer components {
+  @import './prose.css';
+  @import './specials.css';
+  @import './tex-logo.css';
+
+  .cjk-code {
+    @apply mr-[-0.1em] ml-[0.1em] tracking-[0.2em];
+  }
+
+  .cjk-kern {
+    @apply tracking-[0.5em];
+  }
+
+  .katex {
+    @apply text-[17px] leading-none;
+  }
+
+  .katex-def {
+    @apply -mt-8!;
+  }
+
+  .katex-display {
+    @apply my-0 overflow-x-auto py-2;
+  }
+
+  .medium-zoom-overlay {
+    @apply bg-light-50 dark:bg-dark-600;
+  }
+
+  .medium-zoom-overlay,
+  .medium-zoom-image--opened {
+    @apply z-10;
+  }
+
+  .tabler-icon {
+    @apply stroke-2;
+  }
+
+  /* TODO: */
+
+  .font-feature-calt-off {
+    font-feature-settings: 'calt' 0 !important;
+  }
+
+  .font-feature-frac {
+    font-feature-settings: 'frac' !important;
+  }
+
+  .small-caps {
+    font-variant: small-caps;
+  }
+
+  .text-emphasis-filled {
+    text-emphasis: filled;
+    text-emphasis-position: under left;
+  }
+}

@@ -1,36 +1,10 @@
-import { createContentLoader, createMarkdownRenderer, type ContentData } from 'vitepress'
 import { slugify } from '@mdit-vue/shared'
 import { MarkdownItCjkKern, MarkdownItTeXLogo } from '@stone-zeng/markdown-it-plugins'
-import type { Heading, Post, WordCount } from '@stone-zeng/vitepress-theme'
-
-export default createContentLoader('posts/**/*.md', {
-  excerpt: '<!-- more -->',
-  includeSrc: true,
-  transform: (raw) =>
-    raw
-      .filter(({ frontmatter }) => frontmatter.date && !frontmatter.draft)
-      .map(transformContent)
-      .sort((a, b) => (a.date < b.date ? 1 : -1)),
-})
-
-declare const data: Post[]
-export { data }
+import { createContentLoader, createMarkdownRenderer, type ContentData } from 'vitepress'
+import type { Heading, Post, WordCount } from './theme/theme'
 
 const md = await createMarkdownRenderer('src', { typographer: true })
 md.use(MarkdownItCjkKern).use(MarkdownItTeXLogo)
-
-const transformContent = ({ url, src, frontmatter, excerpt }: ContentData): Post => ({
-  title: md.renderInline(frontmatter.title),
-  url: url.replace(/\/posts(\/.+)\//, '$1'),
-  date: frontmatter.date,
-  updated: frontmatter.updated,
-  tags: frontmatter.tags || [],
-  excerpt: frontmatter.excerpt
-    ? md.render(frontmatter.excerpt)
-    : excerpt?.replace(/<sup id="fnref:.+?<\/sup>/g, '')?.replace(/<h2.+?<\/h2>\w*/g, ''),
-  headings: parseHeadings(src || ''),
-  wordCount: wordCount(src || ''),
-})
 
 const parseHeadings = (src: string) => {
   const headings: Heading[] = []
@@ -119,3 +93,29 @@ const wordCount = (src: string): WordCount => {
 
   return { latin, cjk, pre, code, mathBlock, mathInline, image }
 }
+
+const transformContent = ({ url, src, frontmatter, excerpt }: ContentData): Post => ({
+  title: md.renderInline(frontmatter.title),
+  url: url.replace(/\/posts(\/.+)\//, '$1'),
+  date: frontmatter.date,
+  updated: frontmatter.updated,
+  tags: frontmatter.tags || [],
+  excerpt: frontmatter.excerpt
+    ? md.render(frontmatter.excerpt)
+    : excerpt?.replace(/<sup id="fnref:.+?<\/sup>/g, '')?.replace(/<h2.+?<\/h2>\w*/g, ''),
+  headings: parseHeadings(src || ''),
+  wordCount: wordCount(src || ''),
+})
+
+export default createContentLoader('posts/**/*.md', {
+  excerpt: '<!-- more -->',
+  includeSrc: true,
+  transform: (raw) =>
+    raw
+      .filter(({ frontmatter }) => frontmatter.date && !frontmatter.draft)
+      .map(transformContent)
+      .sort((a, b) => (a.date < b.date ? 1 : -1)),
+})
+
+declare const data: Post[]
+export { data }

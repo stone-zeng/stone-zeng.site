@@ -9,7 +9,7 @@ tags:
 ---
 
 <script setup lang="ts">
-import { ImageGroup } from '@stone-zeng/vitepress-theme'
+import ImageGroup from '../../../.vitepress/theme/components/ImageGroup.vue'
 import FontWeight from './FontWeight.vue'
 </script>
 

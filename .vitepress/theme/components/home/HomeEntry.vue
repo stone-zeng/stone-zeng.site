@@ -1,0 +1,43 @@
+<script setup lang="ts">
+import { IconCalendarPlus } from '@tabler/icons-vue'
+import PostDate from '../post/PostDate.vue'
+
+defineProps<{
+  title: string
+  url: string
+  date: string
+  excerpt?: string
+}>()
+</script>
+
+<template>
+  <article>
+    <h1 class="mb-2 text-xl font-bold sm:text-2xl">
+      <a
+        :href="url"
+        class="text-dark-400 dark:text-light-800 hover:no-underline"
+        v-html="title"
+      ></a>
+    </h1>
+    <div
+      class="mb-2 flex items-center gap-1 text-sm leading-relaxed text-neutral-400 sm:mb-4 dark:text-neutral-500"
+    >
+      <IconCalendarPlus :size="16" class="translate-y-0.5" />
+      <PostDate :date="date" title="Posted on" />
+    </div>
+    <div class="prose">
+      <div class="HomeExcerpt mb-2 sm:mb-4" v-if="excerpt" v-html="excerpt"></div>
+      <div>
+        <a :href="url">Read more &rarr;</a>
+      </div>
+    </div>
+  </article>
+</template>
+
+<style scoped>
+@reference '../../styles/index.css';
+
+.HomeExcerpt :deep(p) {
+  @apply mt-0 mb-2 sm:mb-2;
+}
+</style>

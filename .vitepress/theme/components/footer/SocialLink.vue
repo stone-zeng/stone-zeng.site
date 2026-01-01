@@ -1,0 +1,51 @@
+<script setup lang="ts">
+import { IconBrandGithub, IconBrandTwitter, IconMail, IconRss } from '@tabler/icons-vue'
+import { computed } from 'vue'
+import type { SocialLinkColor, SocialLinkIcon } from '../../theme'
+import BaseLink from '../BaseLink.vue'
+
+const hoverColor = computed(() =>
+  typeof props.color !== 'string' ? props.color : { light: props.color, dark: props.color },
+)
+
+const icons = {
+  github: IconBrandGithub,
+  twitter: IconBrandTwitter,
+  email: IconMail,
+  rss: IconRss,
+}
+
+const props = defineProps<{
+  name: string
+  link: string
+  color: SocialLinkColor
+  icon: SocialLinkIcon
+}>()
+</script>
+
+<template>
+  <BaseLink
+    :href="link"
+    :title="name"
+    :external="!link.startsWith('/')"
+    class="SocialLink group transition-colors"
+  >
+    <component
+      :is="icons[icon]"
+      :size="18"
+      class="transition-[stroke-width] group-hover:stroke-3"
+    />
+  </BaseLink>
+</template>
+
+<style scoped>
+.SocialLink:hover {
+  color: v-bind('hoverColor.light');
+}
+
+@media (prefers-color-scheme: dark) {
+  .SocialLink:hover {
+    color: v-bind('hoverColor.dark');
+  }
+}
+</style>

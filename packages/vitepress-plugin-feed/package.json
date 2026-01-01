@@ -10,25 +10,15 @@
     "directory": "packages/vitepress-plugin-feed"
   },
   "type": "module",
-  "module": "./dist/vitepress-plugin-feed.js",
-  "main": "./dist/vitepress-plugin-feed.js",
   "exports": {
     ".": {
-      "import": "./dist/vitepress-plugin-feed.js",
-      "require": "./dist/vitepress-plugin-feed.cjs"
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
     }
   },
-  "types": "./dist/index.d.ts",
-  "scripts": {
-    "build": "vite build"
-  },
   "dependencies": {
-    "feed": "^4.2.2",
-    "ora": "^8.2.0",
-    "vitepress": "1.6.3"
-  },
-  "devDependencies": {
-    "vite": "^6.1.1",
-    "vite-plugin-dts": "4.5.0"
+    "feed": "^5.1.0",
+    "ora": "^9.0.0",
+    "vitepress": "2.0.0-alpha.15"
   }
 }

@@ -10,25 +10,20 @@
     "directory": "packages/markdown-it-plugins"
   },
   "type": "module",
-  "module": "./dist/markdown-it-plugins.js",
-  "main": "./dist/markdown-it-plugins.js",
   "exports": {
     ".": {
-      "import": "./dist/markdown-it-plugins.js",
-      "require": "./dist/markdown-it-plugins.cjs"
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
     }
   },
-  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "vite build && cp src/index.d.ts dist/index.d.ts",
     "test": "vitest run"
   },
   "dependencies": {
-    "@types/markdown-it": "^14.1.2",
     "markdown-it": "^14.1.0"
   },
   "devDependencies": {
-    "vite": "^6.1.1",
-    "vitest": "^3.0.7"
+    "@types/markdown-it": "^14.1.2",
+    "vitest": "^4.0.16"
   }
 }

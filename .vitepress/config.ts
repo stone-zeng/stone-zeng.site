@@ -1,6 +1,3 @@
-import { defineConfigWithTheme } from 'vitepress'
-import MarkdownItAttrs from 'markdown-it-attrs'
-import MarkdownItMultimdTable from 'markdown-it-multimd-table'
 import {
   MarkdownItCjkKern,
   MarkdownItFootnote,
@@ -9,14 +6,17 @@ import {
   MarkdownItTeXLogo,
 } from '@stone-zeng/markdown-it-plugins'
 import { genFeed } from '@stone-zeng/vitepress-plugin-feed'
-import type { Theme } from '@stone-zeng/vitepress-theme'
+import MarkdownItAttrs from 'markdown-it-attrs'
+import MarkdownItMultimdTable from 'markdown-it-multimd-table'
+import { defineConfig } from 'vitepress'
+import type { ThemeConfig } from './theme/theme'
 
 const copyrightYear = new Date(process.env.VITE_BUILD_TIME || Date.now()).getFullYear()
 const isProd = process.env.NODE_ENV === 'production'
 
 const baseUrl = 'https://stone-zeng.site'
 
-const themeConfig: Theme.Config = {
+const themeConfig: ThemeConfig = {
   paginate: 10,
   editLink: {
     pattern: 'https://github.com/stone-zeng/stone-zeng.site/blob/main/src/:path',
@@ -57,7 +57,7 @@ const themeConfig: Theme.Config = {
   },
 }
 
-export default defineConfigWithTheme<Theme.Config>({
+export default defineConfig<ThemeConfig>({
   lang: 'en-US',
   title: 'Stone Zeng\u{2019}s Site',
   description: 'Personal website of Xiangdong Zeng',

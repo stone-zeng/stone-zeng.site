@@ -1,0 +1,281 @@
+.prose {
+  hyphens: auto;
+  text-wrap: pretty;
+
+  p,
+  ul,
+  ol,
+  pre,
+  blockquote,
+  details,
+  figure,
+  table,
+  hr {
+    @apply my-4;
+  }
+
+  details,
+  table,
+  pre,
+  figcaption,
+  small {
+    @apply text-sm;
+  }
+
+  details summary {
+    @apply text-base;
+
+    &:hover {
+      @apply cursor-pointer;
+    }
+  }
+
+  table,
+  pre {
+    @apply overflow-x-auto;
+  }
+
+  /* Headings */
+
+  h2 {
+    @apply border-light-800 dark:border-dark-50 mt-8 mb-4 border-b pb-2 text-xl font-bold;
+  }
+
+  h3 {
+    @apply mt-8 mb-4 text-lg font-bold;
+  }
+
+  h4 {
+    @apply my-4 font-bold;
+  }
+
+  h2 + h3,
+  h3 + h4 {
+    @apply mt-0;
+  }
+
+  .header-anchor {
+    @apply invisible opacity-0 transition-opacity;
+  }
+
+  h2,
+  h3,
+  h4 {
+    &:hover > .header-anchor {
+      @apply visible opacity-100;
+    }
+  }
+
+  /* Lists */
+
+  ul,
+  ol {
+    @apply pl-8;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    > ul {
+      @apply list-[circle];
+
+      > li > ul {
+        @apply list-["-_"];
+      }
+    }
+
+    > ol {
+      @apply list-[lower-alpha];
+
+      > li > ul {
+        @apply list-["-_"];
+      }
+    }
+
+    p,
+    ul,
+    ol,
+    pre {
+      @apply my-2;
+    }
+
+    > p,
+    > [class^='language'] {
+      &:last-child {
+        @apply mb-4;
+      }
+    }
+  }
+
+  /* Quotes */
+
+  blockquote {
+    @apply border-light-800 dark:border-dark-50 border-l-4 pl-3;
+
+    ul,
+    ol {
+      @apply pl-4;
+    }
+
+    > :not([class^='language']) {
+      @apply text-neutral-500 dark:text-neutral-400;
+    }
+  }
+
+  /* Codes */
+
+  pre,
+  code,
+  kbd {
+    @apply font-mono;
+  }
+
+  [class^='language'] {
+    @apply relative;
+
+    .copy {
+      @apply hidden;
+    }
+
+    .lang {
+      @apply absolute top-0.5 right-2 text-xs text-neutral-400 dark:text-neutral-500;
+    }
+
+    pre {
+      @apply bg-light-500 dark:bg-dark-300 rounded py-4;
+
+      code {
+        @apply block w-fit px-4;
+      }
+    }
+  }
+
+  .shiki,
+  .shiki span {
+    @apply text-[--shiki-light] dark:text-[--shiki-dark];
+  }
+
+  :not(pre) > code,
+  kbd {
+    @apply bg-light-500 dark:bg-dark-300 rounded px-1;
+  }
+
+  :not(pre) > code {
+    @apply py-px text-[0.875em];
+  }
+
+  kbd {
+    @apply border-light-800 dark:border-dark-50 border-[1.5px] pt-[1.5px] pb-0 text-[0.75em];
+  }
+
+  /* Figures */
+
+  img {
+    @apply border-light-800 dark:border-dark-50 mx-auto max-w-full border;
+  }
+
+  picture {
+    @apply mx-auto;
+  }
+
+  figcaption {
+    @apply mt-2 text-center;
+  }
+
+  /* Tables */
+
+  table {
+    @apply mx-auto block max-w-fit;
+  }
+
+  tr:nth-child(2n) {
+    @apply bg-light-300 dark:bg-dark-400;
+
+    code,
+    kbd {
+      @apply bg-light-700 dark:bg-dark-200;
+    }
+  }
+
+  td,
+  th {
+    @apply border-light-800 dark:border-dark-50 border px-4 py-2;
+
+    p {
+      @apply my-0;
+    }
+  }
+
+  /* Links */
+
+  a {
+    @apply text-blue-500 dark:text-blue-400;
+
+    &:hover {
+      @apply underline;
+    }
+  }
+
+  /* Other elements */
+
+  hr {
+    @apply border-light-800 dark:border-dark-50 border-t;
+  }
+
+  strong,
+  th {
+    @apply font-bold;
+  }
+
+  em {
+    @apply mr-[0.05em];
+  }
+
+  sup,
+  sub {
+    @apply font-[450];
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  strong,
+  th {
+    sup,
+    sub {
+      @apply font-[700];
+    }
+  }
+
+  /* Footnotes */
+
+  .footnote-ref {
+    @apply px-0.5;
+
+    + .footnote-ref {
+      @apply pl-0;
+    }
+  }
+
+  .footnote-backref {
+    @apply inline-flex gap-0.5 pr-1 select-none;
+
+    :not(:first-child) {
+      @apply italic;
+    }
+  }
+
+  #footnotes {
+    p,
+    ul {
+      @apply my-0;
+    }
+  }
+}

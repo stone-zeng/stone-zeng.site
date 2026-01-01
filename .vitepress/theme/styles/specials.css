@@ -1,0 +1,32 @@
+/* use-opentype-fonts */
+.font-sample {
+  @apply overflow-auto;
+
+  img {
+    @apply h-32;
+  }
+}
+
+/* circled-numbers */
+.circled-number {
+  tr:nth-child(odd) {
+    @apply font-zh text-xl;
+  }
+
+  tr:nth-child(even) {
+    @apply font-mono;
+  }
+}
+
+/* euler */
+.problem-example {
+  @apply pl-8 sm:mx-8;
+}
+
+.problem-input {
+  @apply overflow-auto text-center font-mono text-sm whitespace-nowrap;
+}
+
+.problem-highlight {
+  @apply text-red-500 dark:text-red-400;
+}

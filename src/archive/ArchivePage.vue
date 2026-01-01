@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { usePosts } from '@stone-zeng/vitepress-theme'
+import { usePosts } from '../../.vitepress/theme/composables/usePosts'
 
 const posts = usePosts()
 const groups = computed(() => {
@@ -22,7 +22,7 @@ const groups = computed(() => {
 <template>
   <template v-for="{ year, group } in groups">
     <h2>{{ year }}</h2>
-    <ul class="text-pretty !list-none !pl-0">
+    <ul class="list-none! pl-0! text-pretty">
       <li v-for="{ title, url, date } in group" class="my-1 flex">
         <time
           class="mr-4 inline-block w-12 shrink-0 text-right oldstyle-nums"

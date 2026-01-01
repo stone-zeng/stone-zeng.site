@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { usePosts, useTotalWordCount } from '@stone-zeng/vitepress-theme'
+import { usePosts } from '../../.vitepress/theme/composables/usePosts'
+import { useTotalWordCount } from '../../.vitepress/theme/composables/useWordCount'
 
 const posts = usePosts()
 const { short, long } = useTotalWordCount()
