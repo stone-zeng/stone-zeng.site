@@ -1,7 +1,7 @@
 import { Feed, type FeedOptions, type Item } from 'feed'
 import { writeFile } from 'fs'
 import { createContentLoader, type ContentData, type SiteConfig } from 'vitepress'
-import { task } from './utils.ts'
+import { task } from './utils'
 
 type FeedFilter = (page: ContentData) => boolean
 type FeedTransform = (page: ContentData) => Partial<Item>

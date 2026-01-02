@@ -10,13 +10,20 @@
     "directory": "packages/markdown-it-plugins"
   },
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./src/index.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
-      "default": "./src/index.ts"
+      "import": "./dist/index.js"
     }
   },
   "scripts": {
+    "build": "vite build",
     "test": "vitest run"
   },
   "dependencies": {

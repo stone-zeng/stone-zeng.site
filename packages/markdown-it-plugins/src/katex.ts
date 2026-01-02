@@ -1,6 +1,9 @@
 // Based on https://github.com/waylonflinn/markdown-it-katex
 
-import type { default as MarkdownIt, StateBlock, StateInline, Token } from 'markdown-it'
+import type MarkdownIt from 'markdown-it'
+import type StateBlock from 'markdown-it/lib/rules_block/state_block.mjs'
+import type StateInline from 'markdown-it/lib/rules_inline/state_inline.mjs'
+import type Token from 'markdown-it/lib/token.mjs'
 
 interface IsValidDelim {
   canOpen: boolean

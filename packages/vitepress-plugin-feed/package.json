@@ -10,15 +10,27 @@
     "directory": "packages/vitepress-plugin-feed"
   },
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./src/index.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
-      "default": "./src/index.ts"
+      "import": "./dist/index.js"
     }
+  },
+  "scripts": {
+    "build": "vite build"
   },
   "dependencies": {
     "feed": "^5.1.0",
     "ora": "^9.0.0",
     "vitepress": "2.0.0-alpha.15"
+  },
+  "devDependencies": {
+    "vite": "^7.3.0"
   }
 }
