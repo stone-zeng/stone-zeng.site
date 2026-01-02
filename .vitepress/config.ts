@@ -31,25 +31,21 @@ const themeConfig: ThemeConfig = {
       {
         name: 'GitHub',
         link: 'https://github.com/stone-zeng',
-        color: { light: '#222222', dark: '#dee2e6' },
         icon: 'github',
       },
       {
-        name: 'Twitter',
-        link: 'https://twitter.com/xiangdong_zeng',
-        color: '#1da1f2',
-        icon: 'twitter',
+        name: 'X (Twitter)',
+        link: 'https://x.com/xiangdong_zeng',
+        icon: 'x',
       },
       {
         name: 'E-mail',
         link: 'mailto:xdzeng96@gmail.com',
-        color: '#fbbf24',
         icon: 'email',
       },
       {
         name: 'RSS',
         link: '/feed.xml',
-        color: '#f26522',
         icon: 'rss',
       },
     ],

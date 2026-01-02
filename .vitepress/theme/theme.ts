@@ -8,28 +8,18 @@ type NavItem = {
   link: string
 }
 
-export type SocialLink = {
-  name: string
-  link: string
-  color: SocialLinkColor
-  icon: SocialLinkIcon
-}
-
-export type SocialLinkColor =
-  | string
-  | {
-      light: string
-      dark: string
-    }
-
-export type SocialLinkIcon = 'email' | 'github' | 'rss' | 'twitter'
+export type SocialLinkIcon = 'email' | 'github' | 'rss' | 'x'
 
 export interface ThemeConfig {
   paginate: number
   editLink: EditLink
   nav: NavItem[]
   footer: {
-    socialLinks: SocialLink[]
+    socialLinks: {
+      name: string
+      link: string
+      icon: SocialLinkIcon
+    }[]
     copyright: string
   }
 }

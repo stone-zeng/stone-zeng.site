@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { IconBrandGithub, IconBrandTwitter, IconMail, IconRss } from '@tabler/icons-vue'
-import { computed } from 'vue'
-import type { SocialLinkColor, SocialLinkIcon } from '../../theme'
+import { IconBrandGithub, IconBrandX, IconMail, IconRss } from '@tabler/icons-vue'
+import type { SocialLinkIcon } from '../../theme'
 import BaseLink from '../BaseLink.vue'
 
-const hoverColor = computed(() =>
-  typeof props.color !== 'string' ? props.color : { light: props.color, dark: props.color },
-)
+const colors = {
+  github: 'hover:text-dark-400 hover:dark:text-light-800',
+  x: 'hover:text-dark-400 hover:dark:text-light-800',
+  email: 'hover:text-yellow-400',
+  rss: 'hover:text-orange-400',
+}
 
 const icons = {
   github: IconBrandGithub,
-  twitter: IconBrandTwitter,
+  x: IconBrandX,
   email: IconMail,
   rss: IconRss,
 }
@@ -18,7 +20,6 @@ const icons = {
 const props = defineProps<{
   name: string
   link: string
-  color: SocialLinkColor
   icon: SocialLinkIcon
 }>()
 </script>
@@ -28,7 +29,8 @@ const props = defineProps<{
     :href="link"
     :title="name"
     :external="!link.startsWith('/')"
-    class="SocialLink group transition-colors"
+    class="group transition-colors"
+    :class="colors[icon]"
   >
     <component
       :is="icons[icon]"
@@ -37,15 +39,3 @@ const props = defineProps<{
     />
   </BaseLink>
 </template>
-
-<style scoped>
-.SocialLink:hover {
-  color: v-bind('hoverColor.light');
-}
-
-@media (prefers-color-scheme: dark) {
-  .SocialLink:hover {
-    color: v-bind('hoverColor.dark');
-  }
-}
-</style>
