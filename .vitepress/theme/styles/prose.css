@@ -158,7 +158,7 @@
 
   .shiki,
   .shiki span {
-    @apply text-[--shiki-light] dark:text-[--shiki-dark];
+    @apply text-(--shiki-light) dark:text-(--shiki-dark);
   }
 
   :not(pre) > code,
