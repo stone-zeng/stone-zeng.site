@@ -9,17 +9,13 @@
 *.tuc
 *.xdv
 
-*.timestamp-*.mjs
-
 *.otf
 *.ttf
 *.woff2
 *.pdf
 
 .vscode/
-.temp/
 cache/
 dist/
 node_modules/
-
-packages/vitepress-theme/src/styles/katex.css
+temp/

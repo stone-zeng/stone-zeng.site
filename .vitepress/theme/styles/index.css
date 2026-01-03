@@ -73,11 +73,12 @@
   }
 
   .katex {
-    @apply text-[17px] leading-none;
+    @apply text-lg leading-none;
   }
 
-  .katex-def {
-    @apply -mt-8!;
+  .katex-def,
+  :has(+ .katex-def) {
+    @apply hidden;
   }
 
   .katex-display {
@@ -85,20 +86,16 @@
   }
 
   .medium-zoom-overlay {
-    @apply bg-light-50 dark:bg-dark-600;
+    @apply bg-light-50/60 dark:bg-dark-600/40 backdrop-blur;
   }
 
   .medium-zoom-overlay,
   .medium-zoom-image--opened {
     @apply z-10;
   }
+}
 
-  .tabler-icon {
-    @apply stroke-2;
-  }
-
-  /* TODO: */
-
+@layer utilities {
   .font-feature-calt-off {
     font-feature-settings: 'calt' 0 !important;
   }

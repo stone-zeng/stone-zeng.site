@@ -10,7 +10,10 @@
 /* circled-numbers */
 .circled-number {
   tr:nth-child(odd) {
-    @apply font-zh text-xl;
+    @apply text-xl;
+    /* Only use Source Han Sans SC series */
+    font-family:
+      'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Sarasa Gothic SC', sans-serif;
   }
 
   tr:nth-child(even) {
