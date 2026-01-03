@@ -59,6 +59,7 @@
 }
 
 @layer components {
+  @import 'katex/dist/katex.css';
   @import './prose.css';
   @import './specials.css';
   @import './tex-logo.css';
