@@ -4,3 +4,4 @@ packages:
 
 patchedDependencies:
   katex: patches/katex.patch
+  markdown-it-attrs: patches/markdown-it-attrs.patch

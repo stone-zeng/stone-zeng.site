@@ -25,6 +25,7 @@ const markdown: MarkdownOptions = {
     light: 'catppuccin-latte',
     dark: 'catppuccin-mocha',
   },
+  attrs: { disable: true },
   config: (md) => {
     md.use(MarkdownItAttrs)
       .use(MarkdownItCjkKern)
