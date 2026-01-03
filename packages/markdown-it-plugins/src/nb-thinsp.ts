@@ -1,4 +1,4 @@
-import MarkdownIt from 'markdown-it'
+import type MarkdownIt from 'markdown-it'
 
 const plugin = (md: MarkdownIt) => {
   md.inline.ruler.before('escape', 'nb_thinsp', (state) => {
