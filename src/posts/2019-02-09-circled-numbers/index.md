@@ -185,7 +185,7 @@ Zapf Dingbats 中的其他几种样式也分配有码位：
 
 利用 \LaTeX3 语法也可以迅速写出如下循环而不伤身体：
 
-```latex-expl3
+```latex
 \ExplSyntaxOn
 \cs_set:Npn \TESTi
   {

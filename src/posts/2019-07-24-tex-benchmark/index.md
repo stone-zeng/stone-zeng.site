@@ -99,7 +99,7 @@ Hello, world!
 
 使用 \LaTeX3 提供的接口，生成 1--65536 之间的 2048 个随机整数并排序。\ApTeX 没有实现相关原语因此该项目没有包含。
 
-```latex-expl3
+```latex
 \documentclass{article}
 \usepackage{expl3}
 \begin{document}
@@ -161,7 +161,7 @@ Hello, world!
 
 [^aptex-font]: 参考：[在 \ApTeX 中使用 OpenType](https://zhuanlan.zhihu.com/p/21383329)。
 
-```latex-expl3
+```latex
 \documentclass[UTF8, zhmap=zhmCJK, fontset=none]{ctexart}
 \usepackage{zhlipsum}
 
@@ -249,7 +249,7 @@ Hello, world!
 
 注意到 \XeTeX 在 `zhlipsum` 测试中的表现与其他引擎差距很大，其实之前也注意到过这个问题。因此干脆就再跑一个 benchmark。代码见下：
 
-```latex-expl3
+```latex
 \documentclass[UTF8, fontset=fandol]{ctexart}
 \usepackage{zhlipsum,l3benchmark}
 \begin{document}

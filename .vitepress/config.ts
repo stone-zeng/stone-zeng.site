@@ -21,8 +21,6 @@ const baseUrl = 'https://stone-zeng.site'
 const markdown: MarkdownOptions = {
   breaks: true,
   typographer: true,
-  // @ts-ignore
-  languages: [import('./languages/latex-expl3.tmLanguage.json')],
   theme: {
     light: 'catppuccin-latte',
     dark: 'catppuccin-mocha',

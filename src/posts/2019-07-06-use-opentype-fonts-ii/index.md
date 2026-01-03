@@ -47,7 +47,7 @@ import FontWeight from './FontWeight.vue'
 [^eric-liu-camera]: 语出播客节目 [《字谈字畅》](https://www.thetype.com/typechat/)
 
 <figure>
-  <img src="./indesign-font-settings.png" alt="indesign-font-settings">
+  <img src="./indesign-font-settings.png" alt="indesign-font-settings" style="width: 720px">
   <figcaption>Adobe InDesign 中的字体面板</figcaption>
 </figure>
 
@@ -299,7 +299,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 通常来说，一篇文章中不宜出现过多的字体样式（本文例外），`fontspec` 也不鼓励这样写。但确有需求的话，我们也总可以用 `\newfontfamily` 等命令定义更多的字体：
 
-```latex-expl3
+```latex
 \documentclass{article}
 \usepackage{fontspec}
 % 使用 LaTeX3 以简化代码
@@ -703,7 +703,7 @@ fc-list > font.txt
 
 输出一般会很长，而且为了回避编码问题，这里使用 `>` 将输出重定向到文件。默认的输出包含文件路径、字体的族名和子族名，大致如下（可以与上文对照）：
 
-```
+```yaml
 /System/Library/Fonts/Avenir Next.ttc: Avenir Next,Avenir Next Demi Bold:style=Demi Bold Italic,Italic
 /System/Library/Fonts/Avenir Next.ttc: Avenir Next,Avenir Next Demi Bold:style=Demi Bold,Regular
 /System/Library/Fonts/Avenir Next.ttc: Avenir Next,Avenir Next Heavy:style=Heavy Italic,Italic
@@ -726,7 +726,7 @@ fc-list --format="%{family}\n" :lang=zh > 1.log
 
 部分输出为：
 
-```ini
+```csv
 .PingFang SC,.蘋方-簡,.苹方-简
 .PingFang HK,.蘋方-港,.苹方-港
 Sarasa Term SC
@@ -747,7 +747,7 @@ Lantinghei SC,蘭亭黑-簡,兰亭黑-简
 fc-list --verbose :variable=True > 1.log
 ```
 
-```ini
+```yaml
 Pattern has 20 elts (size 32)
   family: "Skia"(s)
   fullname: "Skia"(s)

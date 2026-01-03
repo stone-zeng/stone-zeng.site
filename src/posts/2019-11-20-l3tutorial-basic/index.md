@@ -129,7 +129,7 @@ zhdummy/
 
 利用记号列表，我们可以把之前的宏定义改写为如下形式：
 
-```latex-expl3
+```latex
 \tl_const:Nn \c_zhdummy_text_i { 天地玄黄，宇宙洪荒。 }
 ```
 
@@ -143,7 +143,7 @@ zhdummy/
 
 类似地，我们可以加入更多的假文：
 
-```latex-expl3
+```latex
 \tl_const:Nn \c_zhdummy_text_i     { 天地玄黄，宇宙洪荒。 }
 \tl_const:Nn \c_zhdummy_text_ii    { 日月盈昃，辰宿列张。 }
 \tl_const:Nn \c_zhdummy_text_iii   { 寒来暑往，秋收冬藏。 }
@@ -166,7 +166,7 @@ zhdummy/
 
 使用时，可以直接使用，也可以采用 `\tl_use:N` 命令：
 
-```latex-expl3
+```latex
 % test.tex
 \documentclass{ctexart}
 \usepackage{zhdummy}
@@ -183,7 +183,7 @@ zhdummy/
 
 这样的定义方式显然过于冗长和低效。然而，更严重的问题还在于，这样定义的 `tl` 变量只能用在 \LaTeX3 环境中，直接使用会导致错误：
 
-```latex-expl3
+```latex
 % test.tex
 \documentclass{ctexart}
 \usepackage{zhdummy}
@@ -250,7 +250,7 @@ l.7 \end{document}
 
 我们可以做一些实验（`~` 在 \LaTeX3 中表示空格）：
 
-```latex-expl3
+```latex
 \int_to_roman:n { 1 } ~
 \int_to_roman:n { 5 } ~
 \int_to_roman:n { 4999 } ~
@@ -271,7 +271,7 @@ l.7 \end{document}
 
 现在介绍一种新的参数指定 `c`，它表示将参数处理为一个控制序列的名称。例如，以下几种写法是等价的：
 
-```latex-expl3
+```latex
 \tl_use:N \c_zhdummy_text_i
 \tl_use:c { c_zhdummy_text_i }
 \tl_use:c { c _ zhdummy _ text _ i }  % 注意空格是忽略掉的
@@ -330,7 +330,7 @@ l.7 \end{document}
 
 最后，我们把以上分析综合起来，可以写出如下的代码：
 
-```latex-expl3
+```latex
 % 定义命令 `\zhdummy`，允许带一个可选参数
 \NewDocumentCommand \zhdummy { o }
   {
