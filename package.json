@@ -20,6 +20,7 @@
     "packages:test": "pnpm -r run test",
     "packages:build": "pnpm -r run build"
   },
+  "packageManager": "pnpm@10.27.0",
   "devDependencies": {
     "@giscus/vue": "^3.1.1",
     "@mdit-vue/shared": "^3.0.2",
