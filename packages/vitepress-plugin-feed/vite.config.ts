@@ -9,7 +9,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['feed', 'fs', 'ora', 'path', 'vitepress'],
+      external: ['feed', 'node:fs', 'ora', 'vitepress'],
     },
     emptyOutDir: true,
   },
