@@ -8,13 +8,39 @@ import {
 import { genFeed } from '@stone-zeng/vitepress-plugin-feed'
 import MarkdownItAttrs from 'markdown-it-attrs'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
-import { defineConfig } from 'vitepress'
+import fs from 'node:fs'
+import path from 'node:path'
+import { defineConfig, type MarkdownOptions } from 'vitepress'
 import type { ThemeConfig } from './theme/theme'
 
 const copyrightYear = new Date(process.env.VITE_BUILD_TIME || Date.now()).getFullYear()
 const isProd = process.env.NODE_ENV === 'production'
 
 const baseUrl = 'https://stone-zeng.site'
+
+const markdown: MarkdownOptions = {
+  breaks: true,
+  typographer: true,
+  // @ts-ignore
+  languages: [import('./languages/latex-expl3.tmLanguage.json')],
+  theme: {
+    light: 'catppuccin-latte',
+    dark: 'catppuccin-mocha',
+  },
+  config: (md) => {
+    md.use(MarkdownItAttrs)
+      .use(MarkdownItCjkKern)
+      .use(MarkdownItFootnote)
+      .use(MarkdownItKaTeX)
+      .use(MarkdownItMultimdTable, {
+        headerless: true,
+        multiline: true,
+        rowspan: true,
+      })
+      .use(MarkdownItNbThinsp)
+      .use(MarkdownItTeXLogo)
+  },
+}
 
 const themeConfig: ThemeConfig = {
   paginate: 10,
@@ -77,7 +103,17 @@ export default defineConfig<ThemeConfig>({
         : {},
     ],
   ],
+  vite: { configFile: 'vite.config.ts' },
+  markdown,
+  themeConfig,
+  transformPageData: ({ title }) => ({
+    title: title.replace(/\\/g, ''),
+  }),
+  transformHtml: (code) =>
+    // See https://github.com/vuejs/vitepress/issues/4869
+    code.replace(/<link rel="preload stylesheet" href=".*vp-icons.css" as="style">/g, ''),
   buildEnd: (siteConfig) => {
+    fs.rmSync(path.join(siteConfig.outDir, 'vp-icons.css'))
     genFeed(siteConfig, {
       pattern: 'src/posts/**/*.md',
       filter: ({ frontmatter }) => frontmatter.date && !frontmatter.draft,
@@ -99,32 +135,4 @@ export default defineConfig<ThemeConfig>({
       },
     })
   },
-  transformPageData: ({ title }) => ({
-    title: title.replace(/\\/g, ''),
-  }),
-  markdown: {
-    breaks: true,
-    typographer: true,
-    // @ts-ignore
-    languages: [import('./languages/latex-expl3.tmLanguage.json')],
-    theme: {
-      light: 'catppuccin-latte',
-      dark: 'catppuccin-mocha',
-    },
-    config: (md) => {
-      md.use(MarkdownItAttrs)
-        .use(MarkdownItCjkKern)
-        .use(MarkdownItFootnote)
-        .use(MarkdownItKaTeX)
-        .use(MarkdownItMultimdTable, {
-          headerless: true,
-          multiline: true,
-          rowspan: true,
-        })
-        .use(MarkdownItNbThinsp)
-        .use(MarkdownItTeXLogo)
-    },
-  },
-  vite: { configFile: 'vite.config.ts' },
-  themeConfig,
 })
