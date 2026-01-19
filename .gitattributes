@@ -5,3 +5,5 @@
 *.png   binary
 *.webp  binary
 *.woff2 binary
+
+src/posts/*/*.tex linguist-documentation
