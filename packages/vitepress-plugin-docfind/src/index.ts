@@ -25,7 +25,17 @@ export const genDocfind = async ({ site, outDir }: SiteConfig, config?: DocfindP
 
   task('generating docfind index', async () => {
     writeFileSync(documentsPath, JSON.stringify(documents))
-    const proc = spawnSync('docfind', [documentsPath, outputPath])
-    console.log(proc.stdout.toString())
+
+    const proc = spawnSync('docfind', [documentsPath, outputPath], { stdio: 'pipe' })
+    if (proc.error) {
+      throw proc.error
+    }
+    if (proc.status !== 0) {
+      throw new Error(proc.stderr?.toString() || 'docfind failed')
+    }
+    const stdout = proc.stdout?.toString()
+    if (stdout) {
+      console.log(stdout)
+    }
   })
 }
