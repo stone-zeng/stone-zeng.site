@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "buildCommand": "pnpm packages:test && pnpm packages:build && pnpm build",
+  "installCommand": "pnpm install && mkdir -p bin && curl -L https://github.com/microsoft/docfind/releases/download/v0.5.1/docfind-x86_64-unknown-linux-gnu.tar.gz | tar -xz -C bin && chmod +x bin/docfind && export PATH=\"$PWD/bin:$PATH\" && docfind --version",
+  "outputDirectory": ".vitepress/dist",
   "headers": [
     {
       "source": "/assets/(.*)",
