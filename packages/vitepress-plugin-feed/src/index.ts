@@ -1,5 +1,5 @@
 import { Feed, type FeedOptions, type Item } from 'feed'
-import fs from 'node:fs'
+import { writeFileSync } from 'node:fs'
 import { createContentLoader, type ContentData, type SiteConfig } from 'vitepress'
 import { task } from './utils'
 
@@ -44,8 +44,6 @@ export const genFeed = async ({ site, outDir }: SiteConfig, config?: FeedPluginC
   })
 
   task('generating feed', async () => {
-    fs.writeFile(feedPath, feed.rss2(), (err) => {
-      if (err) throw err
-    })
+    writeFileSync(feedPath, feed.rss2())
   })
 }

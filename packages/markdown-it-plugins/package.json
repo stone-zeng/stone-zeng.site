@@ -26,12 +26,12 @@
     "build": "vite build",
     "test": "vitest run"
   },
-  "packageManager": "pnpm@10.27.0",
+  "packageManager": "pnpm@10.28.1",
   "dependencies": {
     "markdown-it": "^14.1.0"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.18"
   }
 }

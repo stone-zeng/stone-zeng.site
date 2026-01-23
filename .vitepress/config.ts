@@ -5,6 +5,7 @@ import {
   MarkdownItNbThinsp,
   MarkdownItTeXLogo,
 } from '@stone-zeng/markdown-it-plugins'
+import { genDocfind } from '@stone-zeng/vitepress-plugin-docfind'
 import { genFeed } from '@stone-zeng/vitepress-plugin-feed'
 import MarkdownItAttrs from 'markdown-it-attrs'
 import MarkdownItMultimdTable from 'markdown-it-multimd-table'
@@ -17,6 +18,8 @@ const copyrightYear = new Date(process.env.VITE_BUILD_TIME || Date.now()).getFul
 const isProd = process.env.NODE_ENV === 'production'
 
 const baseUrl = 'https://stone-zeng.site'
+const srcDir = 'src'
+const postsPattern = 'posts/**/*.md'
 
 const markdown: MarkdownOptions = {
   breaks: true,
@@ -82,7 +85,7 @@ export default defineConfig<ThemeConfig>({
   lang: 'en-US',
   title: 'Stone Zeng\u{2019}s Site',
   description: 'Personal website of Xiangdong Zeng',
-  srcDir: 'src',
+  srcDir,
   cleanUrls: true,
   rewrites: {
     'posts/:post/index.md': ':post.md',
@@ -113,8 +116,11 @@ export default defineConfig<ThemeConfig>({
     code.replace(/<link rel="preload stylesheet" href=".*vp-icons.css" as="style">/g, ''),
   buildEnd: (siteConfig) => {
     fs.rmSync(path.join(siteConfig.outDir, 'vp-icons.css'))
+    genDocfind(siteConfig, {
+      pattern: postsPattern,
+    })
     genFeed(siteConfig, {
-      pattern: 'src/posts/**/*.md',
+      pattern: postsPattern,
       filter: ({ frontmatter }) => frontmatter.date && !frontmatter.draft,
       transform: ({ url, frontmatter }) => {
         const link = baseUrl + url.replace(/^\/posts/g, '')

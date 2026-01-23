@@ -1,13 +1,13 @@
 {
-  "name": "@stone-zeng/vitepress-plugin-feed",
+  "name": "@stone-zeng/vitepress-plugin-docfind",
   "version": "0.1.0",
   "author": "Xiangdong Zeng <xdzeng96@gmail.com>",
-  "description": "VitePress plugin for generating RSS feed",
+  "description": "VitePress plugin for document searching with docfind",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stone-zeng/stone-zeng.site.git",
-    "directory": "packages/vitepress-plugin-feed"
+    "directory": "packages/vitepress-plugin-docfind"
   },
   "type": "module",
   "files": [
@@ -27,7 +27,6 @@
   },
   "packageManager": "pnpm@10.28.1",
   "dependencies": {
-    "feed": "^5.2.0",
     "ora": "^9.1.0",
     "vitepress": "2.0.0-alpha.15"
   },
