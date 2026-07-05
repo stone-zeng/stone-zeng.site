@@ -26,8 +26,8 @@
   --color-dark-900: oklch(0.125 0 0);
 
   --font-sans: 'Punct Sans', 'Work Sans', var(--base-zh-fonts), sans-serif;
-  --font-mono: 'JetBrains Mono', var(--base-zh-fonts), monospace;
-  --font-mono--font-feature-settings: 'cv12', 'cv14'; /* cv12: u; cv14: $, ¢ */
+  --font-mono: 'Commit Mono', monospace, var(--base-zh-fonts);
+  --font-mono--font-feature-settings: 'ss05', 'cv10'; /* ss05: smart kerning; cv10: alt. l */
 
   --font-zh: var(--base-zh-fonts), sans-serif;
   --font-ja: var(--base-ja-fonts), sans-serif;
