@@ -25,12 +25,12 @@
   "scripts": {
     "build": "vite build"
   },
-  "packageManager": "pnpm@10.28.1",
+  "packageManager": "pnpm@11.10.0",
   "dependencies": {
-    "ora": "^9.1.0",
-    "vitepress": "2.0.0-alpha.15"
+    "ora": "^9.4.1",
+    "vitepress": "2.0.0-alpha.17"
   },
   "devDependencies": {
-    "vite": "^7.3.1"
+    "vite": "^8.1.3"
   }
 }
